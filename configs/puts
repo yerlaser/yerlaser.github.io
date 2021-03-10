@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+options = {}
+
+optparse = OptionParser.new do |o|
+  o.banner = 'Usage: rupee [options] [inputfile(s)]'
+  o.on('-c', '--convert METHOD', [:trim, :trimleft, :trimright,
+    :lower, :sentence, :swapcase, :title, :upper,
+    :center, :left, :right], 'Convert with specified method')
+  o.on('-e', '--eval TEXT', String, 'Ruby expression to evaluate')
+  o.on('-n', '--number NUM', Integer, 'Count of lines to process')
+  o.on('-N', '--Number NUM', Integer, 'Option number for {center, left, right}')
+  o.on('-f', '--find TEXT', String, 'Text to search case insensitive (no regexp)')
+  o.on('-F', '--Find TEXT', String, 'Text to search case sensitive (no regexp)')
+  o.on('-o', '--output FILE', String, 'Output file name')
+  o.on('-S', '--Separator', String, 'Option separator for {center, left, right}')
+  o.on('-t', '--tee', TrueClass, 'Also print to stdout (if --output is specified')
+  o.on('-x', '--xclude TEXT', String, 'Text to exclude case insensitive (no regexp)')
+  o.on('-X', '--Xclude TEXT', String, 'Text to exclude case sensitive (no regexp)')
+end
+
+begin
+  optparse.parse! into: options
+rescue
+	puts optparse
+	exit 3
+end
+
+def filter_line(options, line)
+  if (options.has_key? :Find and not line.include? options[:Find]) then return false end
+  if (options.has_key? :find and not line.downcase.include? options[:find].downcase) then return false end
+  if (options.has_key? :Xclude and line.include? options[:Xclude]) then return false end
+  if (options.has_key? :xclude and line.downcase.include? options[:xclude].downcase) then return false end
+  true
+end
+
+def process_line(options, line)
+  l = line
+  if options.has_key? :convert
+    l = l.capitalize if options[:convert] == :sentence
+    l = l.downcase if options[:convert] == :lower
+    l = l.swapcase if options[:convert] == :swapcase
+    l = l.split(/([[:alpha:]]+)/).map(&:capitalize).join if options[:convert] == :title
+    l = l.upcase if options[:convert] == :upper
+  end
+  if options.has_key? :eval
+    l = eval(options[:eval])
+  end
+  l
+end
+
+if options.has_key? :output then output_file = File.open(options[:output], 'w+') end
+
+ARGF.each.with_index(1) do |line, num|
+  if ((options.has_key? :number) and (num > options[:number])) then break end
+  if not filter_line(options, line) then next end
+  o = process_line(options, line)
+  if options.has_key? :output
+    output_file.write(o)
+    if options[:tee] then puts o end
+  else
+    puts o
+  end
+end
+
+if options.has_key? :output then output_file.close end
+

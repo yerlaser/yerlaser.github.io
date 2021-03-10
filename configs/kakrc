@@ -1,0 +1,143 @@
+add-highlighter global/ number-lines
+
+hook global WinSetOption filetype=(css|html|xml) %{ map window normal '#' '<a-x>_: comment-block<ret><space>;' -docstring 'to comment/uncomment block' }
+
+def switch-number-line -params .. %{
+  try %{ remove-highlighter window/number_lines }
+  add-highlighter window/number_lines number-lines %arg{@}
+}
+hook global NormalKey 0 'switch-number-line -relative'
+hook global NormalKey \D.* 'switch-number-line'
+
+hook global InsertCompletionShow .* %{
+  try %{
+    map window insert <down> <c-n>
+    map window insert <up> <c-p>
+    hook -once -always window InsertCompletionHide .* %{
+      map window insert <down> <down>
+      map window insert <up> <up>
+    }
+  }
+}
+
+hook global InsertDelete ' ' %{ try %{
+  execute-keys -draft 'h<a-h><a-k>\A\h+\z<ret>i<space><esc><lt>'
+}}
+
+define-command -hidden select-next-hump %{ execute-keys /[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
+define-command -hidden select-previous-hump %{ execute-keys <a-/>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
+define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
+define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
+
+declare-user-mode special
+map global special '<space>' '<esc>b\i<space><esc>hel\i<space>' -docstring 'insert spaces around operator'
+map global special '<s-tab>' '<esc><a-H>' -docstring 'select to start of line'
+map global special '<tab>' '<esc><a-L>' -docstring 'select to end of line'
+map global special '[' '<esc>\A<space>{}<esc>hi<ret><esc>O' -docstring 'insert braces block'
+map global special ';' '<esc>\A;<esc>' -docstring 'end with semicolon'
+map global special "'" '<esc>b: enter-user-mode<space>surround<ret>' -docstring 'surround word before cursor'
+map global special ',' '<esc>h<a-?>(\s|<gt>)<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>h' -docstring 'inline tag from word before cursor'
+map global special '.' '<esc>h<a-?>(\s|<gt>)<ret>L"x\c<lt><c-r>x<gt><esc>i<ret><lt>/<c-r>x<gt><esc>O' -docstring 'block tag from word before cursor'
+map global special '/' '<esc><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>h' -docstring 'close tag'
+map global special 'i' '<esc>b;~el\i' -docstring 'title case previous word'
+map global special 'o' '<esc>b`<a-:>l\i' -docstring 'lower case previous word'
+map global special 'p' '<esc>hP\i' -docstring 'insert from register'
+map global special 'u' '<esc>b~<a-:>l\i' -docstring 'upper case previous word'
+
+declare-user-mode surround
+map global surround '`' '<esc><a-:>"x\c`<esc>"xP\i`<esc>' -docstring 'surround with ``'
+map global surround '(' '<esc><a-:>"x\c(<esc>"xP\i)<esc>' -docstring 'surround with ()'
+map global surround '[' '<esc><a-:>"x\c[<esc>"xP\i]<esc>' -docstring 'surround with []'
+map global surround '{' '<esc><a-:>"x\c{<esc>"xP\i}<esc>' -docstring 'surround with {}'
+map global surround "'" '<esc><a-:>"x\c''<esc>"xP\i''<esc>' -docstring "surround with ''"
+map global surround '"' '<esc><a-:>"x\c"<esc>"xP\i"<esc>' -docstring 'surround with ""'
+map global surround '|' '<esc><a-:>"x\c|<esc>"xP\i|<esc>' -docstring 'surround with ||'
+map global surround '<lt>' '<esc><a-:>"x\c<lt><esc>"xP\i<gt><esc>' -docstring 'surround with angular'
+
+map global insert '<tab>' '<esc>: enter-user-mode<space>special<ret>' -docstring 'enter special mode'
+
+map global goto '0' 'h' -docstring 'to line start'
+map global goto 'n' '<esc>: extend-next-hump<ret>' -docstring 'extend next word part'
+map global goto 'p' '<esc>: extend-previous-hump<ret>' -docstring 'extend previous word part'
+map global goto 'T' '<esc>s[^\d\s\W]+<ret>`<a-;>;~<space>' -docstring 'change selection to title case'
+map global goto 'u' '<esc>`' -docstring 'change selection to lower case'
+map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
+
+map global normal '<c-r>' 'U' -docstring 'redo'
+map global normal '<esc>' '<esc><space>' -docstring 'remove additional selections'
+map global normal '<space>' ';' -docstring 'collapse selection'
+map global normal '<ret>' '<a-O>' -docstring 'new line above'
+map global normal '`' 'z' -docstring 'restore selection from register'
+map global normal '~' '<a-`>' -docstring 'swap case'
+map global normal '@' 'q' -docstring 'play macro'
+map global normal '#' ': comment-line<ret>' -docstring 'to comment/uncomment line'
+map global normal '$' '<a-L>' -docstring 'select to line end'
+map global normal '%' 'm' -docstring 'select to matching pair'
+map global normal '^' 'Gi' -docstring 'select to line start'
+map global normal '*' '<a-i>w*' -docstring 'find word under cursor'
+map global normal '<minus>' '<a-C>' -docstring 'add selection above'
+map global normal '=' 'C' -docstring 'add selection below'
+map global normal '{' '{p' -docstring 'extend to paragraph start'
+map global normal '}' '}p' -docstring 'extend to paragraph end'
+map global normal ';' 'L<a-.>' -docstring 'repeat last find'
+map global normal "'" '<esc>: enter-user-mode<space>surround<ret>' -docstring 'enter surround mode'
+map global normal '|' '<a-Z>a' -docstring 'append selection to register'
+map global normal 'a' 'li' -docstring 'append after cursor'
+map global normal 'B' '<a-B>' -docstring 'select to WORD start'
+map global normal 'C' 'Glc' -docstring 'change to line end'
+map global normal 'D' 'Gld' -docstring 'delete to line end'
+map global normal 'E' '<a-E>' -docstring 'select to WORD end'
+map global normal 'f' 'F' -docstring 'select to find character forwards'
+map global normal 'F' '<a-F>' -docstring 'select to find character backwards'
+map global normal 'g' 'G' -docstring 'select to begin of object'
+map global normal 'G' 'Ge' -docstring 'select to end of buffer'
+map global normal 'J' '<a-J>' -docstring 'join lines'
+map global normal 'K' '<a-k>' -docstring 'keep matching'
+map global normal 'm' 'Z' -docstring 'save selection to register'
+map global normal 'M' '<a-;>' -docstring 'swap cursor and anchor'
+map global normal 'n' 'N' -docstring 'select to find next match'
+map global normal 'N' '<a-N>' -docstring 'select to previous next match'
+map global normal 'q' 'Q' -docstring 'start macro recording'
+map global normal 'Q' '<a-)>' -docstring 'rotate content right'
+map global normal 't' 'T' -docstring 'select to find character forwards'
+map global normal 'T' '<a-T>' -docstring 'select to find character backwards'
+map global normal 'U' 'J<a-x>' -docstring 'extend line downwards'
+map global normal 'V' '<a-x>' -docstring 'extend selection downwards'
+map global normal 'W' '<a-W>' -docstring 'select to next WORD start'
+map global normal 'x' '<a-space>' -docstring 'delete primary selection'
+map global normal 'X' '<a-K>' -docstring 'eXclude (keep not matching)'
+map global normal 'y' 'y<a-;>;' -docstring 'yank'
+map global normal 'Y' 'K<a-x>' -docstring 'extend line upwards'
+map global normal 'z' 'v' -docstring 'view mode'
+map global normal 'Z' '<a-s>' -docstring 'split selection into lines'
+
+map global object 'a' '<esc>%' -docstring 'entire buffer'
+map global object 'W' '<a-w>' -docstring 'WORD'
+
+map global view 'a' '<esc><a-a>' -docstring '<a-a>'
+map global view 'i' '<esc><a-i>' -docstring '<a-i>'
+
+map global user '`' '<esc><a-z>' -docstring 'combine selection with register'
+map global user '!' '<esc><a-!>' -docstring 'insert external command output below'
+map global user '$' '<esc>$' -docstring 'pipe and keep selection of those who succeed'
+map global user '&' '<esc><a-&>' -docstring 'copy identation'
+map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
+map global user '<plus>' '<esc><a-Z>' -docstring 'combine register with selection'
+map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
+map global user '|' '<esc>|' -docstring 'pipe and replace with output'
+map global user 'B' '<esc>B' -docstring 'extend back word'
+map global user 'd' '<esc><a-d>' -docstring 'delete without yanking'
+map global user 'E' '<esc>E' -docstring 'extend start of word'
+map global user 'g' '<esc>g' -docstring 'goto'
+map global user 'G' '<esc>G' -docstring 'extend to'
+map global user 'M' '<esc><a-:>' -docstring 'reset cursor and anchor positions'
+map global user 'Q' '<esc><a-(>' -docstring 'rotate content left'
+map global user 'r' '<esc><a-U>' -docstring 'redo using absolute history id'
+map global user 'u' '<esc><a-u>' -docstring 'undo using absolute history id'
+map global user 'V' '<esc>V' -docstring 'lock view mode'
+map global user 'W' '<esc>W' -docstring 'extend by word'
+
+set global indentwidth 2
+set global tabstop 2
+
+colorscheme solarized-light-termcolors

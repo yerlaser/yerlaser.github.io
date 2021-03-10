@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+  <script>
+    (() => {
+      const application = Stimulus.Application.start()
+
+      application.register("counter", class extends Stimulus.Controller {
+        static get targets() {
+          return ["count", "add"]
+        }
+        update() {
+          let count = parseInt(this.countTarget.textContent)
+          const add = this.addTarget.checked
+          count += (add ? 1 : -1)
+          this.countTarget.textContent = count.toString()
+        }
+      })
+    })()
+  </script> 
+  <title>Stimulus</title>
+</head>
+
+<body>
+  <div data-controller="counter">
+    <h1 data-target="counter.count">0</h1>
+    <input type="checkbox" data-target="counter.add" checked>
+    <button data-action="click->counter#update">Change</button>
+  </div>
+</body>
+
+</html>

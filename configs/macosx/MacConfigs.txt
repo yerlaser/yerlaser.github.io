@@ -1,0 +1,143 @@
+dscl . -list /Users
+dscl . -read /Users/<username>
+
+Mac OS X Keybinding Action Code
+
+This page lists the action codes for creating keybindings on OS X.
+
+[see macOS: Create Custom Keyboard Layout]
+
+Action can be inserting a character, a string, moving the cursor by character, word, line, or page up/down, or open file, create new file, etc.
+Text insertion
+
+/* insert a string */
+("insertText:", "good morning");
+
+/* insert a Unicode character that has hex code 03B1 */
+("insertText:", "\U03B1");
+
+To find the character and the hexadecimal code you want, see: Unicode Search 😄 .
+Cursor movement
+
+    moveUp:
+    moveDown:
+
+    moveLeft:
+    moveRight:
+
+    moveBackward:
+    moveForward:
+
+    moveWordBackward:
+    moveWordForward:
+
+    moveWordLeft:
+    moveWordRight:
+
+    pageUp:
+    pageDown:
+
+    moveToBeginningOfLine:
+    moveToEndOfLine:
+
+    moveToBeginningOfParagraph:
+    moveToEndOfParagraph:
+
+    moveToBeginningOfDocument:
+    moveToEndOfDocument:
+
+Sample code:
+
+{
+"\UF729" = "moveToBeginningOfLine:"; /* home key */
+"\UF72B" = "moveToEndOfLine:"; /* end key */
+}
+
+Move Cursor and Extend Selection
+
+Most (or all) of these actions also have a version with suffix “AndModifySelection”. For example, there's
+
+    moveUpAndModifySelection:
+    moveWordLeftAndModifySelection:
+    moveToBeginningOfLineAndModifySelection:
+
+These are the same as moving cursor but also extend the selection.
+
+{
+"\UF729" = "moveToBeginningOfLine:";
+"\UF72B" = "moveToEndOfLine:";
+
+"$\UF729" = "moveToBeginningOfLineAndModifySelection:";
+"$\UF72B" = "moveToEndOfLineAndModifySelection:";
+}
+
+For left-to-right languages, there's no difference between “moveLeft” and “moveBackward”. The “moveBackward” is for moving in the backward direction of the language flow.
+
+Whenever there's a “Up”, there's also a “Down” version. Similarly, “Backward” with “Forward”, “Beginning” and “Ending”. In the following, these reverse versions omitted.
+Moving the screen
+
+    scrollLineUp:
+    scrollPageUp:
+    center:
+
+Text editing
+
+    deleteBackward:
+    deleteWordBackward:
+    deleteToBeginningOfLine:
+    deleteToBeginningOfParagraph:
+
+    copy:
+    cut:
+    paste:
+
+    undo:
+    redo:
+
+    setMark:
+    yank:
+    deleteToMark:
+    selectToMark:
+
+    selectWord:
+    selectLine:
+    selectParagraph:
+    selectAll:
+
+    insertText:
+    insertNewline:
+    insertLineBreak:
+
+Text Transformation
+
+    capitalizeWord:
+    lowercaseWord:
+    uppercaseWord:
+
+Common Mac Operations
+
+    newDocument:
+    openDocument:
+    checkSpelling:
+
+    saveDocument:
+    saveDocumentAs:
+    saveAllDocuments:
+    revertDocumentToSaved:
+    printDocument:
+
+    performZoom:
+    performClose:
+    performMiniaturize:
+    hide:
+
+Sequence of Actions
+
+You can create a sequence of actions, like this:
+
+/* insert bracket pairs and move cursor in-between */
+"~k" = ("insertText:", "()", "moveLeft:");
+
+/* copy all file content */
+"~c" = ("selectAll:", "copy:");
+
