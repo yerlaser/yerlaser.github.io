@@ -1,5 +1,10 @@
 add-highlighter global/ number-lines
 
+hook global WinSetOption filetype=python %{
+  set window indentwidth 4
+  set window tabstop 4
+}
+
 hook global WinSetOption filetype=(css|html|xml) %{ map window normal '#' '<a-x>_: comment-block<ret><space>;' -docstring 'to comment/uncomment block' }
 
 def switch-number-line -params .. %{
@@ -31,8 +36,7 @@ define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-
 
 declare-user-mode special
 map global special '<space>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
-map global special '<s-tab>' '<esc><a-H>' -docstring 'select to start of line'
-map global special '<tab>' '<esc><a-L>' -docstring 'select to end of line'
+map global special '<tab>' 'i<tab>' -docstring 'insert tab'
 map global special '[' '<esc>\A<space>{}<esc>hi<ret><esc>O' -docstring 'insert braces block'
 map global special ';' '<esc>\A;<esc>' -docstring 'end with semicolon'
 map global special "'" '<esc><a-b>: enter-user-mode<space>surround<ret>' -docstring 'surround WORD before cursor'
