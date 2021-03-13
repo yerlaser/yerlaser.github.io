@@ -14,17 +14,6 @@ def switch-number-line -params .. %{
 hook global NormalKey 0 'switch-number-line -relative'
 hook global NormalKey \D.* 'switch-number-line'
 
-hook global InsertCompletionShow .* %{
-  try %{
-    map window insert <down> <c-n>
-    map window insert <up> <c-p>
-    hook -once -always window InsertCompletionHide .* %{
-      map window insert <down> <down>
-      map window insert <up> <up>
-    }
-  }
-}
-
 hook global InsertDelete ' ' %{ try %{
   execute-keys -draft 'h<a-h><a-k>\A\h+\z<ret>i<space><esc><lt>'
 }}
@@ -35,8 +24,9 @@ define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 
 declare-user-mode special
+map global special '<backspace>' 'i<tab>' -docstring 'insert tab'
 map global special '<space>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
-map global special '<tab>' 'i<tab>' -docstring 'insert tab'
+map global special '<tab>' '<esc>' -docstring 'exit insert mode'
 map global special '[' '<esc>\A<space>{}<esc>hi<ret><esc>O' -docstring 'insert braces block'
 map global special ';' '<esc>\A;<esc>' -docstring 'end with semicolon'
 map global special "'" '<esc><a-b>: enter-user-mode<space>surround<ret>' -docstring 'surround WORD before cursor'
@@ -58,6 +48,7 @@ map global surround '"' '<esc><a-:>"x\c"<esc>"xP\i"<esc>' -docstring 'surround w
 map global surround '|' '<esc><a-:>"x\c|<esc>"xP\i|<esc>' -docstring 'surround with ||'
 map global surround '<lt>' '<esc><a-:>"x\c<lt><esc>"xP\i<gt><esc>' -docstring 'surround with angular'
 
+map global insert '<s-tab>' '<c-n>' -docstring 'next completion'
 map global insert '<tab>' '<esc>: enter-user-mode<space>special<ret>' -docstring 'enter special mode'
 
 map global goto '0' 'h' -docstring 'to line start'
@@ -67,10 +58,11 @@ map global goto 'T' '<esc>s[^\d\s\W]+<ret>`<a-;>;~<space>' -docstring 'change se
 map global goto 'u' '<esc>`' -docstring 'change selection to lower case'
 map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
 
+map global normal '<backspace>' '<esc><space>' -docstring 'remove additional selections'
 map global normal '<c-r>' 'U' -docstring 'redo'
-map global normal '<esc>' '<esc><space>' -docstring 'remove additional selections'
-map global normal '<space>' ';' -docstring 'collapse selection'
 map global normal '<ret>' '<a-O>' -docstring 'new line above'
+map global normal '<space>' ';' -docstring 'collapse selection'
+map global normal '<tab>' '<esc>: enter-user-mode<space>special<ret>' -docstring 'enter special mode'
 map global normal '`' 'z' -docstring 'restore selection from register'
 map global normal '~' '<a-`>' -docstring 'swap case'
 map global normal '@' 'q' -docstring 'play macro'
