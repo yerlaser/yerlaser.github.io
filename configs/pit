@@ -46,17 +46,21 @@ if __name__ == '__main__':
   parser.add_argument('input_files', metavar = 'FILE', nargs = '*', help = 'Additional input file(s)')
   args = parser.parse_args()
 
-  if not hasattr(args, 'Number'):
+  if args.Number == None:
     if args.enumerate:
       args.Number = 1
     elif args.convert:
       args.Number = shutil.get_terminal_size()[0]
 
-  if not args.Separator:
+  if args.Separator == None:
     if args.enumerate:
       args.Separator = '.'
     elif args.convert:
       args.Separator = ' '
+
+  if args.enumerate and args.convert and ('center' in args.convert or 'left' in args.convert or 'right' in args.convert):
+    print('Conflicting operations, aborting')
+    exit(1)
 
   num = 0
   for count, line in enumerate(fileinput.input(files = args.input_files), start = 1):
@@ -64,4 +68,4 @@ if __name__ == '__main__':
     if not filter_line(args, line): continue
     num += 1
     o = process_line(args, line, num)
-    print(o)
+    print(o, end='')
