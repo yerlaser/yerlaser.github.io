@@ -16,8 +16,11 @@ def filter_line(args, line, count):
   return True
 
 def process_line(args, line, num):
-  l = line
+  l = line.rstrip('\r\n')
+  e = line.replace(l, '')
   if args.enumerate: l = f'{num + args.Number - 1}{args.Separator}{l}'
+  if args.append:
+    l = f'{l}{args.append.rjust(args.Number - len(l), args.Separator)}'
   if args.convert:
     if 'trim' in args.convert: l = l.strip()
     if 'trimleft' in args.convert: l = l.lstrip()
@@ -32,10 +35,11 @@ def process_line(args, line, num):
     if 'center' in args.convert: l = l.center(args.Number, args.Separator)
     if 'left' in args.convert: l = l.ljust(args.Number, args.Separator)
     if 'right' in args.convert: l = l.rjust(args.Number, args.Separator)
-  return l
+  return l + e
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
+  parser.add_argument('-a', '--append', help = 'Append string at the end with Separator')
   parser.add_argument('-c', '--convert', choices = ['center', 'left', 'right',
     'lower', 'sentence', 'swapcase', 'title', 'upper',
     'trim', 'trimleft', 'trimright'], nargs = '*', help = 'Convert with specified method')
@@ -52,18 +56,22 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   if args.Number == None:
-    if args.enumerate:
-      args.Number = 1
+    if args.append != None:
+      args.Number = shutil.get_terminal_size()[0]
     elif args.convert != None:
       args.Number = shutil.get_terminal_size()[0]
     elif args.Every != None:
       args.Number = 1
+    elif args.enumerate:
+      args.Number = 1
 
   if args.Separator == None:
-    if args.enumerate:
-      args.Separator = '.'
+    if args.append:
+      args.Separator = ' '
     elif args.convert:
       args.Separator = ' '
+    elif args.enumerate:
+      args.Separator = '.'
 
   if args.enumerate and args.convert and ('center' in args.convert or 'left' in args.convert or 'right' in args.convert):
     print('Conflicting operations, aborting')
