@@ -41,7 +41,7 @@ map global special '.' '<esc>h<a-?>(\s|<gt>)<ret>L"x\c<lt><c-r>x<gt><esc>i<ret><
 map global special '/' '<esc><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>h' -docstring 'close tag'
 map global special 'i' '<esc>b;~el\i' -docstring 'title case previous word'
 map global special 'o' '<esc>b`<a-:>l\i' -docstring 'lower case previous word'
-map global special 'p' '<esc>hP\i' -docstring 'insert from register'
+map global special 'p' '<esc>P\i' -docstring 'insert from register'
 map global special 'u' '<esc>b~<a-:>l\i' -docstring 'upper case previous word'
 
 declare-user-mode surround
