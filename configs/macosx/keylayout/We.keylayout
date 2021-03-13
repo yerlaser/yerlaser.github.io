@@ -21,9 +21,6 @@
         <keyMapSelect mapIndex="3">
             <modifier keys="anyShift anyOption"/>
         </keyMapSelect>
-        <keyMapSelect mapIndex="4">
-            <modifier keys="anyCommand anyShift? anyOption? anyControl?"/>
-        </keyMapSelect>
     </modifierMap>
     <keyMapSet id="ANSI">
         <keyMap index="0">
@@ -396,112 +393,6 @@
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="~"/> <!--`-->
-            <key code="51" output="&#x0008;"/> <!--BS -->
-            <key code="53" output="&#x001B;"/> <!--ESC -->
-            <key code="64" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="65" output="."/> <!--Numlock dot-->
-            <key code="66" output="&#x001D;"/> <!--Group Separator -->
-            <key code="67" output="*"/>
-            <key code="69" output="+"/>
-            <key code="70" output="&#x001C;"/> <!--File Separator -->
-            <key code="71" output="&#x001B;"/> <!--Group Separator -->
-            <key code="72" output="&#x001F;"/> <!--Unit Separator -->
-            <key code="75" output="/"/>
-            <key code="76" output="&#x0003;"/> <!--End of Text -->
-            <key code="77" output="&#x001E;"/> <!--Record Separator -->
-            <key code="78" output="-"/>
-            <key code="79" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="80" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="81" output="="/>
-            <key code="82" output="0"/>
-            <key code="83" output="1"/>
-            <key code="84" output="2"/>
-            <key code="85" output="3"/>
-            <key code="86" output="4"/>
-            <key code="87" output="5"/>
-            <key code="88" output="6"/>
-            <key code="89" output="7"/>
-            <key code="91" output="8"/>
-            <key code="92" output="9"/>
-            <key code="96" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="97" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="98" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="99" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="100" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="101" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="103" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="105" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="106" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="107" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="109" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="111" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="113" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="114" output="&#x0005;"/> <!--Enquiry -->          
-            <key code="115" output="&#x0001;"/> <!--Start of Heading --> 
-            <key code="116" output="&#x000B;"/> <!--Vertical Tab -->     
-            <key code="117" output="&#x007F;"/> <!--Delete -->           
-            <key code="118" output="&#x0010;"/> <!--Data Link Escape -->
-            <key code="119" output="&#x0004;"/> <!--End of Transmission --> 
-            <key code="120" output="&#x0010;"/> <!--Data Link Escape -->    
-            <key code="121" output="&#x000C;"/> <!--New Page Form Feed -->  
-            <key code="122" output="&#x0010;"/> <!--Data Link Escape -->    
-            <key code="123" output="&#x001C;"/> <!--File Separator -->      
-            <key code="124" output="&#x001D;"/> <!--Group Separator -->     
-            <key code="125" output="&#x001F;"/> <!--Unit Separator -->      
-            <key code="126" output="&#x001E;"/> <!--Record Separator -->    
-        </keyMap>
-        <keyMap index="4">
-            <key code="0" output="a"/>
-            <key code="1" output="s"/>
-            <key code="2" output="d"/>
-            <key code="3" output="f"/>
-            <key code="4" output="h"/>
-            <key code="5" output="g"/>
-            <key code="6" output="z"/>
-            <key code="7" output="x"/>
-            <key code="8" output="c"/>
-            <key code="9" output="v"/>
-            <key code="10" output="`"/> <!--`-->
-            <key code="11" output="b"/>
-            <key code="12" output="q"/>
-            <key code="13" output="w"/>
-            <key code="14" output="e"/>
-            <key code="15" output="r"/>
-            <key code="16" output="y"/>
-            <key code="17" output="t"/>
-            <key code="18" output="1"/>
-            <key code="19" output="2"/>
-            <key code="20" output="3"/>
-            <key code="21" output="4"/>
-            <key code="22" output="6"/>
-            <key code="23" output="5"/>
-            <key code="24" output="="/> <!--=-->
-            <key code="25" output="9"/>
-            <key code="26" output="7"/>
-            <key code="27" output="-"/>
-            <key code="28" output="8"/>
-            <key code="29" output="0"/>
-            <key code="30" output="]"/> <!--]-->
-            <key code="31" output="o"/>
-            <key code="32" output="u"/>
-            <key code="33" output="&#x001B;"/> <!--[-->
-            <key code="34" output="i"/>
-            <key code="35" output="p"/>
-            <key code="36" output="&#x000D;"/> <!--CR -->
-            <key code="37" output="l"/>
-            <key code="38" output="j"/>
-            <key code="39" output="'"/> <!--'-->
-            <key code="40" output="k"/>
-            <key code="41" output=";"/>
-            <key code="42" output="&#x005C;"/> <!--Backslash-->
-            <key code="43" output=","/>
-            <key code="44" output="/"/> <!--/-->
-            <key code="45" output="n"/>
-            <key code="46" output="m"/>
-            <key code="47" output="."/>
-            <key code="48" output="&#x0009;"/> <!--TAB -->
-            <key code="49" output=" "/>
-            <key code="50" output="`"/> <!--`-->
             <key code="51" output="&#x0008;"/> <!--BS -->
             <key code="53" output="&#x001B;"/> <!--ESC -->
             <key code="64" output="&#x0010;"/> <!--Data Link Escape -->
