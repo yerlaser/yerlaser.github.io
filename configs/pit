@@ -4,7 +4,11 @@ import argparse
 import fileinput
 import shutil
 
-def filter_line(args, line):
+def filter_line(args, line, count):
+  if args.number and (count > args.number): return False
+  if args.Every and ('even' in args.Every) and count % 2 != 0: return False
+  if args.Every and ('number' in args.Every) and count % args.Number != 0: return False
+  if args.Every and ('odd' in args.Every) and count % 2 != 1: return False
   if args.find and (args.find not in line): return False
   if args.Find and (args.Find.lower() not in line.lower()): return False
   if args.exclude and (args.exclude in line): return False
@@ -36,8 +40,9 @@ if __name__ == '__main__':
     'lower', 'sentence', 'swapcase', 'title', 'upper',
     'trim', 'trimleft', 'trimright'], nargs = '*', help = 'Convert with specified method')
   parser.add_argument('-e', '--enumerate', action='store_true', help = 'Enumerate using Separator and starting with Number')
+  parser.add_argument('-E', '--Every', choices = ['even', 'number', 'odd'], help = 'Select only Every (Number) line')
   parser.add_argument('-n', '--number', type = int, help = 'Count of lines to process')
-  parser.add_argument('-N', '--Number', type = int, help = 'Option number for {center, enumerate, left, right}')
+  parser.add_argument('-N', '--Number', type = int, help = 'Option number for {center, enumerate, Every, left, right}')
   parser.add_argument('-f', '--find', help = 'Text to search, no regexp, case insensitive')
   parser.add_argument('-F', '--Find', help = 'Text to search, no regexp, case sensitive')
   parser.add_argument('-S', '--Separator', help = 'Option separator for {center, enumerate, left, right}')
@@ -49,8 +54,10 @@ if __name__ == '__main__':
   if args.Number == None:
     if args.enumerate:
       args.Number = 1
-    elif args.convert:
+    elif args.convert != None:
       args.Number = shutil.get_terminal_size()[0]
+    elif args.Every != None:
+      args.Number = 1
 
   if args.Separator == None:
     if args.enumerate:
@@ -64,8 +71,7 @@ if __name__ == '__main__':
 
   num = 0
   for count, line in enumerate(fileinput.input(files = args.input_files), start = 1):
-    if args.number and (count > args.number): break
-    if not filter_line(args, line): continue
+    if not filter_line(args, line, count): continue
     num += 1
     o = process_line(args, line, num)
     print(o, end='')
