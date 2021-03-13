@@ -3,7 +3,6 @@
 import argparse
 import fileinput
 import shutil
-import sys
 
 def filter_line(args, line):
   if args.find and (args.find not in line): return False
@@ -12,13 +11,9 @@ def filter_line(args, line):
   if args.Xclude and (args.Xclude.lower() in line.lower()): return False
   return True
 
-def process_line(args, line):
+def process_line(args, line, num):
   l = line
-  if args.eval:
-    try:
-      l = eval(args.eval, {'__builtins__': {}}, {'line': l})
-    except:
-      return ''
+  if args.enumerate: l = f'{num + args.Number - 1}{args.Separator}{l}'
   if args.convert:
     if 'trim' in args.convert: l = l.strip()
     if 'trimleft' in args.convert: l = l.lstrip()
@@ -40,25 +35,33 @@ if __name__ == '__main__':
   parser.add_argument('-c', '--convert', choices = ['center', 'left', 'right',
     'lower', 'sentence', 'swapcase', 'title', 'upper',
     'trim', 'trimleft', 'trimright'], nargs = '*', help = 'Convert with specified method')
-  parser.add_argument('-e', '--eval', help = 'Python expression to evaluate on line')
+  parser.add_argument('-e', '--enumerate', action='store_true', help = 'Enumerate using Separator and starting with Number')
   parser.add_argument('-n', '--number', type = int, help = 'Count of lines to process')
-  parser.add_argument('-N', '--Number', type = int, default = shutil.get_terminal_size()[0],
-    help = 'Option number for {center, left, right}')
+  parser.add_argument('-N', '--Number', type = int, help = 'Option number for {center, enumerate, left, right}')
   parser.add_argument('-f', '--find', help = 'Text to search, no regexp, case insensitive')
   parser.add_argument('-F', '--Find', help = 'Text to search, no regexp, case sensitive')
-  parser.add_argument('-S', '--Separator', default = ' ', help = 'Option separator for {center, left, right}')
+  parser.add_argument('-S', '--Separator', help = 'Option separator for {center, enumerate, left, right}')
   parser.add_argument('-x', '--exclude', help = 'Text to exclude, no regexp, case insensitive')
   parser.add_argument('-X', '--Xclude', help = 'Text to exclude, no regexp, case sensitive')
   parser.add_argument('input_files', metavar = 'FILE', nargs = '*', help = 'Additional input file(s)')
   args = parser.parse_args()
 
-  if args.eval and '__' in args.eval:
-    print('Dangerous eval string!')
-    sys.exit(666)
+  if not hasattr(args, 'Number'):
+    if args.enumerate:
+      args.Number = 1
+    elif args.convert:
+      args.Number = shutil.get_terminal_size()[0]
 
+  if not args.Separator:
+    if args.enumerate:
+      args.Separator = '.'
+    elif args.convert:
+      args.Separator = ' '
+
+  num = 0
   for count, line in enumerate(fileinput.input(files = args.input_files), start = 1):
     if args.number and (count > args.number): break
-    l = line.rstrip()
-    if not filter_line(args, l): continue
-    o = process_line(args, l)
+    if not filter_line(args, line): continue
+    num += 1
+    o = process_line(args, line, num)
     print(o)
