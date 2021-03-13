@@ -6,9 +6,10 @@ import shutil
 
 def filter_line(args, line, count):
   if args.number and (count > args.number): return False
-  if args.Every and ('even' in args.Every) and count % 2 != 0: return False
-  if args.Every and ('number' in args.Every) and count % args.Number != 0: return False
-  if args.Every and ('odd' in args.Every) and count % 2 != 1: return False
+  if args.Every:
+    if 'even' in args.Every and count % 2 != 0: return False
+    if 'number' in args.Every and count % args.Number != 0: return False
+    if 'odd' in args.Every and count % 2 != 1: return False
   if args.find and (args.find not in line): return False
   if args.Find and (args.Find.lower() not in line.lower()): return False
   if args.exclude and (args.exclude in line): return False
@@ -19,8 +20,10 @@ def process_line(args, line, num):
   l = line.rstrip('\r\n')
   e = line.replace(l, '')
   if args.enumerate: l = f'{num + args.Number - 1}{args.Separator}{l}'
+  if args.Append:
+    l = f'{l}{args.Append.rjust(args.Number - len(l), args.Separator)}'
   if args.append:
-    l = f'{l}{args.append.rjust(args.Number - len(l), args.Separator)}'
+    l = f'{l}{args.Separator}{args.append}'
   if args.convert:
     if 'trim' in args.convert: l = l.strip()
     if 'trimleft' in args.convert: l = l.lstrip()
@@ -39,7 +42,8 @@ def process_line(args, line, num):
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
-  parser.add_argument('-a', '--append', help = 'Append string at the end with Separator')
+  parser.add_argument('-A', '--Append', help = 'Append and right justify string with Number and Separator')
+  parser.add_argument('-a', '--append', help = 'Append string with Separator')
   parser.add_argument('-c', '--convert', choices = ['center', 'left', 'right',
     'lower', 'sentence', 'swapcase', 'title', 'upper',
     'trim', 'trimleft', 'trimright'], nargs = '*', help = 'Convert with specified method')
@@ -56,7 +60,7 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   if args.Number == None:
-    if args.append != None:
+    if args.Append != None:
       args.Number = shutil.get_terminal_size()[0]
     elif args.convert != None:
       args.Number = shutil.get_terminal_size()[0]
@@ -66,8 +70,10 @@ if __name__ == '__main__':
       args.Number = 1
 
   if args.Separator == None:
-    if args.append:
+    if args.Append:
       args.Separator = ' '
+    elif args.append:
+      args.Separator = ''
     elif args.convert:
       args.Separator = ' '
     elif args.enumerate:
