@@ -2,7 +2,7 @@
 xkb_symbols "KAZphon" {
   name[Group1] = "Kazakh Phonetic";
   key <TLDE> { [ Cyrillic_yu             , Cyrillic_YU             , Cyrillic_yu             , Cyrillic_YU             ] };
-  key <AE01> { [ 1                       , exclam                  , degree                  , exclam                  ] };
+  key <AE01> { [ 1                       , exclam                  , Cyrillic_o_bar          , exclam                  ] };
   key <AE02> { [ 2                       , at                      , Cyrillic_schwa          , Cyrillic_SCHWA          ] };
   key <AE03> { [ 3                       , numbersign              , Ukrainian_i             , Ukrainian_I             ] };
   key <AE04> { [ 4                       , dollar                  , Cyrillic_en_descender   , Cyrillic_EN_descender   ] };
@@ -10,9 +10,9 @@ xkb_symbols "KAZphon" {
   key <AE06> { [ 6                       , numerosign              , U20BD                   , numerosign              ] };
   key <AE07> { [ 7                       , EuroSign                , U20B8                   , EuroSign                ] };
   key <AE08> { [ 8                       , asterisk                , Cyrillic_u_straight     , Cyrillic_U_straight     ] };
-  key <AE09> { [ 9                       , parenleft               , Cyrillic_u_straight_bar , Cyrillic_U_straight_bar ] };
-  key <AE10> { [ 0                       , parenright              , Cyrillic_ka_descender   , Cyrillic_KA_descender   ] };
-  key <AE11> { [ minus                   , underscore              , Cyrillic_o_bar          , Cyrillic_O_bar          ] };
+  key <AE09> { [ 9                       , parenleft               , Cyrillic_u_straight_bar , parenleft               ] };
+  key <AE10> { [ 0                       , parenright              , Cyrillic_ka_descender   , parenright              ] };
+  key <AE11> { [ minus                   , underscore              , minus                   , Cyrillic_O_bar          ] };
   key <AE12> { [ plus                    , equal                   , Cyrillic_shha           , Cyrillic_SHHA           ] };
   key <AD01> { [ Cyrillic_ya             , Cyrillic_YA             , Cyrillic_ya             , Cyrillic_YA             ] };
   key <AD02> { [ Cyrillic_yeru           , Cyrillic_YERU           , Cyrillic_yeru           , Cyrillic_YERU           ] };
@@ -44,10 +44,10 @@ xkb_symbols "KAZphon" {
   key <AB05> { [ Cyrillic_be             , Cyrillic_BE             , Cyrillic_be             , Cyrillic_BE             ] };
   key <AB06> { [ Cyrillic_en             , Cyrillic_EN             , Cyrillic_en             , Cyrillic_EN             ] };
   key <AB07> { [ Cyrillic_em             , Cyrillic_EM             , Cyrillic_em             , Cyrillic_EM             ] };
-  key <AB08> { [ comma                   , Cyrillic_HARDSIGN       , comma                   , Cyrillic_HARDSIGN       ] };
-  key <AB09> { [ period                  , Cyrillic_SOFTSIGN       , period                  , Cyrillic_SOFTSIGN       ] };
+  key <AB08> { [ comma                   , Cyrillic_HARDSIGN       , comma                   , Cyrillic_KA_descender   ] };
+  key <AB09> { [ period                  , Cyrillic_SOFTSIGN       , period                  , Cyrillic_U_straight_bar ] };
   key <AB10> { [ Cyrillic_softsign       , question                , Cyrillic_softsign       , question                ] };
   key <BKSL> { [ Cyrillic_e              , Cyrillic_E              , Cyrillic_e              , Cyrillic_E              ] };
-  key <LSGT> { [ Cyrillic_io             , Cyrillic_IO             , yen                     , U00A3                   ] };
+  key <LSGT> { [ Cyrillic_io             , Cyrillic_IO             , degree                  , squareroot              ] };
   key <CAPS> { [ ISO_Level3_Lock         , ISO_Level3_Lock         , ISO_Level3_Lock         , ISO_Level3_Lock         ] };
 };
