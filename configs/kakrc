@@ -123,7 +123,7 @@ map global user '$' '<esc>$' -docstring 'pipe and keep selection of those who su
 map global user '&' '<esc><a-&>' -docstring 'copy identation'
 map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
 map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
-map global plus '<plus>' '<plus>' -docstring 'add selection in-place'
+map global user '<plus>' '<plus>' -docstring 'add selection in-place'
 map global user '|' '<esc>|' -docstring 'pipe and replace with output'
 map global user 'B' '<esc>B' -docstring 'extend back word'
 map global user 'E' '<esc>E' -docstring 'extend start of word'
