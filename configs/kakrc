@@ -24,9 +24,8 @@ define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 
 declare-user-mode special
-map global special '<backspace>' 'i<tab>' -docstring 'insert tab'
 map global special '<space>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
-map global special '<tab>' '<esc>' -docstring 'return to normal mode'
+map global special '<tab>' 'i<tab>' -docstring 'insert tab'
 map global special '[' '<esc>\A<space>{}<esc>hi<ret><esc>O' -docstring 'insert braces block'
 map global special ';' '<esc>\A;<esc>' -docstring 'end with semicolon'
 map global special "'" '<esc><a-b>: enter-user-mode<space>surround<ret>' -docstring 'surround WORD before cursor'
@@ -39,17 +38,17 @@ map global special 'p' '<esc>P\i' -docstring 'insert from register'
 map global special 'u' '<esc>b~<a-:>l\i' -docstring 'upper case previous word'
 
 declare-user-mode surround
-map global surround '`' '<esc><a-:>"x\c`<esc>"xP\i`<esc>' -docstring 'surround with ``'
-map global surround '(' '<esc><a-:>"x\c(<esc>"xP\i)<esc>' -docstring 'surround with ()'
-map global surround '[' '<esc><a-:>"x\c[<esc>"xP\i]<esc>' -docstring 'surround with []'
-map global surround '{' '<esc><a-:>"x\c{<esc>"xP\i}<esc>' -docstring 'surround with {}'
-map global surround "'" '<esc><a-:>"x\c''<esc>"xP\i''<esc>' -docstring "surround with ''"
-map global surround '"' '<esc><a-:>"x\c"<esc>"xP\i"<esc>' -docstring 'surround with ""'
-map global surround '|' '<esc><a-:>"x\c|<esc>"xP\i|<esc>' -docstring 'surround with ||'
-map global surround '<lt>' '<esc><a-:>"x\c<lt><esc>"xP\i<gt><esc>' -docstring 'surround with angular'
+map global surround '`' '<esc><a-:>"x\c`<esc>"xP\i`' -docstring 'surround with ``'
+map global surround '(' '<esc><a-:>"x\c(<esc>"xP\i)' -docstring 'surround with ()'
+map global surround '[' '<esc><a-:>"x\c[<esc>"xP\i]' -docstring 'surround with []'
+map global surround '{' '<esc><a-:>"x\c{<esc>"xP\i}' -docstring 'surround with {}'
+map global surround "'" '<esc><a-:>"x\c''<esc>"xP\i''' -docstring "surround with ''"
+map global surround '"' '<esc><a-:>"x\c"<esc>"xP\i"' -docstring 'surround with ""'
+map global surround '|' '<esc><a-:>"x\c|<esc>"xP\i|' -docstring 'surround with ||'
+map global surround '<lt>' '<esc><a-:>"x\c<lt><esc>"xP\i<gt>' -docstring 'surround with angular'
 
 map global insert '<s-tab>' '<c-n>' -docstring 'next completion'
-map global insert '<tab>' '<esc>: enter-user-mode<space>special<ret>' -docstring 'enter special mode'
+map global insert '<tab>' '<esc>' -docstring 'exit insert mode'
 
 map global goto '0' 'h' -docstring 'to line start'
 map global goto 'n' '<esc>: extend-next-hump<ret>' -docstring 'extend next word part'
