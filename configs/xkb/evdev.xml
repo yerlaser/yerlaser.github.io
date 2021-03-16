@@ -1,15 +1,15 @@
 After colemak
 	 <variant>
 	   <configItem>
-	     <name>WestEuro</name>
-	     <description>Western European</description>
+	     <name>EnEu</name>
+	     <description>English European</description>
 	   </configItem>
 	 </variant>
 
 After kazrus
 	 <variant>
 	   <configItem>
-	     <name>KAZphon</name>
+	     <name>KzPhon</name>
 	     <description>Kazakh Phonetic</description>
 	   </configItem>
 	 </variant>

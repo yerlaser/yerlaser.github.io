@@ -1,6 +1,7 @@
 
-xkb_symbols "WestEuro" {
-  name[Group1] = "Western European";
+xkb_symbols "EnEu" {
+  name[Group1] = "English European";
+  key.type[Group1] = "LOCKED_4LVL";
   key <TLDE> { [ grave                   , asciitilde              , agrave                  , Agrave                  ] };
   key <AE01> { [ 1                       , exclam                  , 1                       , exclam                  ] };
   key <AE02> { [ 2                       , at                      , 2                       , dead_tilde              ] };
@@ -49,5 +50,4 @@ xkb_symbols "WestEuro" {
   key <AB10> { [ slash                   , question                , eacute                  , question                ] };
   key <BKSL> { [ backslash               , bar                     , ccedilla                , Ccedilla                ] };
   key <LSGT> { [ EuroSign                , degree                  , ae                      , AE                      ] };
-  key <CAPS> { [ ISO_Level3_Lock         , ISO_Level3_Lock         , ISO_Level3_Lock         , ISO_Level3_Lock         ] };
 };

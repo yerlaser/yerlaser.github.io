@@ -1,0 +1,13 @@
+
+    type "LOCKED_4LVL" {
+        modifiers = Shift+Lock;
+        map[None] = Level1;
+        map[Shift] = Level2;
+        map[Lock] = Level3;
+        map[Shift+Lock] = Level4;
+        level_name[Level1] = "Base";
+        level_name[Level2] = "Shift";
+        level_name[Level3] = "Lock Base";
+        level_name[Level4] = "Shift Lock";
+    };
+
