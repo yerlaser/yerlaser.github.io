@@ -14,7 +14,7 @@ xkb_symbols "KzPhon" {
   key <AE09> { [ 9                       , parenleft               , Cyrillic_KA_descender   , parenleft               ] };
   key <AE10> { [ 0                       , parenright              , Cyrillic_ka_descender   , parenright              ] };
   key <AE11> { [ minus                   , underscore              , Cyrillic_o_bar          , Cyrillic_O_bar          ] };
-  key <AE12> { [ plus                    , equal                   , Cyrillic_shha           , Cyrillic_SHHA           ] };
+  key <AE12> { [ equal                   , plus                    , Cyrillic_shha           , Cyrillic_SHHA           ] };
   key <AD01> { [ Cyrillic_ya             , Cyrillic_YA             , Cyrillic_ya             , Cyrillic_YA             ] };
   key <AD02> { [ Cyrillic_yeru           , Cyrillic_YERU           , Cyrillic_yeru           , Cyrillic_YERU           ] };
   key <AD03> { [ Cyrillic_ie             , Cyrillic_IE             , Cyrillic_ie             , Cyrillic_IE             ] };
