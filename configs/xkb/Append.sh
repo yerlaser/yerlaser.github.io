@@ -8,6 +8,6 @@ if ! [ $effuid = 0 ]; then
 fi
 
 cat kz | tee -a /usr/share/X11/xkb/symbols/kz
-cat de | tee -a /usr/share/X11/xkb/symbols/us
+cat de | tee -a /usr/share/X11/xkb/symbols/de
 
 vi evdev.xml /usr/share/X11/xkb/rules/evdev.xml extra /usr/share/X11/xkb/types/extra

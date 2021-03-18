@@ -1,6 +1,6 @@
 
 xkb_symbols "DeFr" {
-  name[Group1] = "German-French";
+  name[Group1] = "Deutsch - Français";
   key.type[Group1] = "LOCKED_4LVL";
   key <TLDE> { [ grave                   , asciitilde              , agrave                  , Agrave                  ] };
   key <AE01> { [ 1                       , exclam                  , 1                       , exclam                  ] };
