@@ -1,3 +1,4 @@
+alias ... 'cd ../../'
 alias dir 'ls -FAhl'
 alias dirtime 'ls -FAhlrt'
 alias dirsize 'ls -FAhlrS'
@@ -13,7 +14,7 @@ end
 alias vgrep 'grep -v'
 
 bind -k btab history-prefix-search-backward
-bind -k enter forward-bigword # <esc>OM
+bind -k enter forward-word # <esc>OM
 # bind -M insert -m default \e\[B 'commandline -f repaint'
 # set -g fish_key_bindings fish_vi_key_bindings
 
