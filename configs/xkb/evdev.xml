@@ -1,8 +1,8 @@
 After colemak
 	 <variant>
 	   <configItem>
-	     <name>EnEu</name>
-	     <description>English European</description>
+	     <name>DeFr</name>
+	     <description>German-French</description>
 	   </configItem>
 	 </variant>
 

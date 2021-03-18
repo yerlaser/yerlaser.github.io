@@ -1,16 +1,16 @@
 
-xkb_symbols "EnEu" {
-  name[Group1] = "English European";
+xkb_symbols "DeFr" {
+  name[Group1] = "German-French";
   key.type[Group1] = "LOCKED_4LVL";
   key <TLDE> { [ grave                   , asciitilde              , agrave                  , Agrave                  ] };
   key <AE01> { [ 1                       , exclam                  , 1                       , exclam                  ] };
-  key <AE02> { [ 2                       , at                      , 2                       , dead_tilde              ] };
-  key <AE03> { [ 3                       , numbersign              , 3                       , dead_diaeresis          ] };
-  key <AE04> { [ 4                       , dollar                  , 4                       , dead_acute              ] };
-  key <AE05> { [ 5                       , percent                 , 5                       , dead_circumflex         ] };
-  key <AE06> { [ 6                       , asciicircum             , 6                       , OE                      ] };
+  key <AE02> { [ 2                       , at                      , 2                       , acircumflex             ] };
+  key <AE03> { [ 3                       , numbersign              , 3                       , icircumflex             ] };
+  key <AE04> { [ 4                       , dollar                  , 4                       , ucircumflex             ] };
+  key <AE05> { [ 5                       , percent                 , 5                       , ocircumflex             ] };
+  key <AE06> { [ 6                       , asciicircum             , 6                       , ediaeresis              ] };
   key <AE07> { [ 7                       , ampersand               , 7                       , ugrave                  ] };
-  key <AE08> { [ 8                       , asterisk                , 8                       , oe                      ] };
+  key <AE08> { [ 8                       , asterisk                , 8                       , idiaeresis              ] };
   key <AE09> { [ 9                       , parenleft               , 9                       , parenleft               ] };
   key <AE10> { [ 0                       , parenright              , 0                       , parenright              ] };
   key <AE11> { [ minus                   , underscore              , ssharp                  , Odiaeresis              ] };
@@ -49,5 +49,5 @@ xkb_symbols "EnEu" {
   key <AB09> { [ period                  , greater                 , period                  , Eacute                  ] };
   key <AB10> { [ slash                   , question                , eacute                  , question                ] };
   key <BKSL> { [ backslash               , bar                     , ccedilla                , Ccedilla                ] };
-  key <LSGT> { [ EuroSign                , degree                  , ae                      , AE                      ] };
+  key <LSGT> { [ EuroSign                , degree                  , oe                      , ae                      ] };
 };
