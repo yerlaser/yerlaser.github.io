@@ -16,15 +16,28 @@ hook global InsertDelete ' ' %{ try %{
   execute-keys -draft 'h<a-h><a-k>\A\h+\z<ret>i<space><esc><lt>'
 }}
 
+hook global InsertCompletionShow .* %{
+  try %{
+    execute-keys -draft 'h<a-K>\h<ret>'
+    map window insert <s-tab> <c-p>
+    map window insert <tab> <c-n>
+    hook -once -always window InsertCompletionHide .* %{
+      map window insert '<tab>' '<esc>' -docstring 'exit insert mode'
+      map window insert '<s-tab>' '<s-tab>' -docstring 'default'
+    }
+  }
+}
+
 define-command -hidden select-next-hump %{ execute-keys /[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden select-previous-hump %{ execute-keys <a-/>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 
 declare-user-mode special
+map global special '<backspace>' '<esc>,' -docstring 'enter user mode'
 map global special '<space>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
-map global special '<tab>' 'i<tab>' -docstring 'insert tab'
 map global special '<minus>' ': comment-line<ret>' -docstring 'comment/uncomment line'
+map global special '<tab>' 'i<tab>' -docstring 'insert tab'
 map global special '_' ': comment-block<ret>' -docstring 'comment/uncomment block'
 map global special '[' '<esc>\A<space>{}<esc>hi<ret><esc>O' -docstring 'insert braces block'
 map global special ';' '<esc>\A;<esc>' -docstring 'end with semicolon'
@@ -46,7 +59,6 @@ map global surround '"' '<esc><a-:>"x\c"<esc>"xP\i"' -docstring 'surround with "
 map global surround '|' '<esc><a-:>"x\c|<esc>"xP\i|' -docstring 'surround with ||'
 map global surround '<lt>' '<esc><a-:>"x\c<lt><esc>"xP\i<gt>' -docstring 'surround with angular'
 
-map global insert '<s-tab>' '<c-n>' -docstring 'next completion'
 map global insert '<tab>' '<esc>' -docstring 'exit insert mode'
 
 map global goto '0' 'h' -docstring 'to line start'
@@ -58,9 +70,8 @@ map global normal '<backspace>' '<a-d>' -docstring 'delete without yanking'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<ret>' '<a-Z>a' -docstring 'append selection to register'
 map global normal '<s-ret>' '<a-O>' -docstring 'new line above'
-map global normal '<s-tab>' ',' -docstring 'enter user mode'
 map global normal '<space>' ';' -docstring 'collapse selection'
-map global normal '<tab>' ': enter-user-mode<space>special<ret>' -docstring 'enter special mode'
+map global normal '<tab>' '<esc><space>;' -docstring 'remove additional selections'
 map global normal '`' 'z' -docstring 'restore selection from register'
 map global normal '~' '<a-`>' -docstring 'swap case'
 map global normal '!' '<esc>: extend-previous-hump<ret>' -docstring 'extend previous word part'
@@ -80,7 +91,7 @@ map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
 map global normal "'" ': enter-user-mode<space>surround<ret>' -docstring 'enter surround mode'
 map global normal '|' '<a-&>' -docstring 'copy identation'
-map global normal ',' '<esc><space>' -docstring 'remove additional selections'
+map global normal ',' '<esc>: enter-user-mode<space>special<ret>' -docstring 'enter special mode'
 map global normal 'a' 'li' -docstring 'append after cursor'
 map global normal 'B' '<a-B>' -docstring 'select to WORD start'
 map global normal 'C' 'Glc' -docstring 'change to line end'
