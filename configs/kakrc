@@ -19,9 +19,11 @@ hook global InsertDelete ' ' %{ try %{
 hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
-    map window insert <s-tab> <c-p>
-    map window insert <tab> <c-n>
+    map window insert '<ret>' '<c-o>' -docstring 'disable autocomplete for this insert session'
+    map window insert '<s-tab>' '<c-p>' -docstring 'next autocomplete suggestion'
+    map window insert '<tab>' '<c-n>' -docstring 'previous autocomplete suggestion'
     hook -once -always window InsertCompletionHide .* %{
+      map window insert '<ret>' '<ret>' -docstring 'new line'
       map window insert '<tab>' '<esc>' -docstring 'exit insert mode'
       map window insert '<s-tab>' '<s-tab>' -docstring 'default'
     }
