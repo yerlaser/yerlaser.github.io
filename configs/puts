@@ -8,7 +8,7 @@ optparse = OptionParser.new do |o|
   o.banner = 'Usage: rupee [options] [inputfile(s)]'
   o.on('-c', '--convert METHOD', [:trim, :trimleft, :trimright,
     :lower, :sentence, :swapcase, :title, :upper,
-    :center, :left, :right], 'Convert with specified method')
+    :center, :left, :right], Array, 'Convert with specified method')
   o.on('-e', '--eval TEXT', String, 'Ruby expression to evaluate')
   o.on('-n', '--number NUM', Integer, 'Count of lines to process')
   o.on('-N', '--Number NUM', Integer, 'Option number for {center, left, right}')
@@ -39,9 +39,9 @@ end
 def process_line(options, line)
   l = line
   if options.has_key? :convert
-    l = l.capitalize if options[:convert] == :sentence
-    l = l.downcase if options[:convert] == :lower
-    l = l.swapcase if options[:convert] == :swapcase
+    l = l.capitalize if options[:convert].include?(&:sentence)
+    l = l.downcase if options[:convert].include?(&:lower)
+    l = l.swapcase if options[:convert].include?(&:swapcase)
     l = l.split(/([[:alpha:]]+)/).map(&:capitalize).join if options[:convert] == :title
     l = l.upcase if options[:convert] == :upper
   end
