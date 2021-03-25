@@ -11,6 +11,7 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's\{<ret>r}' }
   try %{ execute-keys 's<lt><ret>r<gt>' }
   try %{ execute-keys 's<gt><ret><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>;' }
+  try %{ execute-keys 's\n<ret>\ia<esc>h<a-C><a-&>(<space>dd' }
 }
 
 def switch-number-line -params .. %{
