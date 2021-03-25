@@ -54,6 +54,7 @@ map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair
 map global normal '<backspace>' '<a-d>' -docstring 'delete without yanking'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<ret>' ',' -docstring 'enter user mode'
+map global normal '<s-ret>' '<a-O>' -docstring 'add line above'
 map global normal '<space>' ';' -docstring 'collapse selection'
 map global normal '<tab>' '<esc><space>;' -docstring 'remove additional selections'
 map global normal '`' 'z' -docstring 'restore selection from register'
