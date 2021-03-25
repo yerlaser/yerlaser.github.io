@@ -14,7 +14,7 @@ end
 alias vgrep 'grep -v'
 
 bind -k btab history-prefix-search-backward
-bind -k enter forward-word # <esc>OM
+bind \e\[13\;2u forward-word # s-cr
 # bind -M insert -m default \e\[B 'commandline -f repaint'
 # set -g fish_key_bindings fish_vi_key_bindings
 
