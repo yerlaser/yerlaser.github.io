@@ -6,9 +6,10 @@ define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden complete-pair %{
   execute-keys 'h"xy"xpl'
-  try %{ execute-keys 's\{<ret>r}' }
-  try %{ execute-keys 's\[<ret>r]' }
   try %{ execute-keys 's\(<ret>r)' }
+  try %{ execute-keys 's\[<ret>r]' }
+  try %{ execute-keys 's\{<ret>r}' }
+  try %{ execute-keys 's<lt><ret>r<gt>' }
 }
 
 def switch-number-line -params .. %{
