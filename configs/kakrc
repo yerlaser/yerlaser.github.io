@@ -12,7 +12,7 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's<lt><ret>r<gt>' }
   try %{ execute-keys 's<gt><ret><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\n<ret>\ia<esc>h<a-C><a-&>(<space>dd' }
-  try %{ execute-keys 's\w<ret>d' }
+  try %{ execute-keys 's\w<ret>db~<a-:>l' }
 }
 
 def switch-number-line -params .. %{
@@ -117,7 +117,6 @@ map global user '@' '<esc><a-!>' -docstring 'insert external command output belo
 map global user '$' '<esc>$' -docstring 'pipe and keep selection of those who succeed'
 map global user '|' '<esc>|' -docstring 'pipe and replace with output'
 map global user ',' '<esc>: comment-block<ret>' -docstring 'comment/uncomment block'
-map global user 'a' '<esc>b~<a-:>l\i' -docstring 'all caps previous word'
 map global user 'e' '<esc>i<c-r>#' -docstring 'enumerate selections'
 map global user 's' '<esc>b;~el\i' -docstring 'sentence case previous word'
 
