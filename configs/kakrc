@@ -12,6 +12,7 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's<lt><ret>r<gt>' }
   try %{ execute-keys 's<gt><ret><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\n<ret>\ia<esc>h<a-C><a-&>(<space>dd' }
+  try %{ execute-keys 's\w<ret>d' }
 }
 
 def switch-number-line -params .. %{
@@ -46,7 +47,7 @@ map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
 map global insert '<ret>' '<esc>' -docstring 'exit insert mode'
-map global insert '<s-ret>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
+map global insert '<s-ret>' '<ret>' -docstring 'enter new line'
 map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
 
@@ -108,6 +109,7 @@ map global object 'a' '<esc>%' -docstring 'entire buffer'
 map global object 'W' '<a-w>' -docstring 'WORD'
 
 map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
+map global user '<space>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
 map global user '_' '<esc>_' -docstring 'trim selections'
 map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
 map global user '!' '<esc>!' -docstring 'insert external command output above'
