@@ -10,6 +10,7 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's\[<ret>r]' }
   try %{ execute-keys 's\{<ret>r}' }
   try %{ execute-keys 's<lt><ret>r<gt>' }
+  try %{ execute-keys 's<gt><ret><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>;' }
 }
 
 def switch-number-line -params .. %{
@@ -26,7 +27,7 @@ hook global InsertCompletionShow .* %{
     map window insert '<s-tab>' '<c-p>' -docstring 'previous autocomplete suggestion'
     map window insert '<tab>' '<c-n>' -docstring 'next autocomplete suggestion'
     hook -once -always window InsertCompletionHide .* %{
-      map window insert '<s-tab>' '<esc>hf<lt>;i<ret><esc>O' -docstring 'insert block'
+      map window insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
       map window insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
     }
   }
@@ -43,9 +44,9 @@ map global goto 'u' '<esc>`' -docstring 'change selection to lower case'
 map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
-map global insert '<a-O>' '<ret><esc>O' -docstring 'insert indented block'
+map global insert '<a-O>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
 map global insert '<ret>' '<esc>' -docstring 'exit insert mode'
-map global insert '<s-tab>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
+map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
 
 map global normal '<backspace>' '<a-d>' -docstring 'delete without yanking'
