@@ -1,7 +1,5 @@
 add-highlighter global/ number-lines
 
-declare-user-mode legacy
-
 define-command -hidden select-next-hump %{ execute-keys /[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden select-previous-hump %{ execute-keys <a-/>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
@@ -20,9 +18,7 @@ def switch-number-line -params .. %{
 hook global NormalKey 0 'switch-number-line -relative'
 hook global NormalKey \D.* 'switch-number-line'
 
-hook global InsertDelete ' ' %{ try %{
-  execute-keys -draft 'h<a-h><a-k>\A\h+\z<ret>i<space><esc><lt>'
-}}
+hook global InsertDelete ' ' %{ try %{ execute-keys -draft 'h<a-h><a-k>\A\h+\z<ret>i<space><esc><lt>' }}
 hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
@@ -46,16 +42,17 @@ map global goto 'u' '<esc>`' -docstring 'change selection to lower case'
 map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
+map global insert '<a-O>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<ret>' '<esc>' -docstring 'exit insert mode'
-map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
+map global insert '<s-tab>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
 map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
 
 map global normal '<backspace>' '<a-d>' -docstring 'delete without yanking'
 map global normal '<c-^>' '<plus>' -docstring 'add selection in-place'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<ret>' ',' -docstring 'enter user mode'
-map global normal '<s-ret>' '<a-O>' -docstring 'new line above'
 map global normal '<space>' ';' -docstring 'collapse selection'
+map global normal '<s-tab>' '<a-Z>' -docstring 'append selection to register'
 map global normal '<tab>' '<esc><space>;' -docstring 'remove additional selections'
 map global normal '`' 'z' -docstring 'restore selection from register'
 map global normal '~' '<a-`>' -docstring 'swap case'
@@ -74,7 +71,6 @@ map global normal '<plus>' '<(>' -docstring 'rotate selection left'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
-map global normal "'" '<a-Z>a' -docstring 'append selection to register'
 map global normal '|' '<a-&>' -docstring 'copy identation'
 map global normal ',' ': comment-line<ret>' -docstring 'comment/uncomment line'
 map global normal 'a' 'li' -docstring 'append after cursor'
@@ -109,8 +105,6 @@ map global normal 'Z' 'C' -docstring 'add selection below'
 map global object 'a' '<esc>%' -docstring 'entire buffer'
 map global object 'W' '<a-w>' -docstring 'WORD'
 
-map global user '<space>' '<esc>h<a-?>(\w|\)|\]|\}|''|"|`)<ret>L"x\c<space><c-r>x<space>' -docstring 'surround operator with spaces'
-map global user '<tab>' '<esc><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'close tag'
 map global user '#' '<esc>i<c-r>#' -docstring 'number selections'
 map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
 map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
@@ -120,7 +114,8 @@ map global user '$' '<esc>$' -docstring 'pipe and keep selection of those who su
 map global user '|' '<esc>|' -docstring 'pipe and replace with output'
 map global user ',' '<esc>: comment-block<ret>' -docstring 'comment/uncomment block'
 map global user 'a' '<esc>b~<a-:>l\i' -docstring 'all caps previous word'
-map global user 't' '<esc>b;~el\i' -docstring 'title case previous word'
+map global user 's' '<esc>b;~el\i' -docstring 'sentence case previous word'
+map global user 't' '<esc><a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'close tag'
 
 
 map global view 'a' '<esc><a-a>' -docstring '<a-a>'
