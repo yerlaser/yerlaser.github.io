@@ -9,10 +9,9 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's\(<ret>r)' }
   try %{ execute-keys 's\[<ret>r]' }
   try %{ execute-keys 's\{<ret>r}' }
-  try %{ execute-keys 's<gt><ret>d<a-/><lt><ret>l?(\s|<gt>)<ret>H"xyf<gt>l\i<lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\n<ret>\ia<esc>h<a-C><a-&>(<space>dd' }
   try %{ execute-keys 's\w<ret>db~<a-:>l' }
-  try %{ execute-keys 's<space><ret>db\i<space><esc><a-;>;l' }
+  try %{ execute-keys 's[~!%^&*-=+:|<lt><gt>/?]<ret>r<space><a-/>(\w|\)|\])<ret>l\i<space><esc>f<space>l' }
 }
 
 def switch-number-line -params .. %{
@@ -37,7 +36,12 @@ hook global InsertCompletionShow .* %{
   }
 }
 
+hook global WinSetOption filetype=(html|xml) %{
+  map window insert '<s-ret>' '<esc><a-/><lt><ret>l?(\s|<gt>)<ret>H"xy/(<lt>|\n)<ret>\i<lt>/<c-r>x<gt><esc><a-f><lt>;' -docstring 'close tag'
+}
+
 hook global WinSetOption filetype=python %{
+  map window insert '<s-ret>' '<esc>A:<esc>' -docstring 'end with colon'
   set window indentwidth 4
   set window tabstop 4
 }
@@ -49,7 +53,7 @@ map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
 map global insert '<ret>' '<esc>' -docstring 'exit insert mode'
-map global insert '<s-ret>' '<ret>' -docstring 'enter new line'
+map global insert '<s-ret>' '<esc>A;<esc>' -docstring 'end with semicolon'
 map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
 
@@ -111,17 +115,19 @@ map global normal 'Z' 'C' -docstring 'add selection below'
 map global object 'a' '<esc>%' -docstring 'entire buffer'
 map global object 'W' '<a-w>' -docstring 'WORD'
 
-map global user '<tab>' 'i<tab>' -docstring 'insert tab'
-map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
-map global user '_' '<esc>_' -docstring 'trim selections'
-map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
+map global user '<ret>' 'i<ret><esc>' -docstring 'enter new line'
+map global user '<tab>' 'i<tab><esc>' -docstring 'insert tab'
 map global user '!' '<esc>!' -docstring 'insert external command output above'
 map global user '@' '<esc><a-!>' -docstring 'insert external command output below'
 map global user '$' '<esc>$' -docstring 'pipe and keep selection of those who succeed'
-map global user '|' '<esc>|' -docstring 'pipe and replace with output'
+map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
+map global user '_' '<esc>_' -docstring 'trim selections'
+map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
 map global user ',' '<esc>: comment-block<ret>' -docstring 'comment/uncomment block'
-map global user 'e' '<esc>i<c-r>#' -docstring 'enumerate selections'
-map global user 's' '<esc>b;~el\i' -docstring 'sentence case previous word'
+map global user '|' '<esc>|' -docstring 'pipe and replace with output'
+map global user 'b' '<esc><a-b><a-;>' -docstring 'select previous word'
+map global user 'e' '<esc>i<c-r>#<esc>' -docstring 'enumerate selections'
+map global user 's' '<esc>b;~el' -docstring 'sentence case previous word'
 
 map global view 'a' '<esc><a-a>' -docstring '<a-a>'
 map global view 'i' '<esc><a-i>' -docstring '<a-i>'
