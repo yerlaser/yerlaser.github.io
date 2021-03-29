@@ -8,7 +8,8 @@ autoload -Uz compinit && compinit
 
 setopt auto_pushd autocd extended_history extendedglob hist_expire_dups_first hist_ignore_space hist_no_store hist_reduce_blanks hist_verify ksh_arrays nomatch notify share_history
 
-bindkey -M viins "^[[A" history-beginning-search-backward
+# bindkey -M viins "^[[A" history-beginning-search-backward
+bindkey "^[[Z" history-beginning-search-backward
 
 # Fix Keypad
 # bindkey -M viins '"\e[Z"' '"$(sk -m --bind 'tab:down,btab:up,alt-enter:toggle')\r"'
@@ -28,6 +29,6 @@ bindkey -s "^[Ok" "+"
 bindkey -s "^[Om" "-"
 bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
-bindkey -v
+# bindkey -v
 
 source ~/Public/dotfiles/shrc.sh
