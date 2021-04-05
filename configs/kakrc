@@ -33,12 +33,7 @@ hook global InsertCompletionShow .* %{
   }
 }
 
-hook global WinSetOption filetype=(html|xml) %{
-  map window insert '<s-ret>' '<esc><a-/><lt><ret>l?(\s|<gt>)<ret>H"xy/(<lt>|\n)<ret>\i<lt>/<c-r>x<gt><esc><a-f><lt>;' -docstring 'close tag'
-}
-
 hook global WinSetOption filetype=python %{
-  map window insert '<s-ret>' '<esc>A:<esc>' -docstring 'end with colon'
   set window indentwidth 4
   set window tabstop 4
 }
@@ -124,6 +119,7 @@ map global user '<plus>' '<plus>' -docstring 'add selection in place'
 map global user ',' '<esc>: comment-block<ret>' -docstring 'comment/uncomment block'
 map global user '|' '<esc>|' -docstring 'pipe and replace with output'
 map global user 'a' '<esc>b~eli' -docstring 'all caps previous word'
+map global user 'b' '<esc>A:<ret>' -docstring 'start python block'
 map global user 'e' '<esc>i<c-r>#<esc>' -docstring 'enumerate selections'
 map global user 's' '<esc>A;<esc>' -docstring 'end with semicolon'
 map global user 't' '<esc>b;~eli' -docstring 'title case previous word'
