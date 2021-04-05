@@ -4,12 +4,18 @@ define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden complete-pair %{
   execute-keys 'h"xy"xpl'
-  try %{ execute-keys 's\(<ret>r)' }
-  try %{ execute-keys 's\[<ret>r]' }
-  try %{ execute-keys 's\{<ret>r}' }
-  try %{ execute-keys 's\n<ret><a-C><a-&>(<space>d' }
-  try %{ execute-keys 's\w<ret>dh<a-?>[^<minus>a<minus>zA<minus>Z]<ret>L"xc<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
-  try %{ execute-keys 's[~!%^&*-=+:|<lt><gt>/?]<ret>r<space><a-/>(\w|\)|\])<ret>l\i<space><esc>f<space>l' }
+  try %{ execute-keys 's\(<ret>\r)' }
+  try %{ execute-keys 's\[<ret>\r]' }
+  try %{ execute-keys 's\{<ret>\r}' }
+  try %{ execute-keys 's(\w|\d)<ret>\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
+  try %{
+    execute-keys 's<lt><ret>h'
+    try %{
+      execute-keys 's<lt><ret>l\r<gt>'
+    } catch %{ execute-keys 'l' }
+  }
+  try %{ execute-keys 's\n<ret><a-C><a-&>(<space>\d' }
+  try %{ execute-keys 's<space><ret>\dh<a-/>(\w|\)|\])<ret>l\i<space><esc>f<space>l' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
