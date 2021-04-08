@@ -13,3 +13,11 @@ After kazrus
 	     <description>Kazakh Phonetic</description>
 	   </configItem>
 	 </variant>
+
+After kazrus
+	 <variant>
+	   <configItem>
+	     <name>DeFrKz</name>
+	     <description>Deutsch Français Kazakh</description>
+	   </configItem>
+	 </variant>

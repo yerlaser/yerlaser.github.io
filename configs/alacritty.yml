@@ -10,12 +10,12 @@ mouse:
 scrolling:
   history: 10000
 
-shell:
-  program: /usr/bin/zsh
+# shell:
+  # program: /usr/bin/zsh
 
-window:
-  decorations: none
+# window:
+  # decorations: none
 
-working_directory: Synced
+# working_directory: Synced
 key_bindings:
   - { key: Down, mods: None , chars: "\x1b" }
