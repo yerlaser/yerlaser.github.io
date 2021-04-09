@@ -34,7 +34,7 @@
             <key code="7" output="x"/>
             <key code="8" output="c"/>
             <key code="9" output="v"/>
-            <key code="10" output="é"/> <!--`-->
+            <key code="10" output="€"/> <!--`-->
             <key code="11" output="b"/>
             <key code="12" output="q"/>
             <key code="13" output="w"/>
@@ -74,7 +74,7 @@
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
-            <key code="50" output="€"/> <!--`-->
+            <key code="50" output="é"/> <!--`-->
             <key code="51" output="&#x0008;"/> <!--BS -->
             <key code="53" output="&#x001B;"/> <!--ESC -->
             <key code="64" output="&#x0010;"/> <!--Data Link Escape -->
@@ -140,7 +140,7 @@
             <key code="7" output="X"/>
             <key code="8" output="C"/>
             <key code="9" output="V"/>
-            <key code="10" output="É"/> <!--`-->
+            <key code="10" output="°"/> <!--`-->
             <key code="11" output="B"/>
             <key code="12" output="Q"/>
             <key code="13" output="W"/>
@@ -180,7 +180,7 @@
             <key code="47" output="Ç"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
-            <key code="50" output="°"/> <!--`-->
+            <key code="50" output="É"/> <!--`-->
             <key code="51" output="&#x0008;"/> <!--BS -->
             <key code="53" output="&#x001B;"/> <!--ESC -->
             <key code="64" output="&#x0010;"/>
@@ -246,7 +246,7 @@
             <key code="7" output="ч"/>
             <key code="8" output="ц"/>
             <key code="9" output="в"/>
-            <key code="10" output="ю"/> <!--`-->
+            <key code="10" output="₸"/> <!--`-->
             <key code="11" output="б"/>
             <key code="12" output="я"/>
             <key code="13" output="ш"/>
@@ -286,7 +286,7 @@
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
-            <key code="50" output="₸"/> <!--`-->
+            <key code="50" output="ю"/> <!--`-->
             <key code="51" output="&#x0008;"/> <!--BS -->
             <key code="53" output="&#x001B;"/> <!--ESC -->
             <key code="64" output="&#x0010;"/> <!--Data Link Escape -->
@@ -352,7 +352,7 @@
             <key code="7" output="Ч"/>
             <key code="8" output="Ц"/>
             <key code="9" output="В"/>
-            <key code="10" output="Ю"/> <!--`-->
+            <key code="10" output="№"/> <!--`-->
             <key code="11" output="Б"/>
             <key code="12" output="Я"/>
             <key code="13" output="Ш"/>
@@ -392,7 +392,7 @@
             <key code="47" output="œ"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
-            <key code="50" output="№"/> <!--`-->
+            <key code="50" output="Ю"/> <!--`-->
             <key code="51" output="&#x0008;"/> <!--BS -->
             <key code="53" output="&#x001B;"/> <!--ESC -->
             <key code="64" output="&#x0010;"/>
