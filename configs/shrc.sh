@@ -11,6 +11,8 @@ if command -v kak &> /dev/null
 then
   alias kakn='kak -n'
   alias vi=kak
+  alias vilka=kak
+  alias villa=kak
 fi
 alias vgrep='grep -v'
 
