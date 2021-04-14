@@ -7,7 +7,7 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's\(<ret>\r)' }
   try %{ execute-keys 's\[<ret>\r]' }
   try %{ execute-keys 's\{<ret>\r}' }
-  try %{ execute-keys 's(\w|\d)<ret>\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
+  try %{ execute-keys 's<gt><ret>H\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{
     execute-keys 's<lt><ret>h'
     try %{
@@ -15,6 +15,10 @@ define-command -hidden complete-pair %{
     } catch %{ execute-keys 'l' }
   }
   try %{ execute-keys 's\n<ret><a-C><a-&>(<space>\d' }
+  try %{ execute-keys 's\w<ret>\dh<esc>b~el' }
+  try %{ execute-keys 's,<ret>H\dh<esc>b;~el' }
+  try %{ execute-keys 's:<ret>H\d<esc>A:<esc>' }
+  try %{ execute-keys 's<semicolon><ret>H\d<esc>A<semicolon><esc>' }
   try %{ execute-keys 's<space><ret>\dh<a-/>(\w|\)|\])<ret>l\i<space><esc>f<space>l' }
 }
 define-command -hidden align-selection %{
@@ -125,11 +129,7 @@ map global user '<plus>' '<esc><plus>' -docstring 'add selection in place'
 map global user '|' '<esc>|' -docstring 'pipe and replace with output'
 map global user ',' '<esc>: comment-line<ret>' -docstring 'comment/uncomment line'
 map global user '.' '<esc>: comment-block<ret>' -docstring 'comment/uncomment block'
-map global user 'a' '<esc>b~eli' -docstring 'all caps previous word'
-map global user 'b' '<esc>A:<ret>' -docstring 'start python block'
 map global user 'e' '<esc>i<c-r>#<esc>' -docstring 'enumerate selections'
-map global user 's' '<esc>A;<esc>' -docstring 'end with semicolon'
-map global user 't' '<esc>b;~eli' -docstring 'title case previous word'
 
 map global view 'a' '<esc><a-a>' -docstring '<a-a>'
 map global view 'i' '<esc><a-i>' -docstring '<a-i>'
