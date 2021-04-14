@@ -32,9 +32,11 @@ hook global InsertDelete ' ' %{ try %{ execute-keys -draft 'h<a-h><a-k>\A\h+\z<r
 hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
+    map window insert '<ret>' '<c-o>' -docstring 'stop autocomplete for this insert session'
     map window insert '<s-tab>' '<c-p>' -docstring 'previous autocomplete suggestion'
     map window insert '<tab>' '<c-n>' -docstring 'next autocomplete suggestion'
     hook -once -always window InsertCompletionHide .* %{
+      map window insert '<ret>' '<ret>' -docstring 'enter new line'
       map window insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
       map window insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
     }
@@ -112,7 +114,6 @@ map global normal 'Z' 'C' -docstring 'add selection below'
 map global object 'a' '<esc>%' -docstring 'entire buffer'
 map global object 'W' '<a-w>' -docstring 'WORD'
 
-map global user '<ret>' '<esc>i<ret><esc>' -docstring 'enter new line'
 map global user '<tab>' '<esc>i<tab><esc>' -docstring 'insert tab'
 map global user '!' '<esc>!' -docstring 'insert external command output above'
 map global user '@' '<esc><a-!>' -docstring 'insert external command output below'
