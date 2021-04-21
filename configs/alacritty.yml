@@ -40,4 +40,4 @@ key_bindings:
   - { key: Period, mods: Shift , chars: “>” }
   - { key: Return, mods: Alt, action: ToggleViMode }
   - { key: Return, mods: Command, action: ToggleViMode }
-  - { key: Return, mods: Shift , chars: “\x1b” }
+  - { key: Space, mods: Shift , chars: “\x1b” }

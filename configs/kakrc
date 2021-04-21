@@ -7,19 +7,19 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's\(<ret>\r)' }
   try %{ execute-keys 's\[<ret>\r]' }
   try %{ execute-keys 's\{<ret>\r}' }
-  try %{ execute-keys 's<gt><ret>H\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{
     execute-keys 's<lt><ret>h'
     try %{
       execute-keys 's<lt><ret>l\r<gt>'
     } catch %{ execute-keys 'l' }
   }
+  try %{ execute-keys 's,<ret>H\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\n<ret><a-C><a-&>(<space>\d' }
-  try %{ execute-keys 's\w<ret>\dh<esc>b~el' }
-  try %{ execute-keys 's,<ret>H\dh<esc>b;~el' }
-  try %{ execute-keys 's:<ret>H\d<esc>A:<esc>' }
-  try %{ execute-keys 's<semicolon><ret>H\d<esc>A<semicolon><esc>' }
-  try %{ execute-keys 's<space><ret>\dh<a-/>(\w|\)|\])<ret>l\i<space><esc>f<space>l' }
+  try %{ execute-keys 's\\<ret>H\d<esc>\i<tab><esc>' }
+  try %{ execute-keys 's(\w|\d)<ret>\dh<esc>b~el' }
+  try %{ execute-keys 's<space><ret>H\dh<esc>b;~el' }
+  try %{ execute-keys 's\.<ret>H\d<esc>\A<space>{}<esc>h' }
+  try %{ execute-keys 's<semicolon><ret>H\d<esc>\A<semicolon><esc>' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
