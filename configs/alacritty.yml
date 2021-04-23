@@ -10,8 +10,8 @@ mouse:
 scrolling:
   history: 10000
 
-# shell:
-  # program: /usr/bin/zsh
+shell:
+  program: /home/yerlan/.local/bin/fish
 
 # window:
   # decorations: none
@@ -19,25 +19,45 @@ scrolling:
 # working_directory: Synced
 
 key_bindings:
-  - { key: Grave, mods: None , chars: “`” }
-  - { key: Grave, mods: Shift , chars: “~” }
-  - { key: Key3, mods: Shift , chars: “#” }
-  - { key: Key4, mods: Shift , chars: “$” }
-  - { key: Key5, mods: Shift , chars: “%” }
-  - { key: Key6, mods: Shift , chars: “^” }
-  - { key: Key7, mods: Shift , chars: “&” }
-  - { key: Key8, mods: Shift , chars: “*” }
-  - { key: Minus, mods: Shift , chars: “_” }
-  - { key: Equals, mods: None , chars: “=” }
-  - { key: Equals, mods: Shift , chars: “+” }
-  - { key: LBracket, mods: None , chars: “[” }
-  - { key: LBracket, mods: Shift , chars: “{” }
-  - { key: RBracket, mods: None , chars: “]” }
-  - { key: RBracket, mods: Shift , chars: “}” }
-  - { key: Backslash, mods: None , chars: “\\” }
-  - { key: Backslash, mods: Shift , chars: “|” }
-  - { key: Comma, mods: Shift , chars: “<” }
-  - { key: Period, mods: Shift , chars: “>” }
+  - { key: 41, mods: None , chars: "`" }
+  - { key: 41, mods: Shift , chars: "~" }
+  - { key: 4, mods: Shift , chars: "#" }
+  - { key: 5, mods: Shift , chars: "$" }
+  - { key: 6, mods: Shift , chars: "%" }
+  - { key: 7, mods: Shift , chars: "^" }
+  - { key: 8, mods: Shift , chars: "&" }
+  - { key: 9, mods: Shift , chars: "*" }
+  - { key: 12, mods: Shift , chars: "_" }
+  - { key: 13, mods: None , chars: "=" }
+  - { key: 13, mods: Shift , chars: "+" }
+  - { key: 26, mods: None , chars: "[" }
+  - { key: 26, mods: Shift , chars: "{" }
+  - { key: 27, mods: None , chars: "]" }
+  - { key: 27, mods: Shift , chars: "}" }
+  - { key: 43, mods: None , chars: "\\" }
+  - { key: 43, mods: Shift , chars: "|" }
+  - { key: 51, mods: Shift , chars: "<" }
+  - { key: 52, mods: Shift , chars: ">" }
+  # - { key: Grave, mods: None , chars: "`" }
+  # - { key: Grave, mods: Shift , chars: "~" }
+  # - { key: Key3, mods: Shift , chars: "#" }
+  # - { key: Key4, mods: Shift , chars: "$" }
+  # - { key: Key5, mods: Shift , chars: "%" }
+  # - { key: Key6, mods: Shift , chars: "^" }
+  # - { key: Key7, mods: Shift , chars: "&" }
+  # - { key: Key8, mods: Shift , chars: "*" }
+  # - { key: Minus, mods: Shift , chars: "_" }
+  # - { key: Equals, mods: None , chars: "=" }
+  # - { key: Equals, mods: Shift , chars: "+" }
+  # - { key: LBracket, mods: None , chars: "[" }
+  # - { key: LBracket, mods: Shift , chars: "{" }
+  # - { key: RBracket, mods: None , chars: "]" }
+  # - { key: RBracket, mods: Shift , chars: "}" }
+  # - { key: Backslash, mods: None , chars: "\\" }
+  # - { key: Backslash, mods: Shift , chars: "|" }
+  # - { key: Comma, mods: Shift , chars: "<" }
+  # - { key: Period, mods: Shift , chars: ">" }
   - { key: Return, mods: Alt, action: ToggleViMode }
   - { key: Return, mods: Command, action: ToggleViMode }
-  - { key: Space, mods: Shift , chars: “\x1b” }
+  - { key: Space, mods: Shift , chars: "\x1b" }
+

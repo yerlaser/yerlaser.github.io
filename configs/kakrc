@@ -137,4 +137,4 @@ map global view 'i' '<esc><a-i>' -docstring '<a-i>'
 set global indentwidth 2
 set global tabstop 2
 
-colorscheme solarized-light-termcolors
+colorscheme zenburn
