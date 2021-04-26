@@ -13,13 +13,13 @@ define-command -hidden complete-pair %{
       execute-keys 's<lt><ret>l\r<gt>'
     } catch %{ execute-keys 'l' }
   }
-  try %{ execute-keys 's,<ret>H\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\n<ret><a-C><a-&>(<space>\d' }
-  try %{ execute-keys 's\\<ret>H\d<esc>\i<tab><esc>' }
-  try %{ execute-keys 's(\w|\d)<ret>\dh<esc>b~el' }
-  try %{ execute-keys 's<space><ret>H\dh<esc>b;~el' }
+  try %{ execute-keys 's(\w|\d)<ret>\d<esc>b~/\W<ret>' }
+  try %{ execute-keys 's<space><ret>H\d<esc>b;~/\W<ret>' }
+  try %{ execute-keys 's,<ret>H\d<esc>\A<semicolon><esc>' }
   try %{ execute-keys 's\.<ret>H\d<esc>\A<space>{}<esc>h' }
-  try %{ execute-keys 's<semicolon><ret>H\d<esc>\A<semicolon><esc>' }
+  try %{ execute-keys 's/<ret>H\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
+  try %{ execute-keys 's\\<ret>H\d<esc>\i<tab><esc>' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
@@ -36,11 +36,9 @@ hook global InsertDelete ' ' %{ try %{ execute-keys -draft 'h<a-h><a-k>\A\h+\z<r
 hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
-    map window insert '<ret>' '<c-o>' -docstring 'stop autocomplete for this insert session'
     map window insert '<s-tab>' '<c-p>' -docstring 'previous autocomplete suggestion'
     map window insert '<tab>' '<c-n>' -docstring 'next autocomplete suggestion'
     hook -once -always window InsertCompletionHide .* %{
-      map window insert '<ret>' '<ret>' -docstring 'enter new line'
       map window insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
       map window insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
     }
@@ -58,13 +56,13 @@ map global goto 'u' '<esc>`' -docstring 'change selection to lower case'
 map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
-map global insert '<s-ret>' '<esc>' -docstring 'exit insert mode'
+map global insert '<s-ret>' '<c-o>' -docstring 'stop autocomplete for this insert session'
 map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
 
 map global normal '<backspace>' '<a-d>' -docstring 'delete without yanking'
 map global normal '<c-r>' 'U' -docstring 'redo'
-map global normal '<ret>' '<esc><space>;' -docstring 'remove additional selections'
+map global normal '<esc>' '<esc><space>;' -docstring 'remove additional selections'
 map global normal '<space>' ';' -docstring 'collapse selection'
 map global normal '`' 'z' -docstring 'restore selection from register'
 map global normal '~' '<a-`>' -docstring 'swap case'

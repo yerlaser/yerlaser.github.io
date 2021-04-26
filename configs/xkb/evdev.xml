@@ -21,3 +21,11 @@ After kazrus
 	     <description>Deutsch Français Kazakh</description>
 	   </configItem>
 	 </variant>
+
+After kazrus
+	 <variant>
+	   <configItem>
+	     <name>LaCy</name>
+	     <description>Latin Cyrillic</description>
+	   </configItem>
+	 </variant>

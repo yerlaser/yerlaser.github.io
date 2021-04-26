@@ -11,3 +11,20 @@
         level_name[Level4] = "Shift Lock";
     };
 
+
+    type "CAPS_SEMI" {
+        modifiers = Shift+Lock+LevelThree;
+        map[None] = Level1;
+        map[Shift] = Level2;
+        map[LevelThree] = Level3;
+        map[Shift+LevelThree] = Level4;
+        map[Lock] = Level5;
+        map[Shift+Lock] = Level6;
+        level_name[Level1] = "Base";
+        level_name[Level2] = "Shift";
+        level_name[Level3] = "Alt Base";
+        level_name[Level4] = "Shift Alt";
+        level_name[Level5] = "Lock Base";
+        level_name[Level6] = "Shift Lock";
+    };
+
