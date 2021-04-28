@@ -4,7 +4,7 @@
 <!-- Instructions: copy to "~/Library/Keyboard Layouts" -->
 <!-- plutil -convert xml1 ~/Library/Preferences/com.apple.HIToolbox.plist -->
 <!-- edit this plist, remove default latin layout and convert back to binary1 -->
-<keyboard group=“126” id=“-1612" name=“Latin Cyrillic” maxout=“1">
+<keyboard group="126" id="-1612" name="Latin Cyrillic" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="ANSI" modifiers="caps_shift"/>
     </layouts>
@@ -65,7 +65,7 @@
             <key code="38" output="j"/>
             <key code="39" output="'"/> <!--'-->
             <key code="40" output="k"/>
-            <key code="41" output=";"/>
+            <key code="41" action="semi"/>
             <key code="42" output="\"/> <!--Backslash-->
             <key code="43" output=","/>
             <key code="44" output="/"/> <!--/-->
@@ -606,6 +606,6 @@
        </action>
      </actions>
      <terminators>
-       <when state=“level3" output=“&#x003B;“/>
+       <when state="level3" output="&#x003B;"/>
      </terminators>
 </keyboard>
