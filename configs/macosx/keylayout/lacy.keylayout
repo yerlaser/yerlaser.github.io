@@ -34,7 +34,7 @@
             <key code="7" action="x"/>
             <key code="8" action="c"/>
             <key code="9" action="v"/>
-            <key code="10" output="€"/> <!--`-->
+            <key code="10" action="oem102"/> <!--`-->
             <key code="11" output="b"/>
             <key code="12" action="q"/>
             <key code="13" action="w"/>
@@ -140,7 +140,7 @@
             <key code="7" action="X"/>
             <key code="8" action="C"/>
             <key code="9" action="V"/>
-            <key code="10" output="°"/> <!--`-->
+            <key code="10" action="oem102_shift"/> <!--`-->
             <key code="11" output="B"/>
             <key code="12" action="Q"/>
             <key code="13" action="W"/>
@@ -254,22 +254,22 @@
             <key code="15" output="р"/>
             <key code="16" output="ы"/>
             <key code="17" output="т"/>
-            <key code="18" output="$"/>
+            <key code="18" output="№"/>
             <key code="19" output="ә"/>
             <key code="20" output="і"/>
             <key code="21" output="ң"/>
             <key code="22" output="ө"/>
             <key code="23" output="ғ"/>
             <key code="24" output="һ"/> <!--=-->
-            <key code="25" output="$"/>
+            <key code="25" output="Ё"/>
             <key code="26" output="ұ"/>
             <key code="27" output="-"/> <!--minus-->
             <key code="28" output="ү"/>
-            <key code="29" output="$"/>
+            <key code="29" output="ё"/>
             <key code="30" output="щ"/> <!--]-->
             <key code="31" output="о"/>
             <key code="32" output="у"/>
-            <key code="33" output="қ"/> <!--[-->
+            <key code="33" output="й"/> <!--[-->
             <key code="34" output="и"/>
             <key code="35" output="п"/>
             <key code="36" output="&#x000D;"/> <!--CR -->
@@ -277,7 +277,7 @@
             <key code="38" output="ж"/>
             <key code="39" output="ъ"/> <!--'-->
             <key code="40" output="к"/>
-            <key code="41" output="й"/>
+            <key code="41" output="қ"/>
             <key code="42" output="э"/> <!--Backslash-->
             <key code="43" output=","/>
             <key code="44" output="ь"/> <!--/-->
@@ -352,7 +352,7 @@
             <key code="7" output="Ч"/>
             <key code="8" output="Ц"/>
             <key code="9" output="В"/>
-            <key code="10" output="№"/> <!--`-->
+            <key code="10" output="¥"/> <!--`-->
             <key code="11" output="Б"/>
             <key code="12" output="Я"/>
             <key code="13" output="Ш"/>
@@ -366,16 +366,16 @@
             <key code="21" output="Ң"/>
             <key code="22" output="Ө"/>
             <key code="23" output="Ғ"/>
-            <key code="24" output="$"/>
+            <key code="24" output="Һ"/>
             <key code="25" output="("/>
             <key code="26" output="Ұ"/> <!--ampersand-->
-            <key code="27" output="$"/> <!--_-->
+            <key code="27" output="Қ"/> <!--_-->
             <key code="28" output="Ү"/>
             <key code="29" output=")"/>
             <key code="30" output="Щ"/> <!--}-->
             <key code="31" output="О"/>
             <key code="32" output="У"/>
-            <key code="33" output="Қ"/> <!--{-->
+            <key code="33" output="Й"/> <!--{-->
             <key code="34" output="И"/>
             <key code="35" output="П"/>
             <key code="36" output="&#x000D;"/> <!--CR -->
@@ -385,11 +385,11 @@
             <key code="40" output="К"/>
             <key code="41" output=":"/>
             <key code="42" output="Э"/> <!--Backslash-->
-            <key code="43" output="$"/> <!--Less than-->
+            <key code="43" output="Ь"/> <!--Less than-->
             <key code="44" output="?"/> <!--/-->
             <key code="45" output="Н"/>
             <key code="46" output="М"/>
-            <key code="47" output="$"/> <!--Greater than-->
+            <key code="47" output="Ъ"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="Ю"/> <!--`-->
@@ -452,6 +452,10 @@
        <action id="semi">
          <when state="none" next="level3"/>
        </action>
+       <action id="oem102">
+         <when state="none" output="√"/>
+         <when state="level3" output="€"/>
+       </action>
        <action id="1">
          <when state="none" output="1"/>
          <when state="level3" output="â"/>
@@ -471,6 +475,10 @@
        <action id="5">
          <when state="none" output="5"/>
          <when state="level3" output="î"/>
+       </action>
+       <action id="oem102_shift">
+         <when state="none" output="°"/>
+         <when state="level3" output="¢"/>
        </action>
        <action id="exclam">
          <when state="none" output="!"/>

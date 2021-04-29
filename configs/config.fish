@@ -18,4 +18,4 @@ bind \e\[13\;2u forward-word # s-cr
 # bind -M insert -m default \e\[B 'commandline -f repaint'
 # set -g fish_key_bindings fish_vi_key_bindings
 
-# set fish_greeting
+set fish_greeting

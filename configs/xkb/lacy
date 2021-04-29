@@ -3,7 +3,7 @@ xkb_symbols "LaCy" {
   name[Group1] = "Latin Cyrillic";
   key.type[Group1] = "CAPS_SEMI";
   key <TLDE> { [ grave                   , asciitilde              , grave                   , asciitilde              , Cyrillic_yu             , Cyrillic_YU             ] };
-  key <AE01> { [ 1                       , exclam                  , acircumflex             , Acircumflex             , Cyrillic_io             , exclam                  ] };
+  key <AE01> { [ 1                       , exclam                  , acircumflex             , Acircumflex             , numerosign              , exclam                  ] };
   key <AE02> { [ 2                       , at                      , ucircumflex             , Ucircumflex             , Cyrillic_schwa          , Cyrillic_SCHWA          ] };
   key <AE03> { [ 3                       , numbersign              , ecircumflex             , Ecircumflex             , Ukrainian_i             , Ukrainian_I             ] };
   key <AE04> { [ 4                       , dollar                  , ocircumflex             , Ocircumflex             , Cyrillic_en_descender   , Cyrillic_EN_descender   ] };
@@ -11,10 +11,10 @@ xkb_symbols "LaCy" {
   key <AE06> { [ 6                       , asciicircum             , 6                       , ocircumflex             , Cyrillic_o_bar          , Cyrillic_O_bar          ] };
   key <AE07> { [ 7                       , ampersand               , 7                       , ucircumflex             , Cyrillic_u_straight_bar , Cyrillic_U_straight_bar ] };
   key <AE08> { [ 8                       , asterisk                , 8                       , icircumflex             , Cyrillic_u_straight     , Cyrillic_U_straight     ] };
-  key <AE09> { [ 9                       , parenleft               , 9                       , parenleft               , ugrave                  , parenleft               ] };
-  key <AE10> { [ 0                       , parenright              , 0                       , parenright              , ae                      , parenright              ] };
-  key <AE11> { [ minus                   , underscore              , minus                   , ssharp                  , minus                   , ediaeresis              ] };
-  key <AE12> { [ equal                   , plus                    , equal                   , plus                    , Cyrillic_shha           , ydiaeresis              ] };
+  key <AE09> { [ 9                       , parenleft               , 9                       , parenleft               , Cyrillic_IO             , parenleft               ] };
+  key <AE10> { [ 0                       , parenright              , 0                       , parenright              , Cyrillic_io             , parenright              ] };
+  key <AE11> { [ minus                   , underscore              , minus                   , ssharp                  , minus                   , Cyrillic_KA_descender   ] };
+  key <AE12> { [ equal                   , plus                    , equal                   , plus                    , Cyrillic_shha           , Cyrillic_SHHA           ] };
   key <AD01> { [ q                       , Q                       , agrave                  , Agrave                  , Cyrillic_ya             , Cyrillic_YA             ] };
   key <AD02> { [ w                       , W                       , ugrave                  , Ugrave                  , Cyrillic_sha            , Cyrillic_SHA            ] };
   key <AD03> { [ e                       , E                       , eacute                  , Eacute                  , Cyrillic_ie             , Cyrillic_IE             ] };
@@ -25,7 +25,7 @@ xkb_symbols "LaCy" {
   key <AD08> { [ i                       , I                       , i                       , I                       , Cyrillic_i              , Cyrillic_I              ] };
   key <AD09> { [ o                       , O                       , o                       , O                       , Cyrillic_o              , Cyrillic_O              ] };
   key <AD10> { [ p                       , P                       , p                       , P                       , Cyrillic_pe             , Cyrillic_PE             ] };
-  key <AD11> { [ bracketleft             , braceleft               , bracketleft             , braceleft               , Cyrillic_ka_descender   , Cyrillic_KA_descender   ] };
+  key <AD11> { [ bracketleft             , braceleft               , bracketleft             , braceleft               , Cyrillic_shorti         , Cyrillic_SHORTI         ] };
   key <AD12> { [ bracketright            , braceright              , bracketright            , braceright              , Cyrillic_shcha          , Cyrillic_SHCHA          ] };
   key <AC01> { [ a                       , A                       , adiaeresis              , Adiaeresis              , Cyrillic_a              , Cyrillic_A              ] };
   key <AC02> { [ s                       , S                       , ssharp                  , U1E9E                   , Cyrillic_es             , Cyrillic_ES             ] };
@@ -36,7 +36,7 @@ xkb_symbols "LaCy" {
   key <AC07> { [ j                       , J                       , j                       , J                       , Cyrillic_zhe            , Cyrillic_ZHE            ] };
   key <AC08> { [ k                       , K                       , k                       , K                       , Cyrillic_ka             , Cyrillic_KA             ] };
   key <AC09> { [ l                       , L                       , l                       , L                       , Cyrillic_el             , Cyrillic_EL             ] };
-  key <AC10> { [ ISO_Level3_Latch        , colon                   , semicolon               , colon                   , Cyrillic_shorti         , colon                   ] };
+  key <AC10> { [ ISO_Level3_Latch        , colon                   , semicolon               , colon                   , Cyrillic_ka_descender   , colon                   ] };
   key <AC11> { [ apostrophe              , quotedbl                , apostrophe              , quotedbl                , Cyrillic_hardsign       , quotedbl                ] };
   key <AB01> { [ z                       , Z                       , ae                      , AE                      , Cyrillic_ze             , Cyrillic_ZE             ] };
   key <AB02> { [ x                       , X                       , oe                      , OE                      , Cyrillic_che            , Cyrillic_CHE            ] };
@@ -45,9 +45,9 @@ xkb_symbols "LaCy" {
   key <AB05> { [ b                       , B                       , b                       , B                       , Cyrillic_be             , Cyrillic_BE             ] };
   key <AB06> { [ n                       , N                       , n                       , N                       , Cyrillic_en             , Cyrillic_EN             ] };
   key <AB07> { [ m                       , M                       , m                       , M                       , Cyrillic_em             , Cyrillic_EM             ] };
-  key <AB08> { [ comma                   , less                    , comma                   , less                    , comma                   , idiaeresis              ] };
-  key <AB09> { [ period                  , greater                 , period                  , greater                 , period                  , oe                      ] };
+  key <AB08> { [ comma                   , less                    , comma                   , less                    , comma                   , Cyrillic_SOFTSIGN       ] };
+  key <AB09> { [ period                  , greater                 , period                  , greater                 , period                  , Cyrillic_HARDSIGN       ] };
   key <AB10> { [ slash                   , question                , slash                   , question                , Cyrillic_softsign       , question                ] };
   key <BKSL> { [ backslash               , bar                     , backslash               , bar                     , Cyrillic_e              , Cyrillic_E              ] };
-  key <LSGT> { [ EuroSign                , degree                  , EuroSign                , degree                  , U20B8                   , numerosign              ] };
+  key <LSGT> { [ squareroot              , degree                  , EuroSign                , cent                    , U20B8                   , yen                     ] };
 };
