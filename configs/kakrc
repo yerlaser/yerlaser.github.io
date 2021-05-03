@@ -36,9 +36,11 @@ hook global InsertDelete ' ' %{ try %{ execute-keys -draft 'h<a-h><a-k>\A\h+\z<r
 hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
+    map window insert '<s-ret>' '<c-o>' -docstring 'stop autocomplete for this insert session'
     map window insert '<s-tab>' '<c-p>' -docstring 'previous autocomplete suggestion'
     map window insert '<tab>' '<c-n>' -docstring 'next autocomplete suggestion'
     hook -once -always window InsertCompletionHide .* %{
+      map window insert '<s-ret>' '<c-r>"' -docstring 'paste default register'
       map window insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
       map window insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
     }
@@ -56,7 +58,7 @@ map global goto 'u' '<esc>`' -docstring 'change selection to lower case'
 map global goto 'U' '<esc>~' -docstring 'change selection to upper case'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
-map global insert '<s-ret>' '<c-o>' -docstring 'stop autocomplete for this insert session'
+map global insert '<s-ret>' '<c-r>"' -docstring 'paste default register'
 map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
 
