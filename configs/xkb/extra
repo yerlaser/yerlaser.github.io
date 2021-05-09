@@ -12,7 +12,7 @@
     };
 
 
-    type "CAPS_SEMI" {
+    type "CAPS_LVL5" {
         modifiers = Shift+Lock+LevelThree;
         map[None] = Level1;
         map[Shift] = Level2;

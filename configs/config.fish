@@ -13,8 +13,9 @@ if command -v kak &> /dev/null
 end
 alias vgrep 'grep -v'
 
-bind -k btab history-prefix-search-backward
-bind \e\[13\;2u forward-word # s-cr
+# bind -k btab history-prefix-search-backward
+bind -k btab forward-word
+bind \e\[13\;2u forward-char # s-cr
 # bind -M insert -m default \e\[B 'commandline -f repaint'
 # set -g fish_key_bindings fish_vi_key_bindings
 

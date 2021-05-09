@@ -1,5 +1,5 @@
 font:
-  size: 14
+  size: 16
   normal:
     family: JetBrains Mono
     style: Regular
@@ -20,6 +20,14 @@ shell:
 
 key_bindings:
   - { key: C, mods: Control , chars: "\x03" }
+  - { key: Back, mods: Shift , chars: "\x1b[A" }
   - { key: Return, mods: Command , action: ToggleViMode }
   - { key: Return, mods: Shift , chars: "\x1b[13;2u" }
   - { key: Space, mods: Shift , chars: "\x1b" }
+  - { key: 41, mods: None , chars: "`" }
+  - { key: 41, mods: Shift , chars: "~" }
+  - { key: 13, mods: None , chars: "=" }
+  - { key: 26, mods: None , chars: "[" }
+  - { key: 26, mods: Shift , chars: "{" }
+  - { key: 27, mods: None , chars: "]" }
+  - { key: 27, mods: Shift , chars: "}" }
