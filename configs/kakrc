@@ -16,10 +16,11 @@ define-command -hidden complete-pair %{
   try %{ execute-keys 's\n<ret><a-C><a-&>(<space>\d' }
   try %{ execute-keys 's(\w|\d)<ret>\d<esc>b~/\W<ret>' }
   try %{ execute-keys 's<space><ret>H\d<esc>b;~/\W<ret>' }
-  try %{ execute-keys 's,<ret>H\d<esc>\A<semicolon><esc>' }
+  try %{ execute-keys 's<semicolon><ret>H\d<esc>\A<semicolon><esc>' }
   try %{ execute-keys 's\.<ret>H\d<esc>\A<space>{}<esc>h' }
   try %{ execute-keys 's/<ret>H\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\\<ret>H\d<esc>\i<tab><esc>' }
+  try %{ execute-keys 's(#|\$)<ret>d\i{}<esc>h' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
