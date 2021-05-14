@@ -20,8 +20,9 @@ shell:
 
 key_bindings:
   - { key: C, mods: Control , chars: "\x03" }
-  - { key: Back, mods: Shift , chars: "\x1b[A" }
+  - { key: Back, mods: Shift , chars: "\x1b[1;2A" }
   - { key: Return, mods: Command , action: ToggleViMode }
+  - { key: Return, mods: Control, action: ToggleViMode }
   - { key: Return, mods: Shift , chars: "\x1b[13;2u" }
 #  - { key: Space, mods: Shift , chars: "ä" }
   - { key: 41, mods: None , chars: "`" }
