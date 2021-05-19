@@ -10,7 +10,7 @@ autoload -Uz compinit && compinit
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey -M viins "^[[1;2A" backward-kill-word
+bindkey -M viins "^[[3;2~" backward-kill-word
 bindkey -M viins "^[[Z" history-beginning-search-backward-end
 
 bindkey -v

@@ -13,14 +13,14 @@ scrolling:
 shell:
   program: /usr/bin/zsh
 
-# window:
-  # decorations: none
+window:
+  decorations: none
 
 # working_directory: Synced
 
 key_bindings:
   - { key: C, mods: Control , chars: "\x03" }
-  - { key: Back, mods: Shift , chars: "\x1b[1;2A" }
+  - { key: Back, mods: Shift , chars: "\x1b[3;2~" }
   - { key: Return, mods: Command , action: ToggleViMode }
   - { key: Return, mods: Control, action: ToggleViMode }
   - { key: Return, mods: Shift , chars: "\x1b" }
