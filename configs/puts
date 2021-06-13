@@ -24,8 +24,8 @@ end
 begin
   optparse.parse! into: options
 rescue
-	puts optparse
-	exit 3
+  puts optparse
+  exit 3
 end
 
 def filter_line(options, line)

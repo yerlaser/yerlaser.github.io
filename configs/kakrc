@@ -49,7 +49,7 @@ hook global InsertCompletionShow .* %{
   }
 }
 
-hook global WinSetOption filetype=html|css %{ map global normal 'Q' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
+hook global WinSetOption filetype=html|css %{ map global normal '<a-tab>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
 hook global WinSetOption filetype=python %{
   set window indentwidth 4
   set window tabstop 4

@@ -11,12 +11,14 @@ scrolling:
   history: 10000
 
 shell:
-  program: /usr/bin/zsh
+  program: /home/yerlan/.local/bin/fish
 
 window:
   decorations: none
+  startup_mode: Maximized
 
 # working_directory: Synced
+
 
 key_bindings:
   - { key: C, mods: Control , chars: "\x03" }

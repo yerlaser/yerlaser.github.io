@@ -5,6 +5,7 @@ alias dirsize 'ls -FAhlrS'
 if command -v dnf &> /dev/null
   alias dnf 'dnf --cacheonly'
 end
+alias eg 'grep -Ee'
 alias igrep 'grep -i'
 alias ivgrep 'grep -iv'
 if command -v kak &> /dev/null
@@ -12,12 +13,11 @@ if command -v kak &> /dev/null
   alias vi kak
 end
 alias vgrep 'grep -v'
-
+bind \e end-of-line
 bind \e\[A history-prefix-search-backward
-bind -k sr history-prefix-search-backward
-bind -k btab forward-word
-bind \e forward-char
-# bind -M insert -m default \e\[13\;2u 'commandline -f repaint' # s-cr
-# set -g fish_key_bindings fish_vi_key_bindings
-
+bind \e\[B history-prefix-search-forward
+bind \e\[C forward-char
+bind \e\[D backward-char
+bind -k sdc backward-kill-word
+bind -k btab history-prefix-search-backward
 set fish_greeting
