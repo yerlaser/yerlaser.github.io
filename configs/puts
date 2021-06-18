@@ -2,47 +2,57 @@
 
 require 'optparse'
 
-options = {}
+def main
+  options = {}
+  valid_methods = [
+    'trim', 'trimleft', 'trimright', 'lower', 'sentence', 'swapcase', 'title',
+    'upper', 'center', 'left', 'right'
+  ]
 
-optparse = OptionParser.new do |o|
-  o.banner = 'Usage: puts [options] [inputfile(s)]'
-  o.on('-c', '--convert METHOD', [:trim, :trimleft, :trimright,
-    :lower, :sentence, :swapcase, :title, :upper,
-    :center, :left, :right]    , Array    , 'Convert with specified method'                        )
-  o.on('-e', '--eval TEXT'     , String   , 'Ruby expression to evaluate'                          )
-  o.on('-n', '--number NUM'    , Integer  , 'Count of lines to process'                            )
-  o.on('-N', '--Number NUM'    , Integer  , 'Option number for {center, left, right}'              )
-  o.on('-f', '--find TEXT'     , String   , 'Text to search case insensitive (no regexp)'          )
-  o.on('-F', '--Find TEXT'     , String   , 'Text to search case sensitive (no regexp)'            )
-  o.on('-o', '--output FILE'   , String   , 'Output file name'                                     )
-  o.on('-S', '--Separator'     , String   , 'Option separator for {center, left, right}'           )
-  o.on('-t', '--tee'           , TrueClass, 'Also print to stdout (if --output is specified'       )
-  o.on('-x', '--xclude TEXT'   , String   , 'Text to exclude case insensitive (no regexp)'         )
-  o.on('-X', '--Xclude TEXT'   , String   , 'Text to exclude case sensitive (no regexp)'           )
-end
-
-begin
-  optparse.parse! into: options
-rescue
-  puts optparse
-  exit 3
-end
-
-if options.has_key? :output then output_file = File.open(options[:output], 'w+') end
-
-ARGF.each.with_index(1) do |line, num|
-  if ((options.has_key? :number) and (num > options[:number])) then break end
-  if not filter_line(options, line) then next end
-  o = process_line(options, line)
-  if options.has_key? :output
-    output_file.write(o)
-    if options[:tee] then puts o end
-  else
-    puts o
+  optparse = OptionParser.new do |o|
+    o.banner = 'Usage: puts [options] [inputfile(s)]'
+    o.on('-c', '--convert METHOD', Array    , 'Convert with specified method'                        )
+    o.on('-e', '--eval TEXT'     , String   , 'Ruby expression to evaluate'                          )
+    o.on('-n', '--number NUM'    , Integer  , 'Count of lines to process'                            )
+    o.on('-N', '--Number NUM'    , Integer  , 'Option number for {center, left, right}'              )
+    o.on('-f', '--find TEXT'     , String   , 'Text to search case insensitive (no regexp)'          )
+    o.on('-F', '--Find TEXT'     , String   , 'Text to search case sensitive (no regexp)'            )
+    o.on('-o', '--output FILE'   , String   , 'Output file name'                                     )
+    o.on('-S', '--Separator'     , String   , 'Option separator for {center, left, right}'           )
+    o.on('-t', '--tee'           , TrueClass, 'Also print to stdout (if --output is specified'       )
+    o.on('-x', '--xclude TEXT'   , String   , 'Text to exclude case insensitive (no regexp)'         )
+    o.on('-X', '--Xclude TEXT'   , String   , 'Text to exclude case sensitive (no regexp)'           )
   end
-end
 
-if options.has_key? :output then output_file.close end
+  begin
+    optparse.parse! into: options
+  rescue
+    puts optparse.to_s
+    puts "Valid convert methods:\n#{valid_methods.join ', '}"
+    exit __LINE__
+  end
+
+  if options.has_key? :convert and not (options[:convert].uniq - valid_methods).empty?
+    puts "Valid convert methods:\n#{valid_methods.join ', '}"
+    exit __LINE__
+  end
+      
+  output_file = File.open(options[:output], 'w+') if options.has_key? :output
+
+  ARGF.each.with_index(1) do |line, num|
+    if ((options.has_key? :number) and (num > options[:number])) then break end
+    if not filter_line(options, line) then next end
+    o = process_line(options, line)
+    if options.has_key? :output
+      output_file.write(o)
+      if options[:tee] then puts o end
+    else
+      puts o
+    end
+  end
+
+  output_file.close if options.has_key? :output
+end
 
 def filter_line(options, line)
   if (options.has_key? :Find and not line.include? options[:Find]) then return false end
@@ -55,11 +65,11 @@ end
 def process_line(options, line)
   l = line
   if options.has_key? :convert
-    l = l.capitalize if options[:convert].include?(&:sentence)
-    l = l.downcase if options[:convert].include?(&:lower)
-    l = l.swapcase if options[:convert].include?(&:swapcase)
-    l = l.split(/([[:alpha:]]+)/).map(&:capitalize).join if options[:convert] == :title
-    l = l.upcase if options[:convert] == :upper
+    l = l.capitalize if options[:convert].include? 'sentence'
+    l = l.downcase if options[:convert].include? 'lower'
+    l = l.swapcase if options[:convert].include? 'swapcase'
+    l = l.split(/([[:alpha:]]+)/).map(:capitalize).join if options[:convert].include? 'title'
+    l = l.upcase if options[:convert].include? 'upper'
   end
   if options.has_key? :eval
     l = eval(options[:eval])
@@ -67,3 +77,6 @@ def process_line(options, line)
   l
 end
 
+if __FILE__ == $0
+  main
+end
