@@ -1,0 +1,64 @@
+#!/bin/sh
+
+PROCESS_LINE() {
+  case $CONVERT in
+    center)
+      local args=${*}
+      local str=$(printf %s ${args})
+      local padding=$(printf %300s | tr " " "$SEPARATOR")
+      printf '%*.*s %s %*.*s\n' 0 "$(((NUMBER-2-${#str})/2))" "${padding}" "${str}" 0 "$(((NUMBER-1-${#str})/2))" "${padding}"
+      ;;
+    lower)
+      echo ${*} | tr '[:upper:]' '[:lower:]'
+      ;;
+    upper)
+      echo ${*} | tr '[:lower:]' '[:upper:]'
+      ;;
+    *)
+      USAGE
+      ;;
+  esac
+}
+
+USAGE() {
+  echo "Usage: $(basename $0) [--convert=center,lower,upper / c center,lower,upper]"
+  exit 1
+}
+
+while getopts 'c:n:s:' opt; do
+  case $opt in
+    c)
+      CONVERT=$(printf %s $OPTARG | tr '[:upper:]' '[:lower:]')
+      ;;
+    n)
+      NUMBER=$OPTARG
+      ;;
+    s)
+      SEPARATOR=$OPTARG
+      ;;
+    *)
+      USAGE
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+if [ -z "$NUMBER" ]; then
+  NUMBER=$(tput cols)
+fi
+if [ -z "$SEPARATOR" ]; then
+  SEPARATOR='='
+fi
+
+# echo "CONVERT=$CONVERT, NUMBER=$NUMBER, SEPARATOR=$SEPARATOR"
+
+if [ -p /dev/stdin ]; then
+  while IFS= read line; do
+    PROCESS_LINE $line
+  done
+else
+  if [ $# > 0 ]; then
+    PROCESS_LINE $*
+  fi
+fi
