@@ -17,6 +17,7 @@ def main
     o.on('-N', '--Number NUM'    , Integer  , 'Option number for {center, left, right}'              )
     o.on('-f', '--find TEXT'     , String   , 'Text to search case insensitive (no regexp)'          )
     o.on('-F', '--Find TEXT'     , String   , 'Text to search case sensitive (no regexp)'            )
+    o.on('-g', '--grep PATTERN'  , String   , 'Pattern to search'                                    )
     o.on('-o', '--output FILE'   , String   , 'Output file name'                                     )
     o.on('-S', '--Separator'     , String   , 'Option separator for {center, left, right}'           )
     o.on('-t', '--tee'           , TrueClass, 'Also print to stdout (if --output is specified'       )
@@ -57,6 +58,7 @@ end
 def filter_line(options, line)
   if (options.has_key? :Find and not line.include? options[:Find]) then return false end
   if (options.has_key? :find and not line.downcase.include? options[:find].downcase) then return false end
+  if (options.has_key? :grep and not line.match options[:grep]) then return false end
   if (options.has_key? :Xclude and line.include? options[:Xclude]) then return false end
   if (options.has_key? :xclude and line.downcase.include? options[:xclude].downcase) then return false end
   true
