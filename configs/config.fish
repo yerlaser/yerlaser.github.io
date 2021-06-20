@@ -6,6 +6,11 @@ alias dirsize 'ls -FAhlrS'
 if command -v dnf &> /dev/null
   alias dnf 'dnf --cacheonly'
 end
+
+if command -v podman &> /dev/null
+  alias docker podman
+end
+
 if command -v kak &> /dev/null
   alias kakn 'kak -n'
   alias vi kak

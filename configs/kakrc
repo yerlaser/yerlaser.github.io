@@ -49,7 +49,7 @@ hook global InsertCompletionShow .* %{
   }
 }
 
-hook global WinSetOption filetype=html|css %{ map window normal '<s-tab>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
+hook global WinSetOption filetype=html|css %{ map window normal '<minus>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
 hook global WinSetOption filetype=python %{
   set window indentwidth 4
   set window tabstop 4
@@ -65,13 +65,13 @@ map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<s-del>' '<c-r>"' -docstring 'paste default register'
 map global insert '<tab>' '<esc>: complete-pair<ret>i' -docstring 'complete pair'
 
-map global normal '<backspace>' '<a-d>' -docstring 'delete without yanking'
+map global normal '<backspace>' '<esc><space>' -docstring 'remove additional selections'
 map global normal '<c-r>' 'U' -docstring 'redo'
-map global normal '<ret>' '<)>' -docstring 'rotate selection right'
-map global normal '<s-del>' '<a-s>' -docstring 'split selection into lines'
-map global normal '<s-tab>' ': comment-line<ret>' -docstring 'comment/uncomment line'
+map global normal '<ret>' '<a-s>' -docstring 'split selection into lines'
+map global normal '<s-del>' '<a-d>' -docstring 'delete without yanking'
+map global normal '<s-tab>' '<a-(>' -docstring 'rotate contents left'
 map global normal '<space>' ';' -docstring 'collapse selection'
-map global normal '<tab>' '<esc><space>' -docstring 'remove additional selections'
+map global normal '<tab>' '<a-)>' -docstring 'rotate contents right'
 map global normal '`' 'z' -docstring 'restore selection from register'
 map global normal '~' '<a-`>' -docstring 'swap case'
 map global normal '!' ': extend-previous-hump<ret>' -docstring 'extend previous word part'
@@ -81,9 +81,8 @@ map global normal '$' '<a-L>' -docstring 'select to line end'
 map global normal '%' 'm' -docstring 'select to matching pair'
 map global normal '^' 'Gi' -docstring 'select to line start'
 map global normal '*' '<a-i>w*' -docstring 'find word under cursor'
-map global normal '(' '<a-(>' -docstring 'rotate contents left'
-map global normal ')' '<a-)>' -docstring 'rotate contents right'
-map global normal '<minus>' '<a-space>' -docstring 'delete primary selection'
+map global normal '<minus>' ': comment-line<ret>' -docstring 'comment/uncomment line'
+map global normal '_' '<a-space>' -docstring 'delete primary selection'
 map global normal '=' ': align-selection<ret>' -docstring 'align selection'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
@@ -122,12 +121,12 @@ map global normal 'Z' 'C' -docstring 'add selection below'
 map global object 'a' '<esc>%' -docstring 'entire buffer'
 map global object 'W' '<a-w>' -docstring 'WORD'
 
-map global user '<ret>' '<(>' -docstring 'rotate selection left'
 map global user '<tab>' '<esc>i<tab><esc>' -docstring 'insert tab'
 map global user '!' '<esc>!' -docstring 'insert external command output above'
 map global user '@' '<esc><a-!>' -docstring 'insert external command output below'
 map global user '$' '<esc>$' -docstring 'pipe and keep selection of those who succeed'
 map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
+map global user '_' '<esc>_' -docstring 'trim whitespace from selection'
 map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
 map global user '|' '<esc>|' -docstring 'pipe and replace with output'
 map global user 'e' '<esc>i<c-r>#<esc>' -docstring 'enumerate selections'

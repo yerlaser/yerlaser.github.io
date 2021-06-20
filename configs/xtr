@@ -1,7 +1,7 @@
 #!/bin/sh
 
 process_line() {
-  local str=$*
+  str=$*
   if [ "${CONVERT#*lower}" != "$CONVERT" ]; then
     str=$(printf %s $str | tr '[:upper:]' '[:lower:]')
   fi
@@ -9,7 +9,7 @@ process_line() {
     str=$(printf %s $str | tr '[:lower:]' '[:upper:]')
   fi
   if [ "${CONVERT#*center}" != "$CONVERT" ]; then
-    local padding=$(printf %300s | tr " " "$SEPARATOR")
+    padding=$(printf %300s | tr " " "$SEPARATOR")
     str=$(printf '%*.*s %s %*.*s\n' 0 "$(((NUMBER-2-${#str})/2))" "${padding}" "${str}" 0 "$(((NUMBER-1-${#str})/2))" "${padding}")
   fi
   echo $str
