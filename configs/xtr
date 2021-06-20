@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROCESS_LINE() {
+process_line() {
   local str=$*
   if [ "${CONVERT#*lower}" != "$CONVERT" ]; then
     str=$(printf %s $str | tr '[:upper:]' '[:lower:]')
@@ -15,7 +15,7 @@ PROCESS_LINE() {
   echo $str
 }
 
-USAGE() {
+usage() {
   echo "Usage: $(basename $0) [--convert=center,lower,upper / c center,lower,upper]"
   exit 1
 }
@@ -32,7 +32,7 @@ while getopts 'c:N:S:' opt; do
       SEPARATOR=$OPTARG
       ;;
     *)
-      USAGE
+      usage
       ;;
   esac
 done
@@ -43,5 +43,5 @@ SEPARATOR=${SEPARATOR:-'='}
 # echo "CONVERT=$CONVERT, NUMBER=$NUMBER, SEPARATOR=$SEPARATOR"
 
 while IFS= read -r line; do
-  PROCESS_LINE $line
+  process_line $line
 done < "${1:-/dev/stdin}"
