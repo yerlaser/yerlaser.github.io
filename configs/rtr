@@ -58,7 +58,7 @@ end
 def filter_line(options, line)
   if (options.has_key? :Find and not line.include? options[:Find]) then return false end
   if (options.has_key? :find and not line.downcase.include? options[:find].downcase) then return false end
-  if (options.has_key? :grep and not line.match options[:grep]) then return false end
+  if (options.has_key? :grep and not line.match? options[:grep]) then return false end
   if (options.has_key? :Xclude and line.include? options[:Xclude]) then return false end
   if (options.has_key? :xclude and line.downcase.include? options[:xclude].downcase) then return false end
   true
