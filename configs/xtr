@@ -20,15 +20,15 @@ USAGE() {
   exit 1
 }
 
-while getopts 'c:n:s:' opt; do
+while getopts 'c:N:S:' opt; do
   case $opt in
     c)
       CONVERT="$CONVERT $(printf %s $OPTARG | tr '[:upper:]' '[:lower:]')"
       ;;
-    n)
+    N)
       NUMBER=$OPTARG
       ;;
-    s)
+    S)
       SEPARATOR=$OPTARG
       ;;
     *)
@@ -36,7 +36,6 @@ while getopts 'c:n:s:' opt; do
       ;;
   esac
 done
-
 shift $((OPTIND-1))
 
 NUMBER=${NUMBER:-$(tput cols)}
