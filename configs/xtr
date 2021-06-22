@@ -3,10 +3,10 @@
 process_line() {
   str=$*
   if [ "${CONVERT#*lower}" != "$CONVERT" ]; then
-    str=$(printf %s $str | tr '[:upper:]' '[:lower:]')
+    str=$(printf %s "$str" | tr '[:upper:]' '[:lower:]')
   fi
   if [ "${CONVERT#*upper}" != "$CONVERT" ]; then
-    str=$(printf %s $str | tr '[:lower:]' '[:upper:]')
+    str=$(printf %s "$str" | tr '[:lower:]' '[:upper:]')
   fi
   if [ "${CONVERT#*center}" != "$CONVERT" ]; then
     padding=$(printf %300s | tr " " "$SEPARATOR")
