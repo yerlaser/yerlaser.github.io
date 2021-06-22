@@ -44,4 +44,4 @@ SEPARATOR=${SEPARATOR:-'='}
 
 while IFS= read -r line; do
   process_line $line
-done < "${1:-/dev/stdin}"
+done < "${*:-/dev/stdin}"
