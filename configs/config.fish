@@ -16,12 +16,12 @@ if command -v kak &> /dev/null
   alias vi kak
 end
 
-bind \e complete
+# bind \e complete
 bind \e\[A history-prefix-search-backward
 bind \e\[B history-prefix-search-forward
 bind \e\[C forward-char
 bind \e\[D backward-char
-bind \t end-of-line
+bind \e end-of-line
 bind -k btab history-prefix-search-backward
 bind -k sdc backward-kill-word
 
