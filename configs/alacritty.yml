@@ -10,8 +10,8 @@ mouse:
 scrolling:
   history: 10000
 
-shell:
-  program: /home/yerlan/.local/bin/fish
+# shell:
+  # program: /home/yerlan/.local/bin/fish
 
 window:
   decorations: none
@@ -26,7 +26,7 @@ key_bindings:
   - { key: Return, mods: Command , action: ToggleViMode }
   - { key: Return, mods: Control, action: ToggleViMode }
   - { key: Return, mods: Shift , chars: "\x1b" }
-#  - { key: Space, mods: Shift , chars: "ä" }
+  - { key: Space, mods: Shift , chars: "\x1b\x20" }
   - { key: 41, mods: None , chars: "`" }
   - { key: 41, mods: Shift , chars: "~" }
   - { key: 13, mods: None , chars: "=" }
