@@ -6,87 +6,87 @@ import re
 import shutil
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-A', '--Append', help = 'Append and right justify string with Number and Separator')
-    parser.add_argument('-a', '--append', help = 'Append string with Separator')
-    parser.add_argument('-c', '--convert', choices = ['center', 'left', 'right',
-        'lower', 'sentence', 'swapcase', 'title', 'upper',
-        'trim', 'trimleft', 'trimright'], nargs = '*', help = 'Convert with specified method')
-    parser.add_argument('-e', '--enumerate', action='store_true',
-        help = 'Enumerate using Separator and starting with Number')
-    parser.add_argument('-E', '--Every', choices = ['even', 'number', 'odd'],
-    	help = 'Select only Every (Number) line')
-    parser.add_argument('-n', '--number', type = int, help = 'Count of lines to process')
-    parser.add_argument('-N', '--Number', type = int,
-    	help = 'Option number for {center, enumerate, Every, left, right}')
-    parser.add_argument('-f', '--find', help = 'Text to search, no regexp, case insensitive')
-    parser.add_argument('-F', '--Find', help = 'Text to search, no regexp, case sensitive')
-    parser.add_argument('-g', '--grep', help = 'Regexp pattern to search')
-    parser.add_argument('-S', '--Separator', help = 'Option separator for {center, enumerate, left, right}')
-    parser.add_argument('-x', '--exclude', help = 'Text to exclude, no regexp, case insensitive')
-    parser.add_argument('-X', '--Xclude', help = 'Text to exclude, no regexp, case sensitive')
-    parser.add_argument('input_files', metavar = 'FILE', nargs = '*', help = 'Additional input file(s)')
-    args = parser.parse_args()
+  parser = argparse.ArgumentParser()
+  parser.add_argument('-A', '--Append', help = 'Append and right justify string with Number and Separator')
+  parser.add_argument('-a', '--append', help = 'Append string with Separator')
+  parser.add_argument('-c', '--convert', choices = ['center', 'left', 'right',
+    'lower', 'sentence', 'swapcase', 'title', 'upper',
+    'trim', 'trimleft', 'trimright'], nargs = '*', help = 'Convert with specified method')
+  parser.add_argument('-e', '--enumerate', action='store_true',
+    help = 'Enumerate using Separator and starting with Number')
+  parser.add_argument('-E', '--Every', choices = ['even', 'number', 'odd'],
+  	help = 'Select only Every (Number) line')
+  parser.add_argument('-n', '--number', type = int, help = 'Count of lines to process')
+  parser.add_argument('-N', '--Number', type = int,
+  	help = 'Option number for {center, enumerate, Every, left, right}')
+  parser.add_argument('-f', '--find', help = 'Text to search, no regexp, case insensitive')
+  parser.add_argument('-F', '--Find', help = 'Text to search, no regexp, case sensitive')
+  parser.add_argument('-g', '--grep', help = 'Regexp pattern to search')
+  parser.add_argument('-S', '--Separator', help = 'Option separator for {center, enumerate, left, right}')
+  parser.add_argument('-x', '--exclude', help = 'Text to exclude, no regexp, case insensitive')
+  parser.add_argument('-X', '--Xclude', help = 'Text to exclude, no regexp, case sensitive')
+  parser.add_argument('input_files', metavar = 'FILE', nargs = '*', help = 'Additional input file(s)')
+  args = parser.parse_args()
 
-    if args.Number == None:
-        if args.Append != None: args.Number = shutil.get_terminal_size()[0]
-        elif args.convert != None: args.Number = shutil.get_terminal_size()[0]
-        elif args.Every != None: args.Number = 1
-        elif args.enumerate: args.Number = 1
+  if args.Number == None:
+    if args.Append != None: args.Number = shutil.get_terminal_size()[0]
+    elif args.convert != None: args.Number = shutil.get_terminal_size()[0]
+    elif args.Every != None: args.Number = 1
+    elif args.enumerate: args.Number = 1
 
-    if args.Separator == None:
-        if args.Append: args.Separator = ' '
-        elif args.append: args.Separator = ''
-        elif args.convert: args.Separator = ' '
-        elif args.enumerate: args.Separator = '.'
+  if args.Separator == None:
+    if args.Append: args.Separator = ' '
+    elif args.append: args.Separator = ''
+    elif args.convert: args.Separator = ' '
+    elif args.enumerate: args.Separator = '.'
 
-    if args.enumerate and args.convert and (
-        	'center' in args.convert or 'left' in args.convert or 'right' in args.convert
-    	):
-        print('Conflicting operations, aborting')
-        exit(1)
+  if args.enumerate and args.convert and (
+    	'center' in args.convert or 'left' in args.convert or 'right' in args.convert
+  	):
+    print('Conflicting operations, aborting')
+    exit(1)
 
-    num = 0
-    for count, line in enumerate(fileinput.input(files = args.input_files), start = 1):
-        if not filter_line(args, line, count): continue
-        num += 1
-        o = process_line(args, line, num)
-        print(o, end='')
+  num = 0
+  for count, line in enumerate(fileinput.input(files = args.input_files), start = 1):
+    if not filter_line(args, line, count): continue
+    num += 1
+    o = process_line(args, line, num)
+    print(o, end='')
 
 def filter_line(args, line, count):
-    if args.number and (count > args.number): return False
-    if args.Every:
-        if 'even' in args.Every and count % 2 != 0: return False
-        if 'number' in args.Every and count % args.Number != 0: return False
-        if 'odd' in args.Every and count % 2 != 1: return False
-    if args.find and (args.find not in line): return False
-    if args.Find and (args.Find.lower() not in line.lower()): return False
-    if args.grep and not re.search(args.grep, line): return False
-    if args.exclude and (args.exclude in line): return False
-    if args.Xclude and (args.Xclude.lower() in line.lower()): return False
-    return True
+  if args.number and (count > args.number): return False
+  if args.Every:
+    if 'even' in args.Every and count % 2 != 0: return False
+    if 'number' in args.Every and count % args.Number != 0: return False
+    if 'odd' in args.Every and count % 2 != 1: return False
+  if args.find and (args.find not in line): return False
+  if args.Find and (args.Find.lower() not in line.lower()): return False
+  if args.grep and not re.search(args.grep, line): return False
+  if args.exclude and (args.exclude in line): return False
+  if args.Xclude and (args.Xclude.lower() in line.lower()): return False
+  return True
 
 def process_line(args, line, num):
-    l = line.rstrip('\r\n')
-    e = line.replace(l, '')
-    if args.enumerate: l = f'{num + args.Number - 1}{args.Separator}{l}'
-    if args.Append: l = f'{l}{args.Append.rjust(args.Number - len(l), args.Separator)}'
-    if args.append: l = f'{l}{args.Separator}{args.append}'
-    if args.convert:
-        if 'trim' in args.convert: l = l.strip()
-        if 'trimleft' in args.convert: l = l.lstrip()
-        if 'trimright' in args.convert: l = l.rstrip()
+  l = line.rstrip('\r\n')
+  e = line.replace(l, '')
+  if args.enumerate: l = f'{num + args.Number - 1}{args.Separator}{l}'
+  if args.Append: l = f'{l}{args.Append.rjust(args.Number - len(l), args.Separator)}'
+  if args.append: l = f'{l}{args.Separator}{args.append}'
+  if args.convert:
+    if 'trim' in args.convert: l = l.strip()
+    if 'trimleft' in args.convert: l = l.lstrip()
+    if 'trimright' in args.convert: l = l.rstrip()
 
-        if 'lower' in args.convert: l = l.lower()
-        if 'sentence' in args.convert: l = l.capitalize()
-        if 'swapcase' in args.convert: l = l.swapcase()
-        if 'title' in args.convert: l = l.title()
-        if 'upper' in args.convert: l = l.upper()
+    if 'lower' in args.convert: l = l.lower()
+    if 'sentence' in args.convert: l = l.capitalize()
+    if 'swapcase' in args.convert: l = l.swapcase()
+    if 'title' in args.convert: l = l.title()
+    if 'upper' in args.convert: l = l.upper()
 
-        if 'center' in args.convert: l = l.center(args.Number, args.Separator)
-        if 'left' in args.convert: l = l.ljust(args.Number, args.Separator)
-        if 'right' in args.convert: l = l.rjust(args.Number, args.Separator)
-    return l + e
+    if 'center' in args.convert: l = l.center(args.Number, args.Separator)
+    if 'left' in args.convert: l = l.ljust(args.Number, args.Separator)
+    if 'right' in args.convert: l = l.rjust(args.Number, args.Separator)
+  return l + e
 
 if __name__ == '__main__':
-    main()
+  main()
