@@ -5,7 +5,7 @@ hook global InsertChar \" %{ exec \"<left> }
 hook global InsertChar ` %{ exec `<left> }
 hook global InsertChar \( %{ exec )<left> }
 hook global InsertChar \[ %{ exec ]<left> }
-hook global InsertChar \{ %{ exec {<backspace>}<left> }
+hook global InsertChar \{ %[ exec }<left> ]
 
 define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
@@ -19,8 +19,7 @@ define-command -hidden exit-pair-or-advanced-complete %{
   try %{ execute-keys 's,<ret>d<esc>\A<space>{}<esc>h' }
   try %{ execute-keys 's/<ret>d<a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\\<ret>d<esc>\i<tab><esc>' }
-  try %{ execute-keys 's(#|\$)<ret>l\i{}<esc>h' }
-  try %{ execute-keys 's[\[({`"'']<ret>ls[\])}`"'']<ret>l' }
+  try %{ execute-keys 's\.<ret>dl' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
