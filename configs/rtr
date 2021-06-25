@@ -74,8 +74,10 @@ def process_line(options, line)
 
   if options.has_key? :convert
     l = l.capitalize if options[:convert].include? 'sentence'
-    l = l.downcase if options[:convert].include? 'lower'
     l = l.center(options[:Number], options[:Separator]) if options[:convert].include? 'center'
+    l = l.downcase if options[:convert].include? 'lower'
+    l = l.ljust(options[:Number], options[:Separator]) if options[:convert].include? 'left'
+    l = l.rjust(options[:Number], options[:Separator]) if options[:convert].include? 'right'
     l = l.swapcase if options[:convert].include? 'swapcase'
     l = l.split(/([[:alpha:]]+)/).map(:capitalize).join if options[:convert].include? 'title'
     l = l.upcase if options[:convert].include? 'upper'
