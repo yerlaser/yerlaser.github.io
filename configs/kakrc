@@ -1,14 +1,15 @@
 add-highlighter global/ number-lines
 
-hook global InsertChar \' %{exec \'<esc>hi }
-hook global InsertChar \" %{exec \"<esc>hi }
-hook global InsertChar ` %{exec `<esc>hi }
-hook global InsertChar \( %{exec )<esc>hi }
-hook global InsertChar \[ %{exec ]<esc>hi }
+hook global InsertChar \' %{ exec \'<left> }
+hook global InsertChar \" %{ exec \"<left> }
+hook global InsertChar ` %{ exec `<left> }
+hook global InsertChar \( %{ exec )<left> }
+hook global InsertChar \[ %{ exec ]<left> }
+hook global InsertChar \{ %{ exec {<backspace>}<left> }
 
 define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
-define-command -hidden complete-advanced %{
+define-command -hidden exit-pair-or-advanced-complete %{
   execute-keys 'h'
   try %{ execute-keys 's\n<ret>l<a-C><a-&>(<space>' }
   try %{ execute-keys 's(\w|\d)<ret>l<esc>b~/\W<ret>' }
@@ -19,6 +20,8 @@ define-command -hidden complete-advanced %{
   try %{ execute-keys 's/<ret>d<a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\\<ret>d<esc>\i<tab><esc>' }
   try %{ execute-keys 's(#|\$)<ret>l\i{}<esc>h' }
+  execute-keys 'l'
+  try %{ execute-keys 's\{|.<ret>s[\])}`"'']<ret>l' } catch %{ execute-keys 'h' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
@@ -41,7 +44,7 @@ hook global InsertCompletionShow .* %{
     hook -once -always window InsertCompletionHide .* %{
       map window insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
       map window insert '<a-space>' '<c-r>"' -docstring 'insert space'
-      map window insert '<tab>' '<esc>: complete-advanced<ret>i' -docstring 'complete pair'
+      map window insert '<tab>' '<esc>: exit-pair-or-advanced-complete<ret>i' -docstring 'exit pair or advanced complete'
     }
   }
 }
@@ -61,8 +64,8 @@ map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
 map global insert '<a-space>' ' ' -docstring 'insert space'
 map global insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
-map global insert '<s-del>' '<c-r>"' -docstring 'paste default register'
-map global insert '<tab>' '<esc>: complete-advanced<ret>i' -docstring 'complete pair'
+map global insert '<s-del>' '<del>' -docstring 'paste default register'
+map global insert '<tab>' '<esc>: exit-pair-or-advanced-complete<ret>i' -docstring 'exit pair or advanced complete'
 
 map global normal '<a-space>' '<space>' -docstring 'remove additional selections'
 # map global normal '<backspace>'
