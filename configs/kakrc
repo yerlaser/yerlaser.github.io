@@ -20,8 +20,7 @@ define-command -hidden exit-pair-or-advanced-complete %{
   try %{ execute-keys 's/<ret>d<a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\\<ret>d<esc>\i<tab><esc>' }
   try %{ execute-keys 's(#|\$)<ret>l\i{}<esc>h' }
-  execute-keys 'l'
-  try %{ execute-keys 's\{|.<ret>s[\])}`"'']<ret>l' } catch %{ execute-keys 'h' }
+  try %{ execute-keys 's[\[({`"'']<ret>ls[\])}`"'']<ret>l' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
