@@ -68,10 +68,10 @@ map global insert '<s-del>' '<del>' -docstring 'paste default register'
 map global insert '<tab>' '<esc>: exit-pair-or-advanced-complete<ret>i' -docstring 'exit pair or advanced complete'
 
 map global normal '<a-space>' '<space>' -docstring 'remove additional selections'
-# map global normal '<backspace>'
+map global normal '<backspace>' '<a-(>' -docstring 'rotate contents left'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<ret>' '<a-O>' -docstring 'add line above'
-map global normal '<s-del>' '<a-space>' -docstring 'remove main selection'
+map global normal '<s-del>' '<a-)>' -docstring 'rotate contents right'
 map global normal '<s-tab>' '<a-(>' -docstring 'rotate contents left'
 map global normal '<space>' ';' -docstring 'collapse selection'
 map global normal '<tab>' '<a-)>' -docstring 'rotate contents right'
@@ -90,7 +90,7 @@ map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
 map global normal "'" '<a-s>' -docstring 'split selection into lines'
-# map global normal '|'
+map global normal '|' '<a-space>' -docstring 'remove main selection'
 map global normal 'a' 'li' -docstring 'append after cursor'
 map global normal 'B' '<a-B>' -docstring 'select to WORD start'
 map global normal 'C' 'Glc' -docstring 'change to line end'
@@ -139,4 +139,4 @@ map global view 'i' '<esc><a-i>' -docstring '<a-i>'
 set global indentwidth 2
 set global tabstop 2
 
-# colorscheme solarized-light-termcolors
+colorscheme tomorrow-night
