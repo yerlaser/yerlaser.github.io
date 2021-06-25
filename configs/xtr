@@ -2,16 +2,9 @@
 
 process_line() {
   str=$*
-  if [ "${CONVERT#*lower}" != "$CONVERT" ]; then
-    str=$(printf %s "$str" | tr '[:upper:]' '[:lower:]')
-  fi
-  if [ "${CONVERT#*upper}" != "$CONVERT" ]; then
-    str=$(printf %s "$str" | tr '[:lower:]' '[:upper:]')
-  fi
-  if [ "${CONVERT#*center}" != "$CONVERT" ]; then
-    padding=$(printf %300s | tr " " "$SEPARATOR")
-    str=$(printf '%*.*s %s %*.*s\n' 0 "$(((NUMBER-2-${#str})/2))" "${padding}" "${str}" 0 "$(((NUMBER-1-${#str})/2))" "${padding}")
-  fi
+  if [ "${CONVERT#*lower}" != "$CONVERT" ]; then str=$(printf %s "$str" | tr '[:upper:]' '[:lower:]'); fi
+  if [ "${CONVERT#*upper}" != "$CONVERT" ]; then str=$(printf %s "$str" | tr '[:lower:]' '[:upper:]'); fi
+  if [ "${CONVERT#*center}" != "$CONVERT" ]; then padding=$(printf %300s | tr " " "$SEPARATOR"); str=$(printf '%*.*s %s %*.*s\n' 0 "$(((NUMBER-2-${#str})/2))" "${padding}" "${str}" 0 "$(((NUMBER-1-${#str})/2))" "${padding}"); fi
   echo $str
 }
 
@@ -22,18 +15,10 @@ usage() {
 
 while getopts 'c:N:S:' opt; do
   case $opt in
-    c)
-      CONVERT="$CONVERT $(printf %s $OPTARG | tr '[:upper:]' '[:lower:]')"
-      ;;
-    N)
-      NUMBER=$OPTARG
-      ;;
-    S)
-      SEPARATOR=$OPTARG
-      ;;
-    *)
-      usage
-      ;;
+    c) CONVERT="$CONVERT $(printf %s $OPTARG | tr '[:upper:]' '[:lower:]')" ;;
+    N) NUMBER=$OPTARG ;;
+    S) SEPARATOR=$OPTARG ;;
+    *) usage ;;
   esac
 done
 shift $((OPTIND-1))

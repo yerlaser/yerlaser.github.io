@@ -6,9 +6,6 @@ hook global InsertChar ` %{ exec `<left> }
 hook global InsertChar \( %{ exec )<left> }
 hook global InsertChar \[ %{ exec ]<left> }
 hook global InsertChar \{ %[ exec }<left> ]
-
-define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
-define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden exit-pair-or-advanced-complete %{
   execute-keys 'h'
   try %{ execute-keys 's\n<ret>l<a-C><a-&>(<space>' }
@@ -21,9 +18,10 @@ define-command -hidden exit-pair-or-advanced-complete %{
   try %{ execute-keys 's\\<ret>d<esc>\i<tab><esc>' }
   try %{ execute-keys 's\.<ret>dl' }
 }
-define-command -hidden align-selection %{
-  try %{ execute-keys '<a-C><a-&>(<space>' }
-}
+
+define-command -hidden align-selection %{ try %{ execute-keys '<a-C><a-&>(<space>' } }
+define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
+define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 
 def switch-number-line -params .. %{
   try %{ remove-highlighter window/number_lines }
@@ -41,7 +39,7 @@ hook global InsertCompletionShow .* %{
     map window insert '<tab>' '<c-n>' -docstring 'next autocomplete suggestion'
     hook -once -always window InsertCompletionHide .* %{
       map window insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
-      map window insert '<a-space>' '<c-r>"' -docstring 'insert space'
+      map window insert '<a-space>' ' ' -docstring 'insert space'
       map window insert '<tab>' '<esc>: exit-pair-or-advanced-complete<ret>i' -docstring 'exit pair or advanced complete'
     }
   }
@@ -84,7 +82,7 @@ map global normal '=' ': align-selection<ret>' -docstring 'align selection'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
-map global normal "'" '<a-s>' -docstring 'split selection into lines'
+map global normal "'" '<a-x><a-s>' -docstring 'split selection into lines'
 map global normal '|' '<a-x>|sort' -docstring 'pipe and replace with output'
 map global normal 'a' 'li' -docstring 'append after cursor'
 map global normal 'B' '<a-B>' -docstring 'select to WORD start'
