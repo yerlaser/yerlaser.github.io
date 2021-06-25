@@ -10,21 +10,15 @@ define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z
 define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
 define-command -hidden complete-advanced %{
   execute-keys 'h'
-  try %{
-    execute-keys 's<lt><ret>l\i<gt><esc>h'
-    # try %{
-    #   execute-keys 's<lt><ret>l\r<gt>'
-    # } catch %{ execute-keys 'l' }
-  }
-  # try %{ execute-keys 's\n<ret><a-C><a-&>(<space>\d' }
-  # try %{ execute-keys 's(\w|\d)<ret>\d<esc>b~/\W<ret>' }
-  # try %{ execute-keys 's<space><ret>H\d<esc>b;~/\W<ret>' }
-  # try %{ execute-keys 's:<ret>H\d<esc>\A:<space><esc>' }
-  # try %{ execute-keys 's<semicolon><ret>H\d<esc>\A<semicolon><esc>' }
-  # try %{ execute-keys 's,<ret>H\d<esc>\A<space>{}<esc>h' }
-  # try %{ execute-keys 's/<ret>H\dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]|^<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
-  # try %{ execute-keys 's\\<ret>H\d<esc>\i<tab><esc>' }
-  # try %{ execute-keys 's(#|\$)<ret>d\i{}<esc>h' }
+  try %{ execute-keys 's\n<ret>l<a-C><a-&>(<space>' }
+  try %{ execute-keys 's(\w|\d)<ret>l<esc>b~/\W<ret>' }
+  try %{ execute-keys 's<space><ret>l<esc>b;~/\W<ret>l' }
+  try %{ execute-keys 's:<ret>d<esc>\A:<space><esc>' }
+  try %{ execute-keys 's<semicolon><ret>d<esc>\A<semicolon><esc>' }
+  try %{ execute-keys 's,<ret>d<esc>\A<space>{}<esc>h' }
+  try %{ execute-keys 's/<ret>dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]|^<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
+  try %{ execute-keys 's\\<ret>d<esc>\i<tab><esc>' }
+  try %{ execute-keys 's(#|\$)<ret>l\i{}<esc>h' }
 }
 define-command -hidden align-selection %{
   try %{ execute-keys '<a-C><a-&>(<space>' }
@@ -42,11 +36,11 @@ hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
     map window insert '<s-tab>' '<c-p>' -docstring 'previous autocomplete suggestion'
-    map window insert '<s-del>' '<c-o>' -docstring 'stop autocomplete for this insert session'
+    map window insert '<a-space>' '<c-o>' -docstring 'stop autocomplete for this insert session'
     map window insert '<tab>' '<c-n>' -docstring 'next autocomplete suggestion'
     hook -once -always window InsertCompletionHide .* %{
       map window insert '<s-tab>' '<ret><esc>O' -docstring 'insert indented block'
-      map window insert '<s-del>' '<c-r>"' -docstring 'paste default register'
+      map window insert '<a-space>' '<c-r>"' -docstring 'insert space'
       map window insert '<tab>' '<esc>: complete-advanced<ret>i' -docstring 'complete pair'
     }
   }
@@ -71,7 +65,7 @@ map global insert '<s-del>' '<c-r>"' -docstring 'paste default register'
 map global insert '<tab>' '<esc>: complete-advanced<ret>i' -docstring 'complete pair'
 
 map global normal '<a-space>' '<space>' -docstring 'remove additional selections'
-map global normal '<backspace>' '<a-d>' -docstring 'delete without yanking'
+# map global normal '<backspace>'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<ret>' '<a-O>' -docstring 'add line above'
 map global normal '<s-del>' '<a-space>' -docstring 'remove main selection'
@@ -92,8 +86,8 @@ map global normal '=' ': align-selection<ret>' -docstring 'align selection'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
-# map global normal "'"
-map global normal '|' '<a-s>' -docstring 'split selection into lines'
+map global normal "'" '<a-s>' -docstring 'split selection into lines'
+# map global normal '|'
 map global normal 'a' 'li' -docstring 'append after cursor'
 map global normal 'B' '<a-B>' -docstring 'select to WORD start'
 map global normal 'C' 'Glc' -docstring 'change to line end'
@@ -109,6 +103,7 @@ map global normal 'n' 'n' -docstring 'select to find next match'
 map global normal 'N' '<a-n>' -docstring 'select to previous next match'
 map global normal 'q' 'Q' -docstring 'start macro recording'
 map global normal 'Q' '<a-C>' -docstring 'add selection above'
+map global normal 'R' 'R<a-;>;' -docstring 'replace selection with register'
 map global normal 't' 'T' -docstring 'select to find character forwards'
 map global normal 'T' '<a-T>' -docstring 'select to find character backwards'
 map global normal "U" '<a-;>' -docstring 'swap cursor and anchor'
@@ -124,7 +119,6 @@ map global normal 'Z' 'C' -docstring 'add selection below'
 map global object 'a' '<esc>%' -docstring 'entire buffer'
 map global object 'W' '<a-w>' -docstring 'WORD'
 
-map global user '<tab>' '<esc>i<tab><esc>' -docstring 'insert tab'
 map global user '!' '<esc>!' -docstring 'insert external command output above'
 map global user '@' '<esc><a-!>' -docstring 'insert external command output below'
 map global user '$' '<esc>$' -docstring 'pipe and keep selection of those who succeed'
@@ -132,7 +126,8 @@ map global user '&' '<a-&>' -docstring 'copy identation'
 map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
 map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
 map global user '|' '<esc>|' -docstring 'pipe and replace with output'
-map global user 'e' '<esc>i<c-r>#<esc>' -docstring 'enumerate selections'
+map global user 'n' '<esc><a-s>i<c-r>#<esc>;' -docstring 'enumerate selections'
+map global user 's' '<esc><a-x>|sort<ret><a-;>;' -docstring 'sort selection'
 map global user 'Q' '<esc><a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
 
 map global view 'a' '<esc><a-a>' -docstring '<a-a>'
