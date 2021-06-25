@@ -16,7 +16,7 @@ define-command -hidden complete-advanced %{
   try %{ execute-keys 's:<ret>d<esc>\A:<space><esc>' }
   try %{ execute-keys 's<semicolon><ret>d<esc>\A<semicolon><esc>' }
   try %{ execute-keys 's,<ret>d<esc>\A<space>{}<esc>h' }
-  try %{ execute-keys 's/<ret>dh<a-?>[^<minus>a<minus>zA<minus>Z0<minus>9]|^<ret>L"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
+  try %{ execute-keys 's/<ret>d<a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;' }
   try %{ execute-keys 's\\<ret>d<esc>\i<tab><esc>' }
   try %{ execute-keys 's(#|\$)<ret>l\i{}<esc>h' }
 }
