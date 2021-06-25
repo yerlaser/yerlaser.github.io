@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'io/console'
 
 def main
   options = {}
@@ -19,7 +20,7 @@ def main
     o.on('-F', '--Find TEXT'     , String   , 'Text to search case sensitive (no regexp)'            )
     o.on('-g', '--grep PATTERN'  , String   , 'Pattern to search'                                    )
     o.on('-o', '--output FILE'   , String   , 'Output file name'                                     )
-    o.on('-S', '--Separator'     , String   , 'Option separator for {center, left, right}'           )
+    o.on('-S', '--Separator SEP' , String   , 'Option separator for {center, left, right}'           )
     o.on('-t', '--tee'           , TrueClass, 'Also print to stdout (if --output is specified'       )
     o.on('-x', '--xclude TEXT'   , String   , 'Text to exclude case insensitive (no regexp)'         )
     o.on('-X', '--Xclude TEXT'   , String   , 'Text to exclude case sensitive (no regexp)'           )
@@ -37,7 +38,10 @@ def main
     puts "Valid convert methods:\n#{valid_methods.join ', '}"
     exit __LINE__
   end
-      
+
+  if not options[:Separator] then options[:Separator] = '=' end
+  if not options[:Number] then options[:Number] = IO.console.winsize[1] end
+
   output_file = File.open(options[:output], 'w+') if options.has_key? :output
 
   ARGF.each.with_index(1) do |line, num|
@@ -65,18 +69,23 @@ def filter_line(options, line)
 end
 
 def process_line(options, line)
-  l = line
+  l = line.chomp
+  endl = line.sub(l, '')
+
   if options.has_key? :convert
     l = l.capitalize if options[:convert].include? 'sentence'
     l = l.downcase if options[:convert].include? 'lower'
+    l = l.center(options[:Number], options[:Separator]) if options[:convert].include? 'center'
     l = l.swapcase if options[:convert].include? 'swapcase'
     l = l.split(/([[:alpha:]]+)/).map(:capitalize).join if options[:convert].include? 'title'
     l = l.upcase if options[:convert].include? 'upper'
   end
+
   if options.has_key? :eval
     l = eval(options[:eval])
   end
-  l
+
+  "#{l}#{endl}"
 end
 
 if __FILE__ == $0
