@@ -59,7 +59,7 @@ def main
   output_file.close if options.has_key? :output
 end
 
-def filter_line(options, line)
+def filter_line options, line
   if (options.has_key? :Find and not line.include? options[:Find]) then return false end
   if (options.has_key? :find and not line.downcase.include? options[:find].downcase) then return false end
   if (options.has_key? :grep and not line.match? options[:grep]) then return false end
@@ -68,9 +68,9 @@ def filter_line(options, line)
   true
 end
 
-def process_line(options, line)
+def process_line options, line
   l = line.chomp
-  endl = line.sub(l, '')
+  endl = line.sub l, ''
 
   if options.has_key? :convert
     l = l.capitalize if options[:convert].include? 'sentence'
