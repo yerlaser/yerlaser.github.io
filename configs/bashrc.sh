@@ -6,7 +6,7 @@ bind "set completion-ignore-case on"
 bind "set menu-complete-display-prefix on"
 bind "set show-all-if-ambiguous on"
 bind '"\C-\xff":history-expand-line'
-bind '"\e ":"\C-\xff\e[F"'
+bind '"\e ":"\C-\xff\e[F "'
 bind '"\e":end-of-line'
 bind '"\e[Z":history-search-backward'
 bind '"\e[3;2~":backward-kill-word'
