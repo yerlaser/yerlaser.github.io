@@ -25,6 +25,16 @@ bind \e\[B history-prefix-search-forward
 bind \e\[C forward-char
 bind \e\[D backward-char
 
+function fish_prompt
+  if test "$status" -ne 0
+    set_color red
+    echo -n \[$status\]\ 
+  end
+  set_color purple
+  echo -n (date '+%d-%m %H:%M:%S') \| (prompt_pwd)\ 
+  set_color normal
+end
+
 set CDPATH . /LOCAL
 set fish_escape_delay_ms 10
 set fish_greeting
