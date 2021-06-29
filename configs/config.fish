@@ -16,13 +16,15 @@ if command -v kak &> /dev/null
   alias vi kak
 end
 
-# bind \e complete
+bind -k btab history-prefix-search-backward
+bind \e backward-kill-word
+bind \e\[13\;2u end-of-line
+bind \e\x20 self-insert
 bind \e\[A history-prefix-search-backward
 bind \e\[B history-prefix-search-forward
 bind \e\[C forward-char
 bind \e\[D backward-char
-bind \e end-of-line
-bind -k btab history-prefix-search-backward
-bind -k sdc backward-kill-word
 
+set CDPATH . /LOCAL
+set fish_escape_delay_ms 10
 set fish_greeting
