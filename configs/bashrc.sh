@@ -20,4 +20,4 @@ shopt -s histappend
 shopt -s histverify
 HISTCONTROL=ignoredups:erasedups:ignorespace
 
-source ~/Published/configs/shrc.sh
+source /LOCAL/Published/configs/shrc.sh
