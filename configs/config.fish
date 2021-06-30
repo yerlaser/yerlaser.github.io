@@ -17,7 +17,7 @@ if command -v kak &> /dev/null
 end
 
 bind -k btab history-prefix-search-backward
-bind \e backward-kill-word
+bind -k sdc backward-kill-word
 bind \e\[13\;2u end-of-line
 bind \e\x20 self-insert
 bind \e\[A history-prefix-search-backward

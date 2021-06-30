@@ -22,9 +22,9 @@ window:
 
 key_bindings:
   - { key: C, mods: Control , chars: "\x03" }
-  - { key: Back, mods: Shift , chars: "\x1b" }
+  - { key: Back, mods: Shift , chars: "\x1b[3;2~" }
   - { key: Return, mods: Command , action: ToggleViMode }
-  - { key: Return, mods: Control, action: ToggleViMode }
+  - { key: Return, mods: Alt, action: ToggleViMode }
   - { key: Return, mods: Shift , chars: "\x1b[13;2u" }
   - { key: Space, mods: Shift , chars: "\x1b\x20" }
   - { key: 41, mods: None , chars: "`" }
@@ -34,6 +34,13 @@ key_bindings:
   - { key: 26, mods: Shift , chars: "{" }
   - { key: 27, mods: None , chars: "]" }
   - { key: 27, mods: Shift , chars: "}" }
+  - { key: Grave, mods: None , chars: "`" }
+  - { key: Grave, mods: Shift , chars: "~" }
+  - { key: Equals, mods: None , chars: "=" }
+  - { key: LBracket, mods: None , chars: "[" }
+  - { key: LBracket, mods: Shift , chars: "{" }
+  - { key: RBracket, mods: None , chars: "]" }
+  - { key: RBracket, mods: Shift , chars: "}" }
 
 # Colors (Tomorrow Night)
 colors:
