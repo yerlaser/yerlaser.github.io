@@ -1,27 +1,3 @@
-Before neo
-	 <variant>
-	   <configItem>
-	     <name>DeFr</name>
-	     <description>Deutsch - Français</description>
-	   </configItem>
-	 </variant>
-
-After kazrus
-	 <variant>
-	   <configItem>
-	     <name>KzPhon</name>
-	     <description>Kazakh Phonetic</description>
-	   </configItem>
-	 </variant>
-
-After kazrus
-	 <variant>
-	   <configItem>
-	     <name>DeFrKz</name>
-	     <description>Deutsch Français Kazakh</description>
-	   </configItem>
-	 </variant>
-
 After kazrus
 	 <variant>
 	   <configItem>

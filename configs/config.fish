@@ -18,6 +18,7 @@ end
 
 bind -k btab history-prefix-search-backward
 bind -k sdc backward-kill-word
+bind \e kill-whole-line
 bind \e\[13\;2u end-of-line
 bind \e\x20 self-insert
 bind \e\[A history-prefix-search-backward
