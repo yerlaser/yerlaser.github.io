@@ -19,8 +19,8 @@ end
 bind -k btab history-prefix-search-backward
 bind -k nul kill-whole-line
 bind -k sdc backward-kill-word
-bind \b beginning-of-line
-bind \f end-of-line
+bind \e\[5\;6~ accept-autosuggestion
+bind \e\[6\;6~ suppress-autosuggestion
 bind \e\[13\;2u complete-and-search
 bind \e\x20 self-insert
 
