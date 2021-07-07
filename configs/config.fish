@@ -19,13 +19,10 @@ end
 bind -k btab history-prefix-search-backward
 bind -k nul kill-whole-line
 bind -k sdc backward-kill-word
-bind \e beginning-of-line
-bind \e\[13\;2u end-of-line
+bind \b beginning-of-line
+bind \f end-of-line
+bind \e\[13\;2u complete-and-search
 bind \e\x20 self-insert
-bind \e\[A history-prefix-search-backward
-bind \e\[B history-prefix-search-forward
-bind \e\[C forward-char
-bind \e\[D backward-char
 
 function fish_prompt
   if test "$status" -ne 0
@@ -38,5 +35,4 @@ function fish_prompt
 end
 
 set CDPATH . /LOCAL
-set fish_escape_delay_ms 10
 set fish_greeting
