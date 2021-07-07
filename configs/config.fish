@@ -17,11 +17,13 @@ if command -v kak &> /dev/null
 end
 
 bind -k btab history-prefix-search-backward
-bind -k nul kill-whole-line
-bind -k sdc backward-kill-word
-bind \e\[5\;6~ accept-autosuggestion
-bind \e\[6\;6~ suppress-autosuggestion
-bind \e\[13\;2u complete-and-search
+bind -k nul accept-autosuggestion
+bind -k sdc backward-kill-line
+bind \b kill-line
+bind \e\[5\;6~ backward-jump
+bind \e\[6\;6~ forward-jump
+bind \e\[13\;2u backward-word
+bind \e\[13\;3u forward-word
 bind \e\x20 self-insert
 
 function fish_prompt
