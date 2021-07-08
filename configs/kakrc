@@ -7,6 +7,9 @@ hook global InsertChar \( %{ exec )<left> }
 hook global InsertChar \[ %{ exec ]<left> }
 hook global InsertChar \{ %[ exec }<left> ]
 
+hook global NormalKey 0 'switch-number-line -relative'
+hook global NormalKey \D.* 'switch-number-line'
+
 hook global WinSetOption filetype=html %{
   map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
   map buffer insert '<c-space>' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'add block'
@@ -17,30 +20,12 @@ hook global WinSetOption filetype=python %{
   set-option buffer tabstop 4
 }
 
-define-command -hidden align-selection %{ try %{ execute-keys '<a-C><a-&>(<space>' } }
-define-command -hidden extend-next-hump %{ execute-keys ?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
-define-command -hidden extend-previous-hump %{ execute-keys <a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret> }
+define-command -hidden extend-next-hump %{ execute-keys '?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret>' }
+define-command -hidden extend-previous-hump %{ execute-keys '<a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret>' }
 
 define-command switch-number-line -params .. %{
   try %{ remove-highlighter window/number_lines }
   add-highlighter window/number_lines number-lines %arg{@}
-}
-hook global NormalKey 0 'switch-number-line -relative'
-hook global NormalKey \D.* 'switch-number-line'
-
-hook global InsertDelete ' ' %{ try %{ execute-keys -draft 'h<a-h><a-k>\A\h+\z<ret>i<space><esc><lt>' }}
-hook global InsertCompletionShow .* %{
-  try %{
-    execute-keys -draft 'h<a-K>\h<ret>'
-    map window insert '<a-space>' '<c-o>' -docstring 'stop autocomplete for this insert session'
-    map window insert '<s-tab>' '<c-p>' -docstring 'previous autocomplete suggestion'
-    map window insert '<tab>' '<c-n>' -docstring 'next autocomplete suggestion'
-    hook -once -always window InsertCompletionHide .* %{
-      map window insert '<a-space>' ' ' -docstring 'insert space'
-      map window insert '<s-tab>' '<tab>' -docstring 'simple tab'
-      map window insert '<tab>' '<right>' -docstring 'right'
-    }
-  }
 }
 
 map global goto '0' 'h' -docstring 'to line start'
@@ -84,7 +69,7 @@ map global normal '%' 'm' -docstring 'select to matching pair'
 map global normal '^' 'Gi' -docstring 'select to line start'
 map global normal '*' '<a-i>w*' -docstring 'find word under cursor'
 map global normal '<minus>' '<a-space>' -docstring 'remove main selection'
-map global normal '=' ': align-selection<ret>' -docstring 'align selection'
+map global normal '=' 'K<a-J>c<ret><esc>' -docstring 're-align lines'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
