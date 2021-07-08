@@ -4,7 +4,7 @@ bind "set completion-ignore-case on"
 bind "set menu-complete-display-prefix on"
 bind "set show-all-if-ambiguous on"
 bind '"\C-@":history-expand-line'
-bind '"\e ":"\C-@ "'
+bind '"\e ":" "'
 bind '"\e[1;5F":"\C-@\e[F"'
 bind '"\e[1;5H":"\C-@\e[H"'
 bind '"\e[13;2u":history-search-forward'
