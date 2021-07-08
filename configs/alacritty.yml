@@ -10,8 +10,8 @@ mouse:
 scrolling:
   history: 10000
 
-shell:
-  program: /home/yerlan/.local/bin/fish
+# shell:
+#   program: /home/yerlan/.local/bin/fish
 
 window:
   decorations: none
@@ -21,29 +21,26 @@ window:
 
 
 key_bindings:
-  # - { key: Colon, mods: Control , chars: "\x1b[5;6~" }
-  - { key: 39, mods: Control , chars: "\x1b[5;6~" }
-  - { key: Apostrophe, mods: Control , chars: "\x1b[6;6~" }
-  # - { key: 40, mods: Control , chars: "\x1b[6;6~" }
-  - { key: Back, mods: Shift , chars: "\x1b[3;2~" }
-  - { key: Return, mods: Control, chars: "\x1b[13;3u" }
-  - { key: Return, mods: Shift , chars: "\x1b[13;2u" }
-  - { key: Space, mods: Shift , chars: "\x1b\x20" }
-  # - { key: C, mods: Control , chars: "\x03" }
-  - { key: 41, mods: None , chars: "`" }
-  - { key: 41, mods: Shift , chars: "~" }
-  - { key: 13, mods: None , chars: "=" }
-  - { key: 26, mods: None , chars: "[" }
-  - { key: 26, mods: Shift , chars: "{" }
-  - { key: 27, mods: None , chars: "]" }
-  - { key: 27, mods: Shift , chars: "}" }
-  # - { key: Grave, mods: None , chars: "`" }
-  # - { key: Grave, mods: Shift , chars: "~" }
-  # - { key: Equals, mods: None , chars: "=" }
-  # - { key: LBracket, mods: None , chars: "[" }
-  # - { key: LBracket, mods: Shift , chars: "{" }
-  # - { key: RBracket, mods: None , chars: "]" }
-  # - { key: RBracket, mods: Shift , chars: "}" }
+  - { key: Back, mods: Control, chars: "\x1b[3;2~" }
+  - { key: Back, mods: Shift, chars: "\x1b[1;5H" }
+  - { key: Return, mods: Control, chars: "\x1b[1;5F" }
+  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
+  - { key: Space, mods: Shift, chars: "\x1b\x20" }
+  # - { key: C, mods: Control, chars: "\x03" }
+  - { key: 41, mods: None, chars: "`" }
+  - { key: 41, mods: Shift, chars: "~" }
+  - { key: 13, mods: None, chars: "=" }
+  - { key: 26, mods: None, chars: "[" }
+  - { key: 26, mods: Shift, chars: "{" }
+  - { key: 27, mods: None, chars: "]" }
+  - { key: 27, mods: Shift, chars: "}" }
+  # - { key: Grave, mods: None, chars: "`" }
+  # - { key: Grave, mods: Shift, chars: "~" }
+  # - { key: Equals, mods: None, chars: "=" }
+  # - { key: LBracket, mods: None, chars: "[" }
+  # - { key: LBracket, mods: Shift, chars: "{" }
+  # - { key: RBracket, mods: None, chars: "]" }
+  # - { key: RBracket, mods: Shift, chars: "}" }
 
 # Colors (Tomorrow Night)
 colors:
