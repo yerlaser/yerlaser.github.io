@@ -10,8 +10,8 @@ mouse:
 scrolling:
   history: 10000
 
-# shell:
-#   program: /home/yerlan/.local/bin/fish
+shell:
+  program: /home/yerlan/.local/bin/fish
 
 window:
   decorations: none
@@ -21,8 +21,8 @@ window:
 
 
 key_bindings:
-  - { key: Back, mods: Control, chars: "\x1b[3;2~" }
-  - { key: Back, mods: Shift, chars: "\x1b[1;5H" }
+  - { key: Back, mods: Control, chars: "\x1b[3;6~" }
+  - { key: Back, mods: Shift, chars: "\x1b[3;2~" }
   - { key: Return, mods: Control, chars: "\x1b[1;5F" }
   - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
   - { key: Space, mods: Shift, chars: "\x1b\x20" }
@@ -41,6 +41,8 @@ key_bindings:
   # - { key: LBracket, mods: Shift, chars: "{" }
   # - { key: RBracket, mods: None, chars: "]" }
   # - { key: RBracket, mods: Shift, chars: "}" }
+  - { key: 26, mods: Control, chars: "\x1b" }
+  - { key: 27, mods: Control, chars: "" }
 
 # Colors (Tomorrow Night)
 colors:

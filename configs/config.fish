@@ -16,14 +16,13 @@ if command -v kak &> /dev/null
   alias vi kak
 end
 
-bind -k nul forward-word
-bind -k sdc backward-kill-line
-bind \b kill-line
+bind -k nul backward-jump
+bind -k sdc delete-char
 bind \cN history-prefix-search-forward
 bind \cP history-prefix-search-backward
-bind \e\[5\;6~ backward-jump
-bind \e\[6\;6~ accept-autosuggestion
-bind \e\[13\;2u backward-word
+bind \e\[1\;5F end-of-line
+bind \e\[1\;5H beginning-of-line
+bind \e\[3\;6~ backward-kill-word
 bind \e\x20 self-insert
 
 function fish_prompt
