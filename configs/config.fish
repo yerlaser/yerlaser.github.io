@@ -23,6 +23,7 @@ bind \cP history-prefix-search-backward
 bind \e\[1\;5F end-of-line
 bind \e\[1\;5H beginning-of-line
 bind \e\[3\;6~ backward-kill-word
+# bind \e\[13\;2u
 bind \e\x20 self-insert
 
 function fish_prompt
