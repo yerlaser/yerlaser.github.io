@@ -26,6 +26,7 @@ key_bindings:
   - { key: Return, mods: Control, chars: "\x1b[1;5F" }
   - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
   - { key: Space, mods: Shift, chars: "\x1b\x20" }
+  - { key: Tab, mods: Control, chars: "\x1b[1;5H" }
   # - { key: C, mods: Control, chars: "\x03" }
   - { key: 41, mods: None, chars: "`" }
   - { key: 41, mods: Shift, chars: "~" }
