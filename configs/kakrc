@@ -2,7 +2,6 @@ add-highlighter global/ number-lines
 
 hook global InsertChar \' %{ exec \'<left> }
 hook global InsertChar \" %{ exec \"<left> }
-hook global InsertChar ` %{ exec `<left> }
 hook global InsertChar \( %{ exec )<left> }
 hook global InsertChar \[ %{ exec ]<left> }
 hook global InsertChar \{ %[ exec }<left> ]
@@ -12,9 +11,11 @@ hook global NormalKey \D.* 'switch-number-line'
 
 hook global WinSetOption filetype=css %{ map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
 hook global WinSetOption filetype=html %{
+  hook buffer InsertChar < %{ exec ><left> }
   map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
   map buffer insert '<c-space>' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'add block'
 }
+hook global WinSetOption filetype=(javascript|ruby) %{ hook buffer InsertChar ` %{ exec `<left> } }
 hook global WinSetOption filetype=python %{
   map buffer insert '<s-ret>' '<ret>' -docstring 'simple return'
   set-option buffer indentwidth 4
