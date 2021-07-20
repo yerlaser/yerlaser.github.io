@@ -16,15 +16,15 @@ if command -v kak &> /dev/null
   alias vi kak
 end
 
-bind -k nul backward-jump
-bind -k sdc delete-char
-bind \cN history-prefix-search-forward
-bind \cP history-prefix-search-backward
-bind \e\[1\;5F end-of-line
-bind \e\[1\;5H beginning-of-line
-bind \e\[3\;6~ backward-kill-word
-# bind \e\[13\;2u
+bind \e\[13\;2u complete-and-search
+bind \e\[1\;5F history-token-search-backward
+bind \e\[1\;5H history-prefix-search-backward
+bind \e\[3\;6~ backward-kill-bigword
 bind \e\x20 self-insert
+bind \t forward-char
+bind -k btab complete
+bind -k nul backward-jump
+bind -k sdc backward-kill-word
 
 function fish_prompt
   if test "$status" -ne 0
