@@ -9,11 +9,11 @@ hook global InsertChar \{ %[ exec }<left> ]
 hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
-    map window insert <tab> <c-n> -docstring 'next suggestion'
-    map window insert <s-tab> <c-p> -docstring 'previous suggestion'
+    map window insert <c-home> <c-p> -docstring 'previous suggestion'
+    map window insert <s-tab> <c-n> -docstring 'next suggestion'
     hook -once -always window InsertCompletionHide .* %{
-      unmap window insert <tab> <c-n>
-      unmap window insert <s-tab> <c-p>
+      unmap window insert <c-home> <c-p>
+      unmap window insert <s-tab> <c-n>
     }
   }
 }
@@ -22,6 +22,7 @@ hook global NormalKey 0 'switch-number-line -relative'
 hook global NormalKey \D.* 'switch-number-line'
 
 hook global WinSetOption filetype=css %{ map buffer normal '<minus>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
+hook global WinSetOption filetype=go %{ set-option buffer formatcmd gofmt }
 hook global WinSetOption filetype=html %{
   hook buffer InsertChar < %{ exec ><left> }
   map buffer normal '<minus>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
@@ -61,7 +62,6 @@ map global insert '<s-tab>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<s
 map global insert '<tab>' '<right>' -docstring 'right'
 
 # map global normal '<c-space>'
-# map global normal "'"
 # map global normal '<s-del>'
 # map global normal '<s-tab>'
 # map global normal '<tab>'
@@ -73,7 +73,7 @@ map global normal '<c-home>' ': buffer ' -docstring 'select buffer'
 map global normal '<c-n>' ': extend-next-hump<ret>' -docstring 'extend next word part'
 map global normal '<c-p>' ': extend-previous-hump<ret>' -docstring 'extend previous word part'
 map global normal '<c-r>' 'U' -docstring 'redo'
-map global normal '<ret>' 'A' -docstring ''
+map global normal '<ret>' 'i<ret>' -docstring 'insert return'
 map global normal '<s-ret>' '<a-O>' -docstring 'add blank line above'
 map global normal '<space>' ';' -docstring 'collapse selection'
 map global normal '`' 'z' -docstring 'restore selection from register'
@@ -90,6 +90,7 @@ map global normal '=' 'K<a-J>c<ret><esc>' -docstring 're-align lines'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
+map global normal "'" ': format<ret>' -docstring 'format buffer'
 map global normal '|' '<a-x>|sort' -docstring 'pipe and replace with output'
 map global normal 'a' 'li' -docstring 'append after cursor'
 map global normal 'B' '<a-B>' -docstring 'select to WORD start'
