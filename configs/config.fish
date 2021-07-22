@@ -11,9 +11,8 @@ if command -v podman &> /dev/null
   alias docker podman
 end
 
-if command -v kak &> /dev/null
-  alias kakn 'kak -n'
-  alias vi kak
+if command -v hx &> /dev/null
+  alias vi hx
 end
 
 bind \e\[13\;2u complete-and-search
