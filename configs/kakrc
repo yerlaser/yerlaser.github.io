@@ -9,11 +9,11 @@ hook global InsertChar \{ %[ exec }<left> ]
 hook global InsertCompletionShow .* %{
   try %{
     execute-keys -draft 'h<a-K>\h<ret>'
-    map window insert <c-home> <c-p> -docstring 'previous suggestion'
-    map window insert <s-tab> <c-n> -docstring 'next suggestion'
+    map window insert <s-tab> <c-p> -docstring 'previous suggestion'
+    map window insert <tab> <c-n> -docstring 'next suggestion'
     hook -once -always window InsertCompletionHide .* %{
-      unmap window insert <c-home> <c-p>
-      unmap window insert <s-tab> <c-n>
+      unmap window insert <s-tab> <c-p>
+      unmap window insert <tab> <c-n>
     }
   }
 }
