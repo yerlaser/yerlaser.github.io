@@ -7,11 +7,15 @@
         map[Shift+LevelThree] = Level4;
         map[Lock] = Level5;
         map[Shift+Lock] = Level6;
+        map[LevelThree+Lock] = Level7;
+        map[LevelThree+Shift+Lock] = Level8;
         level_name[Level1] = "Base";
         level_name[Level2] = "Shift";
         level_name[Level3] = "Alt Base";
         level_name[Level4] = "Shift Alt";
         level_name[Level5] = "Lock Base";
         level_name[Level6] = "Shift Lock";
+        level_name[Level7] = "Lock Alt";
+        level_name[Level8] = "Shift Lock Alt";
     };
 

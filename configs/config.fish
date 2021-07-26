@@ -16,8 +16,8 @@ if command -v hx &> /dev/null
 end
 
 bind \e\[13\;2u complete-and-search
-bind \e\[1\;5F history-token-search-backward
-bind \e\[1\;5H history-prefix-search-backward
+bind \e\[1\;5C history-token-search-backward
+bind \e\[1\;5D history-prefix-search-backward
 bind \e\[3\;6~ backward-kill-bigword
 bind \e\x20 self-insert
 bind \t forward-char
