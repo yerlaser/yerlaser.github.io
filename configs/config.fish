@@ -15,6 +15,11 @@ if command -v hx &> /dev/null
   alias vi hx
 end
 
+if command -v kak &> /dev/null
+  alias kakn 'kak -n'
+  alias vi kak
+end
+
 bind \e\[13\;2u complete-and-search
 bind \e\[1\;5C history-token-search-backward
 bind \e\[1\;5D history-prefix-search-backward
