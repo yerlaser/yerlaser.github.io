@@ -4,7 +4,7 @@ hook global InsertChar \' %{ exec \'<left> }
 hook global InsertChar \" %{ exec \"<left> }
 hook global InsertChar \( %{ exec )<left> }
 hook global InsertChar \[ %{ exec ]<left> }
-hook global InsertChar \{ %[ exec }<left> ]
+# hook global InsertChar \{ %[ exec }<left> ]
 
 hook global InsertCompletionShow .* %{
   try %{
@@ -54,7 +54,8 @@ map global insert '<c-right>' '<end>' -docstring 'to line end'
 map global insert '<c-u>' '<esc>b~/\W<ret>' -docstring 'word to uppercase'
 map global insert '<c-s-del>' '<del>' -docstring 'delete'
 map global insert '<ret>' '<esc>' -docstring 'escape'
-map global insert '<s-right>' '<ret><esc>O' -docstring 'insert indented block'
+# map global insert '<s-right>' '<ret><esc>O' -docstring 'insert indented block'
+map global insert '<s-right>' '<ret>' -docstring 'simple return'
 map global insert '<c-space>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>'
 map global insert '<tab>' '<right>' -docstring 'right'
 
@@ -135,4 +136,4 @@ map global view 'i' '<esc><a-i>' -docstring '<a-i>'
 set-option global indentwidth 2
 set-option global tabstop 2
 
-colorscheme tomorrow-night
+# colorscheme tomorrow-night

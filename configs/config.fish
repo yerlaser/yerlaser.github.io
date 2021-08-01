@@ -20,7 +20,6 @@ if command -v kak &> /dev/null
   alias vi kak
 end
 
-bind \e\[13\;2u complete-and-search
 bind \e\[1\;5C history-token-search-backward
 bind \e\[1\;5D history-prefix-search-backward
 bind \e\[3\;6~ backward-kill-bigword
@@ -29,6 +28,7 @@ bind \t forward-char
 bind -k btab complete
 bind -k nul backward-jump
 bind -k sdc backward-kill-word
+bind -k sright complete-and-search
 
 function fish_prompt
   if test "$status" -ne 0
