@@ -73,19 +73,19 @@ def process_line(args, line, num):
     if args.Append: l = f'{l}{args.Append.rjust(args.Number - len(l), args.Separator)}'
     if args.append: l = f'{l}{args.Separator}{args.append}'
     if args.convert:
-        if 'trim' in args.convert: l = l.strip()
-        if 'trimleft' in args.convert: l = l.lstrip()
+        if 'trim'      in args.convert: l = l.strip()
+        if 'trimleft'  in args.convert: l = l.lstrip()
         if 'trimright' in args.convert: l = l.rstrip()
 
-        if 'lower' in args.convert: l = l.lower()
-        if 'sentence' in args.convert: l = l.capitalize()
-        if 'swapcase' in args.convert: l = l.swapcase()
-        if 'title' in args.convert: l = l.title()
-        if 'upper' in args.convert: l = l.upper()
+        if 'lower'     in args.convert: l = l.lower()
+        if 'sentence'  in args.convert: l = l.capitalize()
+        if 'swapcase'  in args.convert: l = l.swapcase()
+        if 'title'     in args.convert: l = l.title()
+        if 'upper'     in args.convert: l = l.upper()
 
-        if 'center' in args.convert: l = l.center(args.Number, args.Separator)
-        if 'left' in args.convert: l = l.ljust(args.Number, args.Separator)
-        if 'right' in args.convert: l = l.rjust(args.Number, args.Separator)
+        if 'center'    in args.convert: l = l.center(args.Number, args.Separator)
+        if 'left'      in args.convert: l = l.ljust(args.Number, args.Separator)
+        if 'right'     in args.convert: l = l.rjust(args.Number, args.Separator)
     return l + e
 
 if __name__ == '__main__':

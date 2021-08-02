@@ -23,7 +23,7 @@ hook global InsertCompletionShow .* %{
 hook global NormalKey 0 'switch-number-line -relative'
 hook global NormalKey \D.* 'switch-number-line'
 
-hook global WinSetOption filetype=css %{ map buffer normal '<minus>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
+hook global WinSetOption filetype=css %{ map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
 hook global WinSetOption filetype=go %{
   set-option buffer formatcmd gofmt
   set-option buffer indentwidth 0
@@ -32,7 +32,7 @@ hook global WinSetOption filetype=go %{
 hook global WinSetOption filetype=html %{
   hook buffer InsertChar < %{ exec ><left> }
   map buffer insert '<c-space>' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'html tag from previous word'
-  map buffer normal '<minus>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
+  map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
 }
 hook global WinSetOption filetype=(javascript|ruby) %{ hook buffer InsertChar ` %{ exec `<left> } }
 hook global WinSetOption filetype=python %{
@@ -72,6 +72,7 @@ map global insert '<tab>' '<right>' -docstring 'right'
 # map global normal '<space>'
 map global normal '<a-space>' '<space>' -docstring 'remove additional selections'
 map global normal '<backspace>' '<a-(>' -docstring 'rotate contents left'
+map global normal '<c-_>' ': comment-line<ret>' -docstring 'comment/uncomment line'
 map global normal '<c-s-del>' '<a-)>' -docstring 'rotate contents right'
 map global normal '<c-right>' '<a-x><a-s>' -docstring 'split selection into lines'
 map global normal '<c-a>' '%' -docstring 'select entire buffer'
@@ -93,7 +94,7 @@ map global normal '$' '<a-L>' -docstring 'select to line end'
 map global normal '%' 'm' -docstring 'select to matching pair'
 map global normal '^' 'Gi' -docstring 'select to line start'
 map global normal '*' '<a-i>w*' -docstring 'find word under cursor'
-map global normal '<minus>' ': comment-line<ret>' -docstring 'comment/uncomment line'
+# map global normal '<minus>' ': comment-line<ret>' -docstring 'comment/uncomment line'
 map global normal '=' 'K<a-J>c<ret><esc>' -docstring 're-align lines'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
