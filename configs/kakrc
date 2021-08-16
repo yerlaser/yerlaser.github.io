@@ -5,6 +5,8 @@ hook global InsertChar \" %{ exec \"<left> }
 hook global InsertChar \( %{ exec )<left> }
 hook global InsertChar \[ %{ exec ]<left> }
 hook global InsertChar \{ %[ exec }<left> ]
+# hook global InsertChar \n %{ exec <backspace><esc> }
+# hook global InsertChar \t %{ exec <backspace><right> }
 
 hook global InsertCompletionShow .* %{
   try %{
@@ -55,15 +57,13 @@ map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
 # map global insert '<c-s-del>'
 map global insert '<a-space>' ' ' -docstring 'insert space'
-map global insert '<c-left>' '<end>' -docstring 'to line end'
+map global insert '<c-end>' '<end>' -docstring 'to line end'
 map global insert '<c-right>' '<ret>' -docstring 'simple return'
 map global insert '<c-u>' '<esc>b~/\W<ret>' -docstring 'word to uppercase'
 map global insert '<c-space>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
-map global insert '<ret>' '<esc>' -docstring 'escape'
 map global insert '<s-del>' '<del>' -docstring 'delete'
 map global insert '<s-right>' '<ret><esc>O' -docstring 'insert indented block'
 map global insert '<s-tab>' '<tab>' -docstring 'simple tab'
-map global insert '<tab>' '<right>' -docstring 'right'
 
 # map global normal '<c-space>'
 # map global normal '<s-del>'

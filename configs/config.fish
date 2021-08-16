@@ -11,21 +11,21 @@ if command -v podman &> /dev/null
   alias docker podman
 end
 
-if command -v hx &> /dev/null
-  alias vi hx
-end
-
 if command -v kak &> /dev/null
   alias kakn 'kak -n'
   alias vi kak
 end
 
+if command -v hx &> /dev/null
+  alias vi hx
+end
+
 bind \e\[1\;5C history-token-search-backward
-bind \e\[1\;5D history-prefix-search-backward
+bind \e\[1\;5F end-of-line
 bind \e\[3\;6~ backward-kill-bigword
 bind \e\x20 self-insert
-bind \t forward-char
-bind -k btab complete
+bind \f forward-char
+bind -k btab history-prefix-search-backward
 bind -k nul backward-jump
 bind -k sdc backward-kill-word
 bind -k sright complete-and-search
