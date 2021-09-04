@@ -11,13 +11,13 @@ if command -v podman &> /dev/null
   alias docker podman
 end
 
+if command -v hx &> /dev/null
+  alias vi hx
+end
+
 if command -v kak &> /dev/null
   alias kakn 'kak -n'
   alias vi kak
-end
-
-if command -v hx &> /dev/null
-  alias vi hx
 end
 
 bind \e\[1\;5C history-token-search-backward
