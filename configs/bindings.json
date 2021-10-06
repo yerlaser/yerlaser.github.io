@@ -1,0 +1,9 @@
+{
+    "Alt-/": "lua:comment.comment",
+//    "CtrlH": "CursorLeft",
+//    "Ctrl-h": "CursorLeft",
+//    "Ctrl-j": "CursorDown",
+//    "Ctrl-k": "CursorUp",
+//    "Ctrl-l": "CursorRight",
+    "CtrlUnderscore": "lua:comment.comment"
+}
