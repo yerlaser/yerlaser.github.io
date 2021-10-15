@@ -9,11 +9,19 @@ scrolling:
   history: 10000
 window:
   decorations: none
-  startup_mode: Maximized
+  startup_mode: Fullscreen
+  # startup_mode: Maximized
 key_bindings:
-  - { key: Back, mods: Control, chars: "\x1b[3;6~" }
+  - { key: Insert, mods: Shift, chars: "\x1b[2;2~" }
+  - { key: F21, mods: None, chars: "\x1b[42~" }
+  - { key: F22, mods: None, chars: "\x1b[43~" }
+  - { key: F23, mods: None, chars: "\x1b[44~" }
+  - { key: F21, mods: Shift, chars: "\x1b[42;2~" }
+  - { key: F22, mods: Shift, chars: "\x1b[43;2~" }
+  - { key: F23, mods: Shift, chars: "\x1b[44;2~" }
+  # - { key: Back, mods: Control, chars: "\x1b[3;6~" }
   - { key: Back, mods: Shift, chars: "\x1b[3;2~" }
-  - { key: Return, mods: Control, chars: "\x1b[1;5C" }
+  # - { key: Return, mods: Control, chars: "\x1b[1;5C" }
   - { key: Return, mods: Shift, chars: "\x1b[1;2C" }
   # - { key: Semicolon, mods: Control, chars: "\x1b[1;5F" }
   - { key: Space, mods: Shift, chars: "\x1b\x20" }
@@ -38,6 +46,6 @@ key_bindings:
   # - { key: J, mods: Control|Shift, chars: "\x1b[1;2B"}
   # - { key: K, mods: Control|Shift, chars: "\x1b[1;2A"}
   # - { key: L, mods: Control|Shift, chars: "\x1b[1;2C"}
-# shell:
-  # program: /home/yerlan/.local/bin/elvish
+shell:
+  program: /home/yerlan/.local/bin/elvish
 # working_directory: Synced
