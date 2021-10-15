@@ -50,8 +50,8 @@ xkb_symbols "DeQwerty" {
   key <AB10> { [ slash                   , question                , eacute                  , Eacute                  ] };
   key <BKSL> { [ backslash               , bar                     , ugrave                  , Ugrave                  ] };
   key <LSGT> { [ EuroSign                , U1E9E                   , cent                    , degree                  ] };
-  key <SPCE> { [ Space                   , Space                   , Next                    , Next                    ] };
-  key <TAB>  { [ TAB                     , ISO_Left_Tab            , Prior                   , Prior                   ] };
+  key <SPCE> { [ Space                   , Space                   , Next                    , Prior                   ] };
   
-  key <CAPS> { type[Group1] = "TWO_LEVEL", symbols[Group1] = [ Caps_Lock, Caps_Lock ], actions[Group1] = [ SetMods(modifiers=Lock), LockMods(modifiers=Lock) ] };
+  key <TAB> {symbols[Group1]=[TAB, ISO_Left_Tab, Caps_Lock, Caps_Lock], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
+  key <CAPS> {type[Group1]="TWO_LEVEL", symbols[Group1]=[Caps_Lock, Caps_Lock], actions[Group1]=[SetMods(modifiers=Lock), SetMods(modifiers=Lock)]};
 };
