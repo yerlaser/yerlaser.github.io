@@ -43,16 +43,14 @@ xkb_symbols "DeQwerty" {
   key <AB03> { [ c                       , C                       , F14                     , F14                     ] };
   key <AB04> { [ v                       , V                       , F15                     , F15                     ] };
   key <AB05> { [ b                       , B                       , F16                     , F16                     ] };
-  key <AB06> { [ n                       , N                       , F17                     , F17                     ] };
-  key <AB07> { [ m                       , M                       , F18                     , F18                     ] };
+  key <AB06> { [ n                       , N                       , Prior                   , Prior                   ] };
+  key <AB07> { [ m                       , M                       , Next                    , Next                    ] };
   key <AB08> { [ comma                   , less                    , agrave                  , Agrave                  ] };
   key <AB09> { [ period                  , greater                 , egrave                  , Egrave                  ] };
   key <AB10> { [ slash                   , question                , eacute                  , Eacute                  ] };
   key <BKSL> { [ backslash               , bar                     , ugrave                  , Ugrave                  ] };
   key <LSGT> { [ EuroSign                , U1E9E                   , cent                    , degree                  ] };
-  key <RTRN> { [ Return                  , Return                  , Next                    , Next                    ] };
-  key <TAB>  { [ Tab                     , ISO_Left_Tab            , Prior                   , Prior                   ] };
   
-  key <SPCE> {symbols[Group1]=[Space, Space, NoSymbol, NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
+  key <TAB> {symbols[Group1]=[Tab, ISO_Left_Tab, NoSymbol, NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
   key <CAPS> {type[Group1]="TWO_LEVEL", symbols[Group1]=[NoSymbol, NoSymbol], actions[Group1]=[SetMods(modifiers=Lock), SetMods(modifiers=Lock)]};
 };

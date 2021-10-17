@@ -4,6 +4,9 @@ edit:prompt = { styled (tilde-abbr $pwd) magenta; put ' ' }
 edit:rprompt-persistent = $true
 edit:rprompt = { styled (date '+%c') magenta }
 
+edit:insert:binding[Alt-h] = { edit:history:start }
+edit:insert:binding[Alt-l] = { edit:location:start }
+
 fn ... { cd ../.. }
 fn dir [@a]{ e:ls -FAhl $@a }
 fn dirsize [@a]{ e:ls -FAhlrS $@a }
