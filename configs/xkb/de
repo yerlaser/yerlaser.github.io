@@ -51,6 +51,6 @@ xkb_symbols "DeQwerty" {
   key <BKSL> { [ backslash               , bar                     , ugrave                  , Ugrave                  ] };
   key <LSGT> { [ EuroSign                , U1E9E                   , cent                    , degree                  ] };
   
-  key <TAB> {symbols[Group1]=[Tab, ISO_Left_Tab, NoSymbol, NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
+  key <RTRN> {symbols[Group1]=[Return, Return, NoSymbol, NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
   key <CAPS> {type[Group1]="TWO_LEVEL", symbols[Group1]=[NoSymbol, NoSymbol], actions[Group1]=[SetMods(modifiers=Lock), SetMods(modifiers=Lock)]};
 };
