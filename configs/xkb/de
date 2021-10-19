@@ -6,9 +6,7 @@ xkb_symbols "DeQwerty" {
   key <AE01> { [ 1                       , exclam                  , idiaeresis              , Idiaeresis              ] };
   key <AE02> { [ 2                       , at                      , ae                      , AE                      ] };
   key <AE03> { [ 3                       , numbersign              , ediaeresis              , Ediaeresis              ] };
-  key <AE04> { [ 4                       , dollar                  , EuroSign                , cent                    ] };
   key <AE05> { [ 5                       , percent                 , oe                      , OE                      ] };
-  key <AE06> { [ 6                       , asciicircum             , ydiaeresis              , Ydiaeresis              ] };
   key <AE07> { [ 7                       , ampersand               , ucircumflex             , Ucircumflex             ] };
   key <AE08> { [ 8                       , asterisk                , icircumflex             , Icircumflex             ] };
   key <AE09> { [ 9                       , parenleft               , ocircumflex             , Ocircumflex             ] };
@@ -22,12 +20,10 @@ xkb_symbols "DeQwerty" {
   key <AD05> { [ t                       , T                       , F7                      , F7                      ] };
   key <AD06> { [ y                       , Y                       , F8                      , F8                      ] };
   key <AD07> { [ u                       , U                       , F9                      , F9                      ] };
-  key <AD08> { [ i                       , I                       , Home                    , Home                    ] };
   key <AD09> { [ o                       , O                       , End                     , End                     ] };
   key <AD10> { [ p                       , P                       , Pause                   , Pause                   ] };
   key <AD11> { [ bracketleft             , braceleft               , udiaeresis              , Udiaeresis              ] };
   key <AD12> { [ bracketright            , braceright              , ccedilla                , Ccedilla                ] };
-  key <AC01> { [ a                       , A                       , F10                     , F10                     ] };
   key <AC02> { [ s                       , S                       , F11                     , F11                     ] };
   key <AC03> { [ d                       , D                       , F6                      , F6                      ] };
   key <AC04> { [ f                       , F                       , F3                      , F3                      ] };
@@ -40,8 +36,6 @@ xkb_symbols "DeQwerty" {
   key <AC11> { [ apostrophe              , quotedbl                , adiaeresis              , Adiaeresis              ] };
   key <AB01> { [ z                       , Z                       , F13                     , F13                     ] };
   key <AB02> { [ x                       , X                       , Delete                  , Delete                  ] };
-  key <AB03> { [ c                       , C                       , F14                     , F14                     ] };
-  key <AB04> { [ v                       , V                       , F15                     , F15                     ] };
   key <AB05> { [ b                       , B                       , F16                     , F16                     ] };
   key <AB06> { [ n                       , N                       , Prior                   , Prior                   ] };
   key <AB07> { [ m                       , M                       , Next                    , Next                    ] };
@@ -51,7 +45,15 @@ xkb_symbols "DeQwerty" {
   key <BKSL> { [ backslash               , bar                     , ugrave                  , Ugrave                  ] };
   key <LSGT> { [ EuroSign                , U1E9E                   , cent                    , degree                  ] };
   key <BKSP> { [ BackSpace               , BackSpace               , BackSpace               , Insert                  ] };
-  
+
+  key <AE04> {symbols[Group1]=[4, dollar     , EuroSign  , NoSymbol], actions[Group1]=[NoAction(), NoAction(), NoAction()               , RedirectKey(key=<END>]};
+  key <AE06> {symbols[Group1]=[6, asciicircum, ydiaeresis, NoSymbol], actions[Group1]=[NoAction(), NoAction(), NoAction()               , RedirectKey(key=<HOME>]};
+  key <AC01> {symbols[Group1]=[a, A          , Right     , NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , RedirectKey(key=<END>,clearmods=Lock)]};
+  key <AB03> {symbols[Group1]=[c, C          , Delete    , End ]    , actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Lock)]};
+  key <AB04> {symbols[Group1]=[v, V          , NoSymbol  , Home]    , actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Shift), LockMods(modifiers=Shift)]};
+  key <AD08> {symbols[Group1]=[i, I          , NoSymbol  , NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , RedirectKey(key=<HOME>,clearmods=Lock)]};
+
+  key <ESC> {symbols[Group1]=[NoSymbol, Escape, Escape, Escape], actions[Group1]=[LockMods(modifiers=Lock), NoAction(), NoAction(), NoAction()]};
   key <RTRN> {symbols[Group1]=[Return, Return, NoSymbol, NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
   key <CAPS> {type[Group1]="TWO_LEVEL", symbols[Group1]=[NoSymbol, NoSymbol], actions[Group1]=[SetMods(modifiers=Lock), SetMods(modifiers=Lock)]};
 };
