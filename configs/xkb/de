@@ -50,10 +50,10 @@ xkb_symbols "DeQwerty" {
   key <AE06> {symbols[Group1]=[6, asciicircum, ydiaeresis, NoSymbol], actions[Group1]=[NoAction(), NoAction(), NoAction()               , RedirectKey(key=<HOME>, clearmods=Shift)     ]};
   key <AC01> {symbols[Group1]=[a, A          , Right     , NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , RedirectKey(key=<END> , clearmods=Shift+Lock)]};
   key <AB03> {symbols[Group1]=[c, C          , Delete    , End     ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Lock)                     ]};
-  key <AB04> {symbols[Group1]=[v, V          , NoSymbol  , Home    ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Shift), LockMods(modifiers=Shift)                    ]};
+  key <AB04> {symbols[Group1]=[v, V          , NoSymbol  , NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Shift), LockMods(modifiers=Shift)                    ]};
   key <AD08> {symbols[Group1]=[i, I          , NoSymbol  , NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , RedirectKey(key=<HOME>, clearmods=Shift+Lock)]};
 
   key <ESC> {symbols[Group1]=[NoSymbol, Escape, Escape, Escape], actions[Group1]=[LockMods(modifiers=Lock), NoAction(), NoAction(), NoAction()]};
   key <RTRN> {symbols[Group1]=[Return, Return, NoSymbol, NoSymbol], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
-  key <CAPS> {type[Group1]="TWO_LEVEL", symbols[Group1]=[NoSymbol, NoSymbol], actions[Group1]=[SetMods(modifiers=Lock), SetMods(modifiers=Lock)]};
+  key <CAPS> {type[Group1]="TWO_LEVEL", symbols[Group1]=[NoSymbol, NoSymbol], actions[Group1]=[LatchMods(modifiers=Lock), LatchMods(modifiers=Shift+Lock)]};
 };
