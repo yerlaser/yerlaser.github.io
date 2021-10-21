@@ -25,7 +25,6 @@
   { "key": "f12 f9", "command": "editor.action.transformToLowercase" },
   { "key": "f12 f11", "command": "workbench.action.gotoSymbol" },
   { "key": "f12 f12", "command": "cursorTop", "when": "textInputFocus" },
-  { "key": "f12 f16", "command": "workbench.action.showCommands" },
   { "key": "f12 right", "command": "workbench.action.gotoLine" },
   { "key": "f12 shift+5", "command": "editor.action.jumpToBracket", "when": "editorTextFocus" },
   { "key": "f12 shift+down", "command": "editor.action.joinLines" },
@@ -47,5 +46,6 @@
   { "key": "shift+f14", "command": "cursorWordStartLeftSelect" },
   { "key": "shift+f15", "command": "editor.action.previousMatchFindAction", "when": "editorFocus" },
   { "key": "shift+f16", "command": "editor.action.insertCursorBelow", "when": "editorTextFocus" },
+  { "key": "pausebreak", "command": "workbench.action.showCommands" },
   { "key": "shift+pausebreak", "command": "editor.action.clipboardPasteAction" }
 ]
