@@ -5,9 +5,9 @@ xkb_symbols "DeQwerty" {
   key <AE01> { [ 1                       , exclam                  , idiaeresis              , Idiaeresis              ] };
   key <AE02> { [ 2                       , at                      , ae                      , AE                      ] };
   key <AE03> { [ 3                       , numbersign              , ediaeresis              , Ediaeresis              ] };
-  key <AE04> { [ 4                       , dollar                  , EuroSign                , OE                      ] };
+  key <AE04> { [ 4                       , dollar                  , EuroSign                , End                     ] };
   key <AE05> { [ 5                       , percent                 , oe                      , F18                     ] };
-  key <AE06> { [ 6                       , asciicircum             , ydiaeresis              , Ydiaeresis              ] };
+  key <AE06> { [ 6                       , asciicircum             , ydiaeresis              , Home                    ] };
   key <AE07> { [ 7                       , ampersand               , ucircumflex             , Ucircumflex             ] };
   key <AE08> { [ 8                       , asterisk                , icircumflex             , Icircumflex             ] };
   key <AE09> { [ 9                       , parenleft               , ocircumflex             , Ocircumflex             ] };
@@ -47,9 +47,9 @@ xkb_symbols "DeQwerty" {
 key <BKSP> {symbols[Group1]=[BackSpace, BackSpace , BackSpace, BackSpace], actions[Group1]=[NoAction(), NoAction(), NoAction()               , LockMods(modifiers=Shift)     ]};
 key <TLDE> {symbols[Group1]=[grave    , asciitilde, F17      , F17      ], actions[Group1]=[NoAction(), NoAction(), NoAction()               , LockMods(modifiers=Shift)     ]};
 key <AD06> {symbols[Group1]=[y        , Y         , F8       , F8       ], actions[Group1]=[NoAction(), NoAction(), NoAction()               , LockMods(modifiers=Shift)     ]};
-key <AD08> {symbols[Group1]=[i        , I         , NoSymbol , Home     ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Lock)      ]};
+key <AD08> {symbols[Group1]=[i        , I         , NoSymbol , Prior    ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Lock)      ]};
 key <AD09> {symbols[Group1]=[o        , O         , F10      , F10      ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Lock)      ]};
-key <AC01> {symbols[Group1]=[a        , A         , Right    , End      ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Lock)      ]};
+key <AC01> {symbols[Group1]=[a        , A         , Right    , Next     ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Lock)      ]};
 key <AC03> {symbols[Group1]=[d        , D         , F6       , Delete   ], actions[Group1]=[NoAction(), NoAction(), NoAction()               , LockMods(modifiers=Shift)     ]};
 key <AB03> {symbols[Group1]=[c        , C         , Delete   , Delete   ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Shift+Lock)]};
 key <AB04> {symbols[Group1]=[v        , V         , NoSymbol , F6       ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Shift), LockMods(modifiers=Shift)     ]};
