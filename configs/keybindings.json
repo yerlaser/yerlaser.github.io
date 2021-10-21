@@ -18,7 +18,6 @@
   { "key": "f10", "command": "editor.action.insertLineAfter", "when": "editorTextFocus && !editorReadonly" },
   { "key": "f11", "command": "workbench.action.files.save" },
   { "key": "f12 ;", "command": "workbench.action.navigateToLastEditLocation" },
-  { "key": "f12 '", "command": "editor.action.goToSelectionAnchor" },
   { "key": "f12 f5", "command": "cursorRedo" },
   { "key": "f12 f6", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
   { "key": "f12 f7", "command": "cursorUndo", "when": "textInputFocus" },
@@ -28,10 +27,10 @@
   { "key": "f12 right", "command": "workbench.action.gotoLine" },
   { "key": "f12 shift+5", "command": "editor.action.jumpToBracket", "when": "editorTextFocus" },
   { "key": "f12 shift+down", "command": "editor.action.joinLines" },
-  { "key": "f12 shift+f9", "command": "editor.action.transformToUppercase" },
   { "key": "f14", "command": "cursorWordStartLeft" },
   { "key": "f15", "command": "editor.action.nextMatchFindAction", "when": "editorFocus" },
   { "key": "f16", "command": "editor.action.setSelectionAnchor", "when": "editorTextFocus" },
+  { "key": "f17", "command": "editor.action.goToSelectionAnchor" },
   { "key": "shift+f2", "command": "cursorWordRightSelect" },
   { "key": "shift+f3", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
   { "key": "shift+f4", "command": "cursorWordEndRightSelect", "when": "textInputFocus" },
@@ -46,6 +45,7 @@
   { "key": "shift+f14", "command": "cursorWordStartLeftSelect" },
   { "key": "shift+f15", "command": "editor.action.previousMatchFindAction", "when": "editorFocus" },
   { "key": "shift+f16", "command": "editor.action.insertCursorBelow", "when": "editorTextFocus" },
+  { "key": "shift+f17", "command": "editor.action.transformToUppercase" },
   { "key": "pausebreak", "command": "workbench.action.showCommands" },
   { "key": "shift+pausebreak", "command": "editor.action.clipboardPasteAction" }
 ]
