@@ -1,0 +1,35 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 16,
+    "editor.fontLigatures": true,
+    "workbench.activityBar.visible": false,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggest.localityBonus": true,
+    "editor.suggest.preview": true,
+    "files.eol": "\n",
+    "workbench.enableExperiments": false,
+    "workbench.startupEditor": "none",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "extensions.ignoreRecommendations": true,
+    "dance.modes": {
+        "insert": {
+          // ...
+        },
+        "normal": {
+          "cursorStyle": "block",
+          "selectionBehavior": "character",
+          "lineNumbers": "on",
+        }
+    },
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "boundary",
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "on",
+    "editor.bracketPairColorization.enabled": true,
+    "workbench.colorTheme": "Default Dark+",
+    "keyboard.dispatch": "keyCode",
+}

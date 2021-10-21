@@ -37,9 +37,9 @@ xkb_symbols "DeQwerty" {
   key <AC11> { [ apostrophe              , quotedbl                , adiaeresis              , Adiaeresis              ] };
   key <AB01> { [ z                       , Z                       , F13                     , F13                     ] };
   key <AB02> { [ x                       , X                       , Delete                  , Delete                  ] };
-  key <AB05> { [ b                       , B                       , F16                     , F16                     ] };
-  key <AB06> { [ n                       , N                       , Prior                   , Prior                   ] };
-  key <AB07> { [ m                       , M                       , Next                    , Next                    ] };
+  key <AB05> { [ b                       , B                       , F14                     , F14                     ] };
+  key <AB06> { [ n                       , N                       , F15                     , F15                     ] };
+  key <AB07> { [ m                       , M                       , F16                     , F16                     ] };
   key <AB08> { [ comma                   , less                    , agrave                  , Agrave                  ] };
   key <AB09> { [ period                  , greater                 , egrave                  , Egrave                  ] };
   key <AB10> { [ slash                   , question                , eacute                  , Eacute                  ] };
@@ -48,7 +48,7 @@ xkb_symbols "DeQwerty" {
   key <BKSP> { [ BackSpace               , BackSpace               , BackSpace               , Insert                  ] };
 
   key <AD08> {symbols[Group1]=[i, I          , NoSymbol  , Home     ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock)  , LockMods(modifiers=Lock)                     ]};
-  key <AD09> {symbols[Group1]=[o, O          , End       , Home     ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock)  , LockMods(modifiers=Lock)                     ]};
+  key <AD09> {symbols[Group1]=[o, O          , F10       , F10      ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock)  , LockMods(modifiers=Lock)                     ]};
   key <AC01> {symbols[Group1]=[a, A          , Right     , End      ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock)  , LockMods(modifiers=Lock)                     ]};
   key <AB03> {symbols[Group1]=[c, C          , Delete    , Delete   ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock)  , LockMods(modifiers=Shift+Lock)               ]};
   key <AB04> {symbols[Group1]=[v, V          , NoSymbol  , NoSymbol ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Shift) , LockMods(modifiers=Shift)                    ]};
