@@ -32,4 +32,9 @@
     "editor.bracketPairColorization.enabled": true,
     "workbench.colorTheme": "Default Dark+",
     "keyboard.dispatch": "keyCode",
+    "editor.cursorStyle": "block-outline",
+    "editor.matchBrackets": "never",
+    "editor.renderLineHighlight": "none",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
 }
