@@ -14,16 +14,6 @@
     "workbench.startupEditor": "none",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "extensions.ignoreRecommendations": true,
-    "dance.modes": {
-        "insert": {
-          // ...
-        },
-        "normal": {
-          "cursorStyle": "block",
-          "selectionBehavior": "character",
-          "lineNumbers": "on",
-        }
-    },
     "editor.tabSize": 2,
     "editor.renderWhitespace": "boundary",
     "editor.occurrencesHighlight": false,
@@ -37,4 +27,5 @@
     "editor.renderLineHighlight": "none",
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.horizontal": "hidden",
+    "terminal.integrated.tabs.enabled": false,
 }
