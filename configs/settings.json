@@ -28,4 +28,5 @@
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.horizontal": "hidden",
     "terminal.integrated.tabs.enabled": false,
+    "git.confirmSync": false,
 }
