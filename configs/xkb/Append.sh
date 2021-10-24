@@ -8,7 +8,7 @@ if ! [ $effuid = 0 ]; then
 fi
 
 # cat DeFrKz | tee -a /usr/share/X11/xkb/symbols/kz
-# cat kz | tee -a /usr/share/X11/xkb/symbols/kz
+cat kz | tee -a /usr/share/X11/xkb/symbols/kz
 cat de | tee -a /usr/share/X11/xkb/symbols/de
 # cat lacy | tee -a /usr/share/X11/xkb/symbols/kz
 
