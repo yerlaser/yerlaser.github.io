@@ -52,7 +52,6 @@ key <AC01> {symbols[Group1]=[Cyrillic_a   , Cyrillic_A   , Right    , Next     ]
 key <AC03> {symbols[Group1]=[Cyrillic_de  , Cyrillic_DE  , F6       , Delete   ], actions[Group1]=[NoAction(), NoAction(), NoAction()               , LockMods(modifiers=Shift)     ]};
 key <AB03> {symbols[Group1]=[Cyrillic_tse , Cyrillic_TSE , Delete   , Delete   ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Lock) , LockMods(modifiers=Shift+Lock)]};
 key <AB04> {symbols[Group1]=[Cyrillic_ve  , Cyrillic_VE  , NoSymbol , F6       ], actions[Group1]=[NoAction(), NoAction(), LockMods(modifiers=Shift), LockMods(modifiers=Shift)     ]};
-key <ESC>  {symbols[Group1]=[NoSymbol     , Escape       , Escape   , Escape   ], actions[Group1]=[LockMods(modifiers=Lock), NoAction(), NoAction() , LockMods(modifiers=Shift)     ]};
-
-key <CAPS> {type[Group1]="TWO_LEVEL", symbols[Group1]=[NoSymbol, NoSymbol], actions[Group1]=[LatchMods(modifiers=Lock), LatchMods(modifiers=Shift+Lock)]};
+key <ESC>  {symbols[Group1]=[Escape       , Escape       , Escape   , Escape   ], actions[Group1]=[NoAction(), LockMods(modifiers=Lock), NoAction() , LockMods(modifiers=Shift)     ]};
+key <CAPS> {symbols[Group1]=[NoSymbol     , NoSymbol     , NoSymbol , NoSymbol ], actions[Group1]=[LatchMods(modifiers=Lock), LockMods(modifiers=Lock), LockMods(modifiers=Lock), LockMods(modifiers=Lock)]};
 };
