@@ -9,8 +9,8 @@ scrolling:
   history: 10000
 window:
   decorations: none
-  startup_mode: Fullscreen
-  # startup_mode: Maximized
+  # startup_mode: Fullscreen
+  startup_mode: Maximized
 key_bindings:
   # - { key: Pause, mods: None, chars: "\x1b[2~" }
   # - { key: Pause, mods: Shift, chars: "\x1b[2;2~" }
