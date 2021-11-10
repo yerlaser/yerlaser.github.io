@@ -31,13 +31,17 @@ hook global WinSetOption filetype=go %{
 }
 hook global WinSetOption filetype=html %{
   hook buffer InsertChar < %{ exec ><left> }
-  # map buffer insert '<c-space>' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'html tag from previous word'
+  map buffer insert '<ins>' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'html tag from previous word'
   map buffer normal '<F6>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
 }
-hook global WinSetOption filetype=(javascript|ruby) %{ hook buffer InsertChar ` %{ exec `<left> } }
+hook global WinSetOption filetype=javascript %{ hook buffer InsertChar ` %{ exec `<left> } }
 hook global WinSetOption filetype=python %{
   set-option buffer indentwidth 4
   set-option buffer tabstop 4
+}
+hook global WinSetOption filetype=ruby %{
+  hook buffer InsertChar ` %{ exec `<left> }
+  map buffer insert '<s-ret>' '<ret><esc>O<space><space>' -docstring 'insert indented block '
 }
 
 define-command -hidden extend-next-hump %{ execute-keys '?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret>' }
@@ -52,18 +56,22 @@ map global goto '0' 'h' -docstring 'to line start'
 map global goto 'J' '<esc><a-J>' -docstring 'join lines'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
+map global insert '<c-^>' '<esc>\i' -docstring 'insert without hooks'
 map global insert '<c-space>' ' ' -docstring 'insert space'
 map global insert '<F3>' '<esc>b~/\W<ret>' -docstring 'word to uppercase'
-map global insert '<F8>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
-map global insert '<ins>' '<ret><esc>O' -docstring 'insert indented block '
+map global insert '<F6>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
+map global insert '<F8>' '<c-r>"' -docstring 'word to uppercase'
+map global insert '<s-ret>' '<ret><esc>O' -docstring 'insert indented block '
+map global insert '<s-tab>' '<esc>: bn<ret>' -docstring 'next buffer'
 
 map global normal '<backspace>' '<a-(>' -docstring 'rotate contents left'
-map global normal '<s-del>' '<a-)>' -docstring 'rotate contents right'
+map global normal '<ins>' ': buffer ' -docstring 'select buffer'
 map global normal '<c-l>' '`' -docstring 'change selection to lower case'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<c-t>' 's[^\d\s\W]+<ret>`<a-;>;~<space>' -docstring 'change selection to title case'
+map global normal '<s-del>' '<a-)>' -docstring 'rotate contents right'
 map global normal '<s-ret>' '<a-O>' -docstring 'add blank line above'
-map global normal '<s-tab>' ': buffer ' -docstring 'select buffer'
+map global normal '<s-tab>' ': bn<ret>' -docstring 'next buffer'
 map global normal '<space>' ';' -docstring 'collapse selection'
 map global normal '<c-space>' '<space>' -docstring 'remove additional selections'
 map global normal '<F3>' '~' -docstring 'change selection to upper case'
@@ -108,7 +116,6 @@ map global normal 'X' '<a-k>' -docstring 'keep matching'
 map global normal 'y' 'y<a-;>;' -docstring 'yank'
 map global normal 'Y' ': extend-previous-hump<ret>' -docstring 'extend previous word part'
 map global normal 'z' 'v' -docstring 'view mode'
-map global normal 'Z' '%' -docstring 'select entire buffer'
 
 map global object 'a' '<esc>%' -docstring 'entire buffer'
 map global object 'W' '<a-w>' -docstring 'WORD'
