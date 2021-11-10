@@ -20,15 +20,10 @@ if command -v kak &> /dev/null
   alias vi kak
 end
 
-bind \e\[1\;5C history-token-search-backward
-bind \e\[1\;5F end-of-line
-bind \e\[3\;6~ backward-kill-bigword
-bind \e\x20 self-insert
-bind \f forward-word
-bind -k btab history-prefix-search-backward
-bind -k nul backward-jump
-bind -k sdc backward-kill-word
-bind -k sright complete-and-search
+bind \e\[C forward-single-char
+bind \e\[D backward-char
+bind -k npage forward-word
+bind -k ppage backward-word
 
 function fish_prompt
   if test "$status" -ne 0
