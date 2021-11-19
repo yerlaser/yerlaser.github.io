@@ -8,6 +8,7 @@ PROMPT='%(?..[%?] )%F{magenta}%D{%d-%m %H:%M:%S} | %~ %f'
 WORDCHARS=${WORDCHARS/\/}
 
 zstyle ':autocomplete:*' min-input 1
+zstyle ':autocomplete:*' min-delay 1
 zstyle ':completion:*:paths' path-completion yes
 
 setopt hist_ignore_all_dups hist_ignore_space hist_no_store hist_reduce_blanks hist_verify share_history
