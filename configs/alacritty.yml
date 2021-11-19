@@ -17,5 +17,5 @@ key_bindings:
   - { key: Space, mods: Shift, chars: "\0" }
   # - { key: C, mods: Control, chars: "\x03" }
 shell:
-  program: /usr/bin/fish
+  program: /usr/bin/zsh
 # working_directory: Synced
