@@ -1,3 +1,4 @@
+alias '..'='cd ..'
 alias '...'='cd ../..'
 alias dir='ls -FAhl'
 alias dirtime='ls -FAhlrt'

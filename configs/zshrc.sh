@@ -4,7 +4,7 @@ source /LOCAL/Published/configs/shrc.sh
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.history
-PROMPT='%(?..[%?] )%F{magenta}%D{%d-%m %H:%M:%S} | %~ '
+PROMPT='%(?..[%?] )%F{magenta}%D{%d-%m %H:%M:%S} | %~ %f'
 WORDCHARS=${WORDCHARS/\/}
 
 zstyle ':autocomplete:*' min-input 1
