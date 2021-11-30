@@ -16,6 +16,6 @@ key_bindings:
   - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
   - { key: Space, mods: Shift, chars: "\0" }
   # - { key: C, mods: Control, chars: "\x03" }
-shell:
-  program: /usr/bin/zsh
+# shell:
+  # program: /usr/bin/zsh
 # working_directory: Synced
