@@ -109,7 +109,7 @@ map global normal 'Q' ': extend-next-hump<ret>' -docstring 'extend next word par
 map global normal 't' 'T' -docstring 'select to find character forwards'
 map global normal 'T' '<a-T>' -docstring 'select to find character backwards'
 map global normal 'U' '<a-C>' -docstring 'add selection above'
-map global normal 'V' '<a-x>' -docstring 'extend selection to full lines'
+map global normal 'V' '<a-_><a-x>' -docstring 'extend selection to full lines'
 map global normal 'W' '<a-W>' -docstring 'select to next WORD start'
 map global normal 'x' '<a-K>' -docstring 'exclude (keep not matching)'
 map global normal 'X' '<a-k>' -docstring 'keep matching'
