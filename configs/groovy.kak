@@ -1,3 +1,5 @@
+# Adapted from the file created by Daniel Lewan TeddyDD
+
 hook global BufCreate "(.+\.(groovy|gvy|gy|gsh))|.+[Jj]enkinsfile.*" %{
   set-option buffer filetype groovy
   set-option buffer comment_line '//'

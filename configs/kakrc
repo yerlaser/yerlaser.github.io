@@ -60,7 +60,7 @@ map global insert '<c-^>' '<esc>\i' -docstring 'insert without hooks'
 map global insert '<c-space>' ' ' -docstring 'insert space'
 map global insert '<F3>' '<esc>b~/\W<ret>' -docstring 'word to uppercase'
 map global insert '<F6>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
-map global insert '<F8>' '<c-r>"' -docstring 'word to uppercase'
+map global insert '<F8>' '<c-r>"' -docstring 'paste default register'
 map global insert '<s-ret>' '<ret><esc>O' -docstring 'insert indented block '
 map global insert '<s-tab>' '<esc>: bn<ret>' -docstring 'next buffer'
 
