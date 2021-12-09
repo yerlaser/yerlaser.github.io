@@ -1,18 +1,26 @@
 {
   /* Home Button*/
-  "\UF729" = "moveToBeginningOfLine:"; 
+  "\UF729" = "moveToBeginningOfLine:";
   /* End Button */
-  "\UF72B" = "moveToEndOfLine:"; 
+  "\UF72B" = "moveToEndOfLine:";
   /* Shift + Home Button */
-  "$\UF729" = "moveToBeginningOfLineAndModifySelection:"; 
+  "$\UF729" = "moveToBeginningOfLineAndModifySelection:";
   /* Shift + End Button */
-  "$\UF72B" = "moveToEndOfLineAndModifySelection:"; 
+  "$\UF72B" = "moveToEndOfLineAndModifySelection:";
   /* Ctrl + Home Button */
-  "^\UF729" = "moveToBeginningOfDocument:"; 
+  "^\UF729" = "moveToBeginningOfDocument:";
   /* Ctrl + End Button */
-  "^\UF72B" = "moveToEndOfDocument:"; 
+  "^\UF72B" = "moveToEndOfDocument:";
   /* Shift + Ctrl + Home Button */
   "$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:";
   /* Shift + Ctrl + End Button*/
-  "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:"; 
+  "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:";
+  "~h" = "moveBackward:";
+  "~l" = "moveForward:";
+  "~k" = "moveUp:";
+  "~j" = "moveDown:";
+  "~i" = "moveToBeginningOfLine:";
+  "~o" = "moveToEndOfLine:";
+  "~p" = "pageUp:";
+  "~n" = "pageDown:";
 }
