@@ -4,7 +4,7 @@
 <!-- Instructions: copy to "~/Library/Keyboard Layouts" -->
 <!-- plutil -convert xml1 ~/Library/Preferences/com.apple.HIToolbox.plist -->
 <!-- edit this plist, remove default latin layout and convert back to binary1 -->
-<keyboard group="126" id="-1612" name="Latin Cyrillic" maxout="1">
+<keyboard group="126" id="-1612" name="Deutsch Français" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="ANSI" modifiers="normal"/>
     </layouts>
