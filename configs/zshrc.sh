@@ -23,7 +23,7 @@ bindkey '\e[5~' backward-word
 bindkey '\e[6~' forward-word
 bindkey -s '\e[17~' '2>/dev/null'
 bindkey -s '\e[19~' 'yerlaser'
-bindkey '\eOR' backward-kill-line
+bindkey '\eOR' kill-whole-line
 bindkey '\e[F' end-of-line
 bindkey '\e[H' beginning-of-line
 
