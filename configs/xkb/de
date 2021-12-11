@@ -2,7 +2,7 @@
 xkb_symbols "DeQwerty" {
   name[Group1] = "Deutsch QWERTY";
   key.type[Group1] = "FOUR_LEVEL";
-  key <TLDE> { [ grave                   , asciitilde              , idiaeresis              , Idiaeresis              ] };
+  key <TLDE> { [ grave                   , asciitilde              , dead_acute              , dead_tilde              ] };
   key <AE01> { [ 1                       , exclam                  , idiaeresis              , Idiaeresis              ] };
   key <AE02> { [ 2                       , at                      , ae                      , AE                      ] };
   key <AE03> { [ 3                       , numbersign              , ediaeresis              , Ediaeresis              ] };
@@ -55,5 +55,5 @@ xkb_symbols "DeQwerty" {
   key <SPCE> { [ space                   , space                   , Escape                  , Escape                  ] };
 
   key <CAPS> { symbols[Group1]=[NoSymbol, NoSymbol, NoSymbol, NoSymbol], actions[Group1]=[LatchMods(modifiers=LevelThree),
-               LockMods(modifiers=Lock), LatchMods(modifiers=LevelThree+Control), LockMods(modifiers=Shift)]};
+               SetMods(modifiers=Shift), LatchMods(modifiers=Control+LevelThree), LockMods(modifiers=Lock)]};
 };
