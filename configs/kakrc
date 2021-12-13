@@ -32,7 +32,7 @@ hook global WinSetOption filetype=go %{
 hook global WinSetOption filetype=html %{
   hook buffer InsertChar < %{ exec ><left> }
   map buffer insert '<ins>' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'html tag from previous word'
-  map buffer normal '<F6>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
+  map buffer normal '<a-.>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
 }
 hook global WinSetOption filetype=javascript %{ hook buffer InsertChar ` %{ exec `<left> } }
 hook global WinSetOption filetype=python %{
@@ -56,27 +56,27 @@ map global goto '0' 'h' -docstring 'to line start'
 map global goto 'J' '<esc><a-J>' -docstring 'join lines'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
+map global insert '<a-.>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
 map global insert '<c-^>' '<esc>\i' -docstring 'insert without hooks'
+map global insert '<c-u>' '<esc>b~/\W<ret>' -docstring 'word to uppercase'
+map global insert '<c-y>' '<c-r>"' -docstring 'paste default register'
 map global insert '<c-space>' ' ' -docstring 'insert space'
-map global insert '<F3>' '<esc>b~/\W<ret>' -docstring 'word to uppercase'
-map global insert '<F6>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
-map global insert '<F8>' '<c-r>"' -docstring 'paste default register'
 map global insert '<s-ret>' '<ret><esc>O' -docstring 'insert indented block '
 map global insert '<s-tab>' '<esc>: bn<ret>' -docstring 'next buffer'
 
+map global normal '<a-.>' ': comment-line<ret>' -docstring 'comment/uncomment line'
 map global normal '<backspace>' '<a-(>' -docstring 'rotate contents left'
 map global normal '<del>' '<a-)>' -docstring 'rotate contents right'
 map global normal '<ins>' ': buffer ' -docstring 'select buffer'
 map global normal '<c-l>' '`' -docstring 'change selection to lower case'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<c-t>' 's[^\d\s\W]+<ret>`<a-;>;~<space>' -docstring 'change selection to title case'
+map global normal '<c-u>' '~' -docstring 'change selection to upper case'
+map global normal "<c-y>" '<a-;>' -docstring 'swap cursor and anchor'
 map global normal '<s-ret>' '<a-O>' -docstring 'add blank line above'
 map global normal '<s-tab>' ': bn<ret>' -docstring 'next buffer'
 map global normal '<space>' ';' -docstring 'collapse selection'
 map global normal '<c-space>' '<space>' -docstring 'remove additional selections'
-map global normal '<F3>' '~' -docstring 'change selection to upper case'
-map global normal '<F6>' ': comment-line<ret>' -docstring 'comment/uncomment line'
-map global normal "<F8>" '<a-;>' -docstring 'swap cursor and anchor'
 map global normal '`' 'z' -docstring 'restore selection from register'
 map global normal '!' '!date' -docstring 'insert external command'
 map global normal '~' '<a-`>' -docstring 'swap case'

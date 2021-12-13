@@ -15,8 +15,15 @@ key_bindings:
   - { key: Back, mods: Shift, chars: "\x1b[3;2~" }
   - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
   - { key: Space, mods: Shift, chars: "\0" }
+  - { key: F2, mods: None, chars: "\x17" }
+  - { key: F3, mods: None, chars: "\x15" }
+  - { key: F5, mods: None, chars: "\x12" }
+  - { key: F6, mods: None, chars: "\x1b." }
+  - { key: F8, mods: None, chars: "\x19" }
   - { key: F10, mods: None, chars: "yerlaser" }
   - { key: F11, mods: None, chars: "2>/dev/null" }
+  - { key: F12, mods: None, chars: "\x1bf" }
+  - { key: F17, mods: None, chars: "\x1bb" }
 shell:
   program: /usr/bin/zsh
 # working_directory: Synced

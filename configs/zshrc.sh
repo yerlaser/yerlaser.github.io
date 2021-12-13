@@ -19,9 +19,6 @@ autoload -Uz compinit && compinit
 bindkey '\C-@' expand-history
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
-bindkey '\e[5~' backward-word
-bindkey '\e[6~' forward-word
-bindkey '\eOR' kill-whole-line
 bindkey '\e[F' end-of-line
 bindkey '\e[H' beginning-of-line
 
