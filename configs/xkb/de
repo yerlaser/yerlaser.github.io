@@ -53,6 +53,7 @@ xkb_symbols "DeQwerty" {
   key <BKSP> { [ BackSpace                , BackSpace                , Delete                   , Delete                   ] };
   key <RTRN> { [ Return                   , Return                   , Insert                   , Insert                   ] };
   key <SPCE> { [ space                    , space                    , Escape                   , Escape                   ] };
+  key <TAB>  { [ Tab                      , ISO_Left_Tab             , ISO_Next_Group           , ISO_Prev_Group           ] };
 
   key <CAPS> { symbols[Group1]=[NoSymbol, NoSymbol, NoSymbol, NoSymbol], actions[Group1]=[LatchMods(modifiers=LevelThree),
                SetMods(modifiers=LevelThree), LatchMods(modifiers=Control+LevelThree), LockMods(modifiers=Lock)]};
