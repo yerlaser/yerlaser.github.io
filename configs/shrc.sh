@@ -13,5 +13,11 @@ if command -v kak &> /dev/null; then
   export EDITOR=kak
   export VISUAL=kak
 fi
+if command -v exa &> /dev/null; then
+  alias dir='exa --git -Umgahl'
+  alias dirsize='exa --git -Umgahls size'
+  alias dirtime='exa --git -Umgahls time'
+  alias tree='exa --tree'
+fi
 
 set -o noclobber
