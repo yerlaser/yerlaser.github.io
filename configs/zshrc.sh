@@ -10,7 +10,7 @@ WORDCHARS=${WORDCHARS/\/}
 # ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(end-of-line forward-char forward-word)
 # ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|= r:|=' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|= r:|=' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|= r:|=*'
 
 autoload -Uz compinit && compinit
 # autoload -U history-search-end

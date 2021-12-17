@@ -2,16 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>Command</key>
 	<string>/usr/local/bin/bash</string>
 	<key>Default Bookmark Guid</key>
@@ -28,11 +18,11 @@
 		<key>0x20-0x20000-0x31</key>
 		<dict>
 			<key>Action</key>
-			<integer>11</integer>
+			<integer>10</integer>
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
-			<string>0x00</string>
+			<string>^</string>
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
@@ -208,7 +198,7 @@
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
-			<string>yerlaser@</string>
+			<string>yerlaser</string>
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
@@ -1024,6 +1014,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>SoundForEsc</key>
