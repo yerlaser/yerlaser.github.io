@@ -18,12 +18,24 @@ end
 if command -v kak &> /dev/null
   alias kakn 'kak -n'
   alias vi kak
+  alias view 'kak -ro'
+  export EDITOR kak
+  export VISUAL kak
 end
 
+if command -v exa &> /dev/null; then
+  alias dir 'exa --git -Umgahl'
+  alias dirsize 'exa --git -Umgahls size'
+  alias dirtime 'exa --git -Umgahls time'
+  alias tree 'exa --tree'
+end
+
+bind -k npage forward-bigword
+bind -k ppage backward-bigword
+bind \e^ expand-abbr
+# bind \ef forward-bigword
+# bind \eb backward-bigword
 bind \e\[C forward-single-char
-bind \e\[D backward-char
-bind -k npage forward-word
-bind -k ppage backward-word
 
 function fish_prompt
   if test "$status" -ne 0
@@ -35,5 +47,5 @@ function fish_prompt
   set_color normal
 end
 
-set CDPATH . /LOCAL
+# set CDPATH . /LOCAL
 set fish_greeting

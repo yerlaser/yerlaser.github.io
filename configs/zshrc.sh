@@ -16,8 +16,10 @@ autoload -Uz compinit && compinit
 # autoload -U history-search-end
 # zle -N history-beginning-search-backward-end history-search-end
 
-# bindkey '\C-@' expand-history
+bindkey '\C-U' backward-kill-line
 bindkey '\e^' expand-history
+bindkey '\e[5~' vi-backward-blank-word
+bindkey '\e[6~' vi-forward-blank-word
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 bindkey '\e[F' end-of-line
