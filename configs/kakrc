@@ -41,7 +41,7 @@ hook global WinSetOption filetype=python %{
 }
 hook global WinSetOption filetype=ruby %{
   hook buffer InsertChar ` %{ exec `<left> }
-  map buffer insert '<s-ret>' '<ret><esc>O<space><space>' -docstring 'insert indented block '
+  map buffer insert '<s-ret>' '<ret>' -docstring 'insert indented block '
 }
 
 define-command -hidden extend-next-hump %{ execute-keys '?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret>' }
@@ -57,6 +57,7 @@ map global goto 'J' '<esc><a-J>' -docstring 'join lines'
 map global goto 'V' '<esc>V' -docstring 'lock view mode'
 
 map global insert '<a-.>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
+map global insert '<a-minus>' '<esc>b;~/\W<ret>' -docstring 'word to titlecase'
 map global insert '<c-^>' '<esc>\i' -docstring 'insert without hooks'
 map global insert '<c-u>' '<esc>b~/\W<ret>' -docstring 'word to uppercase'
 map global insert '<c-y>' '<c-r>"' -docstring 'paste default register'
@@ -122,7 +123,6 @@ map global object 'W' '<a-w>' -docstring 'WORD'
 
 map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline string with -'
 map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline string with ='
-map global user "'" '<esc><a-(>' -docstring 'rotate contents left'
 map global user ',' '<esc>;<space>' -docstring 'clear all'
 
 map global view 'a' '<esc><a-a>' -docstring '<a-a>'
