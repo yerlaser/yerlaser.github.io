@@ -1,3 +1,5 @@
+fish_add_path ~/.local/bin
+
 alias ... 'cd ../../'
 alias dir 'ls -FAhl'
 alias dirtime 'ls -FAhlrt'
@@ -23,7 +25,7 @@ if command -v kak &> /dev/null
   export VISUAL kak
 end
 
-if command -v exa &> /dev/null; then
+if command -v exa &> /dev/null
   alias dir 'exa --git -Umgahl'
   alias dirsize 'exa --git -Umgahls size'
   alias dirtime 'exa --git -Umgahls time'
@@ -48,3 +50,7 @@ end
 
 # set CDPATH . /LOCAL
 set fish_greeting
+
+if command -v starship &> /dev/null
+  starship init fish | source
+end
