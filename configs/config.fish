@@ -1,4 +1,4 @@
-fish_add_path ~/.local/bin
+fish_add_path -m ~/.local/bin
 
 alias ... 'cd ../../'
 alias dir 'ls -FAhl'
