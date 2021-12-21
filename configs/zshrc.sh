@@ -18,6 +18,7 @@ autoload -Uz compinit && compinit
 
 bindkey '\C-U' backward-kill-line
 bindkey '\e^' expand-history
+bindkey '\e-' transpose-words
 bindkey '\e[5~' vi-backward-blank-word
 bindkey '\e[6~' vi-forward-blank-word
 bindkey '\e[A' history-substring-search-up
