@@ -28,5 +28,5 @@ key_bindings:
   - { key: F12, mods: None, chars: "\x1bf" }
   - { key: F17, mods: None, chars: "\x1bb" }
 shell:
-  program: /usr/bin/zsh
+  program: /usr/bin/fish
 # working_directory: Synced

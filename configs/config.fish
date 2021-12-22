@@ -34,8 +34,9 @@ end
 
 bind -k npage forward-bigword
 bind -k ppage backward-bigword
+bind \cR history-token-search-forward
 bind \e^ expand-abbr
-bind \e- history-token-search-forward
+bind \e- transpose-words
 bind \e\[C forward-single-char
 
 function fish_prompt
