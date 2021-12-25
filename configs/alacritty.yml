@@ -14,19 +14,23 @@ window:
 key_bindings:
   - { key: Back, mods: Shift, chars: "\x1b[3;2~" }
   - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
-  - { key: Pause, mods: None, chars: "\x03" }
+  # - { key: Pause, mods: None, chars: "\x03" }
   - { key: Space, mods: Shift, chars: "\x1b^" }
   # - { key: Space, mods: Shift, chars: "\0" }
-  - { key: F2, mods: None, chars: "\x17" }
-  - { key: F3, mods: None, chars: "\x15" }
-  - { key: F5, mods: None, chars: "\x12" }
+  - { key: F2, mods: None, chars: "\x1b\x08" }
+  - { key: F3, mods: None, chars: "\x1bb\x1bu" }
+  - { key: F4, mods: None, chars: "\x1b\x06" }
+  # - { key: F5, mods: None, chars: "\x12" }
   - { key: F6, mods: None, chars: "\x1b." }
-  - { key: F7, mods: None, chars: "\x1b-" }
-  - { key: F8, mods: None, chars: "\x19" }
+  - { key: F7, mods: None, chars: "\x1b\x14" }
+  - { key: F8, mods: None, chars: "\x1f" }
   - { key: F10, mods: None, chars: "yerlaser" }
-  - { key: F11, mods: None, chars: "2>/dev/null" }
+  - { key: F11, mods: None, chars: "\x1bd" }
   - { key: F12, mods: None, chars: "\x1bf" }
+  - { key: F13, mods: None, chars: "\x1b\x02" }
+  - { key: F14, mods: None, chars: "\x1b\x08" }
+  - { key: F15, mods: None, chars: "2>/dev/null" }
   - { key: F17, mods: None, chars: "\x1bb" }
-shell:
-  program: /usr/bin/fish
+# shell:
+#   program: /usr/bin/fish
 # working_directory: Synced

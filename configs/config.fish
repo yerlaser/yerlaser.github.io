@@ -32,11 +32,11 @@ if command -v exa &> /dev/null
   alias tree 'exa --tree'
 end
 
-bind -k npage forward-bigword
-bind -k ppage backward-bigword
+# bind -k npage forward-bigword
+# bind -k ppage backward-bigword
 bind \cR history-token-search-forward
 bind \e^ expand-abbr
-bind \e- transpose-words
+bind \et transpose-words
 bind \e\[C forward-single-char
 
 function fish_prompt

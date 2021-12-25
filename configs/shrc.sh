@@ -3,6 +3,7 @@ alias '...'='cd ../..'
 alias dir='ls -FAhl'
 alias dirtime='ls -FAhlrt'
 alias dirsize='ls -FAhlrS'
+alias igrep='grep -i'
 
 if command -v dnf &> /dev/null; then alias dnf='dnf --cacheonly'; fi
 if command -v podman &> /dev/null; then alias docker=podman; fi
