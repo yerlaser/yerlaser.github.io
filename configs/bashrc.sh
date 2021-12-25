@@ -5,7 +5,8 @@ bind '"\e[B":history-substring-search-forward'
 
 HISTCONTROL=ignoredups:erasedups:ignorespace
 PROMPT_COMMAND='MYVAR="$?" && [ "$MYVAR" -ne 0 ] && printf "[$MYVAR] "'
-PS1="\[\e[2;35m\]\D{%d-%m %H:%M:%S} | \w \[\e[0m\]"
+# PS1="\[\e[2;35m\]\D{%d-%m %H:%M:%S} | \w \[\e[0m\]"
+PS1="\[\e[2;35m\]\w \[\e[0m\]"
 
 shopt -s direxpand
 shopt -s dotglob
