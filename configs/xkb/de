@@ -29,7 +29,7 @@ xkb_symbols "DeQwerty" {
   key <AD12> { [ bracketright             , braceright               , ccedilla                 , Ccedilla                 ] };
   key <AC01> { [ a                        , A                        , F9                       , F9                       ] };
   key <AC02> { [ s                        , S                        , F10                      , F10                      ] };
-  key <AC03> { [ d                        , D                        , F11                      , F11                      ] };
+  key <AC03> { [ d                        , D                        , Delete                   , Delete                   ] };
   key <AC04> { [ f                        , F                        , F12                      , F12                      ] };
   key <AC05> { [ g                        , G                        , F13                      , F13                      ] };
   key <AC06> { [ h                        , H                        , Left                     , Left                     ] };
@@ -50,8 +50,8 @@ xkb_symbols "DeQwerty" {
   key <AB10> { [ slash                    , question                 , eacute                   , Eacute                   ] };
   key <BKSL> { [ backslash                , bar                      , ugrave                   , Ugrave                   ] };
   key <LSGT> { [ EuroSign                 , yen                      , sterling                 , cent                     ] };
-  key <BKSP> { [ BackSpace                , BackSpace                , Delete                   , Delete                   ] };
-  key <RTRN> { [ Return                   , Return                   , Insert                   , Insert                   ] };
+  key <BKSP> { [ BackSpace                , BackSpace                , Insert                   , Insert                   ] };
+  key <RTRN> { [ Return                   , Return                   , F11                      , F11                      ] };
   key <SPCE> { [ space                    , space                    , Escape                   , Escape                   ] };
   key <TAB>  { [ Tab                      , ISO_Left_Tab             , ISO_Next_Group           , ISO_Prev_Group           ] };
 

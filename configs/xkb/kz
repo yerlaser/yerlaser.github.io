@@ -29,7 +29,7 @@ xkb_symbols "KzPhonetic" {
   key <AD12> { [ Cyrillic_shcha           , Cyrillic_SHCHA           , bracketright             , braceright               ] };
   key <AC01> { [ Cyrillic_a               , Cyrillic_A               , F9                       , F9                       ] };
   key <AC02> { [ Cyrillic_es              , Cyrillic_ES              , F10                      , F10                      ] };
-  key <AC03> { [ Cyrillic_de              , Cyrillic_DE              , F11                      , F11                      ] };
+  key <AC03> { [ Cyrillic_de              , Cyrillic_DE              , Delete                   , Delete                   ] };
   key <AC04> { [ Cyrillic_ef              , Cyrillic_EF              , F12                      , F12                      ] };
   key <AC05> { [ Cyrillic_ghe             , Cyrillic_GHE             , F13                      , F13                      ] };
   key <AC06> { [ Cyrillic_ha              , Cyrillic_HA              , Left                     , Left                     ] };
@@ -50,10 +50,10 @@ xkb_symbols "KzPhonetic" {
   key <AB10> { [ Cyrillic_ka_descender    , question                 , Cyrillic_KA_descender    , slash                    ] };
   key <BKSL> { [ Cyrillic_e               , Cyrillic_E               , backslash                , bar                      ] };
   key <LSGT> { [ EuroSign                 , yen                      , sterling                 , cent                     ] };
-  key <BKSP> { [ BackSpace                , BackSpace                , Delete                   , Delete                   ] };
-  key <RTRN> { [ Return                   , Return                   , Insert                   , Insert                   ] };
+  key <BKSP> { [ BackSpace                , BackSpace                , Insert                   , Insert                   ] };
+  key <RTRN> { [ Return                   , Return                   , F11                      , F11                      ] };
   key <SPCE> { [ space                    , space                    , Escape                   , Escape                   ] };
-  key <TAB>  { [ Tab                      , ISO_Left_Tab             , ISO_Prev_Group           , ISO_Next_Group           ] };
+  key <TAB>  { [ Tab                      , ISO_Left_Tab             , ISO_Next_Group           , ISO_Prev_Group           ] };
 
   key <CAPS> { symbols[Group1]=[NoSymbol, NoSymbol, NoSymbol, NoSymbol], actions[Group1]=[SetMods(modifiers=LevelThree),
                SetMods(modifiers=LevelThree), SetMods(modifiers=LevelThree), SetMods(modifiers=LevelThree)]};

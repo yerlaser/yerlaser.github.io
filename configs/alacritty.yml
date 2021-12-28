@@ -13,24 +13,26 @@ window:
   startup_mode: Maximized
 key_bindings:
   - { key: Back, mods: Shift, chars: "\x1b[3;2~" }
+  - { key: Insert, mods: None, chars: "\x1b\x7f" }    # bs a-bs
   - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
-  # - { key: Pause, mods: None, chars: "\x03" }
-  - { key: Space, mods: Shift, chars: "\x1b^" }
-  # - { key: Space, mods: Shift, chars: "\0" }
-  - { key: F2, mods: None, chars: "\x1b\x08" }
-  - { key: F3, mods: None, chars: "\x1bb\x1bu" }
-  - { key: F4, mods: None, chars: "\x1b\x06" }
-  - { key: F5, mods: None, chars: "\x1b\x19" }
-  - { key: F6, mods: None, chars: "\x1b#" }
-  - { key: F7, mods: None, chars: "\x1b\x14" }
-  - { key: F8, mods: None, chars: "\x1b." }
-  - { key: F10, mods: None, chars: "yerlaser" }
-  - { key: F11, mods: None, chars: "\x1bd" }
-  - { key: F12, mods: None, chars: "\x1bf" }
-  - { key: F13, mods: None, chars: "\x1b\x02" }
-  - { key: F14, mods: None, chars: "\x1f" }
-  - { key: F15, mods: None, chars: "2>/dev/null" }
-  - { key: F17, mods: None, chars: "\x1bb" }
+  # - { key: F11, mods: None, chars: "" }             # Return
+  - { key: Pause, mods: None, chars: "\x1bd" }        # c a-d
+  - { key: Space, mods: Shift, chars: "\x1b^" }       # sp a-^
+  # - { key: Space, mods: Ctrl, chars: "\0" }
+  - { key: F1, mods: None, chars: "2>/dev/null" }   # q
+  - { key: F2, mods: None, chars: "\x1b\x06" }      # w
+  - { key: F3, mods: None, chars: "\x1bb\x1bu" }    # u
+  - { key: F4, mods: None, chars: "\x1bf" }         # e
+  - { key: F5, mods: None, chars: "\x1bt" }         # r
+  - { key: F6, mods: None, chars: "\x1b#" }         # m
+  - { key: F7, mods: None, chars: "\x1b\x14" }      # t
+  - { key: F8, mods: None, chars: "\x1b." }         # y
+  - { key: F10, mods: None, chars: "yerlaser" }     # s
+  - { key: F12, mods: None, chars: "\x1b\x19" }     # f
+  - { key: F13, mods: None, chars: "\x1bb" }        # g
+  - { key: F14, mods: None, chars: "\x1f" }         # z
+  - { key: F15, mods: None, chars: "\x1b-" }        # x
+  - { key: F17, mods: None, chars: "\x1b\x02" }     # b
 # shell:
 #   program: /usr/bin/fish
 # working_directory: Synced
