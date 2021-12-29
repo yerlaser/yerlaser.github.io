@@ -32,6 +32,7 @@ key_bindings:
   - { key: F13, mods: None, chars: "\x1bb" }        # g
   - { key: F14, mods: None, chars: "\x1f" }         # z
   - { key: F15, mods: None, chars: "\x1b-" }        # x
+  - { key: F16, mods: None, chars: "\x1by" }        # y
   - { key: F17, mods: None, chars: "\x1b\x02" }     # b
 # shell:
 #   program: /usr/bin/fish
