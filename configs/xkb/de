@@ -54,5 +54,4 @@ xkb_symbols "DeQwerty" {
   key <RTRN> { [ Return                   , Return                   , F18                      , F18                      ] };
   key <SPCE> { [ space                    , space                    , Escape                   , Escape                   ] };
   key <TAB>  { [ Tab                      , ISO_Left_Tab             , Multi_key                , Pause                    ] };
-  key <PAUS> { [ ISO_Next_Group           , ISO_Prev_Group           , Pause                    , Break                    ] };
 };
