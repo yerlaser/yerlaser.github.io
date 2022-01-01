@@ -12,28 +12,28 @@ window:
   # startup_mode: Fullscreen
   startup_mode: Maximized
 key_bindings:
-  - { key: Back, mods: Shift, chars: "\x1b[3;2~" }
+  - { key: Back, mods: Shift, chars: "\x1b[3;2~" }    # bs s-del
   - { key: Insert, mods: None, chars: "\x1b\x7f" }    # bs a-bs
-  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
-  # - { key: F11, mods: None, chars: "" }             # Return
-  - { key: Pause, mods: None, chars: "\x1bd" }        # c a-d
+  - { key: Return, mods: Shift, chars: "\x1b[13;2u" } # cr s-ret
   - { key: Space, mods: Shift, chars: "\x1b^" }       # sp a-^
-  # - { key: Space, mods: Ctrl, chars: "\0" }
+  # - { key: Space, mods: Ctrl, chars: "\0" }           # sp c-c
   - { key: F1, mods: None, chars: "2>/dev/null" }   # q
-  - { key: F2, mods: None, chars: "\x1b\x06" }      # w
-  - { key: F3, mods: None, chars: "\x1bb\x1bu" }    # u
-  - { key: F4, mods: None, chars: "\x1bf" }         # e
-  - { key: F5, mods: None, chars: "\x1bt" }         # r
-  - { key: F6, mods: None, chars: "\x1b#" }         # m
-  - { key: F7, mods: None, chars: "\x1b\x14" }      # t
-  - { key: F8, mods: None, chars: "\x1b." }         # y
-  - { key: F10, mods: None, chars: "yerlaser" }     # s
-  - { key: F12, mods: None, chars: "\x1b\x19" }     # f
-  - { key: F13, mods: None, chars: "\x1bb" }        # g
-  - { key: F14, mods: None, chars: "\x1f" }         # z
-  - { key: F15, mods: None, chars: "\x1b-" }        # x
-  - { key: F16, mods: None, chars: "\x1by" }        # v
-  - { key: F17, mods: None, chars: "\x1b\x02" }     # b
+  - { key: F2, mods: None, chars: "\x1b\x06" }      # w a-c-f
+  - { key: F3, mods: None, chars: "\x1bf" }         # e a-f
+  - { key: F4, mods: None, chars: "\x1bt" }         # r a-t
+  - { key: F5, mods: None, chars: "\x1b\x14" }      # t a-c-t
+  - { key: F6, mods: None, chars: "\x1b." }         # y a-.
+  - { key: F7, mods: None, chars: "\x1bb\x1bu" }    # u a-b a-u
+  - { key: F9, mods: None, chars: "yerlaser" }      # s
+  - { key: F10, mods: None, chars: "\x1b\x19" }     # f a-c-y
+  - { key: F11, mods: None, chars: "\x1bb" }        # g a-b
+  - { key: F12, mods: None, chars: "\x1f" }         # z c-_
+  - { key: F13, mods: None, chars: "\x1b-" }        # x a--
+  - { key: F14, mods: None, chars: "\x1bd" }        # c a-d
+  - { key: F15, mods: None, chars: "\x1by" }        # v a-y
+  - { key: F16, mods: None, chars: "\x1b\x02" }     # b a-c-b
+  - { key: F17, mods: None, chars: "\x1b#" }        # m a-#
+  - { key: F18, mods: None, chars: "\x1b{" }        # Return a-{
 # shell:
 #   program: /usr/bin/fish
 # working_directory: Synced
