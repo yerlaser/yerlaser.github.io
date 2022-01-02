@@ -106,11 +106,11 @@ map global normal '=' 'K<a-J>c<ret><esc>' -docstring 're-align lines'
 map global normal '{' '{p' -docstring 'extend to paragraph start'
 map global normal '}' '}p' -docstring 'extend to paragraph end'
 map global normal ';' 'L<a-.>' -docstring 'repeat last find'
-# map global normal "'"
+map global normal "'" '\' -docstring 'disable hooks'
 map global normal '|' '<a-x>|sort' -docstring 'pipe and replace with output'
 map global normal 'a' 'li' -docstring 'append after cursor'
 map global normal 'B' '<a-B>' -docstring 'select to WORD start'
-# map global normal "C"
+map global normal "C" '<a-*><a-x>s<ret>' -docstring 'all occurrencies on current line'
 map global normal 'D' 'N' -docstring 'select next match'
 map global normal 'E' '<a-E>' -docstring 'select to WORD end'
 map global normal 'f' 'F' -docstring 'select to find character forwards'
