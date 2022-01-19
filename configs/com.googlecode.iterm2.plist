@@ -5,7 +5,7 @@
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>Command</key>
-	<string>/usr/local/bin/bash</string>
+	<string></string>
 	<key>Control</key>
 	<integer>7</integer>
 	<key>Default Bookmark Guid</key>
@@ -330,7 +330,7 @@
 		<key>0x7f-0x20000-0x33</key>
 		<dict>
 			<key>Action</key>
-			<integer>11</integer>
+			<integer>10</integer>
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
@@ -374,7 +374,7 @@
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
-			<string>[23~</string>
+			<string>{</string>
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
@@ -469,6 +469,8 @@
 	<false/>
 	<key>HideMenuBarInFullscreen</key>
 	<false/>
+	<key>HideScrollbar</key>
+	<true/>
 	<key>Hotkey</key>
 	<false/>
 	<key>HotkeyChar</key>
