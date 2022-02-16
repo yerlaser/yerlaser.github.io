@@ -34,6 +34,6 @@ key_bindings:
   - { key: F16, mods: None, chars: "\x1b\x02" }     # b a-c-b
   - { key: F17, mods: None, chars: "\x1b#" }        # m a-#
   - { key: F18, mods: None, chars: "\x1b{" }        # Return a-{
-# shell:
-#   program: /usr/bin/fish
-# working_directory: Synced
+shell:
+  program: /LOCAL/apps/fish/bin/fish
+working_directory: ~

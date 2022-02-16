@@ -53,8 +53,8 @@ define-command switch-number-line -params .. %{
 }
 
 map global goto '0' 'h' -docstring 'to line start'
-map global goto 'J' '<esc><a-J>' -docstring 'join lines'
-map global goto 'V' '<esc>V' -docstring 'lock view mode'
+map global goto 'j' '<esc><a-J>' -docstring 'join lines'
+map global goto 'v' '<esc>V' -docstring 'lock view mode'
 
 map global insert '<a-^>' ' ' -docstring 'insert space'
 map global insert '<a-b>' '' -docstring 'ignore alt b'
@@ -158,4 +158,4 @@ map global view 'i' '<esc><a-i>' -docstring '<a-i>'
 set-option global indentwidth 2
 set-option global tabstop 2
 
-colorscheme palenight
+colorscheme solarized-light
