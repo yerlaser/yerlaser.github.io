@@ -29,3 +29,5 @@ bindkey '\e[F' end-of-line
 bindkey '\e[H' beginning-of-line
 
 setopt hist_ignore_all_dups hist_ignore_space hist_no_store hist_reduce_blanks hist_verify menu_complete no_list_ambiguous share_history
+
+set -o noclobber

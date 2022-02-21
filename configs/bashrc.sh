@@ -16,7 +16,13 @@ shopt -s histverify
 
 source /LOCAL/Published/configs/shrc.sh
 
-if [ -s "$HOME/Sources/bash-complete-partial-path/bash_completion" ]; then
-    source "$HOME/Sources/bash-complete-partial-path/bash_completion"
-    _bcpp --defaults
+# if [ -s "$HOME/Sources/bash-complete-partial-path/bash_completion" ]; then
+#     source "$HOME/Sources/bash-complete-partial-path/bash_completion"
+#     _bcpp --defaults
+# fi
+
+set -o noclobber
+
+if command -v fish &> /dev/null; then
+  fish
 fi

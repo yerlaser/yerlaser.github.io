@@ -1,5 +1,3 @@
-# fish_add_path -m ~/.local/bin
-
 alias ... 'cd ../../'
 alias dir 'ls -FAhl'
 alias dirtime 'ls -FAhlrt'
@@ -11,10 +9,6 @@ end
 
 if command -v podman &> /dev/null
   alias docker podman
-end
-
-if command -v hx &> /dev/null
-  alias vi hx
 end
 
 if command -v kak &> /dev/null
@@ -32,6 +26,8 @@ if command -v exa &> /dev/null
   alias tree 'exa --tree'
 end
 
+# set CDPATH . /LOCAL
+# fish_add_path -m ~/.local/bin
 # bind -k npage forward-bigword
 # bind -k ppage backward-bigword
 bind \cR history-token-search-forward
@@ -49,7 +45,6 @@ function fish_prompt
   set_color normal
 end
 
-# set CDPATH . /LOCAL
 set fish_greeting
 
 if command -v starship &> /dev/null
