@@ -2,8 +2,8 @@
 xkb_symbols "KzPhonetic" {
   name[Group1] = "Kazakh PHONETIC";
   key.type[Group1] = "FOUR_LEVEL";
-  key <TLDE> { [ Cyrillic_yu              , Cyrillic_YU              , grave                    , asciitilde               ] };
-  key <AE01> { [ numerosign               , exclam                   , 1                        ,x] };
+  key <TLDE> { [ Cyrillic_ka_descender    , Cyrillic_KA_descender    , grave                    , asciitilde               ] };
+  key <AE01> { [ numerosign               , exclam                   , 1                        , multiply                 ] };
   key <AE02> { [ Cyrillic_schwa           , Cyrillic_SCHWA           , 2                        , at                       ] };
   key <AE03> { [ Ukrainian_i              , Ukrainian_I              , 3                        , numbersign               ] };
   key <AE04> { [ Cyrillic_en_descender    , Cyrillic_EN_descender    , 4                        , dollar                   ] };
@@ -12,11 +12,11 @@ xkb_symbols "KzPhonetic" {
   key <AE07> { [ Cyrillic_u_straight_bar  , Cyrillic_U_straight_bar  , 7                        , ampersand                ] };
   key <AE08> { [ Cyrillic_u_straight      , Cyrillic_U_straight      , 8                        , asterisk                 ] };
   key <AE09> { [ U20B8                    , parenleft                , 9                        , U20BD                    ] };
-  key <AE10> { [ degree                   , parenright               , 0                        ,x] };
+  key <AE10> { [ degree                   , parenright               , 0                        , division                 ] };
   key <AE11> { [ minus                    , underscore               , Cyrillic_io              , Cyrillic_IO              ] };
   key <AE12> { [ Cyrillic_shha            , plus                     , equal                    , Cyrillic_SHHA            ] };
   key <AD01> { [ Cyrillic_ya              , Cyrillic_YA              , q                        , Q                        ] };
-  key <AD02> { [ Cyrillic_sha             , Cyrillic_SHA             , w                        , W                        ] };
+  key <AD02> { [ Cyrillic_yu              , Cyrillic_YU              , w                        , W                        ] };
   key <AD03> { [ Cyrillic_ie              , Cyrillic_IE              , e                        , E                        ] };
   key <AD04> { [ Cyrillic_er              , Cyrillic_ER              , r                        , R                        ] };
   key <AD05> { [ Cyrillic_te              , Cyrillic_TE              , t                        , T                        ] };
@@ -25,7 +25,7 @@ xkb_symbols "KzPhonetic" {
   key <AD08> { [ Cyrillic_i               , Cyrillic_I               , i                        , I                        ] };
   key <AD09> { [ Cyrillic_o               , Cyrillic_O               , o                        , O                        ] };
   key <AD10> { [ Cyrillic_pe              , Cyrillic_PE              , p                        , P                        ] };
-  key <AD11> { [ Cyrillic_ka_descender    , Cyrillic_KA_descender    , bracketleft              , braceleft                ] };
+  key <AD11> { [ Cyrillic_sha             , Cyrillic_SHA             , bracketleft              , braceleft                ] };
   key <AD12> { [ Cyrillic_shcha           , Cyrillic_SHCHA           , bracketright             , braceright               ] };
   key <AC01> { [ Cyrillic_a               , Cyrillic_A               , a                        , A                        ] };
   key <AC02> { [ Cyrillic_es              , Cyrillic_ES              , s                        , S                        ] };
@@ -45,8 +45,8 @@ xkb_symbols "KzPhonetic" {
   key <AB05> { [ Cyrillic_be              , Cyrillic_BE              , b                        , B                        ] };
   key <AB06> { [ Cyrillic_en              , Cyrillic_EN              , n                        , N                        ] };
   key <AB07> { [ Cyrillic_em              , Cyrillic_EM              , m                        , M                        ] };
-  key <AB08> { [ comma                    , less                     ,x,x] };
-  key <AB09> { [ period                   , greater                  ,x,x] };
+  key <AB08> { [ comma                    , less                     ,x, lessthanequal            ] };
+  key <AB09> { [ period                   , greater                  ,x, greaterthanequal         ] };
   key <AB10> { [ Cyrillic_shorti          , question                 , slash                    , Cyrillic_SHORTI          ] };
   key <BKSL> { [ Cyrillic_e               , Cyrillic_E               , backslash                , bar                      ] };
   key <LSGT> { [ EuroSign                 , yen                      , sterling                 , cent                     ] };
