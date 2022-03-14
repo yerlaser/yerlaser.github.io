@@ -2,14 +2,14 @@
 xkb_symbols "KzPhonetic" {
   name[Group1] = "Kazakh PHONETIC";
   key.type[Group1] = "FOUR_LEVEL";
-  key <TLDE> { [ Cyrillic_ka_descender    , Cyrillic_KA_descender    , grave                    , asciitilde               ] };
+  key <TLDE> { [ Cyrillic_o_bar           , Cyrillic_O_bar           , grave                    , asciitilde               ] };
   key <AE01> { [ numerosign               , exclam                   , 1                        , multiply                 ] };
   key <AE02> { [ Cyrillic_schwa           , Cyrillic_SCHWA           , 2                        , at                       ] };
   key <AE03> { [ Ukrainian_i              , Ukrainian_I              , 3                        , numbersign               ] };
   key <AE04> { [ Cyrillic_en_descender    , Cyrillic_EN_descender    , 4                        , dollar                   ] };
   key <AE05> { [ Cyrillic_ghe_bar         , Cyrillic_GHE_bar         , 5                        , percent                  ] };
-  key <AE06> { [ Cyrillic_o_bar           , Cyrillic_O_bar           , 6                        , asciicircum              ] };
-  key <AE07> { [ Cyrillic_u_straight_bar  , Cyrillic_U_straight_bar  , 7                        , ampersand                ] };
+  key <AE06> { [ Cyrillic_u_straight_bar  , Cyrillic_U_straight_bar  , 6                        , asciicircum              ] };
+  key <AE07> { [ Cyrillic_ka_descender    , Cyrillic_KA_descender    , 7                        , ampersand                ] };
   key <AE08> { [ Cyrillic_u_straight      , Cyrillic_U_straight      , 8                        , asterisk                 ] };
   key <AE09> { [ U20B8                    , parenleft                , 9                        , U20BD                    ] };
   key <AE10> { [ degree                   , parenright               , 0                        , division                 ] };
