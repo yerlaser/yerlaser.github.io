@@ -2,7 +2,7 @@
 xkb_symbols "DeQwerty" {
   name[Group1] = "Deutsch QWERTY";
   key.type[Group1] = "FOUR_LEVEL";
-  key <TLDE> { [ adiaeresis               , Adiaeresis               , grave                    , asciitilde               ] };
+  key <TLDE> { [ odiaeresis               , Odiaeresis               , grave                    , asciitilde               ] };
   key <AE01> { [ 1                        , exclam                   , idiaeresis               , multiply                 ] };
   key <AE02> { [ 2                        , at                       ,x,x] };
   key <AE03> { [ 3                        , numbersign               , ediaeresis               , Ediaeresis               ] };
@@ -26,7 +26,7 @@ xkb_symbols "DeQwerty" {
   key <AD09> { [ o                        , O                        , o                        , O                        ] };
   key <AD10> { [ p                        , P                        , p                        , P                        ] };
   key <AD11> { [ udiaeresis               , Udiaeresis               , bracketleft              , braceleft                ] };
-  key <AD12> { [ odiaeresis               , Odiaeresis               , bracketright             , braceright               ] };
+  key <AD12> { [ adiaeresis               , Adiaeresis               , bracketright             , braceright               ] };
   key <AC01> { [ a                        , A                        , a                        , A                        ] };
   key <AC02> { [ s                        , S                        , s                        , S                        ] };
   key <AC03> { [ d                        , D                        , d                        , D                        ] };
