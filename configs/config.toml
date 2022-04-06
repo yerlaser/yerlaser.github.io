@@ -1,0 +1,54 @@
+theme = "onedark"
+
+[keys.insert]
+# "C-end" = "goto_line_end_newline"
+# "C-l" = "move_char_right"
+"tab" = "normal_mode"
+"S-tab" = "insert_tab"
+
+[keys.normal]
+"A-u" = "switch_to_uppercase" # C-7
+"C-r" = "redo"
+"@" = "replay_macro"
+"percent" = "match_brackets"
+"semicolon" = "repeat_last_motion"
+"A-d" = "remove_primary_selection" # S-BS
+"backspace" = "keep_primary_selection"
+"tab" = "collapse_selection"
+"S-tab" = "buffer_picker"
+
+"G" = "goto_file_end"
+"M" = "toggle_comments"
+"q" = "record_macro"
+"Q" = "copy_selection_on_prev_line"
+"V" = "extend_to_line_bounds"
+"X" = "split_selection_on_newline" #
+# "backspace" = "rotate_selection_contents_backward"
+# "C-end" = "expand_selection" # C-;
+# "C-right" = "select_all" # C-Enter
+# "C-space" = "keep_primary_selection"
+# "C-S-del" = "rotate_selection_contents_forward"
+# "U" = "flip_selections"
+# "x" = "keep_selections"
+# "X" = "keep_selections"
+
+[keys.select]
+"tab" = "collapse_selection"
+"S-tab" = "keep_primary_selection"
+"V" = "extend_to_line_bounds"
+# "backspace" = "rotate_selection_contents_backward"
+# "C-end" = "expand_selection"
+# "C-right" = "select_all" # C-Enter
+# "S-right" = "split_selection_on_newline" # C-Enter
+# "C-7" = "toggle_comments" # C-/
+# "C-l" = "switch_to_lowercase"
+# "C-u" = "switch_to_uppercase"
+# "ret" = "expand_selection"
+# '$" = "goto_line_end"
+# "^" = "goto_first_nonwhitespace"
+# ""' = "select_register"
+# "percent" = "match_brackets"
+# "G" = "goto_file_end"
+# "U" = "flip_selections"
+# "x" = "keep_selections"
+# "X" = "keep_selections"

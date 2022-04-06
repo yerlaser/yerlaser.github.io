@@ -5,16 +5,9 @@ function addToPATH {
   esac
 }
 
-addToPATH "/BUILD/node/bin"
-addToPATH "/LOCAL/apps/cmake/bin"
-addToPATH "/LOCAL/apps/fish/bin"
-addToPATH "/LOCAL/apps/git/bin"
-addToPATH "/LOCAL/apps/jdk/bin"
-addToPATH "/LOCAL/apps/kak/bin"
 addToPATH "/LOCAL/apps/clang/bin"
-addToPATH "/LOCAL/apps/mruby/bin"
-addToPATH "/LOCAL/apps/node/bin"
 addToPATH "/LOCAL/apps/ruby/bin"
+addToPATH "/home/yerlan/Sources/nushell/target/release"
 
 # export CPLUS_INCLUDE_PATH="/LOCAL/apps/gcc/include/c++/12.0.0"
 # export LD_LIBRARY_PATH="/LOCAL/apps/gcc/lib64"
@@ -22,13 +15,13 @@ addToPATH "/LOCAL/apps/ruby/bin"
 # export CC="/LOCAL/apps/gcc/bin/gcc"
 # export CXX="/LOCAL/apps/gcc/bin/g++"
 
-export CPLUS_INCLUDE_PATH="/LOCAL/apps/clang/include/c++/v1"
-export LD_LIBRARY_PATH="/LOCAL/apps/clang/lib64"
-export LD_RUN_PATH="/LOCAL/apps/clang/lib64"
-export CC="/LOCAL/apps/clang/bin/clang"
-export CXX="/LOCAL/apps/clang/bin/clang++"
+# export CPLUS_INCLUDE_PATH="/LOCAL/apps/clang/include/c++/v1"
+# export LD_LIBRARY_PATH="/LOCAL/apps/clang/lib64"
+# export LD_RUN_PATH="/LOCAL/apps/clang/lib64"
+# export CC="/LOCAL/apps/clang/bin/clang"
+# export CXX="/LOCAL/apps/clang/bin/clang++"
 
-export MANPATH=":/LOCAL/apps/jdk/man"
+# export MANPATH=":/LOCAL/apps/jdk/man"
 
 export GIT_PAGER=less
 # export GDK_BACKEND=wayland
@@ -37,7 +30,7 @@ export GIT_PAGER=less
 
 # export GOPATH="/BUILD/go"
 # export RUSTFLAGS="-L /LOCAL/apps/rust/rust-std-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib"
-export PYTHONPYCACHEPREFIX="$HOME/.local/var/python"
+# export PYTHONPYCACHEPREFIX="$HOME/.local/var/python"
 
 alias '..'='cd ..'
 alias '...'='cd ../..'
@@ -54,6 +47,14 @@ if command -v kak &> /dev/null; then
   alias view='kak -ro'
   export EDITOR=kak
   export VISUAL=kak
+fi
+
+if command -v hx &> /dev/null; then
+  # alias kakn='kak -n'
+  alias vi=hx
+  # alias view='kak -ro'
+  export EDITOR=hx
+  export VISUAL=hx
 fi
 
 if command -v exa &> /dev/null; then

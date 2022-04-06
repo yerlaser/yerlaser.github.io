@@ -7,49 +7,45 @@ hook global InsertChar \[ %{ exec ]<left> }
 hook global InsertChar \{ %[ exec }<left> ]
 
 hook global InsertCompletionShow .* %{
-  try %{
-    execute-keys -draft 'h<a-K>\h<ret>'
-    map window insert <a-^> <c-o> -docstring 'toggle autocomplete for this session'
-    map window insert <s-tab> <c-p> -docstring 'previous suggestion'
-    map window insert <tab> <c-n> -docstring 'next suggestion'
-    hook -once -always window InsertCompletionHide .* %{
-      unmap window insert <a-^> <c-o>
-      unmap window insert <s-tab> <c-p>
-      unmap window insert <tab> <c-n>
+    try %{
+        execute-keys -draft 'h<a-K>\h<ret>'
+        map window insert <s-tab> <c-p> -docstring 'previous suggestion'
+        map window insert <tab> <c-n> -docstring 'next suggestion'
+        hook -once -always window InsertCompletionHide .* %{
+            unmap window insert <s-tab> <c-p>
+            unmap window insert <tab> <c-n>
+        }
     }
-  }
 }
 
 hook global NormalKey 0 'switch-number-line -relative'
 hook global NormalKey \D.* 'switch-number-line'
 
-hook global WinSetOption filetype=css %{ map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block' }
+hook global WinSetOption filetype=css %{
+    map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
+}
 hook global WinSetOption filetype=go %{
-  set-option buffer formatcmd gofmt
-  set-option buffer indentwidth 0
-  set-option buffer tabstop 4
+    set-option buffer formatcmd gofmt
 }
 hook global WinSetOption filetype=html %{
-  hook buffer InsertChar < %{ exec ><left> }
-  map buffer insert '<a-{>' '}<backspace><esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'html tag from previous word'
-  map buffer normal '<a-#>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
+    hook buffer InsertChar < %{ exec ><left> }
+    map buffer insert '<c-space>' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'html tag from previous word'
+    map buffer normal '<c-_>' '<a-x>: comment-block<ret>' -docstring 'comment/uncomment block'
 }
 hook global WinSetOption filetype=javascript %{ hook buffer InsertChar ` %{ exec `<left> } }
 hook global WinSetOption filetype=python %{
-  set-option buffer indentwidth 4
-  set-option buffer tabstop 4
 }
 hook global WinSetOption filetype=ruby %{
-  hook buffer InsertChar ` %{ exec `<left> }
-  map buffer insert '<s-ret>' '<ret>' -docstring 'insert indented block '
+    hook buffer InsertChar ` %{ exec `<left> }
+    map buffer insert '<s-ret>' '<ret>' -docstring 'insert indented block '
 }
 
 define-command -hidden extend-next-hump %{ execute-keys '?[A-Z][a-z]+|[A-Z]+|[a-z]+<ret>' }
 define-command -hidden extend-previous-hump %{ execute-keys '<a-?>[A-Z][a-z]+|[A-Z]+|[a-z]+<ret>' }
 
 define-command switch-number-line -params .. %{
-  try %{ remove-highlighter window/number_lines }
-  add-highlighter window/number_lines number-lines %arg{@}
+    try %{ remove-highlighter window/number_lines }
+    add-highlighter window/number_lines number-lines %arg{@}
 }
 
 map global goto '0' 'h' -docstring 'to line start'
@@ -64,24 +60,25 @@ map global insert '<a-y>' '<esc>!wl-paste -n<ret>i' -docstring 'paste from syste
 # map global insert '<a-y>' '<esc>!pbpaste<ret>i' -docstring 'paste from system keyboard'
 map global insert '<a-.>' '<c-r>"' -docstring 'paste default register'
 map global insert '<c-^>' '<esc>\i' -docstring 'insert without hooks'
-map global insert '<c-space>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
+# map global insert '<c-space>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
+map global insert '<ret>' '<esc>' -docstring 'exit insert mode'
 map global insert '<s-del>' '<del>' -docstring 'delete character right'
 map global insert '<s-ret>' '<ret><esc>O' -docstring 'insert indented block'
 # map global insert '<s-tab>' '<esc>: bn<ret>' -docstring 'next buffer'
 map global insert '<s-tab>' '<esc>K<a-&><a-;>;i' -docstring 'copy indent from above'
 
-map global normal '<a-#>' ': comment-line<ret>' -docstring 'comment/uncomment line'
 # map global normal '<a-^>'
 # map global normal '<a-.>'
 map global normal '<a-b>' '' -docstring 'ignore alt b'
 map global normal '<a-c-t>' 's[^\d\s\W]+<ret>`<a-;>;~<space>' -docstring 'change selection to title case'
 map global normal '<a-d>' '<a-|> wl-copy > /dev/null 2>&1 <ret><space>;' -docstring 'copy to system clipboard'
 # map global normal '<a-d>' '<a-|> pbcopy <ret><space>;' -docstring 'copy to system clipboard'
-map global normal '<a-u>' '~' -docstring 'change selection to upper case'
 map global normal '<backspace>' '<space>' -docstring 'remove additional selections'
+map global normal '<c-_>' ': comment-line<ret>' -docstring 'comment/uncomment line'
 map global normal '<c-space>' '<a-s><a-h>;' -docstring 'select first column'
 map global normal '<c-l>' '`' -docstring 'change selection to lower case'
 map global normal '<c-r>' 'U' -docstring 'redo'
+map global normal '<c-u>' '~' -docstring 'change selection to upper case'
 map global normal '<s-del>' '<a-space>' -docstring 'remove primary selection'
 map global normal '<s-ret>' '<a-O>' -docstring 'add blank line above'
 map global normal '<s-tab>' ': bn<ret>' -docstring 'next buffer'
@@ -154,8 +151,5 @@ map global view 'a' '<esc><a-a>' -docstring '<a-a>'
 map global view 'd' '<esc><a-d>' -docstring 'delete without yanking'
 map global view 'e' '<esc><a-S>' -docstring 'select selection ends'
 map global view 'i' '<esc><a-i>' -docstring '<a-i>'
-
-set-option global indentwidth 2
-set-option global tabstop 2
 
 colorscheme solarized-light
