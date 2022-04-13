@@ -12,32 +12,33 @@ window:
   # startup_mode: Fullscreen
   startup_mode: Maximized
 key_bindings:
-  - { key: 7, mods: Control, chars: "\x1b^" }        # 6, a-^
-  - { key: 8, mods: Control, chars: "\x1b-\x1bu" }   # 7, a-- a-u
-  - { key: 9, mods: Control, chars: "\x1b." }        # 8, a-.
-  - { key: 10, mods: Control, chars: "\x1b\x02" }    # 9, a-c-b
-  - { key: 11, mods: Control, action: none }         # 0
-  - { key: 11, mods: Control, chars: "\x1b\x06" }    # 0, a-c-f
-  - { key: 40, mods: Control, chars: "\x1b\x1d" }    # ' a-c-]
-  - { key: 51, mods: Control, chars: "\x1bf" }       # , a-f
-  - { key: 41, mods: None, chars: "`" }
-  - { key: 41, mods: Shift, chars: "~" }
-  - { key: 13, mods: None, chars: "=" }
-  - { key: 26, mods: None, chars: "[" }
-  - { key: 26, mods: Shift, chars: "{" }
-  - { key: 26, mods: Control, chars: "\x1b" }
-  - { key: 27, mods: None, chars: "]" }
-  - { key: 27, mods: Shift, chars: "}" }
-  - { key: 27, mods: Control, chars: "\x1d" }
-  - { key: I, mods: Control, chars: "\x1bb" }     # i a-b
-  - { key: L, mods: Control, action: none }       # l
-  - { key: L, mods: Control, chars: "\x0c" }      # l c-l
-  - { key: M, mods: Control, chars: "\x1b#" }     # m a-#
-  - { key: Back, mods: Shift, chars: "\x1bd" }    # bs a-d
-  - { key: Back, mods: Control, chars: "\x1b\x7f" } # bs a-bs
-  - { key: Return, mods: Shift, chars: "\x1b[13;2u" } # cr s-ret
-  - { key: Return, mods: Control, chars: "\x1b\x05" } # cr a-c-e
-  - { key: Space, mods: Shift, chars: "\x1b&" }       # sp a-&
+  - { key: 11      , mods: Control, action: none         }  # 0
+  - { key: L       , mods: Control, action: none         }  # l
+  - { key: 41      , mods: None   , chars : "`"          }
+  - { key: 41      , mods: Shift  , chars : "~"          }
+  - { key: 13      , mods: None   , chars : "="          }
+  - { key: 26      , mods: None   , chars : "["          }
+  - { key: 26      , mods: Shift  , chars : "{"          }
+  - { key: 26      , mods: Control, chars : "\x1b"       }
+  - { key: 27      , mods: None   , chars : "]"          }
+  - { key: 27      , mods: Shift  , chars : "}"          }
+  - { key: 27      , mods: Control, chars : "\x1d"       }
+  - { key: Grave   , mods: None   , chars : "`"          }
+  - { key: Grave   , mods: Shift  , chars : "~"          }
+  - { key: Equals  , mods: None   , chars : "="          }
+  - { key: LBracket, mods: None   , chars : "["          }
+  - { key: LBracket, mods: Shift  , chars : "{"          }
+  - { key: LBracket, mods: Control, chars : "\x1b"       }
+  - { key: RBracket, mods: None   , chars : "]"          }
+  - { key: RBracket, mods: Shift  , chars : "}"          }
+  - { key: RBracket, mods: Control, chars : "\x1d"       }
+  - { key: Back    , mods: Shift  , chars : "\x1b[3~"    }  # bs del
+  - { key: Return  , mods: Shift  , chars : "\x1b[13;2u" }  # cr s-ret
+  - { key: Space   , mods: Shift  , chars : "\x1b&"      }  # sp a-&
+  - { key: LControl, mods: None   , chars : "\x1b"       }  # caps esc
+  - { key: LWin    , mods: None   , chars : "\x1b"       }  # caps esc
+  - { key: LControl, mods: Shift  , chars : "\x1b-\x1bu" }  # s-caps a-- a-u
+  - { key: LWin    , mods: Shift  , chars : "\x1b-\x1bu" }  # s-caps a-- a-u
 shell:
   program: /LOCAL/Sources/nushell/target/release/nu
 # working_directory: ~
