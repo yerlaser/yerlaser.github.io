@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "dracula"
 
 [keys.insert]
 "A-minus" = { "A-u" = [ "normal_mode", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "collapse_selection", "insert_mode" ] }
