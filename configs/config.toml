@@ -4,35 +4,57 @@ theme = "onedark"
 "A-minus" = { "A-u" = [ "normal_mode", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "collapse_selection", "insert_mode" ] }
 
 [keys.normal]
-"A-minus" = { "A-u" = "switch_to_uppercase" }
 "C-r" = "redo"
+
+"A-minus" = { "A-u" = "switch_to_uppercase" }
 "@" = "replay_macro"
-"$" = "goto_line_end"
-"^" = "goto_first_nonwhitespace"
+"$" = "extend_to_line_end_newline"
 "percent" = "match_brackets"
+"^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
 "semicolon" = "repeat_last_motion"
 "backspace" = "keep_primary_selection"
 "del" = "remove_primary_selection" # S-BS
 "ret" = "collapse_selection"
-"S-ret" = "add_newline_above"
+"S-ret" = "split_selection_on_newline"
+"S-tab" = "ensure_selections_forward"
+"tab" = "flip_selections"
 
+"D" = "no_op"
 "G" = "goto_file_end"
+"H" = "rotate_selection_contents_backward"
 "M" = "toggle_comments"
+"L" = "rotate_selection_contents_forward"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "V" = "extend_to_line_bounds"
-"x" = "flip_selections"
-"X" = "split_selection_on_newline"
-"H" = "rotate_selection_contents_backward"
-"L" = "rotate_selection_contents_forward"
+"X" = "remove_selections"
 "+" = "expand_selection"
 "'" = "select_all"
 
 [keys.select]
+"C-r" = "redo"
+
+"A-minus" = { "A-u" = [ "switch_to_uppercase", "normal_mode" ] }
+"@" = [ "normal_mode", "replay_macro" ]
 "$" = "goto_line_end"
+"percent" = "match_brackets"
 "^" = "goto_first_nonwhitespace"
-"ret" = [ "normal_mode", "collapse_selection" ]
+"semicolon" = "repeat_last_motion"
 "backspace" = [ "normal_mode", "keep_primary_selection" ]
+"del" = [ "normal_mode", "remove_primary_selection" ] # S-BS
+"ret" = [ "normal_mode", "collapse_selection" ]
+"S-ret" = [ "normal_mode", "split_selection_on_newline" ]
+"S-tab" = "ensure_selections_forward"
+"tab" = "flip_selections"
+
+"D" = "no_op"
+"G" = [ "normal_mode", "goto_file_end" ]
+"H" = [ "normal_mode", "rotate_selection_contents_backward" ]
+"M" = [ "normal_mode", "toggle_comments" ]
+"L" = [ "normal_mode", "rotate_selection_contents_forward" ]
+"q" = [ "normal_mode", "record_macro" ]
+"Q" = "copy_selection_on_prev_line"
 "V" = [ "normal_mode", "extend_to_line_bounds" ]
-"x" = "flip_selections"
-"X" = [ "normal_mode", "split_selection_on_newline" ]
+"X" = [ "normal_mode", "remove_selections" ]
+"+" = [ "normal_mode", "expand_selection" ]
+"'" = [ "normal_mode", "select_all" ]
