@@ -50,10 +50,4 @@ xkb_symbols "KzPhonetic" {
   key <AB10> { [ Cyrillic_shorti          , question                 , slash                    , Cyrillic_SHORTI          ] };
   key <BKSL> { [ Cyrillic_e               , Cyrillic_E               , backslash                , bar                      ] };
   key <LSGT> { [ EuroSign                 , yen                      , sterling                 , cent                     ] };
-  key <CAPS> { [ Control_L                , Control_L                , Control_L                , Control_L                ] };
-  key <LCTL> { [ Super_L                  , Super_L                  , Super_L                  , Super_L                  ] };
-  key <LWIN> { [ ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         ] };
-  key <MENU> { [ ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         ] };
-  key <RALT> { [ Control_R                , Control_R                , Control_R                , Control_R                ] };
-  key <RCTL> { [ ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         ] };
 };

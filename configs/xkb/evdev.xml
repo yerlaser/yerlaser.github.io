@@ -1,23 +1,9 @@
 After neo
-	 <variant>
-	   <configItem>
-	     <name>DeQwerty</name>
-	     <description>Deutsch QWERTY</description>
-	   </configItem>
-	 </variant>
 
 After kazrus
 	 <variant>
 	   <configItem>
 	     <name>KzPhonetic</name>
 	     <description>Kazakh PHONETIC</description>
-	   </configItem>
-	 </variant>
-
-OLD
-	 <variant>
-	   <configItem>
-	     <name>LaCy</name>
-	     <description>Latin Cyrillic</description>
 	   </configItem>
 	 </variant>

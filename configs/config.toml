@@ -1,6 +1,8 @@
 theme = "dracula"
 
 [keys.insert]
+"ret" = "normal_mode"
+"S-ret" = "insert_newline"
 
 [keys.normal]
 "C-r" = "redo"
