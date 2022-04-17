@@ -11,12 +11,10 @@ if command -v podman &> /dev/null
   alias docker podman
 end
 
-if command -v kak &> /dev/null
-  alias kakn 'kak -n'
-  alias vi kak
-  alias view 'kak -ro'
-  export EDITOR kak
-  export VISUAL kak
+if command -v hx &> /dev/null
+  alias vi hx
+  export EDITOR hx
+  export VISUAL hx
 end
 
 if command -v exa &> /dev/null
@@ -28,12 +26,6 @@ end
 
 # set CDPATH . /LOCAL
 # fish_add_path -m ~/.local/bin
-# bind -k npage forward-bigword
-# bind -k ppage backward-bigword
-bind \cR history-token-search-forward
-bind \e^ expand-abbr
-bind \et transpose-words
-bind \e\[C forward-single-char
 
 function fish_prompt
   if test "$status" -ne 0
