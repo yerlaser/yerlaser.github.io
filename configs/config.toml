@@ -8,7 +8,7 @@ theme = "dracula"
 
 "A-minus" = { "A-u" = "switch_to_uppercase" }
 "@" = "replay_macro"
-"$" = "extend_to_line_end_newline"
+"$" = "extend_to_line_end"
 "percent" = "match_brackets"
 "^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
 "semicolon" = "repeat_last_motion"
