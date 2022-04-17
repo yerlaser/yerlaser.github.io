@@ -1,6 +1,4 @@
 include "%L"
-
-<Multi_key> <Multi_key> <Multi_key> : "`"
 <Multi_key> <a> <a> : "ä"
 <Multi_key> <A> <A> : "Ä"
 <Multi_key> <u> <u> : "ü"
