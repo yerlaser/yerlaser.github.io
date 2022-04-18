@@ -7,6 +7,7 @@ theme = "dracula"
 
 [keys.normal]
 "A-&" = "remove_primary_selection" # S-space
+"A-C-b" = "jump_forward" # C-i
 "C-r" = "redo"
 "@" = "replay_macro"
 "$" = "extend_to_line_end"
@@ -15,8 +16,6 @@ theme = "dracula"
 "+" = "expand_selection"
 "'" = "select_all"
 "semicolon" = "repeat_last_motion"
-"backspace" = "delete_selection_noyank"
-"del" = "change_selection_noyank" # S-backspace
 "ret" = "collapse_selection"
 "S-ret" = "split_selection_on_newline"
 "S-tab" = "ensure_selections_forward"
@@ -35,6 +34,7 @@ theme = "dracula"
 
 [keys.select]
 "A-&" = [ "normal_mode", "remove_primary_selection" ] # S-BS
+"A-C-b" = "jump_forward" # C-i
 "C-r" = "redo"
 "@" = [ "normal_mode", "replay_macro" ]
 "$" = "goto_line_end"
@@ -43,8 +43,6 @@ theme = "dracula"
 "+" = [ "normal_mode", "expand_selection" ]
 "'" = [ "normal_mode", "select_all" ]
 "semicolon" = "repeat_last_motion"
-"backspace" = [ "normal_mode", "delete_selection_noyank" ]
-"del" = [ "normal_mode", "change_selection_noyank" ] # S-backspace
 "ret" = [ "normal_mode", "collapse_selection" ]
 "S-ret" = [ "normal_mode", "split_selection_on_newline" ]
 "S-tab" = "ensure_selections_forward"
@@ -52,7 +50,7 @@ theme = "dracula"
 
 "a" = [ "normal_mode", "select_textobject_around" ]
 "D" = [ "normal_mode", "switch_to_lowercase" ]
-"G" = [ "normal_mode", "goto_file_end" ]
+"G" = [ "goto_file_end", "normal_mode" ]
 "H" = [ "normal_mode", "rotate_selection_contents_backward" ]
 "i" = [ "normal_mode", "select_textobject_inner" ]
 "M" = [ "normal_mode", "toggle_comments" ]

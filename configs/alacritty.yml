@@ -17,6 +17,8 @@ key_bindings:
   - { key: Back    , mods: Shift  , chars : "\x1b[3~"    }  # bs del
   - { key: Return  , mods: Shift  , chars : "\x1b[13;2u" }  # cr s-ret
   - { key: Space   , mods: Shift  , chars : "\x1b&"      }  # sp a-&
+  - { key: I       , mods: Control, chars : "\x1b\x02"   }  # i a-c-b
+  - { key: M       , mods: Control, chars : "\x1b\x06"   }  # i a-c-f
 shell:
   program: /LOCAL/Sources/nushell/target/release/nu
 # working_directory: ~
