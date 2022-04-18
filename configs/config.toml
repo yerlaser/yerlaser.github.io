@@ -1,26 +1,28 @@
 theme = "dracula"
 
 [keys.insert]
+"A-&" = "no_op"
 "ret" = "normal_mode"
 "S-ret" = "insert_newline"
 
 [keys.normal]
+"A-&" = "remove_primary_selection" # S-space
 "C-r" = "redo"
-
 "@" = "replay_macro"
 "$" = "extend_to_line_end"
 "percent" = "match_brackets"
 "^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
+"+" = "expand_selection"
+"'" = "select_all"
 "semicolon" = "repeat_last_motion"
-"," = { "u" = [ "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "collapse_selection", "insert_mode" ] }
-"backspace" = "keep_primary_selection"
-"del" = "remove_primary_selection" # S-BS
+"backspace" = "delete_selection_noyank"
+"del" = "change_selection_noyank" # S-backspace
 "ret" = "collapse_selection"
 "S-ret" = "split_selection_on_newline"
 "S-tab" = "ensure_selections_forward"
 "tab" = "flip_selections"
 
-"D" = "no_op"
+"D" = "switch_to_lowercase"
 "G" = "goto_file_end"
 "H" = "rotate_selection_contents_backward"
 "M" = "toggle_comments"
@@ -30,34 +32,33 @@ theme = "dracula"
 "U" = "switch_to_uppercase"
 "V" = "extend_to_line_bounds"
 "X" = "remove_selections"
-"+" = "expand_selection"
-"'" = "select_all"
 
 [keys.select]
+"A-&" = [ "normal_mode", "remove_primary_selection" ] # S-BS
 "C-r" = "redo"
-
-"A-minus" = { "A-u" = [ "switch_to_uppercase", "normal_mode" ] }
 "@" = [ "normal_mode", "replay_macro" ]
 "$" = "goto_line_end"
 "percent" = "match_brackets"
 "^" = "goto_first_nonwhitespace"
+"+" = [ "normal_mode", "expand_selection" ]
+"'" = [ "normal_mode", "select_all" ]
 "semicolon" = "repeat_last_motion"
-"backspace" = [ "normal_mode", "keep_primary_selection" ]
-"del" = [ "normal_mode", "remove_primary_selection" ] # S-BS
+"backspace" = [ "normal_mode", "delete_selection_noyank" ]
+"del" = [ "normal_mode", "change_selection_noyank" ] # S-backspace
 "ret" = [ "normal_mode", "collapse_selection" ]
 "S-ret" = [ "normal_mode", "split_selection_on_newline" ]
 "S-tab" = "ensure_selections_forward"
 "tab" = "flip_selections"
 
-"D" = "no_op"
+"a" = [ "normal_mode", "select_textobject_around" ]
+"D" = [ "normal_mode", "switch_to_lowercase" ]
 "G" = [ "normal_mode", "goto_file_end" ]
 "H" = [ "normal_mode", "rotate_selection_contents_backward" ]
+"i" = [ "normal_mode", "select_textobject_inner" ]
 "M" = [ "normal_mode", "toggle_comments" ]
 "L" = [ "normal_mode", "rotate_selection_contents_forward" ]
-"q" = [ "normal_mode", "record_macro" ]
+"q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "U" = [ "normal_mode", "switch_to_uppercase" ]
 "V" = [ "normal_mode", "extend_to_line_bounds" ]
 "X" = [ "normal_mode", "remove_selections" ]
-"+" = [ "normal_mode", "expand_selection" ]
-"'" = [ "normal_mode", "select_all" ]
