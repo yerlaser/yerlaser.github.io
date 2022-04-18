@@ -1,7 +1,7 @@
 theme = "dracula"
 
 [keys.insert]
-"A-&" = "no_op"
+"A-&" = "no_op" # S-space
 "ret" = "normal_mode"
 "S-ret" = "insert_newline"
 
