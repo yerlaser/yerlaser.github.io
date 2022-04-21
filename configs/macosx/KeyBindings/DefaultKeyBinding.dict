@@ -15,14 +15,16 @@
   "$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:";
   /* Shift + Ctrl + End Button */
   "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:";
-  "\UF710" = {
+  "§" = {
+    "\$" = { "\$" = ("insertText:", "€"); };
+
     /* German Letters */
-    "\U0061" = { "\U0061" = ("insertText:", "\U00E4"); }
-    "\U0041" = { "\U0041" = ("insertText:", "\U00C4"); }
-    "\U006F" = { "\U006F" = ("insertText:", "\U00F6"); }
-    "\U004F" = { "\U004F" = ("insertText:", "\U00D6"); }
-    "\U0075" = { "\U0075" = ("insertText:", "\U00FC"); }
-    "\U0055" = { "\U0055" = ("insertText:", "\U00DC"); }
-    "\U0073" = { "\U0073" = ("insertText:", "\U00DF"); }
-  }
+    "\U0061" = { "\U0061" = ("insertText:", "\U00E4"); };
+    "\U0041" = { "\U0041" = ("insertText:", "\U00C4"); };
+    "\U006F" = { "\U006F" = ("insertText:", "\U00F6"); };
+    "\U004F" = { "\U004F" = ("insertText:", "\U00D6"); };
+    "\U0075" = { "\U0075" = ("insertText:", "\U00FC"); };
+    "\U0055" = { "\U0055" = ("insertText:", "\U00DC"); };
+    "\U0073" = { "\U0073" = ("insertText:", "\U00DF"); };
+  };
 }

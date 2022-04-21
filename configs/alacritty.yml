@@ -19,6 +19,8 @@ key_bindings:
   - { key: Space   , mods: Shift  , chars : "\x1b&"      }  # sp a-&
   - { key: I       , mods: Control, chars : "\x1b\x02"   }  # i a-c-b
   - { key: M       , mods: Control, chars : "\x1b\x06"   }  # i a-c-f
+  - { key: Caret   , mods: None   , chars : "`"          }
+  - { key: Caret   , mods: Shift  , chars : "~"          }
 shell:
   program: /LOCAL/Sources/nushell/target/release/nu
 # working_directory: ~
