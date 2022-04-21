@@ -1,15 +1,15 @@
-source /LOCAL/Sources/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /LOCAL/Sources/zsh-history-substring-search/zsh-history-substring-search.zsh
+# source /LOCAL/Sources/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /LOCAL/Sources/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-source /LOCAL/Published/configs/shrc.sh
+# source /LOCAL/Published/configs/shrc.sh
 
 HISTFILE=~/.history
 HISTSIZE=1000
 PROMPT='%(?..[%?] )%F{magenta}%D{%d-%m %H:%M:%S} | %~ %f'
 SAVEHIST=1000
 WORDCHARS=${WORDCHARS/\/}
-ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=()
-ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(end-of-line forward-char forward-word)
+# ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=()
+# ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(end-of-line forward-char forward-word)
 # ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
