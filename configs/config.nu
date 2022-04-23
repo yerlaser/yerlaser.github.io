@@ -1,12 +1,13 @@
-let $config = ($config
-| upsert rm_always_trash true
-| upsert edit_mode vi
-| upsert keybindings [
-{
-    name: complete_word
-    modifier: shift
-    keycode: enter
-    mode: vi_insert
-    event: { send: HistoryHintWordComplete }
+let $config = {
+    rm_always_trash: true
+    edit_mode: vi
+    keybindings: [
+        {
+            name: complete_word
+            modifier: shift
+            keycode: enter
+            mode: vi_insert
+            event: { send: HistoryHintWordComplete }
+        }
+    ]
 }
-])
