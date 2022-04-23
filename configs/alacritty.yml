@@ -14,7 +14,7 @@ key_bindings:
   - { key: RControl, mods: Shift|Alt, chars  : "set -o vi && clear\r"  }
   - { key: Back    , mods: Shift  , chars : "\x1b[3~"   }  # bs del
   - { key: Return  , mods: Shift  , chars : "\x1b[13;2u"}  # cr s-ret
-  - { key: Space   , mods: Shift  , chars : "\x1b&"     }  # sp a-&
+  - { key: Space   , mods: Shift  , chars : "\x1bg"     }  # sp a-g
   - { key: RControl, mods: None   , chars : "\x1b"      }
   - { key: RControl, mods: Shift  , action: ToggleViMode}
   - { key: V       , mods: Alt    , action: Paste       }
