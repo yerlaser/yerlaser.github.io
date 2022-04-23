@@ -1,4 +1,10 @@
 After neo
+	 <variant>
+	   <configItem>
+	     <name>DeQwerty</name>
+	     <description>Deutsch QWERTY</description>
+	   </configItem>
+	 </variant>
 
 After kazrus
 	 <variant>

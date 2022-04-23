@@ -2,35 +2,40 @@ theme = "dracula"
 
 [keys.insert]
 "A-&" = "no_op" # S-space
-"ret" = "normal_mode"
-"S-ret" = "insert_newline"
+"S-ret" = "goto_line_end_newline"
 
 [keys.normal]
-"A-&" = "remove_primary_selection" # S-space
-"A-C-b" = "jump_forward" # C-i
 "C-r" = "redo"
-"@" = "replay_macro"
-"$" = "extend_to_line_end"
-"percent" = "match_brackets"
-"^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
-"+" = "expand_selection"
-"'" = "select_all"
-"semicolon" = "repeat_last_motion"
-"ret" = "collapse_selection"
-"S-ret" = "split_selection_on_newline"
-"S-tab" = "ensure_selections_forward"
-"tab" = "flip_selections"
 
-"D" = "switch_to_lowercase"
-"G" = "goto_file_end"
+"percent" = { "%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add" }
+"$" = "extend_to_line_end"
+"^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
+"semicolon" = "repeat_last_motion"
 "H" = "rotate_selection_contents_backward"
-"M" = "toggle_comments"
 "L" = "rotate_selection_contents_forward"
-"q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
-"U" = "switch_to_uppercase"
 "V" = "extend_to_line_bounds"
 "X" = "remove_selections"
+"del" = "remove_primary_selection" # S-bs
+"ret" = "expand_selection"
+"backspace" = "collapse_selection"
+"S-ret" = [ "split_selection_on_newline", "goto_line_end_newline" ]
+"tab" = "flip_selections"
+"S-tab" = "ensure_selections_forward"
+
+
+"q" = "record_macro"
+"@" = "replay_macro"
+
+"`" = "jump_backward"
+"'" = "jump_forward"
+"m" = "save_selection"
+
+"D" = "switch_to_lowercase"
+"U" = "switch_to_uppercase"
+
+"G" = "goto_file_end"
+"M" = "toggle_comments"
 
 [keys.select]
 "A-&" = [ "normal_mode", "remove_primary_selection" ] # S-BS
@@ -41,10 +46,10 @@ theme = "dracula"
 "percent" = "match_brackets"
 "^" = "goto_first_nonwhitespace"
 "+" = [ "normal_mode", "expand_selection" ]
-"'" = [ "normal_mode", "select_all" ]
 "semicolon" = "repeat_last_motion"
-"ret" = [ "normal_mode", "collapse_selection" ]
-"S-ret" = [ "normal_mode", "split_selection_on_newline" ]
+"esc" = [ "normal_mode", "collapse_selection" ]
+"ret" = [ "normal_mode", "select_all" ]
+"S-ret" = [ "normal_mode", "split_selection_on_newline", "goto_line_end_newline" ]
 "S-tab" = "ensure_selections_forward"
 "tab" = "flip_selections"
 
