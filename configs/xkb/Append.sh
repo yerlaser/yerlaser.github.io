@@ -7,8 +7,8 @@ if ! [ $effuid = 0 ]; then
   exit 1
 fi
 
-# cat kz | tee -a /usr/share/X11/xkb/symbols/kz
-cat de | tee -a /usr/share/X11/xkb/symbols/de
+cat kz | tee -a /usr/share/X11/xkb/symbols/kz
+# cat de | tee -a /usr/share/X11/xkb/symbols/de
 
 vi evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 # vi evdev.xml /usr/share/X11/xkb/rules/evdev.xml extra /usr/share/X11/xkb/types/extra
