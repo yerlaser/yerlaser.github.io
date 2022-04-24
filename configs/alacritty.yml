@@ -11,32 +11,17 @@ window:
   decorations: none
   # startup_mode: Maximized
 key_bindings:
-  - { key: RControl, mods: Shift|Alt, chars  : "set -o vi && clear\r"  }
-  - { key: Back    , mods: Shift  , chars : "\x1b[3~"   }  # bs del
-  - { key: Return  , mods: Shift  , chars : "\x1b[13;2u"}  # cr s-ret
-  - { key: Space   , mods: Shift  , chars : "\x1bg"     }  # sp a-g
-  - { key: RControl, mods: None   , chars : "\x1b"      }
-  - { key: RControl, mods: Shift  , action: ToggleViMode}
+  - { key: 58, mods: Shift|Alt, chars  : "set -o vi && clear\r"  }
+  - { key: RWin, mods: Shift|Alt, chars  : "set -o vi && clear\r"  }
+  - { key: 58      , mods: None   , chars : "\x1b"      }
+  - { key: 58      , mods: Shift  , action: ToggleViMode}
+  - { key: Back    , mods: Shift  , chars : "\x1b[3~"   }  # del
+  - { key: P       , mods: Command, chars : "\x1bp"     }
+  - { key: RWin    , mods: None   , chars : "\x1b"      }
+  - { key: RWin    , mods: Shift  , action: ToggleViMode}
+  - { key: Return  , mods: Shift  , chars : "\x1b[13;2u"}  # s-ret
+  - { key: Space   , mods: Shift  , chars : "\x1bg"     }
   - { key: V       , mods: Alt    , action: Paste       }
-  - { key: Caret   , mods: None   , chars : "`"         }
-  - { key: Caret   , mods: Shift  , chars : "~"         }
-  - { key: Grave   , mods: None   , chars : "`"         }
-  - { key: Grave   , mods: Shift  , chars : "~"         }
-  - { key: 41      , mods: None   , chars : "`"         }
-  - { key: 41      , mods: Shift  , chars : "~"         }
-  - { key: Equals  , mods: None   , chars : "="         }
-  - { key: 13      , mods: None   , chars : "="         }
-  - { key: LBracket, mods: None   , chars : "["         }
-  - { key: LBracket, mods: Shift  , chars : "{"         }
-  - { key: 26      , mods: None   , chars : "["         }
-  - { key: 26      , mods: Shift  , chars : "{"         }
-  - { key: 26      , mods: Control, chars : "\x1b"      }
-  - { key: RBracket, mods: None   , chars : "]"         }
-  - { key: RBracket, mods: Shift  , chars : "}"         }
-  - { key: RBracket, mods: Control, chars : "\x1d"      }
-  - { key: 27      , mods: None   , chars : "]"         }
-  - { key: 27      , mods: Shift  , chars : "}"         }
-  - { key: 27      , mods: Control, chars : "\x1d"      }
 shell:
   program: /LOCAL/Sources/nushell/target/release/nu
 # working_directory: ~
