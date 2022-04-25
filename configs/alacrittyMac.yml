@@ -1,0 +1,14 @@
+import:
+  - /User/yerlan.sergaziyev/Published/configs/alacrittyCommon.yml
+font:
+  size: 19
+  normal:
+    family: Monaco
+key_bindings:
+  - { key: RWin, mods: Shift|Alt, chars  : "set -o vi && clear\r"  }
+  - { key: RWin    , mods: None   , chars : "\x1b"      }
+  - { key: RWin    , mods: Shift  , action: ToggleViMode}
+  - { key: P       , mods: Command, chars : "\x1bp"     }
+shell:
+  program: /User/yerlan.sergaziyev/Sources/nushell/target/release/nu
+working_directory: /User/yerlan.sergaziyev/Gerrit

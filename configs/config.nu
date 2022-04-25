@@ -1,4 +1,4 @@
-let $config = {
+let-env config = {
     rm_always_trash: true
     edit_mode: vi
     keybindings: [

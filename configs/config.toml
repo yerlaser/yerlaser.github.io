@@ -1,7 +1,7 @@
 theme = "dracula"
 
 [keys.insert]
-"A-g" = "move_char_right" # S-space
+"A-g" = "no_op" # S-space
 "S-ret" = "goto_line_end_newline"
 
 [keys.normal]

@@ -1,0 +1,10 @@
+mouse:
+  hide_when_typing: true
+scrolling:
+  history: 10000
+window:
+  startup_mode: Maximized
+key_bindings:
+  - { key: Back    , mods: Shift  , chars : "\x1b[3~"   }  # del
+  - { key: Return  , mods: Shift  , chars : "\x1b[13;2u"}  # s-ret
+  - { key: Space   , mods: Shift  , chars : "\x1bg"     }
