@@ -16,5 +16,4 @@ let-env PATH = if ($'($env.HOME)/.config/nushell/nupaths.txt' | path exists) {
 }
 
 alias dir = ls -a
-alias ncal = ^cal
 alias vi = hx
