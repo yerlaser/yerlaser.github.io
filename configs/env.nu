@@ -9,8 +9,10 @@ def create_my_right_prompt [] {
 let-env PROMPT_COMMAND_RIGHT = { create_my_right_prompt }
 let-env PROMPT_INDICATOR_VI_INSERT = "〉"
 let-env PROMPT_INDICATOR_VI_NORMAL = "〕"
+let-env WASMER_DIR = "/home/yerlan/.wasmer"
+let-env WASMER_CACHE_DIR = "/home/yerlan/.wasmer/cache"
 let-env PATH = if ($'($env.HOME)/.config/nushell/nupaths.txt' | path exists) {
-    open --raw $'($env.HOME)/.config/nushell/nupaths.txt' | lines
+    $env.PATH | split row ':' | prepend (open --raw $'($env.HOME)/.config/nushell/nupaths.txt' | lines) | uniq
 } else {
     $env.PATH
 }
