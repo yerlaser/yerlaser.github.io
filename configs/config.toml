@@ -1,16 +1,16 @@
 theme = "dracula"
 
 [keys.insert]
-"A-g" = "no_op"
+"A-g" = "completion"
 "S-ret" = "goto_line_end_newline"
 
 [keys.normal]
-"A-g" = {"space" = "no_op"}
+"A-g" = {"space" = ["extend_prev_long_word_start", "collapse_selection", "extend_next_long_word_end"]}
 "C-r" = "redo"
 
-"percent" = { "%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add" }
+"percent" = {"%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add"}
 "$" = "extend_to_line_end"
-"^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
+"^" = ["select_mode", "goto_first_nonwhitespace", "normal_mode"]
 "semicolon" = "repeat_last_motion"
 "G" = "goto_file_end"
 "H" = "rotate_selection_contents_backward"
@@ -22,7 +22,7 @@ theme = "dracula"
 "backspace" = "collapse_selection"
 "del" = "remove_primary_selection" # S-bs
 "ret" = "expand_selection"
-"S-ret" = [ "split_selection_on_newline", "goto_line_end_newline" ]
+"S-ret" = ["split_selection_on_newline", "goto_line_end_newline"]
 "tab" = "flip_selections"
 "S-tab" = "ensure_selections_forward"
 
@@ -40,28 +40,28 @@ theme = "dracula"
 [keys.select]
 "C-r" = "redo"
 
-"percent" = { "%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add" }
+"percent" = {"%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add"}
 "$" = "goto_line_end"
 "^" = "goto_first_nonwhitespace"
 "semicolon" = "repeat_last_motion"
-"a" = [ "normal_mode", "select_textobject_around" ]
-"G" = [ "goto_file_end", "normal_mode" ]
-"H" = [ "normal_mode", "rotate_selection_contents_backward" ]
-"i" = [ "normal_mode", "select_textobject_inner" ]
-"L" = [ "normal_mode", "rotate_selection_contents_forward" ]
+"a" = ["normal_mode", "select_textobject_around"]
+"G" = ["goto_file_end", "normal_mode"]
+"H" = ["normal_mode", "rotate_selection_contents_backward"]
+"i" = ["normal_mode", "select_textobject_inner"]
+"L" = ["normal_mode", "rotate_selection_contents_forward"]
 "Q" = "copy_selection_on_prev_line"
-"V" = [ "normal_mode", "extend_to_line_bounds" ]
-"X" = [ "normal_mode", "remove_selections" ]
-"backspace" = [ "normal_mode", "collapse_selection" ]
-"del" = [ "normal_mode", "remove_primary_selection" ] # S-BS
-"ret" = [ "normal_mode", "select_all" ]
-"S-ret" = [ "normal_mode", "split_selection_on_newline", "goto_line_end_newline" ]
+"V" = ["normal_mode", "extend_to_line_bounds"]
+"X" = ["normal_mode", "remove_selections"]
+"backspace" = ["normal_mode", "collapse_selection"]
+"del" = ["normal_mode", "remove_primary_selection"] # S-BS
+"ret" = ["normal_mode", "select_all"]
+"S-ret" = ["normal_mode", "split_selection_on_newline", "goto_line_end_newline"]
 "tab" = "flip_selections"
 "S-tab" = "ensure_selections_forward"
 
-"@" = [ "normal_mode", "replay_macro" ]
+"@" = ["normal_mode", "replay_macro"]
 "q" = "record_macro"
 
-"D" = [ "normal_mode", "switch_to_lowercase" ]
-"M" = [ "normal_mode", "toggle_comments" ]
-"U" = [ "normal_mode", "switch_to_uppercase" ]
+"D" = ["normal_mode", "switch_to_lowercase"]
+"M" = ["normal_mode", "toggle_comments"]
+"U" = ["normal_mode", "switch_to_uppercase"]
