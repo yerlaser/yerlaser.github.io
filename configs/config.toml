@@ -1,9 +1,11 @@
 theme = "dracula"
 
 [keys.insert]
+"A-g" = "no_op"
 "S-ret" = "goto_line_end_newline"
 
 [keys.normal]
+"A-g" = {"space" = "no_op"}
 "C-r" = "redo"
 
 "percent" = { "%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add" }
@@ -15,6 +17,7 @@ theme = "dracula"
 "L" = "rotate_selection_contents_forward"
 "Q" = "copy_selection_on_prev_line"
 "V" = "extend_to_line_bounds"
+"x" = "delete_selection_noyank"
 "X" = "remove_selections"
 "backspace" = "collapse_selection"
 "del" = "remove_primary_selection" # S-bs

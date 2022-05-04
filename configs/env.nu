@@ -6,8 +6,10 @@ def create_my_right_prompt [] {
     $time_segment
 }
 
-let-env PROMPT_COMMAND_RIGHT = {create_my_right_prompt}
 let-env EDITOR = "hx"
+let-env PROMPT_COMMAND_RIGHT = {create_my_right_prompt}
+let-env PROMPT_INDICATOR_VI_INSERT = "〉"
+let-env PROMPT_INDICATOR_VI_NORMAL = "〕"
 let-env VISUAL = "hx"
 let-env WASMER_DIR = $"($env.HOME)/.wasmer"
 let-env WASMER_CACHE_DIR = $"($env.WASMER_DIR)/cache"
