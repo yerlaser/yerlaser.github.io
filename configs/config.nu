@@ -1,5 +1,5 @@
 let-env config = {
-    buffer_editor: hx
+    buffer_editor: $'($env.HOME)/.cargo/bin/hx'
     edit_mode: vi
     keybindings: [
         {
