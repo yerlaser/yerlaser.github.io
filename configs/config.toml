@@ -5,7 +5,7 @@ theme = "dracula"
 "S-ret" = "goto_line_end_newline"
 
 [keys.normal]
-"A-g" = {"space" = ["extend_prev_long_word_start", "collapse_selection", "extend_next_long_word_end"]}
+"A-g" = {"space" = "file_picker_in_current_directory"}
 "C-r" = "redo"
 
 "percent" = {"%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add"}
