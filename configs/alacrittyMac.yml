@@ -1,5 +1,5 @@
 import:
-  - /User/yerlan.sergaziyev/Published/configs/alacrittyCommon.yml
+  - /Users/yerlan.sergaziyev/Published/configs/alacrittyCommon.yml
 font:
   size: 19
   normal:
@@ -10,5 +10,5 @@ key_bindings:
   - { key: RWin    , mods: Shift  , action: ToggleViMode}
   - { key: P       , mods: Command, chars : "\x1bp"     }
 shell:
-  program: /User/yerlan.sergaziyev/Sources/nushell/target/release/nu
-working_directory: /User/yerlan.sergaziyev/Gerrit
+  program: /Users/yerlan.sergaziyev/Sources/nushell/target/release/nu
+working_directory: /Users/yerlan.sergaziyev/Gerrit
