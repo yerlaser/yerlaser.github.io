@@ -5,10 +5,9 @@ font:
   normal:
     family: Monaco
 key_bindings:
-  - { key: RWin, mods: Shift|Alt, chars  : "set -o vi && clear\r"  }
-  - { key: RWin    , mods: None   , chars : "\x1b"      }
-  - { key: RWin    , mods: Shift  , action: ToggleViMode}
-  - { key: P       , mods: Command, chars : "\x1bp"     }
+  - {key: RWin, mods: Shift|Alt, action: ToggleViMode      }
+  - {key: RWin, mods: None     , chars : "\x1b\x1b\x18\x05"}
+  - {key: RWin, mods: Shift    , chars : "\x1bp"           }
 shell:
   program: /Users/yerlan.sergaziyev/Sources/nushell/target/release/nu
 working_directory: /Users/yerlan.sergaziyev/Gerrit

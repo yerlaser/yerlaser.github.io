@@ -7,9 +7,9 @@ font:
 window:
   decorations: none
 key_bindings:
-  - { key: 58, mods: Shift|Alt, chars  : "set -o vi && clear\r"  }
-  - { key: 58      , mods: None   , chars : "\x1b"      }
-  - { key: 58      , mods: Shift  , action: ToggleViMode}
-  - { key: V       , mods: Alt    , action: Paste       }
+  - {key: 58, mods: Shift|Alt, action: ToggleViMode      }
+  - {key: 58, mods: None     , chars : "\x1b\x1b\x18\x05"}
+  - {key: 58, mods: Shift    , chars : "\x1bp"           }
+  - {key: V , mods: Alt      , action: Paste             }
 shell:
   program: /LOCAL/Sources/nushell/target/release/nu

@@ -1,12 +1,18 @@
 theme = "dracula"
 
 [keys.insert]
+"A-_" = ["normal_mode", "paste_before", "insert_mode"]
 "A-g" = "completion"
+"A-p" = ["normal_mode", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode"]
 "S-ret" = "goto_line_end_newline"
 
 [keys.normal]
-"A-g" = {"space" = "file_picker_in_current_directory"}
+"A-g" = {"space" = "global_search"}
+"A-p" = "command_palette"
+"space" = {"e" = "file_picker_in_current_directory"}
+
 "C-r" = "redo"
+"C-x" = {"C-e" = "no_op"}
 
 "percent" = {"%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add"}
 "$" = "extend_to_line_end"
@@ -20,7 +26,7 @@ theme = "dracula"
 "x" = "delete_selection_noyank"
 "X" = "remove_selections"
 "backspace" = "collapse_selection"
-"del" = "remove_primary_selection" # S-bs
+"A-_" = "remove_primary_selection" # S-bs
 "ret" = "expand_selection"
 "S-ret" = ["split_selection_on_newline", "goto_line_end_newline"]
 "tab" = "flip_selections"
@@ -38,6 +44,10 @@ theme = "dracula"
 "U" = "switch_to_uppercase"
 
 [keys.select]
+"A-g" = {"space" = "global_search"}
+"A-p" = "command_palette"
+"space" = {"e" = "file_picker_in_current_directory"}
+
 "C-r" = "redo"
 
 "percent" = {"%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add"}
@@ -53,7 +63,7 @@ theme = "dracula"
 "V" = ["normal_mode", "extend_to_line_bounds"]
 "X" = ["normal_mode", "remove_selections"]
 "backspace" = ["normal_mode", "collapse_selection"]
-"del" = ["normal_mode", "remove_primary_selection"] # S-BS
+"A-_" = "remove_primary_selection" # S-bs
 "ret" = ["normal_mode", "select_all"]
 "S-ret" = ["normal_mode", "split_selection_on_newline", "goto_line_end_newline"]
 "tab" = "flip_selections"

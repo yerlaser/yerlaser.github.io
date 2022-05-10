@@ -1,6 +1,5 @@
 let-env config = {
     buffer_editor: $'($env.HOME)/.cargo/bin/hx'
-    edit_mode: vi
     keybindings: [
         {
             name: complete_word
@@ -18,22 +17,30 @@ let-env config = {
         }
         {
             name: edit_command
-            modifier: none
-            keycode: char_o
-            mode: vi_normal
+            modifier: control
+            keycode: char_x
+            mode: [emacs vi_insert vi_normal]
             event: {send: OpenEditor}
         }
         {
-            name: show_history
+            name: prev_history
             modifier: alt
-            keycode: char_g
-            mode: vi_normal
-            event: [
-                {until: [
-                    {send: menu name: history_menu}
-                    {send: menupagenext}
-                ]}
-            ]
+            keycode: char__
+            mode: [emacs vi_insert vi_normal]
+            event: {until: [
+                {send: menuup}
+                {send: up}
+            ]}
+        }
+        {
+            name: search_history
+            modifier: alt
+            keycode: char_p
+            mode: [emacs vi_insert vi_normal]
+            event: {until: [
+                {send: menu name: history_menu}
+                {send: menupagenext}
+            ]}
         }
         {
             name: show_help
