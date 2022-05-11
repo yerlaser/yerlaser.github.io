@@ -1,0 +1,3 @@
+/home/yerlan/.cargo/bin
+/home/yerlan/.wasmer/bin
+/home/yerlan/.wasmer/globals/wapm_packages/.bin
