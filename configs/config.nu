@@ -9,13 +9,6 @@ let-env config = {
             event: {send: HistoryHintWordComplete}
         }
         {
-            name: complete_line
-            modifier: shift
-            keycode: enter
-            mode: [emacs vi_insert]
-            event: {send: HistoryHintComplete}
-        }
-        {
             name: edit_command
             modifier: control
             keycode: char_x
@@ -24,12 +17,22 @@ let-env config = {
         }
         {
             name: prev_history
-            modifier: alt
-            keycode: char__
-            mode: [emacs vi_insert vi_normal]
+            modifier: shift
+            keycode: enter
+            mode: [emacs vi_insert]
             event: {until: [
                 {send: menuup}
                 {send: up}
+            ]}
+        }
+        {
+            name: next_history
+            modifier: alt
+            keycode: char__
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: menudown}
+                {send: down}
             ]}
         }
         {
