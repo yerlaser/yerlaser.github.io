@@ -1,10 +1,11 @@
 theme = "dracula"
 
 [keys.insert]
-"A-_" = ["normal_mode", "paste_before", "insert_mode"]
+"A-_" = "no_op"
 "A-g" = "completion"
-"A-p" = ["normal_mode", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode"]
-"S-ret" = "goto_line_end_newline"
+"S-ret" = "no_op"
+"esc" = {"C-l" = "move_char_right", "end" = "goto_line_end_newline", "C-o" = "open_below", "C-p" = "paste_before", "C-u" = ["normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode"], "C-space" = "normal_mode"}
+# "esc" = {"l" = "move_char_right", "m" = "goto_line_end_newline", "o" = "open_below", "p" = "paste_before", "u" = ["normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode"], "space" = "normal_mode"}
 
 [keys.normal]
 "A-g" = {"space" = "global_search"}
