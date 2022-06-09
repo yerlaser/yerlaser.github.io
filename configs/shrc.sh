@@ -5,6 +5,7 @@ function addToPATH {
   esac
 }
 
+addToPATH "$HOME/Downloads/kotlinc/bin"
 addToPATH "/LOCAL/apps/clang/bin"
 addToPATH "/LOCAL/apps/ruby/bin"
 
@@ -33,10 +34,9 @@ alias dirsize='ls -FAhlrS'
 
 if command -v dnf &> /dev/null; then alias dnf='dnf --cacheonly'; fi
 if command -v podman &> /dev/null; then alias docker=podman; fi
-if command -v hx &> /dev/null; then
-  alias vi=hx
-  export EDITOR=hx
-  export VISUAL=hx
-fi
+
+alias view='vi -ro'
+export EDITOR=vi
+export VISUAL=vi
 
 set -o noclobber
