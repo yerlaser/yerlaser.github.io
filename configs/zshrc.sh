@@ -18,7 +18,7 @@ SAVEHIST=1000
 WORDCHARS=${WORDCHARS/\/}
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit && compinit
-bindkey '^[[34~' expand-or-complete
+bindkey "^[^[" expand-or-complete
 bindkey '^N' history-beginning-search-forward
 bindkey '^P' history-beginning-search-backward
 setopt autocd autopushd hist_ignore_all_dups hist_ignore_space hist_no_store hist_reduce_blanks hist_verify menu_complete no_list_ambiguous share_history pushdignoredups pushdminus pushdsilent pushdtohome
