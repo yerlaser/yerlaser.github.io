@@ -18,6 +18,9 @@ SAVEHIST=1000
 WORDCHARS=${WORDCHARS/\/}
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit && compinit
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 bindkey "^[^[" expand-or-complete
 bindkey '^N' history-beginning-search-forward
 bindkey '^P' history-beginning-search-backward
