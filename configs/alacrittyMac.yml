@@ -4,9 +4,8 @@ font:
   size: 19
   normal:
     family: Monaco
-key_bindings:
-  - {key: RWin, mods: None , chars : "\x1b"    }
-  - {key: RWin, mods: Shift, chars : "\x18\x05"}
+window:
+  decorations: none
 shell:
-  program: /Users/yerlan.sergaziyev/Sources/nushell/target/release/nu
-working_directory: /Users/yerlan.sergaziyev/Gerrit
+  program: /Users/yerlan.sergaziyev/Sources/fish-shell/fish
+working_directory: /Users/yerlan.sergaziyev/Projects
