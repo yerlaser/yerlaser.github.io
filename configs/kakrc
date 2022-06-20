@@ -6,17 +6,17 @@ hook global InsertChar \( %{ exec )<left> }
 hook global InsertChar \[ %{ exec ]<left> }
 hook global InsertChar \{ %[ exec }<left> ]
 
-hook global InsertCompletionShow .* %{
-    try %{
-        execute-keys -draft 'h<a-K>\h<ret>'
-        map window insert <s-tab> <c-p> -docstring 'previous suggestion'
-        map window insert <tab> <c-n> -docstring 'next suggestion'
-        hook -once -always window InsertCompletionHide .* %{
-            unmap window insert <s-tab> <c-p>
-            unmap window insert <tab> <c-n>
-        }
-    }
-}
+# hook global InsertCompletionShow .* %{
+#     try %{
+#         execute-keys -draft 'h<a-K>\h<ret>'
+#         map window insert <s-tab> <c-p> -docstring 'previous suggestion'
+#         map window insert <tab> <c-n> -docstring 'next suggestion'
+#         hook -once -always window InsertCompletionHide .* %{
+#             unmap window insert <s-tab> <c-p>
+#             unmap window insert <tab> <c-n>
+#         }
+#     }
+# }
 
 hook global NormalKey 0 'switch-number-line -relative'
 hook global NormalKey \D.* 'switch-number-line'
@@ -51,22 +51,30 @@ map global goto 'u' '~' -docstring 'change selection to upper case'
 map global goto 'y' 's[^\d\s\W]+<ret>`<a-;>;~<space>' -docstring 'change selection to title case'
 
 declare-user-mode insertion
+map global insertion ';' '<esc>A' -docstring 'end of line'
 map global insertion '/' '<esc><a-b>"x\c<lt><c-r>x<gt><lt>/<c-r>x<gt><esc><a-f><lt>;i' -docstring 'html tag from previous word'
+map global insertion 'h' '<esc>hi' -docstring 'move left'
 map global insertion 'i' '<esc>b;~/\W<ret>' -docstring 'word to titlecase'
+map global insertion 'j' '<esc>ji' -docstring 'move down'
+map global insertion 'k' '<esc>ki' -docstring 'move up'
+map global insertion 'l' '<esc>li' -docstring 'move right'
+map global insertion 'o' '<esc>i<ret><esc>O' -docstring 'insert indented block'
 map global insertion 'p' '<esc>Pi' -docstring 'paste default register'
 map global insertion 'u' '<esc>b~/\W<ret>i' -docstring 'word to uppercase'
 map global insertion 'v' '<esc>!pbpaste<ret>i' -docstring 'paste from system keyboard'
 map global insertion 'V' '<esc>!wl-paste -n<ret>i' -docstring 'paste from system keyboard'
-map global insertion '<ret>' '<esc><ret><esc>O' -docstring 'insert indented block'
+map global insertion '<right>' '<esc>' -docstring 'exit mode'
 map global insertion '<space>' '<esc><a-?>\w|^|\]|\}|\)<ret>Li<space><esc><a-;>;i<space>' -docstring 'space around operator'
 map global insertion '<tab>' '<esc>i<tab>' -docstring 'insert tab'
 
 map global insert '<c-^>' '<esc>\i' -docstring 'insert without hooks'
-map global insert '<right>' '<esc>' -docstring 'exit insert mode'
-map global insert '<s-right>' '<c-o>' -docstring 'toggle autocomplete'
-map global insert '<tab>' '<esc>: enter-user-mode insertion<ret>' -docstring 'enter insertion mode'
+# map global insert '<ret>' '<esc>' -docstring 'exit insert mode'
+map global insert '<right>' '<esc>: enter-user-mode insertion<ret>' -docstring 'enter insertion mode'
+# map global insert '<s-right>' '<c-o>' -docstring 'toggle autocomplete'
+map global insert <tab> <c-n> -docstring 'next suggestion'
+map global insert <s-tab> <c-p> -docstring 'previous suggestion'
 
-map global normal '<backspace>' '<space>' -docstring 'remove additional selections'
+map global normal '<backspace>' '<c-o>' -docstring 'jump backwards'
 map global normal '<c-space>' '<a-s><a-h>;' -docstring 'select first column'
 map global normal '<c-a>' '%' -docstring 'select all'
 map global normal '<c-b>' ': extend-previous-hump<ret>' -docstring 'extend previous word part'
@@ -75,9 +83,10 @@ map global normal '<c-c>' '<a-|> pbcopy <ret><space>;' -docstring 'copy to syste
 map global normal '<c-e>' ': extend-next-hump<ret>' -docstring 'extend next word part'
 map global normal '<c-r>' 'U' -docstring 'redo'
 map global normal '<c-s>' '<a-N>' -docstring 'select previous match'
-map global normal '<ret>' '<a-O>' -docstring 'add blank line above'
-map global normal '<space>' ';' -docstring 'collapse selection'
+map global normal '<ret>' ';' -docstring 'collapse selection'
+map global normal '<right>' '<esc><a-;>' -docstring 'swap cursor'
 map global normal '<s-left>' '<a-space>' -docstring 'remove primary selection'
+map global normal '<s-right>' '<esc><a-:>' -docstring 'ensure cursor after anchor'
 map global normal '<s-tab>' ': buffer ' -docstring 'select buffer'
 map global normal '`' 'z' -docstring 'restore selection from register'
 map global normal '!' '!date' -docstring 'insert external command'
@@ -126,8 +135,6 @@ map global user '<minus>' '<esc><a-x>ypj<a-x>_r-<a-h>' -docstring 'underline lin
 map global user '_' '<esc><a-_>' -docstring 'merge contiguos selections'
 map global user '=' '<esc><a-x>ypj<a-x>_r=<a-h>' -docstring 'underline line with ='
 map global user '+' '<esc><a-+>' -docstring 'merge overlapping selections'
-map global user ':' '<esc><a-:>' -docstring 'ensure cursor after anchor'
-map global user ',' '<esc><a-;>' -docstring 'swap cursor'
 map global user 'f' '<esc>: format<ret>' -docstring 'format buffer'
 map global user 'p' '<esc><a-p>' -docstring 'paste all'
 map global user 'P' '<esc><a-P>' -docstring 'paste all before'
