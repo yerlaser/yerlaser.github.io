@@ -5,6 +5,5 @@ scrolling:
 window:
   startup_mode: Maximized
 key_bindings:
-  - { key: Back    , mods: Shift  , chars : "\x1b_"     }
-  - { key: Return  , mods: Shift  , chars : "\x1b[13;2u"}  # s-ret
-  - { key: Space   , mods: Shift  , chars : "\x1bg "    }
+  # - { key: Return, mods: Shift, chars : "\x1b[13;2u"}
+  - { key: Back  , mods: Shift, chars : "\x1b[1;2D"  }
