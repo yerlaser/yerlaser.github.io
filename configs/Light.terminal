@@ -26,113 +26,113 @@
 		<key>#F739</key>
 		<string>toggleNumLock:</string>
 		<key>$007F</key>
-		<string</string>
+		<string>[1;2D</string>
 		<key>$F702</key>
-		<string</string>
+		<string>[1;2D</string>
 		<key>$F703</key>
-		<string> </string>
+		<string>[1;2C</string>
 		<key>$F708</key>
-		<string></string>
+		<string>[25~</string>
 		<key>$F709</key>
-		<string></string>
+		<string>[26~</string>
 		<key>$F70A</key>
-		<string></string>
+		<string>[28~</string>
 		<key>$F70B</key>
-		<string></string>
+		<string>[29~</string>
 		<key>$F70C</key>
-		<string></string>
+		<string>[31~</string>
 		<key>$F70D</key>
-		<string></string>
+		<string>[32~</string>
 		<key>$F70E</key>
-		<string></string>
+		<string>[33~</string>
 		<key>$F70F</key>
-		<string></string>
+		<string>[34~</string>
 		<key>$F728</key>
-		<string></string>
+		<string>[3;2~</string>
 		<key>F704</key>
-		<string>P</string>
+		<string>OP</string>
 		<key>F705</key>
-		<string>Q</string>
+		<string>OQ</string>
 		<key>F706</key>
-		<string>R</string>
+		<string>OR</string>
 		<key>F707</key>
-		<string>S</string>
+		<string>OS</string>
 		<key>F708</key>
-		<string></string>
+		<string>[15~</string>
 		<key>F709</key>
-		<string></string>
+		<string>[17~</string>
 		<key>F70A</key>
-		<string></string>
+		<string>[18~</string>
 		<key>F70B</key>
-		<string></string>
+		<string>[19~</string>
 		<key>F70C</key>
-		<string></string>
+		<string>[20~</string>
 		<key>F70D</key>
-		<string></string>
+		<string>[21~</string>
 		<key>F70E</key>
-		<string></string>
+		<string>[23~</string>
 		<key>F70F</key>
-		<string></string>
+		<string>[24~</string>
 		<key>F710</key>
-		<string></string>
+		<string>[25~</string>
 		<key>F711</key>
-		<string></string>
+		<string>[26~</string>
 		<key>F712</key>
-		<string></string>
+		<string>[28~</string>
 		<key>F713</key>
-		<string></string>
+		<string>[29~</string>
 		<key>F714</key>
-		<string></string>
+		<string>[31~</string>
 		<key>F715</key>
-		<string></string>
+		<string>[32~</string>
 		<key>F716</key>
-		<string></string>
+		<string>[33~</string>
 		<key>F717</key>
-		<string></string>
+		<string>[34~</string>
 		<key>F728</key>
-		<string></string>
+		<string>[3~</string>
 		<key>^F702</key>
-		<string</string>
+		<string>[1;5D</string>
 		<key>^F703</key>
-		<string> </string>
+		<string>[1;5C</string>
 		<key>^F728</key>
-		<string></string>
+		<string>[3;5~</string>
 		<key>~F702</key>
-		<string</string>
+		<string>[D</string>
 		<key>~F703</key>
-		<string> </string>
+		<string>[C</string>
 		<key>~F704</key>
-		<string></string>
+		<string>[17~</string>
 		<key>~F705</key>
-		<string></string>
+		<string>[18~</string>
 		<key>~F706</key>
-		<string></string>
+		<string>[19~</string>
 		<key>~F707</key>
-		<string></string>
+		<string>[20~</string>
 		<key>~F708</key>
-		<string></string>
+		<string>[21~</string>
 		<key>~F709</key>
-		<string></string>
+		<string>[23~</string>
 		<key>~F70A</key>
-		<string></string>
+		<string>[24~</string>
 		<key>~F70B</key>
-		<string></string>
+		<string>[25~</string>
 		<key>~F70C</key>
-		<string></string>
+		<string>[26~</string>
 		<key>~F70D</key>
-		<string></string>
+		<string>[28~</string>
 		<key>~F70E</key>
-		<string></string>
+		<string>[29~</string>
 		<key>~F70F</key>
-		<string></string>
+		<string>[31~</string>
 		<key>~F710</key>
-		<string></string>
+		<string>[32~</string>
 		<key>~F711</key>
-		<string></string>
+		<string>[33~</string>
 		<key>~F712</key>
-		<string></string>
+		<string>[34~</string>
 		<key>~^F728</key>
-		<string></string>
+		<string>[3;5~</string>
 	</dict>
 	<key>name</key>
 	<string>Light</string>
