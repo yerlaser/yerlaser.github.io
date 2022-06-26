@@ -7,5 +7,5 @@ font:
 window:
   decorations: none
 shell:
-  program: /Users/yerlan.sergaziyev/Sources/fish-shell/fish
+  program: /Users/yerlan.sergaziyev/Sources/nushell/target/release/nu
 working_directory: /Users/yerlan.sergaziyev/Projects
