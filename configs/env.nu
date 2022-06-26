@@ -6,11 +6,11 @@ def create_my_right_prompt [] {
     $time_segment
 }
 
-let-env EDITOR = "hx"
+let-env EDITOR = "vi"
 let-env PROMPT_COMMAND_RIGHT = {create_my_right_prompt}
 let-env PROMPT_INDICATOR_VI_INSERT = "〉"
 let-env PROMPT_INDICATOR_VI_NORMAL = "〕"
-let-env VISUAL = "hx"
+let-env VISUAL = "vi"
 let-env WASMER_DIR = $"($env.HOME)/.wasmer"
 let-env WASMER_CACHE_DIR = $"($env.WASMER_DIR)/cache"
 let nupaths = ([$env.HOME .config nushell nupaths.txt] | path join)
@@ -21,4 +21,6 @@ let-env PATH = if ($nupaths | path exists) {
 }
 
 alias dir = ls -a
+alias tree = exa -FlT
+alias treel = exa -FlT -L
 alias vi = hx
