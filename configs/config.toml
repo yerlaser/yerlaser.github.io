@@ -1,78 +1,83 @@
 theme = "dracula"
 
 [keys.insert]
-"A-_" = "no_op"
-"A-g" = "completion"
-"S-ret" = "no_op"
-"esc" = {"C-l" = "move_char_right", "end" = "goto_line_end_newline", "C-o" = "open_below", "C-p" = "paste_before", "C-u" = ["normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode"], "C-space" = "normal_mode"}
-# "esc" = {"l" = "move_char_right", "m" = "goto_line_end_newline", "o" = "open_below", "p" = "paste_before", "u" = ["normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode"], "space" = "normal_mode"}
+
+"right" = { "right" = "normal_mode", "l" = "move_char_right", ";" = "goto_line_end_newline", "p" = "paste_before", "u" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] }
 
 [keys.normal]
-"A-g" = {"space" = "global_search"}
-"A-p" = "command_palette"
-"space" = {"e" = "file_picker_in_current_directory"}
-
-"C-r" = "redo"
-"C-x" = {"C-e" = "no_op"}
-
-"percent" = {"%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add"}
+"~" = { "~" = "switch_case", "l" = "switch_to_lowercase", "u" = "switch_to_uppercase" }
+"`" = "goto_last_modification"
+"@" = "replay_macro"
+"#" = "search_selection"
 "$" = "extend_to_line_end"
-"^" = ["select_mode", "goto_first_nonwhitespace", "normal_mode"]
-"semicolon" = "repeat_last_motion"
+"%" = { "%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete" }
+"^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
+"*" = [ "extend_next_word_start", "flip_selections", "extend_prev_word_start", "trim_selections", "search_selection" ]
+"minus" = "shrink_selection"
+"+" = "expand_selection"
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+";" = "repeat_last_motion"
+# "'" = "no_op"
+"," = { "a" = "select_all", "e" = [ "split_selection_on_newline", "goto_line_end_newline" ] }
+"D" = "extend_line"
 "G" = "goto_file_end"
 "H" = "rotate_selection_contents_backward"
 "L" = "rotate_selection_contents_forward"
+"m" = "save_selection"
+"M" = "toggle_comments"
+"q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
+"C-r" = "redo"
+"U" = "extend_line_above"
 "V" = "extend_to_line_bounds"
 "x" = "delete_selection_noyank"
 "X" = "remove_selections"
-"backspace" = "collapse_selection"
-"A-_" = "remove_primary_selection" # S-bs
-"ret" = "expand_selection"
-"S-ret" = ["split_selection_on_newline", "goto_line_end_newline"]
-"tab" = "flip_selections"
-"S-tab" = "ensure_selections_forward"
-
-"@" = "replay_macro"
-"q" = "record_macro"
-
-"`" = "jump_backward"
-"'" = "jump_forward"
-"m" = "save_selection"
-
-"D" = "switch_to_lowercase"
-"M" = "toggle_comments"
-"U" = "switch_to_uppercase"
+"backspace" = "keep_primary_selection"
+"S-left" = "remove_primary_selection"
+"ret" = "collapse_selection"
+"right" = "flip_selections"
+"S-right" = "ensure_selections_forward"
+"space" = { "e" = "file_picker_in_current_directory" }
+"tab" = "jump_forward"
+"S-tab" = "jump_backward"
 
 [keys.select]
-"A-g" = {"space" = "global_search"}
-"A-p" = "command_palette"
-"space" = {"e" = "file_picker_in_current_directory"}
-
-"C-r" = "redo"
-
-"percent" = {"%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete", "s" = "surround_add"}
-"$" = "goto_line_end"
-"^" = "goto_first_nonwhitespace"
-"semicolon" = "repeat_last_motion"
-"a" = ["normal_mode", "select_textobject_around"]
-"G" = ["goto_file_end", "normal_mode"]
-"H" = ["normal_mode", "rotate_selection_contents_backward"]
-"i" = ["normal_mode", "select_textobject_inner"]
-"L" = ["normal_mode", "rotate_selection_contents_forward"]
-"Q" = "copy_selection_on_prev_line"
-"V" = ["normal_mode", "extend_to_line_bounds"]
-"X" = ["normal_mode", "remove_selections"]
-"backspace" = ["normal_mode", "collapse_selection"]
-"A-_" = "remove_primary_selection" # S-bs
-"ret" = ["normal_mode", "select_all"]
-"S-ret" = ["normal_mode", "split_selection_on_newline", "goto_line_end_newline"]
-"tab" = "flip_selections"
-"S-tab" = "ensure_selections_forward"
-
+"~" = { "~" = [ "normal_mode", "switch_case" ], "l" = [ "normal_mode", "switch_to_lowercase" ], "u" = [ "normal_mode", "switch_to_uppercase" ] }
+"`" = "goto_last_modification"
 "@" = ["normal_mode", "replay_macro"]
+"#" = "search_selection"
+"$" = "goto_line_end"
+"%" = { "%" = "match_brackets", "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete" }
+"^" = "goto_first_nonwhitespace"
+"*" = [ "extend_next_word_start", "flip_selections", "extend_prev_word_start", "trim_selections", "search_selection" ]
+"minus" = "shrink_selection"
+"+" = "expand_selection"
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+";" = "repeat_last_motion"
+# "'" = "no_op"
+"," = { "a" = [ "normal_mode", "select_all" ], "e" = [ "normal_mode", "split_selection_on_newline", "goto_line_end_newline" ] }
+"a" = [ "normal_mode", "select_textobject_around" ]
+"D" = "extend_line"
+"G" = [ "goto_file_end", "normal_mode" ]
+"H" = [ "normal_mode", "rotate_selection_contents_backward" ]
+"i" = [ "normal_mode", "select_textobject_inner" ]
+"L" = [ "normal_mode", "rotate_selection_contents_forward" ]
+"m" = "save_selection"
+"M" = [ "normal_mode", "toggle_comments" ]
 "q" = "record_macro"
-
-"D" = ["normal_mode", "switch_to_lowercase"]
-"M" = ["normal_mode", "toggle_comments"]
-"U" = ["normal_mode", "switch_to_uppercase"]
+"Q" = "copy_selection_on_prev_line"
+"C-r" = "redo"
+"U" = "extend_line_above"
+"V" = [ "normal_mode", "extend_to_line_bounds" ]
+"x" = "delete_selection_noyank"
+"X" = [ "normal_mode", "remove_selections" ]
+"backspace" = "keep_primary_selection"
+"S-left" = "remove_primary_selection"
+"ret" = [ "normal_mode", "collapse_selection" ]
+"right" = "flip_selections"
+"S-right" = "ensure_selections_forward"
+"space" = { "e" = "file_picker_in_current_directory" }
+"tab" = "jump_forward"
+"S-tab" = "jump_backward"
