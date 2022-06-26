@@ -23,10 +23,10 @@ fish_add_path -m ~/.local/bin
 function fish_prompt
   if test "$status" -ne 0
     set_color red
-    echo -n \[$status\]\
+    echo -n \[$status\]\ 
   end
   set_color purple
-  echo -n (date '+%d-%m %H:%M:%S') \| (prompt_pwd)\
+  echo -n (date '+%d-%m %H:%M:%S') \| (prompt_pwd)\ 
   set_color normal
 end
 
