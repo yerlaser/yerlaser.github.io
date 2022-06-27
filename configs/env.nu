@@ -20,7 +20,6 @@ let-env PATH = if ($nupaths | path exists) {
     $env.PATH
 }
 
-alias dir = ls -a
+alias dir = exa -Fal
 alias tree = exa -FlT
-alias treel = exa -FlT -L
 alias vi = hx
