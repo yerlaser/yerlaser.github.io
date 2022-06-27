@@ -3,8 +3,8 @@ let-env config = {
     keybindings: [
         {
             name: complete_word
-            modifier: control
-            keycode: char_f
+            modifier: shift
+            keycode: right
             mode: [emacs vi_insert]
             event: {send: HistoryHintWordComplete}
         }
@@ -18,21 +18,11 @@ let-env config = {
         {
             name: prev_history
             modifier: shift
-            keycode: right
+            keycode: left
             mode: [emacs vi_insert]
             event: {until: [
                 {send: menuup}
                 {send: up}
-            ]}
-        }
-        {
-            name: next_history
-            modifier: shift
-            keycode: left
-            mode: [emacs vi_insert]
-            event: {until: [
-                {send: menudown}
-                {send: down}
             ]}
         }
         {
