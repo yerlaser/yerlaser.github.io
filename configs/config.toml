@@ -2,11 +2,15 @@ theme = "dracula"
 
 [keys.insert]
 
-"right" = { "right" = "normal_mode", "l" = "move_char_right", ";" = "goto_line_end_newline", "p" = "paste_before", "u" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] }
+"S-left" = "paste_before"
+"right" = "normal_mode"
+"S-right" = "move_char_right"
+"tab" = { "tab" = "insert_tab", "u" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] }
+"S-tab" = "goto_line_end_newline"
 
 [keys.normal]
 "~" = { "~" = "switch_case", "l" = "switch_to_lowercase", "u" = "switch_to_uppercase" }
-"`" = "goto_last_modification"
+"`" = "rename_symbol"
 "@" = "replay_macro"
 "#" = "search_selection"
 "$" = "extend_to_line_end"
@@ -18,9 +22,9 @@ theme = "dracula"
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
 ";" = "repeat_last_motion"
-# "'" = "no_op"
+"'" = "hover"
 "," = { "a" = "select_all", "e" = [ "split_selection_on_newline", "goto_line_end_newline" ] }
-"D" = "extend_line"
+"D" = "code_action"
 "G" = "goto_file_end"
 "H" = "rotate_selection_contents_backward"
 "L" = "rotate_selection_contents_forward"
@@ -29,7 +33,7 @@ theme = "dracula"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
-"U" = "extend_line_above"
+"U" = { "b" = "earlier", "f" = "later", "r" = "redo" }
 "V" = "extend_to_line_bounds"
 "x" = "delete_selection_noyank"
 "X" = "remove_selections"
@@ -44,7 +48,7 @@ theme = "dracula"
 
 [keys.select]
 "~" = { "~" = [ "normal_mode", "switch_case" ], "l" = [ "normal_mode", "switch_to_lowercase" ], "u" = [ "normal_mode", "switch_to_uppercase" ] }
-"`" = "goto_last_modification"
+"`" = "rename_symbol"
 "@" = ["normal_mode", "replay_macro"]
 "#" = "search_selection"
 "$" = "goto_line_end"
@@ -56,10 +60,10 @@ theme = "dracula"
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
 ";" = "repeat_last_motion"
-# "'" = "no_op"
+"'" = "hover"
 "," = { "a" = [ "normal_mode", "select_all" ], "e" = [ "normal_mode", "split_selection_on_newline", "goto_line_end_newline" ] }
 "a" = [ "normal_mode", "select_textobject_around" ]
-"D" = "extend_line"
+"D" = "code_action"
 "G" = [ "goto_file_end", "normal_mode" ]
 "H" = [ "normal_mode", "rotate_selection_contents_backward" ]
 "i" = [ "normal_mode", "select_textobject_inner" ]
@@ -69,7 +73,7 @@ theme = "dracula"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
-"U" = "extend_line_above"
+"U" = { "b" = "earlier", "f" = "later", "r" = "redo" }
 "V" = [ "normal_mode", "extend_to_line_bounds" ]
 "x" = "delete_selection_noyank"
 "X" = [ "normal_mode", "remove_selections" ]
