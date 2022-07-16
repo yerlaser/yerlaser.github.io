@@ -19,7 +19,7 @@ theme = "monokai_pro_spectrum"
 ";" = "repeat_last_motion"
 "," = { "_" = "trim_selections", "," = "flip_selections", "." = "ensure_selections_forward", "b" = "earlier", "f" = "later", "r" = "redo", "s" = "split_selection_on_newline" }
 "'" = { "s" = "surround_add", "r" = "surround_replace", "d" = "surround_delete" }
-"C-a" = "select_all" # S-CAPS (S-END)
+# "C-a" = "" # S-CAPS (S-END)
 "B" = "extend_prev_long_word_start"
 "D" = "switch_to_lowercase"
 "E" = "extend_next_long_word_end"
@@ -33,7 +33,7 @@ theme = "monokai_pro_spectrum"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = [ "extend_line_up", "extend_to_line_bounds" ] # S-SP
 "U" = "switch_to_uppercase"
-"v" = { "a" = "select_textobject_around", "i" = "select_textobject_inner", "v" = "select_mode" }
+"v" = { "a" = "select_textobject_around", "i" = "select_textobject_inner", "v" = "select_mode", "ret" = "select_all" }
 "V" = "extend_to_line_bounds"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection_noyank"
