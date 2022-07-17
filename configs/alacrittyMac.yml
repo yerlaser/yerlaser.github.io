@@ -4,8 +4,6 @@ font:
   size: 19
   normal:
     family: Monaco
-window:
-  decorations: none
 shell:
   program: /Users/yerlan.sergaziyev/Sources/nushell/target/release/nu
 working_directory: /Users/yerlan.sergaziyev/Projects
