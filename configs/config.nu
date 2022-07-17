@@ -4,54 +4,65 @@ let-env config = {
     keybindings: [
         {
             name: complete_word
-            modifier: control
-            keycode: char_r
+            modifier: Control
+            keycode: Char_R
             mode: [emacs vi_insert]
             event: {send: HistoryHintWordComplete}
         }
         {
             name: edit_command
-            modifier: control
-            keycode: char_x
+            modifier: Control
+            keycode: Char_X
             mode: [emacs vi_insert vi_normal]
             event: {send: OpenEditor}
         }
         {
-            name: prev_history
-            modifier: control
-            keycode: char_e
-            mode: [emacs vi_insert]
+            name: cancel_command
+            modifier: None
+            keycode: Esc
+            mode: [emacs vi_insert vi_normal]
             event: {until: [
-                {send: menudown}
-                {send: down}
+                {edit: CutCurrentLine}
+                {send: Esc}
+                {send: CtrlC}
             ]}
         }
         {
             name: prev_history
-            modifier: control
-            keycode: char_c
+            modifier: Control
+            keycode: Char_E
             mode: [emacs vi_insert]
             event: {until: [
-                {send: menuup}
-                {send: up}
+                {send: MenuDown}
+                {send: Down}
+            ]}
+        }
+        {
+            name: prev_history
+            modifier: Control
+            keycode: Char_C
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: MenuUp}
+                {send: Up}
             ]}
         }
         {
             name: search_history
-            modifier: control
-            keycode: char_a
+            modifier: Control
+            keycode: Char_A
             mode: [emacs vi_insert vi_normal]
             event: [
                 {edit: CutFromLineStart}
-                {send: menu name: history_menu}
+                {send: Menu name: history_menu}
             ]
         }
         {
             name: show_help
-            modifier: none
-            keycode: f1
+            modifier: None
+            keycode: F1
             mode: emacs
-            event: {send: menu name: help_menu}
+            event: {send: Menu name: help_menu}
         }
     ]
     rm_always_trash: true
