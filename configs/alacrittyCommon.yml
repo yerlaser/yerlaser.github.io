@@ -5,5 +5,8 @@ scrolling:
 window:
   startup_mode: Maximized
 key_bindings:
-  # - { key: Return, mods: Shift, chars : "\x1b[13;2u"}
-  - { key: Back  , mods: Shift, chars : "\x1b[1;2D"  }
+  - { key: Back  , mods: Shift, chars : "\x18"  } # Ctrl-x
+  - { key: End, mods: None, chars : "\x03"} # Ctrl-c
+  - { key: End, mods: Shift, chars : "\x01"} # Ctrl-a
+  - { key: Return, mods: Shift, chars : "\x05"} # Ctrl-e
+  - { key: Space, mods: Shift, chars : "\x12"} # Ctrl-r
