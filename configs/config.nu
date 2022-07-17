@@ -3,6 +3,16 @@ let-env config = {
     cd_with_abbreviations: true
     keybindings: [
         {
+            name: disable_right_complete
+            modifier: None
+            keycode: Right
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: MenuRight}
+                {send: Right}
+            ]}
+        }
+        {
             name: complete_word
             modifier: Control
             keycode: Char_R
