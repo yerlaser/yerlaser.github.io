@@ -3,21 +3,44 @@ let-env config = {
     cd_with_abbreviations: true
     keybindings: [
         {
-            name: disable_right_complete
-            modifier: None
-            keycode: Right
+            name: complete_word
+            modifier: Control
+            keycode: Char_A
             mode: [emacs vi_insert]
             event: {until: [
-                {send: MenuRight}
-                {send: Right}
+                {send: HistoryHintWordComplete}
+                {edit: MoveWordRight}
             ]}
         }
         {
-            name: complete_word
+            name: prev_history
+            modifier: Control
+            keycode: Char_C
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: MenuUp}
+                {send: Up}
+            ]}
+        }
+        {
+            name: prev_history
+            modifier: Control
+            keycode: Char_E
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: MenuDown}
+                {send: Down}
+            ]}
+        }
+        {
+            name: search_history
             modifier: Control
             keycode: Char_R
-            mode: [emacs vi_insert]
-            event: {send: HistoryHintWordComplete}
+            mode: [emacs vi_insert vi_normal]
+            event: [
+                {edit: CutFromLineStart}
+                {send: Menu name: history_menu}
+            ]
         }
         {
             name: edit_command
@@ -38,41 +61,21 @@ let-env config = {
             ]}
         }
         {
-            name: prev_history
-            modifier: Control
-            keycode: Char_E
-            mode: [emacs vi_insert]
-            event: {until: [
-                {send: MenuDown}
-                {send: Down}
-            ]}
-        }
-        {
-            name: prev_history
-            modifier: Control
-            keycode: Char_C
-            mode: [emacs vi_insert]
-            event: {until: [
-                {send: MenuUp}
-                {send: Up}
-            ]}
-        }
-        {
-            name: search_history
-            modifier: Control
-            keycode: Char_A
-            mode: [emacs vi_insert vi_normal]
-            event: [
-                {edit: CutFromLineStart}
-                {send: Menu name: history_menu}
-            ]
-        }
-        {
             name: show_help
             modifier: None
             keycode: F1
             mode: emacs
             event: {send: Menu name: help_menu}
+        }
+        {
+            name: disable_right_complete
+            modifier: None
+            keycode: Right
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: MenuRight}
+                {send: Right}
+            ]}
         }
     ]
     rm_always_trash: true
