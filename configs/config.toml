@@ -2,6 +2,7 @@ theme = "monokai_pro_spectrum"
 
 [keys.insert]
 "C-c" = "normal_mode" # END (CAPS)
+"C-x" = "no_op" # S-SP
 "tab" = { "l" = "move_char_right", "tab" = "insert_tab", "u" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] }
 
 [keys.normal]
@@ -35,13 +36,13 @@ theme = "monokai_pro_spectrum"
 "M" = "toggle_comments"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
-"C-r" = "remove_primary_selection" # S-SP
+"C-r" = [ "extend_line_up", "extend_to_line_bounds" ] # S-BS
 "U" = "switch_to_uppercase"
 "v" = { "a" = "select_textobject_around", "i" = "select_textobject_inner", "v" = "select_mode", "ret" = "select_all" }
 "V" = "extend_to_line_bounds"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection_noyank"
-"C-x" = [ "extend_line_up", "extend_to_line_bounds" ] # S-BS
+"C-x" = "remove_primary_selection" # S-SP
 "X" = "remove_selections"
 "backspace" = "keep_primary_selection"
 "ret" = { "b" = "buffer_picker", "c" = "yank_joined_to_clipboard", "d" = "file_picker_in_current_directory", "f" = "file_picker", "r" = "replace_selections_with_clipboard", "v" = "paste_clipboard_before", "space" = "command_palette" }
