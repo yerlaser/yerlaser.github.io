@@ -6,4 +6,6 @@ font:
     family: Monaco
 shell:
   program: /Users/yerlan.sergaziyev/Sources/nushell/target/release/nu
+  args:
+    - --config /Users/yerlan.sergaziyev/Published/configs/configAlacritty.nu
 working_directory: /Users/yerlan.sergaziyev/Projects
