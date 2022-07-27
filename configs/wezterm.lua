@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 return {
   color_scheme = "Ryuuko",
   default_cwd = "/Users/yerlan.sergaziyev/Gerrit",
-  default_prog = {"/Users/yerlan.sergaziyev/Sources/nushell/target/release/nu"},
+  default_prog = {"/Users/yerlan.sergaziyev/.cargo/bin/nu"},
   font = wezterm.font('JetBrains Mono'),
   font_size = 23,
   keys = {
