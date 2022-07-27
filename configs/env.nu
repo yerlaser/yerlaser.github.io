@@ -18,37 +18,37 @@ let-env PATH = if ($nupaths | path exists) {
 }
 
 def create_my_right_prompt [] {
-    let time-segment = ([
+    let time_segment = ([
         (date now | date format)
     ] | str collect)
-    $time-segment
+    $time_segment
 }
 
 # Run command on piped list of files or directories
 def gather [
   cmd: string # Command to run
 ] {
-  let all-items = ($in | get name)
-  run-external $cmd $all-items
+  let all_items = ($in | get name)
+  run-external $cmd $all_items
 }
 
 # Filter piped list for files that contain search pattern
 def pgrep [
-  --after-context (-A): int # Number of lines to show after each match
-  --before-context (-B): int # Number of lines to show before each match
-  --fixed-string (-F) # Treat pattern as fixed string
-  search-pattern: string # Pattern to search
+  --after_context (-A): int # Number of lines to show after each match
+  --before_context (-B): int # Number of lines to show before each match
+  --fixed_string (-F) # Treat pattern as fixed string
+  search_pattern: string # Pattern to search
 ] {
   let inp = $in
-  let acon = (if $after-context == null {0} else {$after-context})
-  let bcon = (if $before-context == null {0} else {$before-context})
-  let coln = 'found_' + ($search-pattern | str replace -a '[^a-zA-Z0-9]' '_')
+  let acon = (if $after_context == null {0} else {$after_context})
+  let bcon = (if $before_context == null {0} else {$before_context})
+  let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
   $inp | where type == file | par-each {
     |it| $it | insert $coln (
-      if $fixed-string {
-        rg -F -A $acon -B $bcon -n $search-pattern $it.name | lines
+      if $fixed_string {
+        rg -F -A $acon -B $bcon -n $search_pattern $it.name | lines
       } else {
-        rg -A $acon -B $bcon -n $search-pattern $it.name | lines
+        rg -A $acon -B $bcon -n $search_pattern $it.name | lines
       }
     )
   } | where ($it | get $coln | length) > 0 | sort-by name
