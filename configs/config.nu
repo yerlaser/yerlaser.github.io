@@ -80,3 +80,5 @@ let-env config = {
     ]
     rm_always_trash: true
 }
+
+source ~/.cache/starship/init.nu
