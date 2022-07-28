@@ -3,9 +3,6 @@ alias l = shells
 alias tree = exa -FlT
 
 let-env EDITOR = "hx"
-let-env PROMPT_COMMAND_RIGHT = {create_my_right_prompt}
-let-env PROMPT_INDICATOR_VI_INSERT = "〉"
-let-env PROMPT_INDICATOR_VI_NORMAL = "〕"
 let-env VISUAL = "hx"
 let-env WASMER_DIR = $"($env.HOME)/.wasmer"
 let-env WASMER_CACHE_DIR = $"($env.WASMER_DIR)/cache"
@@ -15,13 +12,6 @@ let-env PATH = if ($nupaths | path exists) {
     $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines) | uniq
 } else {
     $env.PATH
-}
-
-def create_my_right_prompt [] {
-    let time_segment = ([
-        (date now | date format)
-    ] | str collect)
-    $time_segment
 }
 
 # Run command on piped list of files or directories
@@ -52,4 +42,18 @@ def pgrep [
       }
     )
   } | where ($it | get $coln | length) > 0 | sort-by name
+}
+
+# Change directory to row number
+def-env cdn [
+  row_number: int # Row number to cd to
+] {
+  let inp = ($in | get $row_number)
+  cd (
+    if $inp.type == file {
+      $inp.name | path dirname
+    } else {
+      $inp.name
+    }
+  )
 }
