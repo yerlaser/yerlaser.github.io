@@ -8,7 +8,7 @@ return {
   font_size = 23,
   keys = {
     { key = "Backspace", mods = "SHIFT", action = wezterm.action.SendString("\x12") }, -- Ctrl-r
-    { key = "End", mods = "", action = wezterm.action.SendString("\x03") }, -- Ctrl-c
+    { key = "End", mods = "", action = wezterm.action.SendString("\x1B") }, -- Ctrl-c
     { key = "End", mods = "SHIFT", action = wezterm.action.SendString("\x01") }, -- Ctrl-a
     { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\x05") }, -- Ctrl-e
     { key = "Space", mods = "SHIFT", action = wezterm.action.SendString("\x18") }, -- Ctrl-x
