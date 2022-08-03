@@ -7,7 +7,7 @@ window:
   startup_mode: Maximized
 key_bindings:
   - { key: Back  , mods: Shift, chars : "\x12"  } # Ctrl-r
-  - { key: End, mods: None, chars : "\x03"} # Ctrl-c
+  - { key: End, mods: None, chars : "\x1b"} # Esc
   - { key: End, mods: Shift, chars : "\x01"} # Ctrl-a
   - { key: Return, mods: Shift, chars : "\x05"} # Ctrl-e
   - { key: Space, mods: Shift, chars : "\x18"} # Ctrl-x
