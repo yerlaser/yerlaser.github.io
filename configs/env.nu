@@ -1,4 +1,4 @@
-alias dir = exa -Fal
+alias dir = ls -a
 alias l = shells
 alias tree = exa -FlT
 
@@ -13,6 +13,11 @@ let-env PATH = if ($nupaths | path exists) {
 } else {
     $env.PATH
 }
+
+def create_right_prompt [] {
+    do -i {git branch --show-current}
+}
+let-env PROMPT_COMMAND_RIGHT = {create_right_prompt}
 
 # Run command on piped list of files or directories
 def gather [
