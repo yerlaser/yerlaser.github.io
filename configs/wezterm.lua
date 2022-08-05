@@ -7,11 +7,11 @@ return {
   font = wezterm.font('JetBrains Mono'),
   font_size = 23,
   keys = {
-    { key = "Backspace", mods = "SHIFT", action = wezterm.action.SendString("\x12") }, -- Ctrl-r
-    { key = "End", mods = "", action = wezterm.action.SendString("\x1B") }, -- Ctrl-c
-    { key = "End", mods = "SHIFT", action = wezterm.action.SendString("\x01") }, -- Ctrl-a
-    { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\x05") }, -- Ctrl-e
-    { key = "Space", mods = "SHIFT", action = wezterm.action.SendString("\x18") }, -- Ctrl-x
+    { key = "Backspace", mods = "SHIFT", action = wezterm.action.SendString("\x1Bb") }, -- Alt-b
+    { key = "End", mods = "", action = wezterm.action.SendString("\x1B") }, -- Esc
+    { key = "End", mods = "SHIFT", action = wezterm.action.SendString("\x1B_") }, -- Alt-_
+    { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\x1Bf") }, -- Alt-f
+    { key = "Space", mods = "SHIFT", action = wezterm.action.SendString("\x1B\x05") }, -- Alt-Ctrl-e
   },
   window_frame = { font_size = 24 },
   window_decorations = "RESIZE"
