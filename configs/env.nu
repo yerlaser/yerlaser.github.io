@@ -1,4 +1,4 @@
-alias dir = ls -a
+alias jour = vi ~/journal.md
 alias l = shells
 alias tree = exa -FlT
 
@@ -27,38 +27,54 @@ def gather [
   run-external $cmd $all_items
 }
 
-# Filter piped list for files that contain search pattern
-def pgrep [
-  --after_context (-A): int # Number of lines to show after each match
-  --before_context (-B): int # Number of lines to show before each match
-  --fixed_string (-F) # Treat pattern as fixed string
-  search_pattern: string # Pattern to search
+# Get a listing of a folder and save result in PRES
+def-env dir [
+  folder_name: string = '.' # Folder name to get listing of
 ] {
-  let inp = $in
-  let acon = (if $after_context == null {0} else {$after_context})
-  let bcon = (if $before_context == null {0} else {$before_context})
-  let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
-  $inp | where type == file | par-each {
-    |it| $it | insert $coln (
-      if $fixed_string {
-        rg -F -A $acon -B $bcon -n $search_pattern $it.name | lines
-      } else {
-        rg -A $acon -B $bcon -n $search_pattern $it.name | lines
-      }
-    )
-  } | where ($it | get $coln | length) > 0 | sort-by name
+  let-env PRES = ls -a $folder_name
+  $env.PRES
 }
 
-# Change directory to row number
-def-env cdn [
-  row_number: int # Row number to cd to
+# Filter piped list for files that contain search pattern
+def-env pgrep [
+  --after_context (-A): int = 7 # Number of lines to show after each match
+  --before_context (-B): int = 3 # Number of lines to show before each match
+  --fixed_string (-F) # Treat pattern as fixed string
+  search_pattern: string = '' # Pattern to search
 ] {
-  let inp = ($in | get $row_number)
-  cd (
-    if $inp.type == file {
-      $inp.name | path dirname
+  let inp = $in
+  let-env PRES = (
+    if ($search_pattern | str length) == 0 {
+      $inp
     } else {
-      $inp.name
+      let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
+      let pres = (
+        $inp | where type == file | par-each {
+          |it| $it | insert $coln (
+            if $fixed_string {
+              rg -F -A $after_context -B $before_context -n $search_pattern $it.name | lines
+            } else {
+              rg -A $after_context -B $before_context -n $search_pattern $it.name | lines
+            }
+          )
+        } | where ($it | get $coln | length) > 0
+      )
+      if ($pres | length) > 0 {$pres | sort-by name} else {null}
     }
   )
+  $env.PRES
+}
+
+# Run command on row number (default cd)
+def-env row [
+  row_number: int # Row number to cd to
+  cmd: string = 'cd' # Command to run
+] {
+  let inp = $in
+  let fpa = (if $inp == null {$env.PRES} else {$inp} | get $row_number)
+  let cpa = if ($fpa | get type) == file {$fpa | get name | path dirname} else {$fpa | get name}
+  cd (if $cmd == 'cd' {$cpa} else {'.'})
+  if $cmd != 'cd' {
+    run-external $cmd ($fpa | get name)
+  }
 }
