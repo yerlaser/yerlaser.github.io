@@ -19,22 +19,6 @@ def create_right_prompt [] {
 }
 let-env PROMPT_COMMAND_RIGHT = {create_right_prompt}
 
-# Run command on piped list of files or directories
-def gather [
-  cmd: string # Command to run
-] {
-  let all_items = ($in | get name)
-  run-external $cmd $all_items
-}
-
-# Get a listing of a folder and save result in PRES
-def-env dir [
-  folder_name: string = '.' # Folder name to get listing of
-] {
-  let-env PRES = ls -a $folder_name
-  $env.PRES
-}
-
 # Filter piped list for files that contain search pattern
 def-env pgrep [
   --after_context (-A): int = 7 # Number of lines to show after each match
@@ -42,14 +26,15 @@ def-env pgrep [
   --fixed_string (-F) # Treat pattern as fixed string
   search_pattern: string = '' # Pattern to search
 ] {
-  let inp = $in
+  let input = $in
+  let input = (if $input == null {ls -a **/*} else {$input})
   let-env PRES = (
     if ($search_pattern | str length) == 0 {
-      $inp
+      $input
     } else {
       let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
       let pres = (
-        $inp | where type == file | par-each {
+        $input | where type == file | par-each {
           |it| $it | insert $coln (
             if $fixed_string {
               rg -F -A $after_context -B $before_context -n $search_pattern $it.name | lines
@@ -65,16 +50,24 @@ def-env pgrep [
   $env.PRES
 }
 
+# Get a listing of a folder and save result in PRES
+def-env dir [
+  folder_name: string = '.' # Folder name to get listing of
+] {
+  let-env PRES = ls -a $folder_name
+  $env.PRES
+}
+
 # Run command on row number (default cd)
 def-env row [
   row_number: int # Row number to cd to
   cmd: string = 'cd' # Command to run
 ] {
-  let inp = $in
-  let fpa = (if $inp == null {$env.PRES} else {$inp} | get $row_number)
-  let cpa = if ($fpa | get type) == file {$fpa | get name | path dirname} else {$fpa | get name}
-  cd (if $cmd == 'cd' {$cpa} else {'.'})
+  let input = $in
+  let fpath = (if $input == null {$env.PRES} else {$input} | get $row_number)
+  let dpath = if ($fpath | get type) == file {$fpath | get name | path dirname} else {$fpath | get name}
+  cd (if $cmd == 'cd' {$dpath} else {'.'})
   if $cmd != 'cd' {
-    run-external $cmd ($fpa | get name)
+    run-external $cmd ($fpath | get name)
   }
 }
