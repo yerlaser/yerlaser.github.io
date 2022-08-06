@@ -30,12 +30,12 @@ select = "underline"
 "{" = [ "select_mode", "goto_prev_paragraph", "normal_mode", "extend_to_line_bounds" ]
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
-"," = { "a" = ":set line-number absolute", "e" = "earlier", "f" = "file_picker_in_current_directory", "r" = "redo", "t" = "later", "u" = [ "extend_to_line_bounds", "yank", "paste_before", "replace" ], "v" = ":set line-number relative" }
+"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "d" = ":insert-output date '+%F'", "D" = ":insert-output date '+%v'", "e" = "file_picker_in_current_directory", "f" = ":insert-output date '+%c'", "r" = "later", "R" = "redo", "t" = ":insert-output date '+%T'", "u" = "earlier" }
 "'" = "surround_add"
 "\\" = "surround_replace"
 "A-_" = "rotate_view" # S-CAPS (S-END)
 "B" = "extend_prev_long_word_start"
-"D" = ":insert-output date '+%d.%m.%y, %a, %H:%M:%S'"
+"D" = [ "extend_to_line_bounds", "yank", "paste_before" ]
 "E" = "extend_next_long_word_end"
 "A-f" = [ "extend_line_down", "extend_to_line_bounds" ] # S-CR
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "u" = "switch_to_lowercase" }
