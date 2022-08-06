@@ -24,28 +24,24 @@ def-env pgrep [
   --after_context (-A): int = 7 # Number of lines to show after each match
   --before_context (-B): int = 3 # Number of lines to show before each match
   --fixed_string (-F) # Treat pattern as fixed string
-  search_pattern: string = '' # Pattern to search
+  search_pattern: string # Pattern to search
 ] {
   let input = $in
   let input = (if $input == null {ls -a **/*} else {$input})
-  let-env PRES = (
-    if ($search_pattern | str length) == 0 {
-      $input
-    } else {
-      let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
-      let pres = (
-        $input | where type == file | par-each {
-          |it| $it | insert $coln (
-            if $fixed_string {
-              rg -F -A $after_context -B $before_context -n $search_pattern $it.name | lines
-            } else {
-              rg -A $after_context -B $before_context -n $search_pattern $it.name | lines
-            }
-          )
-        } | where ($it | get $coln | length) > 0
+  let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
+  let pres = (
+    $input | where type == file | par-each {
+      |it| $it | insert $coln (
+        if $fixed_string {
+          rg -F -A $after_context -B $before_context -n $search_pattern $it.name | lines
+        } else {
+          rg -A $after_context -B $before_context -n $search_pattern $it.name | lines
+        }
       )
-      if ($pres | length) > 0 {$pres | sort-by name} else {null}
-    }
+    } | where ($it | get $coln | length) > 0
+  )
+  let-env PRES = (
+    if ($pres | length) > 0 {$pres | sort-by name} else {null}
   )
   $env.PRES
 }
@@ -54,14 +50,21 @@ def-env pgrep [
 def-env dir [
   folder_name: string = '.' # Folder name to get listing of
 ] {
-  let-env PRES = ls -a $folder_name
+  let input = $in
+  let-env PRES = (
+    if $input == null {
+      ls -a $folder_name
+    } else {
+      $input
+    }
+  )
   $env.PRES
 }
 
-# Run command on row number (default cd)
-def-env row [
+# Run command on row number
+def-env r [
+  cmd: string # Command to run
   row_number: int # Row number to cd to
-  cmd: string = 'cd' # Command to run
 ] {
   let input = $in
   let fpath = (if $input == null {$env.PRES} else {$input} | get $row_number)
