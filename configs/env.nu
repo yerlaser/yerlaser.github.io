@@ -1,9 +1,8 @@
 alias jour = vi ~/journal.md
-alias l = shells
 alias tree = exa -FlT
 
-let-env EDITOR = "hx"
-let-env VISUAL = "hx"
+let-env EDITOR = 'vi'
+let-env VISUAL = 'vi'
 let-env WASMER_DIR = $"($env.HOME)/.wasmer"
 let-env WASMER_CACHE_DIR = $"($env.WASMER_DIR)/cache"
 
@@ -21,8 +20,8 @@ let-env PROMPT_COMMAND_RIGHT = {create_right_prompt}
 
 # Filter piped list for files that contain search pattern
 def-env pgrep [
-  --after_context (-A): int = 7 # Number of lines to show after each match
-  --before_context (-B): int = 3 # Number of lines to show before each match
+  --after_context (-A): int = 7 # Number of lines to show after each match (default 7)
+  --before_context (-B): int = 3 # Number of lines to show before each match (default 3)
   --fixed_string (-F) # Treat pattern as fixed string
   search_pattern: string # Pattern to search
 ] {
@@ -48,7 +47,7 @@ def-env pgrep [
 
 # Get a listing of a folder and save result in PRES
 def-env dir [
-  folder_name: string = '.' # Folder name to get listing of
+  folder_name: string = '.' # Folder name to get listing of (default current folder)
 ] {
   let input = $in
   let-env PRES = (
@@ -61,10 +60,38 @@ def-env dir [
   $env.PRES
 }
 
+# Get last command result
+def l [] {
+  $env.PRES
+}
+
+# Find files or folders where name contains pattern
+def-env f [
+  search_pattern: string # Search pattern
+  --regex (-r) # Treat pattern as regex
+] {
+  let input = $in
+  let input = (
+    if $input == null {
+      ls -a **/*
+    } else {
+      $input
+    }
+  )
+  let-env PRES = (
+    if $regex {
+      $input | where name =~ $search_pattern
+    } else {
+      $input | find -i $search_pattern
+    }
+  )
+  $env.PRES
+}
+
 # Run command on row number
-def-env r [
+def r [
   cmd: string # Command to run
-  row_number: int # Row number to cd to
+  row_number: int # Row number
 ] {
   let input = $in
   let fpath = (if $input == null {$env.PRES} else {$input} | get $row_number)
