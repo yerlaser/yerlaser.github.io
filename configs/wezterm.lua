@@ -4,8 +4,9 @@ return {
   color_scheme = "Ryuuko",
   default_cwd = "/Users/yerlan.sergaziyev/Gerrit",
   default_prog = {"/Users/yerlan.sergaziyev/.cargo/bin/nu"},
+  enable_tab_bar = false,
   font = wezterm.font('JetBrains Mono'),
-  font_size = 23,
+  font_size = 24,
   keys = {
     { key = "Backspace", mods = "SHIFT", action = wezterm.action.SendString("\x1Bb") }, -- Alt-b
     { key = "End", mods = "", action = wezterm.action.SendString("\x1B") }, -- Esc
@@ -13,6 +14,6 @@ return {
     { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\x1Bf") }, -- Alt-f
     { key = "Space", mods = "SHIFT", action = wezterm.action.SendString("\x1B^") }, -- Alt-^
   },
-  window_frame = { font_size = 24 },
+  window_frame = { font_size = 23 },
   window_decorations = "RESIZE"
 }
