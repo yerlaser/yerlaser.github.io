@@ -18,86 +18,109 @@ def create_right_prompt [] {
 }
 let-env PROMPT_COMMAND_RIGHT = {create_right_prompt}
 
-# Filter piped list for files that contain search pattern
-def-env pgrep [
-  --after_context (-A): int = 7 # Number of lines to show after each match (default 7)
-  --before_context (-B): int = 3 # Number of lines to show before each match (default 3)
-  --fixed_string (-F) # Treat pattern as fixed string
-  search_pattern: string # Pattern to search
-] {
-  let input = $in
-  let input = (if $input == null {ls -a **/*} else {$input})
-  let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
-  let pres = (
-    $input | where type == file | par-each {
-      |it| $it | insert $coln (
-        if $fixed_string {
-          rg -F -A $after_context -B $before_context -n $search_pattern $it.name | lines
-        } else {
-          rg -A $after_context -B $before_context -n $search_pattern $it.name | lines
-        }
-      )
-    } | where ($it | get $coln | length) > 0
-  )
-  let-env PRES = (
-    if ($pres | length) > 0 {$pres | sort-by name} else {null}
-  )
-  $env.PRES
-}
-
-# Get a listing of a folder and save result in PRES
+# Get a listing of a folder and save result in LAST_CMD_RESULT
 def-env dir [
   folder_name: string = '.' # Folder name to get listing of (default current folder)
 ] {
   let input = $in
-  let-env PRES = (
+  let-env LAST_CMD_RESULT = (
     if $input == null {
       ls -a $folder_name
     } else {
       $input
     }
   )
-  $env.PRES
+  $env.LAST_CMD_RESULT
 }
 
 # Get last command result
 def l [] {
-  $env.PRES
+  $env.LAST_CMD_RESULT
 }
 
 # Find files or folders where name contains pattern
 def-env f [
+  --fixed_string (-f) = true # Treat pattern as fixed string (default)
   search_pattern: string # Search pattern
-  --regex (-r) # Treat pattern as regex
 ] {
-  let input = $in
-  let input = (
-    if $input == null {
-      ls -a **/*
-    } else {
-      $input
-    }
+  let-env LAST_CMD_RESULT = (
+    if $fixed_string {fd -Fi $search_pattern} else {fd $search_pattern} | lines | wrap 'name'
   )
-  let-env PRES = (
-    if $regex {
-      $input | where name =~ $search_pattern
-    } else {
-      $input | find -i $search_pattern
-    }
+  $env.LAST_CMD_RESULT
+}
+
+# Find files containing pattern
+def-env s [
+  --fixed_string (-f) = true # Treat pattern as fixed string (default)
+  search_pattern: string # Search pattern
+] {
+  let-env LAST_CMD_RESULT = (
+    if $fixed_string {rg -Fil $search_pattern} else {fd -l $search_pattern} | lines | wrap 'name'
   )
-  $env.PRES
+  $env.LAST_CMD_RESULT
 }
 
 # Run command on row number
 def r [
   cmd: string # Command to run
-  row_number: int # Row number
+  row_number: int = 100000 # Row number (default last)
 ] {
   let input = $in
-  let fpath = (if $input == null {$env.PRES} else {$input} | get $row_number)
-  let dpath = if ($fpath | get type) == file {$fpath | get name | path dirname} else {$fpath | get name}
-  cd (if $cmd == 'cd' {$dpath} else {'.'})
-  if $cmd != 'cd' {
-    run-external $cmd ($fpath | get name)
-  }
+  let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
+  let ilast = ($input | length) - 1
+  let ilast = (if $row_number > $ilast {$ilast} else {$row_number})
+  let fpath = ($input | select $ilast | get name | get 0)
+  run-external $cmd $fpath
 }
+
+# Change dir to the item on the specified row number
+def-env rcd [
+  row_number: int = 100000 # Row number (default last)
+] {
+  let input = $in
+  let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
+  let ilast = ($input | length) - 1
+  let ilast = (if $row_number > $ilast {$ilast} else {$row_number})
+  let fpath = ($input | select $ilast | get name | get 0)
+  let dpath = (if ($fpath | path type) == 'file' {$fpath | path dirname} else {$fpath})
+  cd $dpath
+}
+
+# Open file on the specified row number with vi
+def rvi [
+  row_number: int = 100000 # Row number (default last)
+] {
+  let input = $in
+  let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
+  let ilast = ($input | length) - 1
+  let ilast = (if $row_number > $ilast {$ilast} else {$row_number})
+  let fpath = ($input | select $ilast | get name | get 0)
+  vi $fpath
+}
+
+# Filter piped list for files that contain search pattern
+# def-env pgrep [
+#   --after_context (-A): int = 7 # Number of lines to show after each match (default 7)
+#   --before_context (-B): int = 3 # Number of lines to show before each match (default 3)
+#   --fixed_string (-F) # Treat pattern as fixed string
+#   search_pattern: string # Pattern to search
+# ] {
+#   let input = $in
+#   let input = (if $input == null {ls -a **/*} else {$input})
+#   let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
+#   let pres = (
+#     $input | where type == file | par-each {
+#       |it| $it | insert $coln (
+#         if $fixed_string {
+#           rg -F -A $after_context -B $before_context -n $search_pattern $it.name | lines
+#         } else {
+#           rg -A $after_context -B $before_context -n $search_pattern $it.name | lines
+#         }
+#       )
+#     } | where ($it | get $coln | length) > 0
+#   )
+#   let-env LAST_CMD_RESULT = (
+#     if ($pres | length) > 0 {$pres | sort-by name} else {null}
+#   )
+#   $env.LAST_CMD_RESULT
+# }
