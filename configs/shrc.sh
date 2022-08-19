@@ -5,6 +5,14 @@ function addToPATH {
   esac
 }
 
+function s {
+  grep -Rli "${*}"
+}
+
+function f {
+  find . -iname "*${*}*"
+}
+
 addToPATH "$HOME/Downloads/kotlinc/bin"
 addToPATH "/LOCAL/apps/clang/bin"
 addToPATH "/LOCAL/apps/ruby/bin"
