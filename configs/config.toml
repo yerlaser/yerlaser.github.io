@@ -13,7 +13,9 @@ select = "underline"
 
 [keys.insert]
 "A-^" = ":insert-output printf ' '" # S-SP
-"tab" = { "l" = "move_char_right", "tab" = "insert_tab", "u" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] }
+"A-_" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ]
+# "A-b" = "delete_char_forward"
+# "A-f" = "move_char_right"
 
 [keys.normal]
 "`" = "jump_backward"
@@ -24,38 +26,42 @@ select = "underline"
 "%" = [ "select_mode", "match_brackets", "normal_mode" ]
 "^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
 "*" = [ "extend_next_word_start", "flip_selections", "extend_prev_word_start", "trim_selections", "search_selection" ]
-"minus" = "surround_delete"
+"minus" = "keep_selections"
 "_" = "rotate_selection_contents_backward"
 "+" = "rotate_selection_contents_forward"
 "{" = [ "select_mode", "goto_prev_paragraph", "normal_mode", "extend_to_line_bounds" ]
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
-"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "d" = ":insert-output date '+%F'", "D" = ":insert-output date '+%v'", "e" = "file_picker_in_current_directory", "f" = ":insert-output date '+%c'", "r" = "later", "R" = "redo", "t" = ":insert-output date '+%T'", "u" = "earlier" }
-"'" = "surround_add"
-"\\" = "surround_replace"
+"'" = { "'" = "surround_add", "d" = "surround_delete", "r" = "surround_replace" }
+"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "d" = ":insert-output date '+%F'", "D" = ":insert-output date '+%v'", "e" = "file_picker_in_current_directory", "r" = "later", "R" = "redo", "t" = ":insert-output date '+%T'", "u" = "earlier" }
 "A-_" = "rotate_view" # S-CAPS (S-END)
+# "A-^" = "" # S-SP
+# "A-b" = "" # S-BS
+# "A-f" = "" # S-CR
+"A-t" = "buffer_picker"
 "B" = "extend_prev_long_word_start"
-"D" = [ "extend_to_line_bounds", "yank", "paste_before" ]
+"D" = ":insert-output date '+%c'"
 "E" = "extend_next_long_word_end"
-"A-f" = [ "extend_line_down", "extend_to_line_bounds" ] # S-CR
-"g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "u" = "switch_to_lowercase" }
+"g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections", "u" = "switch_to_lowercase" }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
 "H" = "extend_char_left"
+"J" = "extend_line_down"
+"K" = "extend_line_up"
 "L" = "extend_char_right"
 "m" = "save_selection"
 "M" = "toggle_comments"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
-"A-b" = "remove_primary_selection" # S-BS
+"C-r" = "redo"
 "U" = "switch_to_uppercase"
-"v" = { ";" = "ensure_selections_forward", "a" = "select_textobject_around", "i" = "select_textobject_inner", "l" = "flip_selections", "v" = "select_mode", "backspace" = "trim_selections", "ret" = "split_selection_on_newline", "space" = "select_all" }
+"v" = { "minus" = "trim_selections", "l" = "ensure_selections_forward", "a" = "select_textobject_around", "i" = "select_textobject_inner", "h" = "flip_selections", "v" = "select_mode", "backspace" = "remove_primary_selection", ";" = "select_all", "/" = "split_selection_on_newline" }
 "V" = "extend_to_line_bounds"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection_noyank"
-"A-^" = [ "extend_line_up", "extend_to_line_bounds" ]
 "X" = "remove_selections"
+"Z" = "keep_selections"
 "backspace" = "keep_primary_selection"
 "ret" = "collapse_selection"
-"S-tab" = "buffer_picker"
+"S-tab" = "rotate_view"
 
 [keys.select]
