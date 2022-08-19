@@ -11,3 +11,4 @@ key_bindings:
   - { key: End, mods: Shift, chars : "\x1b_"} # Alt-_
   - { key: Return, mods: Shift, chars : "\x1bf"} # Alt-f
   - { key: Space, mods: Shift, chars : "\x1b^"} # Alt-^
+  - { key: Tab, mods: Control, chars : "\x1bt"} # Alt-t
