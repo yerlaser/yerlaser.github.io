@@ -400,5 +400,10 @@
                 }
             }
         }
-    }
+    },
+    "editor.fontLigatures": true,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "files.eol": "\n",
+    "editor.selectionHighlight": false
 }
