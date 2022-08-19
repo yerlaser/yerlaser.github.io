@@ -78,7 +78,7 @@
     },
     {
         "key": "shift+5",
-        "command": "dance.seek.enclosing.extend",
+        "command": "editor.action.selectToBracket",
         "when": "editorTextFocus && dance.mode == 'normal'"
     },
     {
