@@ -180,4 +180,19 @@
         "command": "dance.selections.filter.regexp",
         "when": "editorTextFocus && dance.mode == 'normal'"
     },
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.files.save"
+    },
+    // {
+    //     "key": "shift+]",
+    //     "command": "dance.seek.object",
+    //     "args": [
+    //         {
+    //             "inputOr": "(?#predefined=paragraph)",
+    //             "where": "end",
+    //             "shift": "extend"
+    //         }
+    //     ]
+    // },
 ]
