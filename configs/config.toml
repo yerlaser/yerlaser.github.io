@@ -13,9 +13,11 @@ select = "underline"
 
 [keys.insert]
 "A-^" = ":insert-output printf ' '" # S-SP
-"A-_" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ]
-# "A-b" = "delete_char_forward"
-# "A-f" = "move_char_right"
+"A-b" = "delete_char_forward" # S-BS
+# "A-f" = "" #  # S-CR
+"A-_" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-CAPS (S-END)
+"C-s" = [ "normal_mode", ":write" ]
+"C-space" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ]
 
 [keys.normal]
 "`" = "jump_backward"
@@ -26,36 +28,41 @@ select = "underline"
 "%" = [ "select_mode", "match_brackets", "normal_mode" ]
 "^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
 "*" = [ "extend_next_word_start", "flip_selections", "extend_prev_word_start", "trim_selections", "search_selection" ]
-"minus" = "keep_selections"
+"minus" = "surround_delete"
 "_" = "rotate_selection_contents_backward"
 "+" = "rotate_selection_contents_forward"
 "{" = [ "select_mode", "goto_prev_paragraph", "normal_mode", "extend_to_line_bounds" ]
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
-"'" = { "'" = "surround_add", "d" = "surround_delete", "r" = "surround_replace" }
+"'" = "surround_add"
 "," = { "." = ":set line-number absolute", "," = ":set line-number relative", "d" = ":insert-output date '+%F'", "D" = ":insert-output date '+%v'", "e" = "file_picker_in_current_directory", "r" = "later", "R" = "redo", "t" = ":insert-output date '+%T'", "u" = "earlier" }
-"A-_" = "rotate_view" # S-CAPS (S-END)
+"\\" = "surround_replace"
+ "A-_" = "rotate_view" # S-CAPS (S-END)
 # "A-^" = "" # S-SP
 # "A-b" = "" # S-BS
 # "A-f" = "" # S-CR
 "A-t" = "buffer_picker"
+"C-a" = "select_all"
 "B" = "extend_prev_long_word_start"
+"C-c" = "yank_main_selection_to_clipboard"
 "D" = ":insert-output date '+%c'"
 "E" = "extend_next_long_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections", "u" = "switch_to_lowercase" }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
 "H" = "extend_char_left"
-"J" = "extend_line_down"
-"K" = "extend_line_up"
+"J" = [ "extend_line_down", "extend_to_line_bounds" ]
+"K" = [ "extend_line_up", "extend_to_line_bounds" ]
 "L" = "extend_char_right"
 "m" = "save_selection"
 "M" = "toggle_comments"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
+"C-s" = ":write"
 "U" = "switch_to_uppercase"
 "v" = { "minus" = "trim_selections", "l" = "ensure_selections_forward", "a" = "select_textobject_around", "i" = "select_textobject_inner", "h" = "flip_selections", "v" = "select_mode", "backspace" = "remove_primary_selection", ";" = "select_all", "/" = "split_selection_on_newline" }
 "V" = "extend_to_line_bounds"
+"C-v" = "paste_clipboard_before"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection_noyank"
 "X" = "remove_selections"
