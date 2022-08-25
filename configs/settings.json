@@ -1,6 +1,5 @@
 {
     "workbench.startupEditor": "none",
-    "terminal.integrated.tabs.enabled": false,
     "editor.fontSize": 16,
     "workbench.colorTheme": "Default Light+",
     "workbench.activityBar.visible": false,
@@ -403,7 +402,16 @@
     },
     "editor.fontLigatures": true,
     "breadcrumbs.enabled": false,
-    "editor.minimap.enabled": false,
     "files.eol": "\n",
-    "editor.selectionHighlight": false
+    "editor.selectionHighlight": false,
+    "editor.minimap.renderCharacters": false,
+    "terminal.integrated.profiles.osx": {
+        "NuShell": {
+            "path": "/Users/yerlan.sergaziyev/.cargo/bin/nu",
+            "args": ["--config", "/Users/yerlan.sergaziyev/Published/configs/configAlacritty.nu"]
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "NuShell",
+    "editor.minimap.enabled": false,
+    "editor.colorDecorators": false
 }
