@@ -1,5 +1,4 @@
 theme = "monokai_pro_spectrum"
-
 [editor]
 line-number = "relative"
 
@@ -16,12 +15,22 @@ select = "underline"
 "A-b" = "delete_char_forward" # S-BS
 "A-f" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-CR
 "A-_" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-CAPS (S-END)
+"C-d" = ":insert-output date '+%c'"
 "C-s" = [ "normal_mode", ":write" ]
-"C-t" = [ "normal_mode", ":insert-output date '+%c'", "insert_mode" ]
+"C-t" = { "d" = ":insert-output date '+%v'", "s" = ":insert-output date '+%F'", "t" = ":insert-output date '+%T'" }
 "C-v" = "paste_clipboard_before"
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 
 [keys.normal]
+"A-^" = "trim_selections" # S-SP
+ "A-_" = "goto_next_buffer" # S-CAPS (S-END)
+"tab" = "flip_selections"
+"S-tab" = "ensure_selections_forward"
+"backspace" = "keep_primary_selection"
+"A-b" = "remove_primary_selection" # S-BS
+"ret" = "collapse_selection"
+"A-f" = "split_selection_on_newline" # S-CR
+"A-t" = "buffer_picker"
 "`" = "jump_backward"
 "~" = "switch_case"
 "@" = "replay_macro"
@@ -37,17 +46,13 @@ select = "underline"
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
 "'" = "surround_add"
-"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "d" = ":insert-output date '+%F'", "D" = ":insert-output date '+%v'", "e" = "file_picker_in_current_directory", "f" = ":insert-output date '+%c'", "r" = "later", "R" = "redo", "t" = ":insert-output date '+%T'", "u" = "earlier" }
+"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "r" = "later", "u" = "earlier" }
 "\\" = "surround_replace"
- "A-_" = "rotate_view" # S-CAPS (S-END)
-# "A-^" = "" # S-SP
-# "A-b" = "" # S-BS
-# "A-f" = "" # S-CR
-"A-t" = "buffer_picker"
 "C-a" = "select_all"
 "B" = "extend_prev_long_word_start"
 "C-c" = "yank_main_selection_to_clipboard"
 "D" = [ "extend_to_line_bounds", "yank", "paste_before" ]
+"C-d" = "file_picker_in_current_directory"
 "E" = "extend_next_long_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections", "u" = "switch_to_lowercase" }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
@@ -62,15 +67,10 @@ select = "underline"
 "C-r" = "redo"
 "C-s" = ":write"
 "U" = "switch_to_uppercase"
-"v" = { "minus" = "trim_selections", "l" = "ensure_selections_forward", "a" = "select_textobject_around", "i" = "select_textobject_inner", "h" = "flip_selections", "v" = "select_mode", "backspace" = "remove_primary_selection", ";" = "select_all", "/" = "split_selection_on_newline" }
+"v" = { "a" = "select_textobject_around", "i" = "select_textobject_inner", "v" = "select_mode" }
 "V" = "extend_to_line_bounds"
 "C-v" = "paste_clipboard_before"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection_noyank"
 "X" = "remove_selections"
 "Z" = "keep_selections"
-"backspace" = "keep_primary_selection"
-"ret" = "collapse_selection"
-"S-tab" = "rotate_view"
-
-[keys.select]
