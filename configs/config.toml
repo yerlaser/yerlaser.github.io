@@ -14,10 +14,12 @@ select = "underline"
 [keys.insert]
 "A-^" = ":insert-output printf ' '" # S-SP
 "A-b" = "delete_char_forward" # S-BS
-# "A-f" = "" #  # S-CR
+"A-f" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-CR
 "A-_" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-CAPS (S-END)
 "C-s" = [ "normal_mode", ":write" ]
-"C-space" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ]
+"C-t" = [ "normal_mode", ":insert-output date '+%c'", "insert_mode" ]
+"C-v" = "paste_clipboard_before"
+"C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 
 [keys.normal]
 "`" = "jump_backward"
@@ -35,7 +37,7 @@ select = "underline"
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
 "'" = "surround_add"
-"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "d" = ":insert-output date '+%F'", "D" = ":insert-output date '+%v'", "e" = "file_picker_in_current_directory", "r" = "later", "R" = "redo", "t" = ":insert-output date '+%T'", "u" = "earlier" }
+"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "d" = ":insert-output date '+%F'", "D" = ":insert-output date '+%v'", "e" = "file_picker_in_current_directory", "f" = ":insert-output date '+%c'", "r" = "later", "R" = "redo", "t" = ":insert-output date '+%T'", "u" = "earlier" }
 "\\" = "surround_replace"
  "A-_" = "rotate_view" # S-CAPS (S-END)
 # "A-^" = "" # S-SP
@@ -45,7 +47,7 @@ select = "underline"
 "C-a" = "select_all"
 "B" = "extend_prev_long_word_start"
 "C-c" = "yank_main_selection_to_clipboard"
-"D" = ":insert-output date '+%c'"
+"D" = [ "extend_to_line_bounds", "yank", "paste_before" ]
 "E" = "extend_next_long_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections", "u" = "switch_to_lowercase" }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
