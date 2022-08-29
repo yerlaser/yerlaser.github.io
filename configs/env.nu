@@ -1,3 +1,4 @@
+alias dir = ls -a
 alias jour = vi ~/journal.md
 alias tree = exa -FlT
 
@@ -18,28 +19,13 @@ def create_right_prompt [] {
 }
 let-env PROMPT_COMMAND_RIGHT = {create_right_prompt}
 
-# Get a listing of a folder and save result in LAST_CMD_RESULT
-def-env dir [
-  folder_name: string = '.' # Folder name to get listing of (default current folder)
-] {
-  let input = $in
-  let-env LAST_CMD_RESULT = (
-    if $input == null {
-      ls -a $folder_name
-    } else {
-      $input
-    }
-  )
+# Get last recursive command result
+def r [] {
   $env.LAST_CMD_RESULT
 }
 
-# Get last command result
-def l [] {
-  $env.LAST_CMD_RESULT
-}
-
-# Find files or folders where name contains pattern
-def-env f [
+# Recursively find files or folders whose name contains pattern
+def-env rfind [
   --fixed_string (-f) = true # Treat pattern as fixed string (default)
   search_pattern: string # Search pattern
 ] {
@@ -49,8 +35,8 @@ def-env f [
   $env.LAST_CMD_RESULT
 }
 
-# Find files containing pattern
-def-env s [
+# Recursively grep files for pattern
+def-env rgrep [
   --fixed_string (-f) = true # Treat pattern as fixed string (default)
   search_pattern: string # Search pattern
 ] {
@@ -61,7 +47,7 @@ def-env s [
 }
 
 # Run command on row number
-def r [
+def rcmd [
   cmd: string # Command to run
   row_number: int = 100000 # Row number (default last)
 ] {
