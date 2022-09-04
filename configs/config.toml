@@ -1,6 +1,11 @@
-theme = "monokai_pro_spectrum"
+theme = "catppuccin_macchiato"
 [editor]
 line-number = "relative"
+cursorline = true
+color-modes = true
+
+[editor.indent-guides]
+render = true
 
 [editor.whitespace.render]
 tab = "all"
