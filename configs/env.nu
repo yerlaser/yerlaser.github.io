@@ -1,5 +1,4 @@
 alias dir = ls -a
-alias jour = vi ~/journal.md
 alias tree = exa -FlT
 
 let-env EDITOR = 'vi'
