@@ -1,12 +1,18 @@
 local wezterm = require 'wezterm'
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function(cmd)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
 
 return {
-  color_scheme = "Ryuuko",
+  color_scheme = "Catppuccin Latte",
   default_cwd = "/Users/yerlan.sergaziyev/Gerrit",
-  default_prog = {"/Users/yerlan.sergaziyev/.cargo/bin/nu"},
+  default_prog = {"/Users/yerlan.sergaziyev/.cargo/bin/nu", "--config", "/Users/yerlan.sergaziyev/Published/configs/configWez.nu"},
   enable_tab_bar = false,
   font = wezterm.font('JetBrains Mono'),
-  font_size = 24,
+  font_size = 23,
   keys = {
     { key = "Backspace", mods = "SHIFT", action = wezterm.action.SendString("\x1Bb") }, -- Alt-b
     { key = "End", mods = "", action = wezterm.action.SendString("\x1B") }, -- Esc
