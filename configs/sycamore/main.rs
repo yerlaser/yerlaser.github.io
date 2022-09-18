@@ -3,9 +3,10 @@ mod count;
 mod props;
 mod square;
 
-// Add following lines to the index.html
-//    <link data-trunk rel="copy-file" href="tailwind.js" />
-//    <script src="./tailwind.js"></script>
+// Create initial empty file:
+//     touch tailwind.css
+// Add following line to the index.html:
+//     <link data-trunk href="./tailwind.css" rel="css" />
 
 #[component]
 fn App<G: Html>(cx: Scope) -> View<G> {
