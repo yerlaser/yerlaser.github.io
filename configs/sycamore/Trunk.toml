@@ -1,0 +1,4 @@
+[[hooks]]
+stage = "build"
+command = "sh"
+command_arguments = ["-c", "tailwindcss -mo tailwind.css"]
