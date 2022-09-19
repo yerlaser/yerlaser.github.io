@@ -8,17 +8,21 @@ mod count;
 mod props;
 mod square;
 
+// On first run do:
+//    touch tailwind.css
+// Add this to the index.html:
+//    <link data-trunk href="./tailwind.css" rel="css" />
+
 fn main() {
     sycamore::render(|cx| {
         let state = create_signal(cx, 0i32);
-        let update = |action| {
+        let update = create_ref(cx, |action| {
             if action == 0 {
                 state.set(0);
             } else {
                 state.set(*state.get() + action);
             }
-        };
-        let update = create_ref(cx, update);
+        });
         view! { cx,
             article(class="flex flex-col justify-center items-center") {
                 header() {
