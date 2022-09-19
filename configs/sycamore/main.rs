@@ -1,4 +1,8 @@
+use button::Button;
+use count::Count;
+use square::Square;
 use sycamore::prelude::*;
+
 mod button;
 mod count;
 mod props;
@@ -17,13 +21,13 @@ fn main() {
         let update = create_ref(cx, update);
         view! { cx,
             article(class="flex flex-col justify-center items-center") {
-                header {
-                    button::Button(updater=update, action=-1)
-                    button::Button(updater=update, action=0)
-                    button::Button(updater=update, action=1)
+                header() {
+                    Button(updater=update, action=-1)
+                    Button(updater=update, action=0)
+                    Button(updater=update, action=1)
                 }
-                count::Count(value=state)
-                square::Square(value=state)
+                Count(value=state)
+                Square(value=state)
             }
         }
     });
