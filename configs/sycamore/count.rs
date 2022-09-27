@@ -1,9 +1,10 @@
-use super::props::Base;
 use sycamore::prelude::*;
 
-#[component]
-pub fn Count<'a, G: Html>(cx: Scope<'a>, props: Base<'a>) -> View<G> {
+#[component(inline_props)]
+pub fn Count<'a, G: Html>(cx: Scope<'a>, value: &'a ReadSignal<i32>) -> View<G> {
     view! { cx,
-        h1 { "Count: " (*props.value.get()) }
+        h1(class="text-3xl") {
+            "Count: " (*value.get())
+        }
     }
 }
