@@ -1,15 +1,18 @@
-use super::props::Base;
 use sycamore::prelude::*;
 
-#[component]
-pub fn Square<'a, G: Html>(cx: Scope<'a>, props: Base<'a>) -> View<G> {
-    let negative = create_selector(cx, || *props.value.get() < 0);
+#[component(inline_props)]
+pub fn Square<'a, G: Html>(cx: Scope<'a>, value: &'a ReadSignal<i32>) -> View<G> {
+    let negative = create_selector(cx, || *value.get() < 0);
 
     view! { cx,
-        h1 { "Square: " ((*props.value.get()) * (*props.value.get())) }
+        h1(class="text-3xl") {
+            "Square: " ((*value.get()) * (*value.get()))
+        }
         (if *negative.get() {
             view! { cx,
-                h3(class="text-red-700") { "Warning: base is negative" }
+                h3(class="text-xl text-red-700") {
+                    "Warning: base is negative"
+                }
             }
         } else {
             view! { cx, }
