@@ -5,7 +5,6 @@ use sycamore::prelude::*;
 
 mod button;
 mod count;
-mod props;
 mod square;
 
 // On first run do:
@@ -16,7 +15,7 @@ mod square;
 fn main() {
     sycamore::render(|cx| {
         let state = create_signal(cx, 0i32);
-        let update = create_ref(cx, |action| {
+        let update = create_ref(cx, |action: i32| {
             if action == 0 {
                 state.set(0);
             } else {
