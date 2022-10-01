@@ -1,21 +1,17 @@
-use button::Button;
-use count::Count;
-use square::Square;
 use sycamore::prelude::*;
+use ui::button::Button;
+use ui::count::Count;
+use ui::square::Square;
 
-mod button;
-mod count;
-mod square;
+mod ui;
 
-// On first run do:
-//    touch tailwind.css
 // Add this to the index.html:
 //    <link data-trunk href="./tailwind.css" rel="css" />
 
 fn main() {
     sycamore::render(|cx| {
         let state = create_signal(cx, 0i32);
-        let update = create_ref(cx, |action: i32| {
+        let update = create_ref(cx, |action| {
             if action == 0 {
                 state.set(0);
             } else {
