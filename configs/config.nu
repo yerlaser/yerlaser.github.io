@@ -5,11 +5,31 @@ let-env config = ($env.config | upsert keybindings [
     {
         name: prev_history
         modifier: None
-        keycode: Esc
+        keycode: Down
+        mode: [emacs vi_insert]
+        event: {until: [
+            {send: MenuDown}
+            {send: Up}
+        ]}
+    }
+    {
+        name: next_history
+        modifier: None
+        keycode: Up
         mode: [emacs vi_insert]
         event: {until: [
             {send: MenuUp}
-            {send: Up}
+            {send: Down}
+        ]}
+    }
+    {
+        name: completion_menu
+        modifier: None
+        keycode: Tab
+        mode: [emacs vi_insert]
+        event: {until: [
+            {send: Menu name: completion_menu}
+            {send: MenuNext}
         ]}
     }
     {
