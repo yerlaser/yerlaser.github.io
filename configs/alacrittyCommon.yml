@@ -3,12 +3,11 @@ mouse:
 scrolling:
   history: 10000
 window:
-  decorations: None
   startup_mode: Maximized
 key_bindings:
+  - { key: N, mods: Command, action : CreateNewWindow}
   - { key: Back  , mods: Shift, chars : "\x1bb"  } # Alt-b
-  - { key: End, mods: None, chars : "\x1b"} # Esc
-  - { key: End, mods: Shift, chars : "\x1b_"} # Alt-_
+  - { key: Down, mods: Shift, chars : "\x1b_"} # Alt-_
   - { key: Return, mods: Shift, chars : "\x1bf"} # Alt-f
   - { key: Space, mods: Shift, chars : "\x1b^"} # Alt-^
   - { key: Tab, mods: Control, chars : "\x1bt"} # Alt-t
