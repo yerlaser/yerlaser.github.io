@@ -7,7 +7,6 @@
     "svelte.ask-to-enable-ts-plugin": false,
     "editor.renderWhitespace": "trailing",
     "editor.dragAndDrop": false,
-    "editor.experimental.stickyScroll.enabled": true,
     "editor.occurrencesHighlight": false,
     "dance.modes": {
         "": {
@@ -413,5 +412,6 @@
     },
     "terminal.integrated.defaultProfile.osx": "NuShell",
     "editor.minimap.enabled": false,
-    "editor.colorDecorators": false
+    "editor.colorDecorators": false,
+    "editor.stickyScroll.enabled": true
 }
