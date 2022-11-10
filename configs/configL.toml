@@ -16,6 +16,7 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
+"down" = "normal_mode"
 "A-^" = ":insert-output printf ' '" # S-SP
 "A-b" = "delete_char_forward" # S-BS
 "A-f" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-CR
@@ -27,8 +28,9 @@ select = "underline"
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 
 [keys.normal]
+"down" = "file_picker_in_current_directory"
 "A-^" = "trim_selections" # S-SP
- "A-_" = "goto_next_buffer" # S-CAPS (S-END)
+"A-_" = "goto_next_buffer" # S-CAPS (S-DOWN)
 "tab" = "flip_selections"
 "S-tab" = "ensure_selections_forward"
 "backspace" = "keep_primary_selection"
@@ -53,7 +55,6 @@ select = "underline"
 "'" = "surround_add"
 "," = { "." = ":set line-number absolute", "," = ":set line-number relative", "r" = "later", "u" = "earlier" }
 "\\" = "surround_replace"
-"C-a" = "select_all"
 "B" = "extend_prev_long_word_start"
 "C-c" = "yank_main_selection_to_clipboard"
 "D" = [ "extend_to_line_bounds", "yank", "paste_before" ]
@@ -78,4 +79,8 @@ select = "underline"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection_noyank"
 "X" = "remove_selections"
+"Y" = "select_all"
 "Z" = "keep_selections"
+
+[keys.select]
+"down" = "exit_select_mode"
