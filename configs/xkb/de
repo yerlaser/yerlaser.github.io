@@ -49,8 +49,11 @@ xkb_symbols "DeQwerty" {
   key <AB09> { [ period                   , greater                  , egrave                   , greaterthanequal         ] };
   key <AB10> { [ slash                    , question                 ,x,x] };
   key <BKSL> { [ backslash                , bar                      , ugrave                   , Ugrave                   ] };
-  key <LSGT> { [ EuroSign                 , yen                      , sterling                 , cent                     ] };
-  key <CAPS> { [ Control_R                , Control_R                , Control_R                , Control_R                ] };
-  key <RCTL> { [ Control_L                , Control_L                , Control_L                , Control_L                ] };
+  key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };
+  key <CAPS> { [ Down                     , Down                     , Down                     , Down                     ] };
+  key <LALT> { [ Super_L                  , Super_L                  , Super_L                  , Super_L                  ] };
+  key <LWIN> { [ Alt_L                    , Alt_L                    , Alt_L                    , Alt_L                    ] };
+  key <RALT> { [ Control_R                , Control_R                , Control_R                , Control_R                ] };
+  key <RCTL> { [ Alt_R                    , Alt_R                    , Alt_R                    , Alt_R                    ] };
   key <MENU> { [ ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         ] };
 };

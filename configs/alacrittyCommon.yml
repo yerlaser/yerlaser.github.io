@@ -2,12 +2,11 @@ mouse:
   hide_when_typing: true
 scrolling:
   history: 10000
-window:
-  startup_mode: Maximized
 key_bindings:
-  - { key: N, mods: Command, action : CreateNewWindow}
   - { key: Back  , mods: Shift, chars : "\x1bb"  } # Alt-b
   - { key: Down, mods: Shift, chars : "\x1b_"} # Alt-_
+  - { key: Down, mods: None, chars : "\x1b[A"}
+  - { key: Up, mods: None, chars : "\x1b[B"}
   - { key: Return, mods: Shift, chars : "\x1bf"} # Alt-f
   - { key: Space, mods: Shift, chars : "\x1b^"} # Alt-^
   - { key: Tab, mods: Control, chars : "\x1bt"} # Alt-t

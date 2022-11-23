@@ -1,27 +1,7 @@
 let-env config = {buffer_editor: $'($env.HOME)/.cargo/bin/hx'}
 let-env config = ($env.config | upsert cd_with_abbreviations true)
-# let-env config = ($env.config | upsert edit_mode vi_insert)
+let-env config = ($env.config | upsert edit_mode vi_insert)
 let-env config = ($env.config | upsert keybindings [
-    {
-        name: prev_history
-        modifier: None
-        keycode: Down
-        mode: [emacs vi_insert]
-        event: {until: [
-            {send: MenuDown}
-            {send: Up}
-        ]}
-    }
-    {
-        name: next_history
-        modifier: None
-        keycode: Up
-        mode: [emacs vi_insert]
-        event: {until: [
-            {send: MenuUp}
-            {send: Down}
-        ]}
-    }
     {
         name: completion_menu
         modifier: None

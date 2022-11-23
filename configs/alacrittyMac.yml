@@ -4,6 +4,9 @@ font:
   size: 19
   normal:
     family: Monaco
+key_bindings:
+  - { key: Grave  , mods: None, chars : "\x1bb"  } # Alt-b
+  - { key: Grave  , mods: Shift, chars : "\x1bb"  } # Alt-b
 shell:
   program: /Users/yerlan.sergaziyev/.cargo/bin/nu
   args:

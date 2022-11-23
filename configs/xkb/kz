@@ -49,5 +49,11 @@ xkb_symbols "KzPhonetic" {
   key <AB09> { [ period                   , greater                  ,x, greaterthanequal         ] };
   key <AB10> { [ Cyrillic_shorti          , question                 , slash                    , Cyrillic_SHORTI          ] };
   key <BKSL> { [ Cyrillic_e               , Cyrillic_E               , backslash                , bar                      ] };
-  key <LSGT> { [ EuroSign                 , yen                      , sterling                 , cent                     ] };
+  key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };
+  key <CAPS> { [ Down                     , Down                     , Down                     , Down                     ] };
+  key <LALT> { [ Super_L                  , Super_L                  , Super_L                  , Super_L                  ] };
+  key <LWIN> { [ Alt_L                    , Alt_L                    , Alt_L                    , Alt_L                    ] };
+  key <RALT> { [ Control_R                , Control_R                , Control_R                , Control_R                ] };
+  key <RCTL> { [ Alt_R                    , Alt_R                    , Alt_R                    , Alt_R                    ] };
+  key <MENU> { [ ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         , ISO_Level3_Shift         ] };
 };

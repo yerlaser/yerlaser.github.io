@@ -16,7 +16,7 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
-"down" = "normal_mode"
+"up" = "normal_mode"
 "A-^" = ":insert-output printf ' '" # S-SP
 "A-b" = "delete_char_forward" # S-BS
 "A-f" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-CR
@@ -28,7 +28,7 @@ select = "underline"
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 
 [keys.normal]
-"down" = "file_picker_in_current_directory"
+"up" = "file_picker_in_current_directory"
 "A-^" = "trim_selections" # S-SP
 "A-_" = "goto_next_buffer" # S-CAPS (S-DOWN)
 "tab" = "flip_selections"
@@ -83,4 +83,4 @@ select = "underline"
 "Z" = "keep_selections"
 
 [keys.select]
-"down" = "exit_select_mode"
+"up" = "exit_select_mode"
