@@ -236,54 +236,54 @@
             <key code="126" output="&#x001E;"/>
         </keyMap>
         <keyMap index="2">
-            <key code="0" output="a"/>
-            <key code="1" output="s"/>
-            <key code="2" output="d"/>
-            <key code="3" output="f"/>
-            <key code="4" output="h"/>
+            <key code="0" output="â"/>
+            <key code="1" output="ß"/>
+            <key code="2" output="é"/>
+            <key code="3" output="á"/>
+            <key code="4" output="ý"/>
             <key code="5" output="g"/>
-            <key code="6" output="z"/>
-            <key code="7" output="x"/>
-            <key code="8" output="c"/>
-            <key code="9" output="v"/>
+            <key code="6" output="æ"/>
+            <key code="7" output="ä"/>
+            <key code="8" output="ç"/>
+            <key code="9" output="ü"/>
             <key code="10" output="`"/> <!--`-->
-            <key code="11" output="b"/>
+            <key code="11" output="ë"/>
             <key code="12" output="q"/>
             <key code="13" output="w"/>
-            <key code="14" output="e"/>
+            <key code="14" output="ê"/>
             <key code="15" output="r"/>
-            <key code="16" output="y"/>
+            <key code="16" output="ÿ"/>
             <key code="17" output="t"/>
-            <key code="18" output="ï"/>
-            <key code="19" output="æ"/>
-            <key code="20" output="ë"/>
-            <key code="21" output="€"/>
-            <key code="22" output="ÿ"/>
-            <key code="23" output="œ"/>
+            <key code="18" output="à"/>
+            <key code="19" output="2"/>
+            <key code="20" output="è"/>
+            <key code="21" output="¢"/>
+            <key code="22" output="ỳ"/>
+            <key code="23" output="£"/>
             <key code="24" output="="/> <!--=-->
-            <key code="25" output="ô"/>
-            <key code="26" output="û"/>
-            <key code="27" output="ê"/>
-            <key code="28" output="î"/>
-            <key code="29" output="â"/>
+            <key code="25" output="ò"/>
+            <key code="26" output="ù"/>
+            <key code="27" output="-"/>
+            <key code="28" output="ì"/>
+            <key code="29" output="0"/>
             <key code="30" output="]"/> <!--]-->
-            <key code="31" output="o"/>
-            <key code="32" output="u"/>
+            <key code="31" output="ô"/>
+            <key code="32" output="û"/>
             <key code="33" output="["/> <!--[-->
-            <key code="34" output="i"/>
+            <key code="34" output="î"/>
             <key code="35" output="p"/>
             <key code="36" output="&#x000D;"/> <!--CR -->
-            <key code="37" output="l"/>
-            <key code="38" output="j"/>
-            <key code="39" output="ä"/> <!--'-->
-            <key code="40" output="k"/>
-            <key code="41" output="ö"/>
-            <key code="42" output="ù"/> <!--Backslash-->
-            <key code="43" output="à"/>
-            <key code="44" output="é"/> <!--/-->
-            <key code="45" output="n"/>
-            <key code="46" output="m"/>
-            <key code="47" output="è"/>
+            <key code="37" output="ó"/>
+            <key code="38" output="ú"/>
+            <key code="39" output="'"/> <!--'-->
+            <key code="40" output="í"/>
+            <key code="41" output=";"/>
+            <key code="42" output="\"/> <!--Backslash-->
+            <key code="43" output="ï"/>
+            <key code="44" output="/"/> <!--/-->
+            <key code="45" output="ñ"/>
+            <key code="46" output="ö"/>
+            <key code="47" output="œ"/>
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="`"/> <!--`-->
@@ -342,54 +342,54 @@
             <key code="126" output="&#x001E;"/> <!--Record Separator -->    
         </keyMap>
         <keyMap index="3">
-            <key code="0" output="A"/>
-            <key code="1" output="S"/>
-            <key code="2" output="D"/>
-            <key code="3" output="F"/>
-            <key code="4" output="H"/>
+            <key code="0" output="Â"/>
+            <key code="1" output="ẞ"/>
+            <key code="2" output="É"/>
+            <key code="3" output="Á"/>
+            <key code="4" output="Ý"/>
             <key code="5" output="G"/>
-            <key code="6" output="Z"/>
-            <key code="7" output="X"/>
-            <key code="8" output="C"/>
-            <key code="9" output="V"/>
+            <key code="6" output="Æ"/>
+            <key code="7" output="Ä"/>
+            <key code="8" output="Ç"/>
+            <key code="9" output="Ü"/>
             <key code="10" output="~"/> <!--`-->
-            <key code="11" output="B"/>
+            <key code="11" output="Ë"/>
             <key code="12" output="Q"/>
             <key code="13" output="W"/>
-            <key code="14" output="E"/>
+            <key code="14" output="Ê"/>
             <key code="15" output="R"/>
-            <key code="16" output="Y"/>
+            <key code="16" output="Ÿ"/>
             <key code="17" output="T"/>
-            <key code="18" output="Ï"/>
-            <key code="19" output="Æ"/>
-            <key code="20" output="Ë"/>
-            <key code="21" output="¢"/>
-            <key code="22" output="Ÿ"/>
+            <key code="18" output="À"/>
+            <key code="19" output="@"/>
+            <key code="20" output="È"/>
+            <key code="21" output="€"/>
+            <key code="22" output="Ỳ"/>
             <key code="23" output="Œ"/>
             <key code="24" output="ẞ"/>
-            <key code="25" output="Ô"/>
-            <key code="26" output="Û"/> <!--ampersand-->
-            <key code="27" output="Ê"/>
-            <key code="28" output="Î"/>
-            <key code="29" output="Â"/>
+            <key code="25" output="Ò"/>
+            <key code="26" output="Ù"/> <!--ampersand-->
+            <key code="27" output="_"/>
+            <key code="28" output="Ì"/>
+            <key code="29" output=")"/>
             <key code="30" output="}"/> <!--]-->
-            <key code="31" output="O"/>
-            <key code="32" output="U"/>
+            <key code="31" output="Ô"/>
+            <key code="32" output="Û"/>
             <key code="33" output="{"/> <!--[-->
-            <key code="34" output="I"/>
+            <key code="34" output="Î"/>
             <key code="35" output="P"/>
             <key code="36" output="&#x000D;"/> <!--CR -->
-            <key code="37" output="L"/>
-            <key code="38" output="J"/>
+            <key code="37" output="Ó"/>
+            <key code="38" output="Ú"/>
             <key code="39" output="Ä"/> <!--'-->
-            <key code="40" output="K"/>
-            <key code="41" output="Ö"/>
-            <key code="42" output="Ù"/> <!--Backslash-->
-            <key code="43" output="À"/> <!--Less than-->
-            <key code="44" output="É"/>
-            <key code="45" output="N"/>
-            <key code="46" output="M"/>
-            <key code="47" output="È"/> <!--Greater than-->
+            <key code="40" output="Í"/>
+            <key code="41" output=":"/>
+            <key code="42" output="|"/> <!--Backslash-->
+            <key code="43" output="Ï"/> <!--Less than-->
+            <key code="44" output="?"/>
+            <key code="45" output="Ñ"/>
+            <key code="46" output="Ö"/>
+            <key code="47" output="Œ"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="~"/> <!--`-->
