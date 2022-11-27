@@ -8,7 +8,19 @@ macro_rules! readln{
             stdin().read_line($receiver).expect("Error flushing stdio");
             *$receiver = $receiver.trim_end().to_string();
         }
-    }
+    };
+    ($message: expr, $receiver: expr, $trim_eol: expr) => {
+        {
+            use std::io::{stdin, stdout, Write};
+
+            print!("{}", $message);
+            stdout().flush().expect("Error reading from stdio");
+            stdin().read_line($receiver).expect("Error flushing stdio");
+            if $trim_eol {
+                *$receiver = $receiver.trim_end().to_string();
+            }
+        }
+    };
 }
 
 trait StringExt {
