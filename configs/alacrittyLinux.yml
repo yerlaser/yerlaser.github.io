@@ -1,12 +1,12 @@
 import:
   - /LOCAL/Published/configs/alacrittyCommon.yml
 font:
-  size: 14
+  size: 15
   normal:
     family: CascadiaCode
 window:
-  decorations: none
-  startup_mode: Maximized
+  # decorations: none
+  startup_mode: FullScreen
 key_bindings:
   - { key: 13  , mods: None, chars : "="  }
   - { key: 26  , mods: None, chars : "["  }
