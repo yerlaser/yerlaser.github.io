@@ -1,9 +1,9 @@
 use sycamore::prelude::*;
-use ui::button::Button;
-use ui::count::Count;
-use ui::square::Square;
+use components::button::Button;
+use components::count::Count;
+use components::square::Square;
 
-mod ui;
+mod components;
 
 // Add this to the index.html:
 //    <link data-trunk href="./tailwind.css" rel="css" />
