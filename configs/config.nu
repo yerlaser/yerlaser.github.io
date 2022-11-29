@@ -1,5 +1,5 @@
 let-env config = {buffer_editor: $'($env.HOME)/.cargo/bin/hx'}
-let-env config = ($env.config | upsert cd_with_abbreviations true)
+let-env config = ($env.config | upsert cd {abbreviations: true})
 let-env config = ($env.config | upsert edit_mode vi_insert)
 let-env config = ($env.config | upsert keybindings [
     {
@@ -51,5 +51,5 @@ let-env config = ($env.config | upsert keybindings [
         event: {send: Menu name: help_menu}
     }
 ])
-let-env config = ($env.config | upsert rm_always_trash true)
+let-env config = ($env.config | upsert rm {always_trash: true})
 let-env config = ($env.config | upsert show_banner false)
