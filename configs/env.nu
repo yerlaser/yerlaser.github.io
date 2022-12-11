@@ -83,6 +83,18 @@ def rvi [
   vi $fpath
 }
 
+# Open file on the specified row number with cat
+def rcat [
+  row_number: int = 100000 # Row number (default last)
+] {
+  let input = $in
+  let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
+  let ilast = ($input | length) - 1
+  let ilast = (if $row_number > $ilast {$ilast} else {$row_number})
+  let fpath = ($input | select $ilast | get name | get 0)
+  cat $fpath
+}
+
 # Filter piped list for files that contain search pattern
 # def-env pgrep [
 #   --after_context (-A): int = 7 # Number of lines to show after each match (default 7)
