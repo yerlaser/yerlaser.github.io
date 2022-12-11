@@ -1,4 +1,3 @@
-alias dir = ls -a
 alias tree = exa -FlT
 
 let-env EDITOR = 'vi'
@@ -41,6 +40,16 @@ def-env rgrep [
 ] {
   let-env LAST_CMD_RESULT = (
     if $fixed_string {rg -Fil $search_pattern} else {fd -l $search_pattern} | lines | wrap 'name'
+  )
+  $env.LAST_CMD_RESULT
+}
+
+# Dir files
+def-env dir [
+  search_pattern = '.' # Search pattern
+] {
+  let-env LAST_CMD_RESULT = (
+    ls -a $search_pattern
   )
   $env.LAST_CMD_RESULT
 }
