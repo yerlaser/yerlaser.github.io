@@ -7,13 +7,13 @@ let-env WASMER_CACHE_DIR = $"($env.WASMER_DIR)/cache"
 
 let nupaths = ([$env.HOME .config nushell nupaths.txt] | path join)
 let-env PATH = if ($nupaths | path exists) {
-    $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines) | uniq
+  $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines) | uniq
 } else {
-    $env.PATH
+  $env.PATH
 }
 
 def create_right_prompt [] {
-    do -i {git branch --show-current}
+  do -i {git branch --show-current}
 }
 let-env PROMPT_COMMAND_RIGHT = {create_right_prompt}
 
