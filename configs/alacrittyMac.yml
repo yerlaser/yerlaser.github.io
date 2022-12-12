@@ -1,14 +1,19 @@
-import:
-  - /Users/yerlan.sergaziyev/Published/configs/alacrittyCommon.yml
+# import:
+  # - /Users/yerlan.sergaziyev/Published/configs/alacrittyCommon.yml
 font:
   size: 19
   normal:
     family: Monaco
 key_bindings:
-  - { key: Grave  , mods: None, chars : "\x1bb"  } # Alt-b
-  - { key: Grave  , mods: Shift, chars : "\x1bb"  } # Alt-b
-shell:
-  program: /Users/yerlan.sergaziyev/.cargo/bin/nu
-  args:
-    - --config /Users/yerlan.sergaziyev/Published/configs/configAlacritty.nu
-working_directory: /Users/yerlan.sergaziyev/Projects
+  - { key: Equals  , mods: None, chars : "="  }
+  - { key: LBracket  , mods: None, chars : "["  }
+  - { key: LBracket  , mods: Shift, chars : "{"  }
+  - { key: RBracket  , mods: None, chars : "]"  }
+  - { key: RBracket  , mods: Shift, chars : "}"  }
+  - { key: Grave  , mods: None, chars : "`"  }
+  - { key: Grave  , mods: Shift, chars : "~"  }
+# shell:
+  # program: /Users/yerlan.sergaziyev/.cargo/bin/nu
+  # args:
+    # - --config /Users/yerlan.sergaziyev/Published/configs/configAlacritty.nu
+# working_directory: /Users/yerlan.sergaziyev/Projects

@@ -15,9 +15,5 @@ key_bindings:
   - { key: 27  , mods: Shift, chars : "}"  }
   - { key: 41  , mods: None, chars : "`"  }
   - { key: 41  , mods: Shift, chars : "~"  }
-# key_bindings:
-  # - {key: 58, mods: None   , chars: "\x1b"    }
-  # - {key: 58, mods: Shift  , chars: "\x18\x05"}
-  # - {key: M , mods: Control, chars: "\x1b[F"  }
 shell:
   program: /home/yerlan/.cargo/bin/nu 
