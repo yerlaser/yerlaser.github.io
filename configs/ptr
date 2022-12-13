@@ -88,29 +88,27 @@ def process_line(args, line, num):
     if args.append:
         l = f'{l}{args.Separator}{args.append}'
     if args.convert:
-        if 'trim'      in args.convert:
+        if 'trim' in args.convert:
             l = l.strip()
-        if 'trimleft'  in args.convert:
+        if 'trimleft' in args.convert:
             l = l.lstrip()
         if 'trimright' in args.convert:
             l = l.rstrip()
-
-        if 'lower'     in args.convert:
+        if 'lower' in args.convert:
             l = l.lower()
-        if 'sentence'  in args.convert:
+        if 'sentence' in args.convert:
             l = l.capitalize()
-        if 'swapcase'  in args.convert:
+        if 'swapcase' in args.convert:
             l = l.swapcase()
-        if 'title'     in args.convert:
+        if 'title' in args.convert:
             l = l.title()
-        if 'upper'     in args.convert:
+        if 'upper' in args.convert:
             l = l.upper()
-
-        if 'center'    in args.convert:
+        if 'center' in args.convert:
             l = l.center(args.Number, args.Separator)
-        if 'left'      in args.convert:
+        if 'left' in args.convert:
             l = l.ljust(args.Number, args.Separator)
-        if 'right'     in args.convert:
+        if 'right' in args.convert:
             l = l.rjust(args.Number, args.Separator)
     return l + e
 
