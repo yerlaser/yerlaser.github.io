@@ -39,18 +39,28 @@ def main
     exit __LINE__
   end
 
-  if not options[:Separator] then options[:Separator] = '=' end
-  if not options[:Number] then options[:Number] = IO.console.winsize[1] end
+  if not options[:Separator]
+    options[:Separator] = '='
+  end
+  if not options[:Number]
+    options[:Number] = IO.console.winsize[1]
+  end
 
   output_file = File.open(options[:output], 'w+') if options.has_key? :output
 
   ARGF.each.with_index(1) do |line, num|
-    if ((options.has_key? :number) and (num > options[:number])) then break end
-    if not filter_line(options, line) then next end
+    if ((options.has_key? :number) and (num > options[:number]))
+      break
+    end
+    if not filter_line(options, line)
+      next
+    end
     o = process_line(options, line)
     if options.has_key? :output
       output_file.write(o)
-      if options[:tee] then puts o end
+      if options[:tee]
+        puts o
+      end
     else
       puts o
     end
@@ -60,11 +70,21 @@ def main
 end
 
 def filter_line(options, line)
-  if (options.has_key? :Find and not line.include? options[:Find]) then return false end
-  if (options.has_key? :find and not line.downcase.include? options[:find].downcase) then return false end
-  if (options.has_key? :grep and not line.match? options[:grep]) then return false end
-  if (options.has_key? :Xclude and line.include? options[:Xclude]) then return false end
-  if (options.has_key? :xclude and line.downcase.include? options[:xclude].downcase) then return false end
+  if (options.has_key? :Find and not line.include? options[:Find])
+    return false
+  end
+  if (options.has_key? :find and not line.downcase.include? options[:find].downcase)
+    return false
+  end
+  if (options.has_key? :grep and not line.match? options[:grep])
+    return false
+  end
+  if (options.has_key? :Xclude and line.include? options[:Xclude])
+    return false
+  end
+  if (options.has_key? :xclude and line.downcase.include? options[:xclude].downcase)
+    return false
+  end
   true
 end
 
