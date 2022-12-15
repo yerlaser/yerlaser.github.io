@@ -14,7 +14,7 @@ xkb_symbols "DeQwerty" {
   key <AE09> { [ 9                        , parenleft                , ograve                   , Ograve                   ] };
   key <AE10> { [ 0                        , parenright               ] };
   key <AE11> { [ minus                    , underscore               ] };
-  key <AE12> { [ ssharp                   , plus                     , equal                    , U1E9E                    ] };
+  key <AE12> { [ equal                    , plus                     ] };
   key <AD01> { [ q                        , Q                        ] };
   key <AD02> { [ w                        , W                        ] };
   key <AD03> { [ e                        , E                        , ecircumflex              , Ecircumflex              ] };
@@ -48,7 +48,7 @@ xkb_symbols "DeQwerty" {
   key <AB08> { [ comma                    , less                     , idiaeresis               , Idiaeresis               ] };
   key <AB09> { [ period                   , greater                  , oe                       , OE                       ] };
   key <AB10> { [ slash                    , question                 ] };
-  key <BKSL> { [ backslash                , bar                      ] };
+  key <BKSL> { [ ssharp                   , U1E9E                    , backslash                , bar                      ] };
   key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };
   key <CAPS> { [ KP_Down                  , KP_Down                  , KP_Down                  , KP_Down                  ] };
   key <LALT> { [ Super_L                  , Super_L                  , Super_L                  , Super_L                  ] };

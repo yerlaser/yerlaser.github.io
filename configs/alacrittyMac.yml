@@ -5,13 +5,14 @@ font:
   normal:
     family: Monaco
 key_bindings:
-  - { key: Equals  , mods: None, chars : "="  }
-  - { key: LBracket  , mods: None, chars : "["  }
-  - { key: LBracket  , mods: Shift, chars : "{"  }
-  - { key: RBracket  , mods: None, chars : "]"  }
-  - { key: RBracket  , mods: Shift, chars : "}"  }
-  - { key: Grave  , mods: None, chars : "`"  }
-  - { key: Grave  , mods: Shift, chars : "~"  }
+  - { key: LBracket  , mods: None , chars : "["   }
+  - { key: LBracket  , mods: Shift, chars : "{"   }
+  - { key: RBracket  , mods: None , chars : "]"   }
+  - { key: RBracket  , mods: Shift, chars : "}"   }
+  - { key: Grave     , mods: None , chars : "`"   }
+  - { key: Grave     , mods: Shift, chars : "~"   }
+  - { key: Backslash , mods: None , chars : "\\"  }
+  - { key: Backslash , mods: Shift, chars : "|"   }
 # shell:
   # program: /Users/yerlan.sergaziyev/.cargo/bin/nu
   # args:

@@ -50,7 +50,7 @@
             <key code="21" output="4"/>
             <key code="22" output="6"/>
             <key code="23" output="5"/>
-            <key code="24" output="ß"/> <!--=-->
+            <key code="24" output="="/> <!--=-->
             <key code="25" output="9"/>
             <key code="26" output="7"/>
             <key code="27" output="-"/>
@@ -68,7 +68,7 @@
             <key code="39" output="'"/> <!--'-->
             <key code="40" output="k"/>
             <key code="41" output=";"/>
-            <key code="42" output="\"/> <!--Backslash-->
+            <key code="42" output="ß"/> <!--Backslash-->
             <key code="43" output=","/>
             <key code="44" output="/"/> <!--/-->
             <key code="45" output="n"/>
@@ -174,7 +174,7 @@
             <key code="39" output="&#x0022;"/> <!--'-->
             <key code="40" output="K"/>
             <key code="41" output=":"/>
-            <key code="42" output="|"/> <!--Backslash-->
+            <key code="42" output="ẞ"/> <!--Backslash-->
             <key code="43" output="&#x003C;"/> <!--Less than-->
             <key code="44" output="?"/>
             <key code="45" output="N"/>
@@ -368,7 +368,7 @@
             <key code="21" output="€"/>
             <key code="22" output="Ỳ"/>
             <key code="23" output="Œ"/>
-            <key code="24" output="ẞ"/>
+            <key code="24" output="+"/>
             <key code="25" output="Ò"/>
             <key code="26" output="Ù"/> <!--ampersand-->
             <key code="27" output="_"/>

@@ -4,9 +4,7 @@ scrolling:
   history: 10000
 key_bindings:
   - { key: Back  , mods: Shift, chars : "\x1bb"  } # Alt-b
-  - { key: Down, mods: Shift, chars : "\x1b_"} # Alt-_
   - { key: Down, mods: None, chars : "\x1b\x1b"}
-  - { key: Up, mods: None, chars : "\x1b[B"}
   - { key: Return, mods: Shift, chars : "\x1bf"} # Alt-f
   - { key: Space, mods: Shift, chars : "\x1b^"} # Alt-^
   - { key: Tab, mods: Control, chars : "\x1bt"} # Alt-t
