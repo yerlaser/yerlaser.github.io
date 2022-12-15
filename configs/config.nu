@@ -14,8 +14,8 @@ let-env config = ($env.config | upsert keybindings [
     }
     {
         name: search_history
-        modifier: Alt
-        keycode: Char__
+        modifier: Shift
+        keycode: Down
         mode: [emacs vi_insert]
         event: [
             {edit: CutFromLineStart}
