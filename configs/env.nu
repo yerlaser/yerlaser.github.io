@@ -1,5 +1,3 @@
-alias tree = exa -FlT
-
 let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'
 let-env WASMER_DIR = $"($env.HOME)/.wasmer"
@@ -44,7 +42,7 @@ def-env rgrep [
   $env.LAST_CMD_RESULT
 }
 
-# Dir files
+# Get directory listing
 def-env dir [
   search_pattern = '.' # Search pattern
 ] {
@@ -103,30 +101,3 @@ def rcat [
   let fpath = ($input | select $ilast | get name | get 0)
   cat $fpath
 }
-
-# Filter piped list for files that contain search pattern
-# def-env pgrep [
-#   --after_context (-A): int = 7 # Number of lines to show after each match (default 7)
-#   --before_context (-B): int = 3 # Number of lines to show before each match (default 3)
-#   --fixed_string (-F) # Treat pattern as fixed string
-#   search_pattern: string # Pattern to search
-# ] {
-#   let input = $in
-#   let input = (if $input == null {ls -a **/*} else {$input})
-#   let coln = 'found_' + ($search_pattern | str replace -a '[^a-zA-Z0-9]' '_')
-#   let pres = (
-#     $input | where type == file | par-each {
-#       |it| $it | insert $coln (
-#         if $fixed_string {
-#           rg -F -A $after_context -B $before_context -n $search_pattern $it.name | lines
-#         } else {
-#           rg -A $after_context -B $before_context -n $search_pattern $it.name | lines
-#         }
-#       )
-#     } | where ($it | get $coln | length) > 0
-#   )
-#   let-env LAST_CMD_RESULT = (
-#     if ($pres | length) > 0 {$pres | sort-by name} else {null}
-#   )
-#   $env.LAST_CMD_RESULT
-# }
