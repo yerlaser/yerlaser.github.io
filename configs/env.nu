@@ -48,10 +48,10 @@ def-env rgrep [
 def-env dir [
   search_pattern = '.' # Search pattern
 ] {
+  ls -a $search_pattern
   let-env LAST_CMD_RESULT = (
     ls -a $search_pattern
   )
-  $env.LAST_CMD_RESULT
 }
 
 # Run command on row number
