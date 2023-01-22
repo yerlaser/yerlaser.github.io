@@ -13,15 +13,14 @@ function f {
   find . -iname "*${*}*"
 }
 
-addToPATH "$HOME/Downloads/kotlinc/bin"
-addToPATH "/LOCAL/apps/clang/bin"
-addToPATH "/LOCAL/apps/ruby/bin"
+addToPATH "/LOCAL/apps/gcc/bin"
+addToPATH "/LOCAL/apps/git/bin"
 
-# export CPLUS_INCLUDE_PATH="/LOCAL/apps/gcc/include/c++/12.0.0"
-# export LD_LIBRARY_PATH="/LOCAL/apps/gcc/lib64"
-# export LD_RUN_PATH="/LOCAL/apps/gcc/lib64"
-# export CC="/LOCAL/apps/gcc/bin/gcc"
-# export CXX="/LOCAL/apps/gcc/bin/g++"
+export CPLUS_INCLUDE_PATH="/LOCAL/apps/gcc/include/c++/13.0.0"
+export LD_LIBRARY_PATH="/LOCAL/apps/gcc/lib64"
+export LD_RUN_PATH="/LOCAL/apps/gcc/lib64"
+export CC="/LOCAL/apps/gcc/bin/gcc"
+export CXX="/LOCAL/apps/gcc/bin/g++"
 
 # export CPLUS_INCLUDE_PATH="/LOCAL/apps/clang/include/c++/v1"
 # export LD_LIBRARY_PATH="/LOCAL/apps/clang/lib64"

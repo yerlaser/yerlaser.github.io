@@ -2,3 +2,5 @@
 /home/yerlan/.cargo/bin
 /home/yerlan/.wasmer/bin
 /home/yerlan/.wasmer/globals/wapm_packages/.bin
+/LOCAL/apps/gcc/bin
+/LOCAL/apps/git/bin
