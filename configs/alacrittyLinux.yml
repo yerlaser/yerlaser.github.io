@@ -6,8 +6,6 @@ font:
     family: CascadiaCode
 window:
   decorations: none
-  #startup_mode: FullScreen
-  startup_mode: Maximized
 key_bindings:
   - { key: 26  , mods: None, chars : "["  }
   - { key: 26  , mods: Shift, chars : "{"  }

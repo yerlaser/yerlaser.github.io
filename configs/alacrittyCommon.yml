@@ -2,6 +2,8 @@ mouse:
   hide_when_typing: true
 scrolling:
   history: 10000
+window:
+  startup_mode: Maximized
 key_bindings:
   - { key: Back  , mods: Shift, chars : "\x1bb"  } # Alt-b
   - { key: Down, mods: None, chars : "\x1b\x1b"}

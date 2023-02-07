@@ -1,6 +1,13 @@
-/home/yerlan/.asdf/shims
-/home/yerlan/.cargo/bin
-/home/yerlan/.wasmer/bin
-/home/yerlan/.wasmer/globals/wapm_packages/.bin
-/LOCAL/apps/gcc/bin
-/LOCAL/apps/git/bin
+# Mac
+/opt/homebrew/bin
+/opt/homebrew/sbin
+/System/Cryptexes/App/usr/bin
+
+# Common
+/usr/local/bin
+
+# Home folder
+~/.asdf/shims
+~/.cargo/bin
+~/.wasmer/bin
+~/.wasmer/globals/wapm_packages/.bin

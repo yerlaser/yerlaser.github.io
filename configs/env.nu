@@ -10,7 +10,7 @@ let-env CXX = "/LOCAL/apps/gcc/bin/g++"
 
 let nupaths = ([$env.HOME .config nushell nupaths.txt] | path join)
 let-env PATH = if ($nupaths | path exists) {
-  $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines) | uniq
+  $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines | find --invert --regex '^\s*#' | find --invert --regex '^$' | path expand | filter {|p| path exists}) | uniq
 } else {
   $env.PATH
 }
