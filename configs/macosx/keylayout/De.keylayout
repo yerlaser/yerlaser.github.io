@@ -16,12 +16,12 @@
             <modifier keys="anyShift"/>
         </keyMapSelect>
         <keyMapSelect mapIndex="2">
-            <modifier keys="anyOption anyCommand?"/>
-            <modifier keys="anyCommand anyOption?"/>
+            <modifier keys="anyOption command?"/>
+            <modifier keys="command anyOption?"/>
         </keyMapSelect>
         <keyMapSelect mapIndex="3">
-            <modifier keys="anyShift anyOption anyCommand?"/>
-            <modifier keys="anyShift anyCommand anyOption?"/>
+            <modifier keys="anyShift anyOption command?"/>
+            <modifier keys="anyShift command anyOption?"/>
         </keyMapSelect>
     </modifierMap>
     <keyMapSet id="ANSI">

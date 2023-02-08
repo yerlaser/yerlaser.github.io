@@ -2,15 +2,16 @@ let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'
 let-env WASMER_DIR = $"($env.HOME)/.wasmer"
 let-env WASMER_CACHE_DIR = $"($env.WASMER_DIR)/cache"
-let-env CPLUS_INCLUDE_PATH = "/LOCAL/apps/gcc/include/c++/13.0.0"
-let-env LD_LIBRARY_PATH = "/LOCAL/apps/gcc/lib64"
-let-env LD_RUN_PATH = "/LOCAL/apps/gcc/lib64"
-let-env CC = "/LOCAL/apps/gcc/bin/gcc"
-let-env CXX = "/LOCAL/apps/gcc/bin/g++"
+let-env DELTA_FEATURES = '+side-by-side'
+# let-env CPLUS_INCLUDE_PATH = "/LOCAL/apps/gcc/include/c++/13.0.0"
+# let-env LD_LIBRARY_PATH = "/LOCAL/apps/gcc/lib64"
+# let-env LD_RUN_PATH = "/LOCAL/apps/gcc/lib64"
+# let-env CC = "/LOCAL/apps/gcc/bin/gcc"
+# let-env CXX = "/LOCAL/apps/gcc/bin/g++"
 
 let nupaths = ([$env.HOME .config nushell nupaths.txt] | path join)
 let-env PATH = if ($nupaths | path exists) {
-  $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines | find --invert --regex '^\s*#' | find --invert --regex '^$' | path expand | filter {|p| path exists}) | uniq
+  $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines | where {|l| ($l !~ '^\s*#.*') and ($l !~ '^\s*$')} | path expand | filter {|p| path exists}) | uniq
 } else {
   $env.PATH
 }
@@ -25,7 +26,7 @@ def r [] {
   $env.LAST_CMD_RESULT
 }
 
-# Recursively find files or folders whose name contains pattern
+# Recursively search for pattern in file names
 def-env rfind [
   --fixed_string (-f) = true # Treat pattern as fixed string (default)
   search_pattern: string # Search pattern
