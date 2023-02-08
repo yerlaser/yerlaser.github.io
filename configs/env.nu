@@ -1,3 +1,5 @@
+alias docker = podman
+
 let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'
 let-env WASMER_DIR = $"($env.HOME)/.wasmer"

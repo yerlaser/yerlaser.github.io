@@ -1,4 +1,3 @@
-alias docker = podman
 let-env config = {buffer_editor: $'($env.HOME)/.cargo/bin/hx'}
 let-env config = ($env.config | upsert cd {abbreviations: true})
 let-env config = ($env.config | upsert edit_mode vi_insert)
