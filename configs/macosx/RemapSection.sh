@@ -1,6 +1,8 @@
 #!/bin/zsh
 
-# To install use `launchctl load <filename>`, more commands: unload, list
+# To install: cp com.user.loginscript.plist ~/Library/LaunchAgents/
+# To manage: launchctl load <filename>
+# More commands: unload, list, start, stop
 
 hidutil property --set '{"UserKeyMapping":[
   {"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035},
