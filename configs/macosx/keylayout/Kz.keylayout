@@ -74,7 +74,7 @@
             <key code="41" output="ь"/>
             <key code="42" output="э"/> <!--Backslash-->
             <key code="43" output=","/>
-            <key code="44" output="/"/> <!--/-->
+            <key code="44" output="й"/> <!--/-->
             <key code="45" output="н"/>
             <key code="46" output="м"/>
             <key code="47" output="."/>
