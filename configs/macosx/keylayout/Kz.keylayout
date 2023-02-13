@@ -4,7 +4,7 @@
 <!-- Instructions: copy to "~/Library/Keyboard Layouts" -->
 <!-- plutil -convert xml1 ~/Library/Preferences/com.apple.HIToolbox.plist -->
 <!-- edit this plist, remove default latin layout and convert back to binary1 -->
-<keyboard group="7" id="-1291" name="Kazakh Phonetic" maxout="1">
+<keyboard group="7" id="-1291" name="Kazak" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="ANSI" modifiers="normal"/>
     </layouts>
@@ -179,7 +179,7 @@
             <key code="40" output="К"/>
             <key code="41" output=":"/>
             <key code="42" output="Э"/> <!--Backslash-->
-            <key code="43" output="&#x003C;"/> <!--Less than-->
+            <key code="43" output="ё"/> <!--Less than-->
             <key code="44" output="?"/>
             <key code="45" output="Н"/>
             <key code="46" output="М"/>
@@ -260,7 +260,7 @@
             <key code="15" output="r"/>
             <key code="16" output="y"/>
             <key code="17" output="t"/>
-            <key code="18" output="₸"/>
+            <key code="18" output="ї"/>
             <key code="19" output="Ә"/>
             <key code="20" output="₸"/>
             <key code="21" output="Ң"/>
@@ -268,9 +268,9 @@
             <key code="23" output="Ғ"/>
             <key code="24" output="="/> <!--=-->
             <key code="25" output="ё"/>
-            <key code="26" output="ұ"/>
-            <key code="27" output="ө"/>
-            <key code="28" output="ү"/>
+            <key code="26" output="Ұ"/>
+            <key code="27" output="Ө"/>
+            <key code="28" output="Ү"/>
             <key code="29" output="°"/>
             <key code="30" output="]"/> <!--]-->
             <key code="31" output="o"/>
@@ -367,17 +367,17 @@
             <key code="16" output="Y"/>
             <key code="17" output="T"/>
             <key code="18" output="Ї"/>
-            <key code="19" output="Є"/>
-            <key code="20" output="°"/>
-            <key code="21" output="₽"/>
-            <key code="22" output="Һ"/>
-            <key code="23" output="Ґ"/>
-            <key code="24" output="Һ"/>
+            <key code="19" output="@"/>
+            <key code="20" output="#"/>
+            <key code="21" output="$"/>
+            <key code="22" output="^"/>
+            <key code="23" output="%"/>
+            <key code="24" output="="/>
             <key code="25" output="Ё"/>
-            <key code="26" output="Ұ"/> <!--ampersand-->
-            <key code="27" output="Ө"/>
-            <key code="28" output="Ү"/>
-            <key code="29" output="∞"/>
+            <key code="26" output="&#x0026;"/> <!--ampersand-->
+            <key code="27" output="_"/>
+            <key code="28" output="*"/>
+            <key code="29" output=")"/>
             <key code="30" output="}"/> <!--]-->
             <key code="31" output="O"/>
             <key code="32" output="U"/>
@@ -391,11 +391,11 @@
             <key code="40" output="K"/>
             <key code="41" output="Ь"/> <!--;-->
             <key code="42" output="|"/> <!--Backslash-->
-            <key code="43" output="Ң"/> <!--Less than-->
+            <key code="43" output="&#x003C;"/> <!--Less than-->
             <key code="44" output="Й"/> <!--/-->
             <key code="45" output="N"/>
             <key code="46" output="M"/>
-            <key code="47" output="Ғ"/> <!--Greater than-->
+            <key code="47" output="&#x003E;"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="~"/> <!--`-->
