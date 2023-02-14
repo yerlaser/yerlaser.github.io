@@ -13,9 +13,7 @@ key_bindings:
   - { key: Grave     , mods: Shift, chars : "~"   }
   - { key: Backslash , mods: None , chars : "\\"  }
   - { key: Backslash , mods: Shift, chars : "|"   }
-  - { key: T         , mods: Command, action: CreateNewWindow   }
 shell:
   program: /Users/yerlan/.cargo/bin/nu
   args:
     - --config ~/Published/configs/configAlacritty.nu
-# working_directory: ~/Projects

@@ -30,6 +30,8 @@ def pods_with_ssh [
   nu -c $'podman pod create --name ($pod_name)($ports)'
   for n in 1..$number {
     podman run -d --name $'($pod_name)($n)' --pod $pod_name $image bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start ; tail -f /dev/null'
+    ssh-keygen -R $'[localhost]:22($decimal)($n)'
+    ssh-keyscan -t ed25519 -p $'22($decimal)($n)' localhost | save -a ~/.ssh/known_hosts
   }
 }
 
