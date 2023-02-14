@@ -17,8 +17,9 @@ let-env PATH = if ($nupaths | path exists) {
 }
 
 def pods_with_ssh [
-  --number (-n) = 5 # Number of containers in the pod
+  --image (-i) = 'ubuntu_with_ssh' # Image to use 
   --decimal (-d) = 0 # Decimal for port number 22dn
+  --number (-n) = 5 # Number of containers in the pod
   pod_name # Name of the pod
 ] {
   if $decimal > 9 {
@@ -28,7 +29,7 @@ def pods_with_ssh [
   let $ports = (1..$number | reduce -f '' {|n, a| $a + $' -p 22($decimal)($n):22($decimal)($n)'})
   nu -c $'podman pod create --name ($pod_name)($ports)'
   for n in 1..$number {
-    podman run -d --name $'($pod_name)($n)' --pod $pod_name ubuntu_with_ssh bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start ; tail -f /dev/null'
+    podman run -d --name $'($pod_name)($n)' --pod $pod_name $image bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start ; tail -f /dev/null'
   }
 }
 
