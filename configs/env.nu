@@ -1,7 +1,7 @@
 let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'
-let-env WASMER_DIR = $"($env.HOME)/.wasmer"
-let-env WASMER_CACHE_DIR = $"($env.WASMER_DIR)/cache"
+let-env WASMER_DIR = $'($env.HOME)/.wasmer'
+let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'
 # let-env CPLUS_INCLUDE_PATH = "/LOCAL/apps/gcc/include/c++/13.0.0"
 # let-env LD_LIBRARY_PATH = "/LOCAL/apps/gcc/lib64"
@@ -16,18 +16,18 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
-def pods_with_ssh [
-  --image (-i) = 'ubuntu_with_ssh' # Image to use 
-  --decimal (-d) = 0 # Decimal for port number 22dn
-  --number (-n) = 5 # Number of containers in the pod
-  pod_name # Name of the pod
-] {
+def pods_ssh (
+  --image (-i): string # Image to use 
+  --decimal (-d): int # Decimal for port number 22dn
+  --number (-n): int # Number of containers in the pod
+  pod_name: string # Name of the pod
+) {
   if $decimal > 9 {
     echo 'Decimal can only be up to 9'
     return
   }
   let ports = (1..$number | reduce -f '' {|n, a| $a + $' -p 22($decimal)($n):22($decimal)($n)'} | str trim)
-  nu -c $'podman pod create --name ($pod_name)($ports)'
+  nu -c $'podman pod create --name ($pod_name) ($ports)'
   for n in 1..$number {
     podman run -d --name $'($pod_name)($n)' --pod $pod_name $image bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start ; tail -f /dev/null'
     ssh-keygen -R $'[localhost]:22($decimal)($n)'
