@@ -26,7 +26,7 @@ def pods_with_ssh [
     echo 'Decimal can only be up to 9'
     return
   }
-  let $ports = (1..$number | reduce -f '' {|n, a| $a + $' -p 22($decimal)($n):22($decimal)($n)'})
+  let ports = (1..$number | reduce -f '' {|n, a| $a + $' -p 22($decimal)($n):22($decimal)($n)'} | str trim)
   nu -c $'podman pod create --name ($pod_name)($ports)'
   for n in 1..$number {
     podman run -d --name $'($pod_name)($n)' --pod $pod_name $image bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start ; tail -f /dev/null'
