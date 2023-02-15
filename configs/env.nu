@@ -17,10 +17,11 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Create a pod with multiple containers and SSH server listening on different ports
 def podssh (
   --image (-i): string # Image to use 
-  --decimal (-d): int # Decimal for port number 22dn
-  --number (-n): int # Number of containers in the pod
+  --decimal (-d): int # Decimal for port number (22dn)
+  --number (-n): int # Number of containers in the pod (22dn)
   pod_name: string # Name of the pod
 ) {
   if $decimal > 9 {
