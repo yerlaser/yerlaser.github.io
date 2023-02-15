@@ -1,3 +1,4 @@
+alias vl = vi .
 let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
@@ -16,7 +17,7 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
-def pods_ssh (
+def podssh (
   --image (-i): string # Image to use 
   --decimal (-d): int # Decimal for port number 22dn
   --number (-n): int # Number of containers in the pod
