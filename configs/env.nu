@@ -30,8 +30,12 @@ def podssh (
   }
   let ports = (1..$number | reduce -f '' {|n, a| $a + $' -p 22($decimal)($n):22($decimal)($n)'} | str trim)
   nu -c $'podman pod create --name ($pod_name) ($ports)'
+  # let ports = (1..$number | each {|n| $'-p 22($decimal)($n):22($decimal)($n)'})
+  # echo $ports
+  # podman pod create --name $pod_name $ports 
+  # return
   for n in 1..$number {
-    podman run -d --name $'($pod_name)($n)' --pod $pod_name $image bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start ; tail -f /dev/null'
+    podman run -d --name $'($pod_name)($n)' --tz 'Europe/Berlin' --pod $pod_name $image bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start ; tail -f /dev/null'
     ssh-keygen -R $'[localhost]:22($decimal)($n)'
     ssh-keyscan -t ed25519 -p $'22($decimal)($n)' localhost | save -a ~/.ssh/known_hosts
   }
