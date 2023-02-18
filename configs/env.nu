@@ -71,16 +71,6 @@ def-env rgrep [
   $env.LAST_CMD_RESULT
 }
 
-# Get directory listing
-def-env rls [
-  search_pattern = '.' # Search pattern
-] {
-  ls -a $search_pattern
-  let-env LAST_CMD_RESULT = (
-    ls -a $search_pattern
-  )
-}
-
 # Run command on row number
 def rcmd [
   cmd: string # Command to run
