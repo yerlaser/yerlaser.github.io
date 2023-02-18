@@ -71,7 +71,7 @@ select = "underline"
 "C-r" = "redo"
 "C-s" = ":update"
 "U" = "switch_to_uppercase"
-"v" = { "a" = "select_textobject_around", "A" = "select_all", "i" = "select_textobject_inner", "l" = "file_picker_in_current_directory", "v" = "select_mode" }
+"v" = { ";" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "l" = "file_picker_in_current_directory", "v" = "select_mode" }
 "V" = "extend_to_line_bounds"
 "C-v" = "paste_clipboard_before"
 "W" = "extend_next_long_word_start"

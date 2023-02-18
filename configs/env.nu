@@ -1,3 +1,5 @@
+alias dir = lsd -Ahl --icon never --size short
+alias tree = lsd -hl --icon never --size short --tree
 alias vl = vi .
 let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'
@@ -70,7 +72,7 @@ def-env rgrep [
 }
 
 # Get directory listing
-def-env dir [
+def-env rls [
   search_pattern = '.' # Search pattern
 ] {
   ls -a $search_pattern
