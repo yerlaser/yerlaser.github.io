@@ -3,6 +3,7 @@ mouse:
 scrolling:
   history: 10000
 window:
+  # decorations: None
   startup_mode: Maximized
 key_bindings:
   - { key: Back  , mods: Shift, chars : "\x1bb"  } # Alt-b

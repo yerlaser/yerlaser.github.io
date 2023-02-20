@@ -1,0 +1,16 @@
+quit_on_last_cancel = true
+
+[[verbs]]
+invocation = "edit"
+key = "enter"
+external = "$EDITOR {file}"
+leave_broot = true
+apply_to = "file"
+
+[[verbs]]
+key = "tab"
+internal = "line_down"
+
+[[verbs]]
+key = "backtab"
+internal = "line_up"

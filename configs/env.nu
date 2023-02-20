@@ -1,7 +1,7 @@
 alias dir = lsd -Ahl --icon never --size short
 alias jour = hx ~/journal.md
 alias boljam = hx ~/boljam.md
-alias tree = lsd -hl --icon never --size short --tree
+alias tree = lsd -hl --icon never --size short --tree  # broot -psd -c :pt .
 alias vl = vi .
 let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'
