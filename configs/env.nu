@@ -1,5 +1,5 @@
 alias ay = ^cal -A 8
-alias dir = broot -d -c :pt .
+alias dir = broot -c :pt .
 # alias dir = lsd -Ahl --icon never --size short
 alias jour = hx ~/journal.md
 alias boljam = hx ~/boljam.md

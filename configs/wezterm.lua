@@ -25,7 +25,16 @@ return {
     { key = "Grave"     , mods = "" , action = wezterm.action.SendString("`")     },
     { key = "Grave"     , mods = "SHIFT", action = wezterm.action.SendString("~")     },
     { key = "Backslash" , mods = "" , action = wezterm.action.SendString("\\")    },
-    { key = "Backslash" , mods = "SHIFT", action = wezterm.action.SendString("|")     }
+    { key = "Backslash" , mods = "SHIFT", action = wezterm.action.SendString("|")     },
+    { key = "Comma" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Left' }     },
+    { key = "Period" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Right' }     },
+    { key = "Quote" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Up' }     },
+    { key = "Backslash" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Down' }     },
+    { key = "Delete" , mods = "CMD", action = wezterm.action.PaneSelect    },
+    { key = "LeftBracket" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Left'   },
+    { key = "RightBracket" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Right'   },
+    { key = "Semicolon" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Up'   },
+    { key = "Slash" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Down'   },
   },
   window_frame = { 
     font_size = 18,
