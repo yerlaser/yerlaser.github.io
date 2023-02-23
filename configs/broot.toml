@@ -4,7 +4,7 @@ quit_on_last_cancel = true
 invocation = "edit"
 key = "enter"
 external = "$EDITOR {file}"
-leave_broot = true
+leave_broot = false
 apply_to = "file"
 
 [[verbs]]

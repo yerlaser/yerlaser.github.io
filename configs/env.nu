@@ -1,3 +1,4 @@
+alias ay = ^cal -A 8
 alias dir = lsd -Ahl --icon never --size short
 alias jour = hx ~/journal.md
 alias boljam = hx ~/boljam.md
