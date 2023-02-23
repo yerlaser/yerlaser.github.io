@@ -1,0 +1,2 @@
+profile::pkgfile::file_location: "pupdeb"
+profile::pkgfile::file_name: "apt.txt"

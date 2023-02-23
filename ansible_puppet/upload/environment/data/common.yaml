@@ -1,0 +1,4 @@
+profile::pkgfile::file_location: "puppkg"
+profile::pkgfile::file_name: "pkg.txt"
+profile::pkgfile::file_owner: "luser"
+var_location: "/var"

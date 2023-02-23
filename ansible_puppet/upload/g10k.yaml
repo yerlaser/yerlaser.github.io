@@ -1,0 +1,5 @@
+:cachedir: '/var/cache/g10k'
+:sources:
+  :my-org:
+    remote: '/Git' 
+    basedir: '/etc/puppetlabs/code/environments'

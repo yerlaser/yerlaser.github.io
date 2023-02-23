@@ -1,0 +1,153 @@
+- name: Prepare hosts
+  hosts: puppet_hosts
+  tasks:
+  - name: Enable passwordless sudo
+    ansible.builtin.lineinfile:
+      path: /etc/sudoers
+      regexp: '^luser'
+      line: 'luser ALL=(ALL) NOPASSWD:ALL'
+  - name: Enable Puppet repo
+    ansible.builtin.apt:
+      deb: https://apt.puppet.com/puppet7-release-focal.deb
+  become: true
+  become_method: sudo
+
+- name: Setup Puppet master
+  hosts: puppet_master
+  tasks:
+  - name: Install basics
+    ansible.builtin.apt:
+      pkg:
+      - vim-tiny
+      - git
+      update_cache: true
+  - name: Create Git folder
+    ansible.builtin.file:
+      path: /Git
+      state: directory
+      owner: luser
+      group: root
+      mode: ug=rwx
+  - name: Initialize an empty repo
+    ansible.builtin.command:
+      cmd: "git init --bare ."
+      creates: /Git/HEAD
+      chdir: /Git
+    become: false
+  - name: Clone repo
+    ansible.builtin.command:
+      cmd: "git clone /Git"
+      creates: /home/luser/Git
+      chdir: /home/luser
+    become: false
+  - name: Upload g10k binary and config
+    ansible.builtin.copy:
+      dest: "{{ item.dest }}"
+      src: "{{ item.src }}"
+      force: false
+    loop:
+      - dest: /usr/local/bin/
+        src: upload/bin/g10k
+      - dest: /etc/
+        src: upload/g10k.yaml
+  - name: Upload initial environment
+    ansible.builtin.copy:
+      dest: "{{ item.dest }}"
+      src: "{{ item.src }}"
+      force: false
+    loop:
+      - dest: /home/luser/Git/data/
+        src: upload/environment/data/common.yaml
+      - dest: /home/luser/Git/data/os/
+        src: upload/environment/data/os/Debian.yaml
+      - dest: /home/luser/Git/
+        src: upload/environment/environment.conf
+      - dest: /home/luser/Git/
+        src: upload/environment/hiera.yaml
+      - dest: /home/luser/Git/manifests/
+        src: upload/environment/manifests/site.pp
+      - dest: /home/luser/Git/site/profile/files/
+        src: upload/environment/site/profile/files/file.txt
+      - dest: /home/luser/Git/site/profile/manifests/
+        src: upload/environment/site/profile/manifests/pkgfile.pp
+      - dest: /home/luser/Git/site/profile/manifests/
+        src: upload/environment/site/profile/manifests/varfile.pp
+      - dest: /home/luser/Git/site/role/manifests/
+        src: upload/environment/site/role/manifests/debian_server.pp
+      - dest: /home/luser/Git/site/role/manifests/
+        src: upload/environment/site/role/manifests/server.pp
+    become: false
+  - name: Commit initial upload
+    ansible.builtin.command:
+      cmd: "{{ item }}"
+      chdir: /home/luser/Git
+      creates: /home/luser/run_g10k_config_etc_g10k_yaml
+    loop:
+      - "git config --global user.email 'luser@puppet.local'"
+      - "git config --global user.name 'Puppet Luser'"
+      - "git add ."
+      - "git commit -m initial"
+      - "git branch -m master production"
+      - "git push -u origin production"
+      - "touch ../run_g10k_config_etc_g10k_yaml"
+    become: false
+  - name: Set g10k binary executable
+    ansible.builtin.file:
+      path: /usr/local/bin/g10k
+      mode: 'u+rwx,go+rx'
+      owner: luser
+      group: root
+  - name: Install puppet server package
+    ansible.builtin.apt:
+      name: puppetserver
+  - name: Initial config
+    community.general.ini_file:
+      path: /etc/puppetlabs/puppet/puppet.conf
+      section: master
+      option: "{{ item.option }}"
+      value: "{{ item.value }}"
+    loop:
+      # - option: environmentpath
+        # value: "$codedir/environments"
+      - option: certname
+        value: puppet
+      - option: dns_alt_names
+        value: puppet1
+    register: puppet_server_conf
+  - name: Start puppet server
+    ansible.builtin.command:
+      cmd: /opt/puppetlabs/bin/puppetserver start
+      creates: /run/puppetlabs/puppetserver/puppetserver.pid
+  - name: Reload puppet server config
+    ansible.builtin.command:
+      cmd: /opt/puppetlabs/bin/puppetserver reload
+    when: puppet_server_conf is changed
+  become: true
+  become_method: sudo
+  
+- name: Setup Puppet agent
+  hosts: puppet_nodes
+  tasks:
+  - name: Install package
+    ansible.builtin.apt:
+      name: puppet-agent
+      update_cache: true
+  - name: Initial config - certname
+    community.general.ini_file:
+      path: /etc/puppetlabs/puppet/puppet.conf
+      section: agent
+      option: certname
+      value: "{{ inventory_hostname }}"
+  - name: Initial config
+    community.general.ini_file:
+      path: /etc/puppetlabs/puppet/puppet.conf
+      section: agent
+      option: server
+      value: puppet1
+    register: puppet_agent_conf
+  - name: Start puppet agent
+    ansible.builtin.command:
+      cmd: /opt/puppetlabs/bin/puppet agent
+    when: puppet_agent_conf is changed
+  become: true
+  become_method: sudo

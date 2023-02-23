@@ -1,0 +1,19 @@
+puppet_hosts:
+  children:
+    puppet_master:
+    puppet_nodes:
+
+puppet_master:
+  hosts:
+    puppet1:
+      ansible_host: localhost
+      ansible_port: 2201
+
+puppet_nodes:
+  hosts:
+    puppet2:
+      ansible_host: localhost
+      ansible_port: 2202
+    puppet3:
+      ansible_host: localhost
+      ansible_port: 2203
