@@ -12,6 +12,7 @@ let-env VISUAL = 'vi'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'
+let-env GIT_PAGER = 'delta --light'
 # let-env CPLUS_INCLUDE_PATH = "/LOCAL/apps/gcc/include/c++/13.0.0"
 # let-env LD_LIBRARY_PATH = "/LOCAL/apps/gcc/lib64"
 # let-env LD_RUN_PATH = "/LOCAL/apps/gcc/lib64"
