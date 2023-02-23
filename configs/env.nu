@@ -1,9 +1,11 @@
 alias ay = ^cal -A 8
-alias dir = lsd -Ahl --icon never --size short
+alias dir = broot -d -c :pt .
+# alias dir = lsd -Ahl --icon never --size short
 alias jour = hx ~/journal.md
 alias boljam = hx ~/boljam.md
-alias tree = lsd -hl --icon never --size short --tree  # broot -psd -c :pt .
-alias mc = broot -dps
+# alias tree = lsd -hl --icon never --size short --tree
+# alias tree = broot -psd -c :pt .
+alias mc = broot
 alias vl = vi .
 let-env EDITOR = 'vi'
 let-env VISUAL = 'vi'

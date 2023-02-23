@@ -1,0 +1,11 @@
+AppName.app/
+   Contents/
+      Info.plist
+      MacOs/
+         AppName-x.y.z.jar
+         launcher
+      Resources/
+         application.icns
+
+So, for WezTerm copy WezTerm.app folder from assets/macos, create folder 'MacOs' and copy 'release' folder contents into it.
+There will be two identical Info.plist files but, that's OK.
