@@ -12,6 +12,7 @@ return {
   default_prog = {"/Users/yerlan/.cargo/bin/nu", "--config", "/Users/yerlan/Published/configs/configWez.nu"},
   font = wezterm.font('Monaco'),
   font_size = 18,
+  leader = { key = 'Semicolon', mods = 'CMD', timeout_milliseconds = 1000 },
   keys = {
     { key = "Backspace" , mods = "SHIFT", action = wezterm.action.SendString("\x1Bb") }, -- Alt-b
     { key = "Delete" , mods = "", action = wezterm.action.SendString("\x1B\x1B") }, -- Escape
@@ -26,15 +27,13 @@ return {
     { key = "Grave"     , mods = "SHIFT", action = wezterm.action.SendString("~")     },
     { key = "Backslash" , mods = "" , action = wezterm.action.SendString("\\")    },
     { key = "Backslash" , mods = "SHIFT", action = wezterm.action.SendString("|")     },
-    { key = "Comma" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Left' }     },
-    { key = "Period" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Right' }     },
+    { key = "LeftBracket" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Left' }     },
+    { key = "RightBracket" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Right' }     },
     { key = "Quote" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Up' }     },
-    { key = "Backslash" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Down' }     },
+    { key = "Slash" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Down' }     },
     { key = "Delete" , mods = "CMD", action = wezterm.action.PaneSelect    },
-    { key = "LeftBracket" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Left'   },
-    { key = "RightBracket" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Right'   },
-    { key = "Semicolon" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Up'   },
-    { key = "Slash" , mods = "CMD", action = wezterm.action.ActivatePaneDirection 'Down'   },
+    { key = "Comma" , mods = "CMD", action = wezterm.action.ActivateTabRelativeNoWrap(-1)    },
+    { key = "Period" , mods = "CMD", action = wezterm.action.ActivateTabRelativeNoWrap(1)    },
   },
   window_frame = { 
     font_size = 18,
