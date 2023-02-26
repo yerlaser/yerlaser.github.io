@@ -1,8 +1,8 @@
 alias ay = ^cal -A 8
 alias jour = hx ~/journal.md
 alias boljam = hx ~/boljam.md
-alias dir = broot -c :pt .
-alias ll = broot -higsdp -c :pt .
+alias dir = broot --conf ~/Published/configs/brootLight.hjson -c :pt .
+alias ll = broot --conf ~/Published/configs/brootLight.hjson -higsdp -c :pt .
 # alias dir = lsd -Ahl --icon never --size short
 # alias tree = lsd -hl --icon never --size short --tree
 alias vl = hx .
@@ -27,7 +27,7 @@ let-env PATH = if ($nupaths | path exists) {
 
 # Launch broot and if it returns a path cd to it
 def-env mcd () {
-  let p = (broot)
+  let p = (broot --conf ~/Published/configs/brootLight.hjson)
   if (($p | str length) < 1) or (($p | size | get lines) > 1) or (not ($p | path exists)) {
     return
   }

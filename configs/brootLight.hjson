@@ -1,0 +1,16 @@
+imports: [
+    {
+        luma: [
+            dark
+        ]
+        file: ~/.config/broot/dark-blue-skin.hjson
+    }
+    {
+        luma: [
+            light
+            unknown
+        ]
+        file: ~/.config/broot/white-skin.hjson
+    }
+    ~/Published/configs/broot.hjson
+]

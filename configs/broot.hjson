@@ -1,0 +1,33 @@
+# show_selection_mark: true
+
+special_paths: {
+    "/media" : "no-enter" // comment it if desired
+}
+
+quit_on_last_cancel: true
+
+content_search_max_file_size: 10MB
+
+verbs: [
+    {
+        invocation: "edit"
+        key: "enter"
+        external: "$EDITOR {file}:{line}"
+        leave_broot: false
+        apply_to: "file"
+    }
+    {
+        invocation: "cd"
+        key: "alt-f"
+        internal: ":print_relative_path"
+    }
+    {
+        key: "tab"
+        internal: ":line_down"
+
+    }
+    {
+        key: "backtab"
+        internal: ":line_up"
+    }
+]
