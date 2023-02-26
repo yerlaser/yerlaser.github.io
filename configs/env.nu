@@ -3,7 +3,6 @@ alias jour = hx ~/journal.md
 alias boljam = hx ~/boljam.md
 alias dir = broot -c :pt .
 alias ll = broot -higsdp -c :pt .
-alias mc = broot
 # alias dir = lsd -Ahl --icon never --size short
 # alias tree = lsd -hl --icon never --size short --tree
 alias vl = hx .
@@ -26,6 +25,16 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Launch broot and if it returns a path cd to it
+def-env mcd () {
+  let p = (broot)
+  if (($p | str length) < 1) or (($p | size | get lines) > 1) or (not ($p | path exists)) {
+    return
+  }
+  let p = if ($p | path type) == file {$p | path dirname} else {$p}
+  cd $p
+}
+
 # Create a pod with multiple containers and SSH server listening on different ports
 def podssh (
   --image (-i): string # Image to use 
@@ -46,21 +55,21 @@ def podssh (
   }
 }
 
-def create_right_prompt [] {
+def create_right_prompt () {
   do -i {git branch --show-current}
 }
 let-env PROMPT_COMMAND_RIGHT = {create_right_prompt}
 
 # Get last recursive command result
-def r [] {
+def r () {
   $env.LAST_CMD_RESULT
 }
 
 # Recursively search for pattern in file names
-def-env rfind [
+def-env rfind (
   --fixed_string (-f) = true # Treat pattern as fixed string (default)
   search_pattern: string # Search pattern
-] {
+) {
   let-env LAST_CMD_RESULT = (
     if $fixed_string {fd -Fi $search_pattern} else {fd $search_pattern} | lines | wrap 'name'
   )
@@ -68,10 +77,10 @@ def-env rfind [
 }
 
 # Recursively grep files for pattern
-def-env rgrep [
+def-env rgrep (
   --fixed_string (-f) = true # Treat pattern as fixed string (default)
   search_pattern: string # Search pattern
-] {
+) {
   let-env LAST_CMD_RESULT = (
     if $fixed_string {rg -Fil $search_pattern} else {fd -l $search_pattern} | lines | wrap 'name'
   )
@@ -79,10 +88,10 @@ def-env rgrep [
 }
 
 # Run command on row number
-def rcmd [
+def rcmd (
   cmd: string # Command to run
   row_number: int = 100000 # Row number (default last)
-] {
+) {
   let input = $in
   let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
   let ilast = ($input | length) - 1
@@ -92,9 +101,9 @@ def rcmd [
 }
 
 # Change dir to the item on the specified row number
-def-env rcd [
+def-env rcd (
   row_number: int = 100000 # Row number (default last)
-] {
+) {
   let input = $in
   let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
   let ilast = ($input | length) - 1
@@ -105,9 +114,9 @@ def-env rcd [
 }
 
 # Open file on the specified row number with vi
-def rvi [
+def rvi (
   row_number: int = 100000 # Row number (default last)
-] {
+) {
   let input = $in
   let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
   let ilast = ($input | length) - 1
@@ -117,9 +126,9 @@ def rvi [
 }
 
 # Open file on the specified row number with cat
-def rcat [
+def rcat (
   row_number: int = 100000 # Row number (default last)
-] {
+) {
   let input = $in
   let input = (if $input == null {$env.LAST_CMD_RESULT} else {$input})
   let ilast = ($input | length) - 1

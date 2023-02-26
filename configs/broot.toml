@@ -8,9 +8,14 @@ leave_broot = false
 apply_to = "file"
 
 [[verbs]]
+invocation = "cd"
+key = "alt-f"
+internal = ":print_relative_path"
+
+[[verbs]]
 key = "tab"
-internal = "line_down"
+internal = ":line_down"
 
 [[verbs]]
 key = "backtab"
-internal = "line_up"
+internal = ":line_up"
