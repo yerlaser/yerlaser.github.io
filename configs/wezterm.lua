@@ -8,15 +8,15 @@ end)
 
 return {
   color_scheme = "Catppuccin Latte",
-  -- default_cwd = "",
   default_prog = {
     "/Users/yerlan/.cargo/bin/nu",
     "--config", "/Users/yerlan/Published/configs/configLight.nu",
     "--env-config", "/Users/yerlan/Published/configs/envLight.nu"
   },
   font = wezterm.font('Monaco'),
-  font_size = 18,
-  leader = { key = 'Semicolon', mods = 'CMD', timeout_milliseconds = 1000 },
+  font_size = 19,
+  hide_tab_bar_if_only_one_tab = true,
+  leader = { key = 'Period', mods = 'CMD', timeout_milliseconds = 1000 },
   keys = {
     { key = "Backspace" , mods = "SHIFT", action = wezterm.action.SendString("\x1Bb") }, -- Alt-b
     { key = "Delete" , mods = "", action = wezterm.action.SendString("\x1B\x1B") }, -- Escape
@@ -35,13 +35,12 @@ return {
     { key = "RightBracket" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Right' }     },
     { key = "Quote" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Up' }     },
     { key = "Slash" , mods = "CMD", action = wezterm.action.SplitPane { direction = 'Down' }     },
-    { key = "Delete" , mods = "CMD", action = wezterm.action.PaneSelect    },
-    { key = "Comma" , mods = "CMD", action = wezterm.action.ActivateTabRelativeNoWrap(-1)    },
-    { key = "Period" , mods = "CMD", action = wezterm.action.ActivateTabRelativeNoWrap(1)    },
-  },
-  window_frame = { 
-    font_size = 18,
-    active_titlebar_bg = '#CCCCCC',
+    { key = "Semicolon" , mods = "CMD", action = wezterm.action.PaneSelect    },
+    { key = 'Comma', mods = 'CMD', action = wezterm.action_callback(
+      function(win, pane)
+        win:maximize()
+      end
+    )},
   },
   window_decorations = "RESIZE",
   -- debug_key_events = true,
