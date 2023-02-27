@@ -16,4 +16,5 @@ key_bindings:
 shell:
   program: /Users/yerlan/.cargo/bin/nu
   args:
-    - --config ~/Published/configs/configAlacritty.nu
+    - --config ~/Published/configs/configDark.nu
+    - --env-config ~/Published/configs/envDark.nu

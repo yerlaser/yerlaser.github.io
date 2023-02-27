@@ -4,8 +4,6 @@ font:
   size: 15
   normal:
     family: CascadiaCode
-window:
-  decorations: none
 key_bindings:
   - { key: 26  , mods: None, chars : "["  }
   - { key: 26  , mods: Shift, chars : "{"  }

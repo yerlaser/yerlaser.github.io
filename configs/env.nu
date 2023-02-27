@@ -1,10 +1,6 @@
 alias ay = ^cal -A 8
 alias jour = hx -c ~/Published/configs/config.toml ~/journal.md
 alias boljam = hx -c ~/Published/configs/config.toml ~/boljam.md
-alias dir = broot --conf ~/Published/configs/brootLight.hjson -c :pt .
-alias ll = broot --conf ~/Published/configs/brootLight.hjson -higsdp -c :pt .
-# alias dir = lsd -Ahl --icon never --size short
-# alias tree = lsd -hl --icon never --size short --tree
 alias vl = hx -c ~/Published/configs/config.toml .
 alias vi = hx -c ~/Published/configs/config.toml
 let-env EDITOR = 'hx -c ~/Published/configs/config.toml'
@@ -12,7 +8,6 @@ let-env VISUAL = 'hx -c ~/Published/configs/config.toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'
-let-env GIT_PAGER = 'delta --light'
 # let-env CPLUS_INCLUDE_PATH = "/LOCAL/apps/gcc/include/c++/13.0.0"
 # let-env LD_LIBRARY_PATH = "/LOCAL/apps/gcc/lib64"
 # let-env LD_RUN_PATH = "/LOCAL/apps/gcc/lib64"
@@ -24,19 +19,6 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines | where {|l| ($l !~ '^\s*#.*') and ($l !~ '^\s*$')} | path expand | filter {|p| path exists}) | uniq
 } else {
   $env.PATH
-}
-
-# Launch broot; if it returns a folder path cd to it or if it returns file path open it
-def-env mc () {
-  let p = (broot --conf ~/Published/configs/brootLight.hjson)
-  if (($p | str length) < 1) or (($p | size | get lines) > 1) or (not ($p | path exists)) {
-    return
-  }
-  if ($p | path type) == file {
-    hx -c ~/Published/configs/config.toml $p
-  } else {
-    cd $p
-  }
 }
 
 # Create a pod with multiple containers and SSH server listening on different ports
@@ -139,4 +121,8 @@ def rcat (
   let ilast = (if $row_number > $ilast {$ilast} else {$row_number})
   let fpath = ($input | select $ilast | get name | get 0)
   cat $fpath
+}
+
+if ("~/werkstatt/env.nu" | path exists) {
+  source ~/werkstatt/env.nu
 }

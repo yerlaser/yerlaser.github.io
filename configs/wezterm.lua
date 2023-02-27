@@ -9,7 +9,11 @@ end)
 return {
   color_scheme = "Catppuccin Latte",
   -- default_cwd = "",
-  default_prog = {"/Users/yerlan/.cargo/bin/nu", "--config", "/Users/yerlan/Published/configs/configWez.nu"},
+  default_prog = {
+    "/Users/yerlan/.cargo/bin/nu",
+    "--config", "/Users/yerlan/Published/configs/configLight.nu",
+    "--env-config", "/Users/yerlan/Published/configs/envLight.nu"
+  },
   font = wezterm.font('Monaco'),
   font_size = 18,
   leader = { key = 'Semicolon', mods = 'CMD', timeout_milliseconds = 1000 },
