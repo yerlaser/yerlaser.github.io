@@ -1,13 +1,14 @@
 alias ay = ^cal -A 8
-alias jour = hx ~/journal.md
-alias boljam = hx ~/boljam.md
+alias jour = hx -c ~/Published/configs/config.toml ~/journal.md
+alias boljam = hx -c ~/Published/configs/config.toml ~/boljam.md
 alias dir = broot --conf ~/Published/configs/brootLight.hjson -c :pt .
 alias ll = broot --conf ~/Published/configs/brootLight.hjson -higsdp -c :pt .
 # alias dir = lsd -Ahl --icon never --size short
 # alias tree = lsd -hl --icon never --size short --tree
-alias vl = hx .
-let-env EDITOR = 'hx'
-let-env VISUAL = 'hx'
+alias vl = hx -c ~/Published/configs/config.toml .
+alias vi = hx -c ~/Published/configs/config.toml
+let-env EDITOR = 'hx -c ~/Published/configs/config.toml'
+let-env VISUAL = 'hx -c ~/Published/configs/config.toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'
@@ -25,14 +26,17 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
-# Launch broot and if it returns a path cd to it
-def-env mcd () {
+# Launch broot; if it returns a folder path cd to it or if it returns file path open it
+def-env mc () {
   let p = (broot --conf ~/Published/configs/brootLight.hjson)
   if (($p | str length) < 1) or (($p | size | get lines) > 1) or (not ($p | path exists)) {
     return
   }
-  let p = if ($p | path type) == file {$p | path dirname} else {$p}
-  cd $p
+  if ($p | path type) == file {
+    hx -c ~/Published/configs/config.toml $p
+  } else {
+    cd $p
+  }
 }
 
 # Create a pod with multiple containers and SSH server listening on different ports

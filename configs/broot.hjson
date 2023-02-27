@@ -1,4 +1,4 @@
-# show_selection_mark: true
+show_selection_mark: true
 
 special_paths: {
     "/media" : "no-enter" // comment it if desired
@@ -10,16 +10,19 @@ content_search_max_file_size: 10MB
 
 verbs: [
     {
-        invocation: "edit"
         key: "enter"
-        external: "$EDITOR {file}:{line}"
-        leave_broot: false
-        apply_to: "file"
+        internal: ":print_relative_path"
+        apply_to: file
     }
     {
-        invocation: "cd"
         key: "alt-f"
         internal: ":print_relative_path"
+        apply_to: directory
+    }
+    {
+        key: "alt-f"
+        internal: ":parent"
+        apply_to: file
     }
     {
         key: "tab"
