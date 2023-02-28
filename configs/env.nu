@@ -1,4 +1,4 @@
-alias ay = ^cal -A 8
+alias ay = ^cal -A 11
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'

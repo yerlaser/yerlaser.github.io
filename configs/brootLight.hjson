@@ -3,6 +3,7 @@ verbs: [
         key: "enter"
         external: "hx -c /tmp/configLight.toml {file}:{line}"
         apply_to: file
+        leave_broot: false
     }
 ]
 
