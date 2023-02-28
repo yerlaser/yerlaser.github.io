@@ -7,18 +7,12 @@ content_search_max_file_size: 10MB
 verbs: [
     {
         key: "enter"
-        internal: ":print_relative_path"
+        external: "hx -c /Users/yerlan/Published/configs/config.toml {file}:{line}"
         apply_to: file
     }
     {
         key: "alt-f"
         internal: ":print_relative_path"
-        apply_to: directory
-    }
-    {
-        key: "alt-f"
-        internal: ":parent"
-        apply_to: file
     }
     {
         key: "tab"
