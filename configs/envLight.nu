@@ -3,6 +3,7 @@ alias jour = hx -c /tmp/configLight.toml ~/journal.md
 alias boljam = hx -c /tmp/configLight.toml ~/boljam.md
 alias ll = broot --conf ~/Published/configs/brootLight.hjson -higsdp -c :pt .
 alias mc = broot --conf ~/Published/configs/brootLight.hjson
+alias mcd = (broot --conf ~/Published/configs/brootLight.hjson | pbcopy)
 alias vi = hx -c /tmp/configLight.toml
 alias vl = hx -c /tmp/configLight.toml .
 let-env EDITOR = 'hx -c /tmp/configLight.toml'
