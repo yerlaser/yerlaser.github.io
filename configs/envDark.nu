@@ -1,6 +1,6 @@
 alias dir = broot --conf ~/Published/configs/brootDark.hjson -c :pt .
 alias jour = hx -c /tmp/configDark.toml ~/journal.md
-alias boljam = hx -c /tmp/configDark.toml ~/boljam.md
+alias pense = hx -c /tmp/configDark.toml ~/boljam.md
 alias ll = broot --conf ~/Published/configs/brootDark.hjson -higsdp -c :pt .
 alias mc = broot --conf ~/Published/configs/brootDark.hjson
 alias mcd = (broot --conf ~/Published/configs/brootDark.hjson | pbcopy)
