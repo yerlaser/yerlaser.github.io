@@ -9,14 +9,4 @@ let-env EDITOR = 'hx -c /tmp/configDark.toml'
 let-env GIT_PAGER = 'delta'
 let-env VISUAL = 'hx -c /tmp/configDark.toml'
 
-# Launch broot and if it returns a path cd to it
-def-env mcd () {
-  let p = (broot --conf ~/Published/configs/brootDark.hjson)
-  if (($p | str length) < 1) or (($p | size | get lines) > 1) or (not ($p | path exists)) {
-    return
-  }
-  let p = if ($p | path type) == file {$p | path dirname} else {$p}
-  cd $p
-}
-
 source ~/Published/configs/env.nu

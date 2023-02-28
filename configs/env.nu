@@ -15,6 +15,16 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Change dir to a path in paste buffer
+def-env bcd () {
+  let p = (bput)
+  if (($p | str length) < 1) or (($p | size | get lines) > 1) or (not ($p | path exists)) {
+    return
+  }
+  let p = if ($p | path type) == file {$p | path dirname} else {$p}
+  cd $p
+}
+
 if (
   (
     ('/tmp/configLight.toml' | path exists) and
