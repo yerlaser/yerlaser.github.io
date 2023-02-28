@@ -13,4 +13,5 @@ imports: [
         file: ~/.config/broot/white-skin.hjson
     }
     ~/Published/configs/broot.hjson
+    ~/werkstatt/broot.hjson
 ]
