@@ -1,10 +1,4 @@
 alias ay = ^cal -A 8
-alias jour = hx -c ~/Published/configs/config.toml ~/journal.md
-alias boljam = hx -c ~/Published/configs/config.toml ~/boljam.md
-alias vl = hx -c ~/Published/configs/config.toml .
-alias vi = hx -c ~/Published/configs/config.toml
-let-env EDITOR = 'hx -c ~/Published/configs/config.toml'
-let-env VISUAL = 'hx -c ~/Published/configs/config.toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'
@@ -19,6 +13,26 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines | where {|l| ($l !~ '^\s*#.*') and ($l !~ '^\s*$')} | path expand | filter {|p| path exists}) | uniq
 } else {
   $env.PATH
+}
+
+if (
+  (
+    ('/tmp/configLight.toml' | path exists) and
+    (ls /tmp/configLight.toml | get modified) < (ls ~/Published/configs/config.toml | get modified)
+  ) or (not ('/tmp/configLight.toml' | path exists))
+) {
+  echo "theme = 'catppuccin_latte'\n" | save /tmp/configLight.toml
+  open --raw ~/Published/configs/config.toml | save --append /tmp/configLight.toml
+}
+
+if (
+  (
+    ('/tmp/configDark.toml' | path exists) and
+    (ls /tmp/configDark.toml | get modified) < (ls ~/Published/configs/config.toml | get modified)
+  ) or (not ('/tmp/configDark.toml' | path exists))
+) {
+  echo "theme = 'catppuccin_macchiato'\n" | save /tmp/configDark.toml
+  open --raw ~/Published/configs/config.toml | save --append /tmp/configDark.toml
 }
 
 # Create a pod with multiple containers and SSH server listening on different ports

@@ -1,3 +1,11 @@
+verbs: [
+    {
+        key: "enter"
+        external: "hx -c /tmp/configDark.toml {file}:{line}"
+        apply_to: file
+    }
+]
+
 imports: [
     {
         luma: [

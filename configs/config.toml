@@ -1,4 +1,3 @@
-theme = "catppuccin_latte"
 [editor]
 line-number = "relative"
 cursorline = true
