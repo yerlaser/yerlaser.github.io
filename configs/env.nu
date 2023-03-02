@@ -146,7 +146,3 @@ def rcat (
   let fpath = ($input | select $ilast | get name | get 0)
   cat $fpath
 }
-
-if ("~/werkstatt/env.nu" | path exists) {
-  source ~/werkstatt/env.nu
-}

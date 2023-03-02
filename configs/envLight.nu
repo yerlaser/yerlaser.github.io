@@ -11,3 +11,7 @@ let-env GIT_PAGER = 'delta --light'
 let-env VISUAL = 'hx -c /tmp/configLight.toml'
 
 source ~/Published/configs/env.nu
+
+if ("~/werkstatt/env.nu" | path exists) {
+  source ~/werkstatt/env.nu
+}

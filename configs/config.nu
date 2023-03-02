@@ -3,6 +3,9 @@ let-env config = {
     cd: {
         abbreviations: true
     }
+    ls: {
+        clickable_links: false
+    }
     edit_mode: vi_insert
     keybindings: [
         {
