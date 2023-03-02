@@ -40,7 +40,6 @@ alias dirtime='ls -FAhlrt'
 alias dirsize='ls -FAhlrS'
 
 if command -v dnf &> /dev/null; then alias dnf='dnf --cacheonly'; fi
-if command -v podman &> /dev/null; then alias docker=podman; fi
 
 alias view='vi -ro'
 export EDITOR=vi
