@@ -42,6 +42,7 @@ return {
       end
     )},
   },
+  use_ime = false,
   window_decorations = "RESIZE",
   -- debug_key_events = true,
 }
