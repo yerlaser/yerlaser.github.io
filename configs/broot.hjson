@@ -1,13 +1,10 @@
 show_selection_mark: true
-
 quit_on_last_cancel: true
-
 content_search_max_file_size: 10MB
-
 verbs: [
     {
         key: "alt-f"
-        internal: ":print_relative_path"
+        external: 'sh -c "echo {file} | pbcopy"'
     }
     {
         key: "tab"
