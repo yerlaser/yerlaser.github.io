@@ -1,5 +1,5 @@
 let-env config = {
-    buffer_editor: $'($env.HOME)/.cargo/bin/hx -c ~/Published/configs/config.toml'
+    buffer_editor: $'($env.HOME)/.cargo/bin/hx'
     cd: {
         abbreviations: true
     }
@@ -36,17 +36,10 @@ let-env config = {
             event: {edit: InsertChar value: ' '}
         }
         {
-            name: enter_normal_mode
-            modifier: Control
-            keycode: Char_X
-            mode: [emacs vi_insert]
-            event: {send: Esc}
-        }
-        {
             name: edit_command
-            modifier: Control
-            keycode: Char_E
-            mode: [emacs vi_insert]
+            modifier: Shift
+            keycode: Delete
+            mode: [emacs vi_insert vi_normal]
             event: {send: OpenEditor}
         }
         {
