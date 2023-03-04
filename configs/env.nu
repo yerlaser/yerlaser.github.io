@@ -27,21 +27,25 @@ def-env bcd () {
 }
 
 if (
-  (
-    ('/tmp/configLight.toml' | path exists) and
-    (ls /tmp/configLight.toml | get modified) < (ls ~/Published/configs/config.toml | get modified)
-  ) or (not ('/tmp/configLight.toml' | path exists))
+  ('/tmp/configLight.toml' | path exists) and
+  ((ls /tmp/configLight.toml | get modified) < (ls ~/Published/configs/config.toml | get modified))
 ) {
+  rm -p /tmp/configLight.toml
+}
+
+if (
+  ('/tmp/configDark.toml' | path exists) and
+  ((ls /tmp/configDark.toml | get modified) < (ls ~/Published/configs/config.toml | get modified))
+) {
+  rm -p /tmp/configDark.toml
+}
+
+if (not ('/tmp/configLight.toml' | path exists)) {
   echo "theme = 'catppuccin_latte'\n" | save /tmp/configLight.toml
   open --raw ~/Published/configs/config.toml | save --append /tmp/configLight.toml
 }
 
-if (
-  (
-    ('/tmp/configDark.toml' | path exists) and
-    (ls /tmp/configDark.toml | get modified) < (ls ~/Published/configs/config.toml | get modified)
-  ) or (not ('/tmp/configDark.toml' | path exists))
-) {
+if (not ('/tmp/configDark.toml' | path exists)) {
   echo "theme = 'catppuccin_macchiato'\n" | save /tmp/configDark.toml
   open --raw ~/Published/configs/config.toml | save --append /tmp/configDark.toml
 }
