@@ -16,9 +16,9 @@ select = "underline"
 
 [keys.insert]
 "A-^" = [ ":insert-output printf %s ' '", "move_char_right" ] # S-SP
-"A-r" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-CAPS
+"A-r" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-CAPS
 "down" = [ ":insert-output date '+%c'", "goto_line_end_newline" ] # S-CR
-"up" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-BS
+"up" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-BS
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 
 [keys.normal]
@@ -45,7 +45,7 @@ select = "underline"
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
 "'" = "surround_add"
-"," = { "tab" = "buffer_picker", "." = ":set line-number absolute", "," = ":set line-number relative", "r" = "later", "u" = "earlier" }
+"," = { "." = ":set line-number absolute", "," = ":set line-number relative", "r" = "later", "u" = "earlier" }
 "\\" = "surround_replace"
 "B" = "extend_prev_long_word_start"
 "C-c" = "yank_main_selection_to_clipboard"
@@ -64,7 +64,7 @@ select = "underline"
 "C-r" = "redo"
 "C-s" = ":update"
 "U" = "switch_to_uppercase"
-"v" = { ";" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "l" = "file_picker_in_current_directory", "v" = "select_mode" }
+"v" = { ";" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "l" = "file_picker_in_current_directory", "m" = "merge_consecutive_selections", "v" = "select_mode" }
 "V" = "extend_to_line_bounds"
 "C-v" = "paste_clipboard_before"
 "W" = "extend_next_long_word_start"
