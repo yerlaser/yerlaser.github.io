@@ -18,9 +18,9 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   leader = { key = 'Period', mods = 'CMD', timeout_milliseconds = 1000 },
   keys = {
-    { key = "Backspace" , mods = "SHIFT", action = wezterm.action.SendString("\x1Br") }, Alt-r
+    { key = "Backspace" , mods = "SHIFT", action = wezterm.action.SendString("\x1Br") }, -- Alt-r
     { key = "Delete" , mods = "", action = wezterm.action.SendString("\x1B") }, -- (Caps) Escape
-    { key = "Delete" , mods = "SHIFT", action = wezterm.action.SendString("\x1B[A") }, -- (Caps) -- Up
+    { key = "Delete" , mods = "SHIFT", action = wezterm.action.SendString("\x1B[A") }, -- (Caps) Up
     { key = "Enter"     , mods = "SHIFT", action = wezterm.action.SendString("\x1B[B") }, -- Down
     { key = "Space"     , mods = "SHIFT", action = wezterm.action.SendString("\x1B^") }, -- Alt-^
     { key = "LeftBracket"  , mods = "" , action = wezterm.action.SendString("[")     },
