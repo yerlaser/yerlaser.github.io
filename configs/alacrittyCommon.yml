@@ -6,8 +6,8 @@ window:
   decorations: none
   startup_mode: Maximized
 key_bindings:
-  - { key: Back  , mods: Shift, chars : "\x1b[A"  } # Up
+  - { key: Back  , mods: Shift, chars : "\x1br"  } # Alt-r
   - { key: Delete, mods: None, chars : "\x1b"} # (Caps) Escape
-  - { key: Delete, mods: Shift, chars : "\x1br"} # (Caps) Alt-r
+  - { key: Delete, mods: Shift, chars : "\x1b[A"} # (Caps) Up
   - { key: Return, mods: Shift, chars : "\x1b[B"} # Down
   - { key: Space, mods: Shift, chars : "\x1b^"} # Alt-^
