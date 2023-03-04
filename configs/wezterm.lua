@@ -18,11 +18,11 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   leader = { key = 'Period', mods = 'CMD', timeout_milliseconds = 1000 },
   keys = {
-    { key = "Backspace" , mods = "SHIFT", action = wezterm.action.SendString("\x1Bb") }, -- Alt-b
-    { key = "Delete" , mods = "", action = wezterm.action.SendString("\x1B\x1B") }, -- Escape
-    { key = "Enter"     , mods = "SHIFT", action = wezterm.action.SendString("\x1Bf") }, -- Alt-f
+    { key = "Backspace" , mods = "SHIFT", action = wezterm.action.SendString("\x1B[A") }, -- Up
+    { key = "Delete" , mods = "", action = wezterm.action.SendString("\x1B") }, -- (Caps) Escape
+    { key = "Delete" , mods = "SHIFT", action = wezterm.action.SendString("\x1Br") }, -- (Caps) Alt-r
+    { key = "Enter"     , mods = "SHIFT", action = wezterm.action.SendString("\x1B[B") }, -- Down
     { key = "Space"     , mods = "SHIFT", action = wezterm.action.SendString("\x1B^") }, -- Alt-^
-    { key = "Tab"     , mods = "CTRL", action = wezterm.action.SendString("\x1Bt") }, -- Alt-t
     { key = "LeftBracket"  , mods = "" , action = wezterm.action.SendString("[")     },
     { key = "LeftBracket"  , mods = "SHIFT", action = wezterm.action.SendString("{")     },
     { key = "RightBracket"  , mods = "" , action = wezterm.action.SendString("]")     },

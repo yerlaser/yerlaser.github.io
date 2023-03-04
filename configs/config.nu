@@ -6,7 +6,6 @@ let-env config = {
     ls: {
         clickable_links: false
     }
-    edit_mode: vi_insert
     keybindings: [
         {
             name: completion_menu
@@ -20,8 +19,8 @@ let-env config = {
         }
         {
             name: search_history
-            modifier: Shift
-            keycode: Down
+            modifier: Alt
+            keycode: Char_R
             mode: [emacs vi_insert]
             event: [
                 {edit: CutFromLineStart}
@@ -33,21 +32,17 @@ let-env config = {
             modifier: Alt
             keycode: Char_^
             mode: [emacs vi_insert]
-            event: {edit: InsertChar value: ' '}
+            event: [
+                {send: HistoryHintWordComplete}
+                {edit: InsertChar value: ' '}
+            ]
         }
         {
             name: edit_command
-            modifier: Shift
-            keycode: Delete
-            mode: [emacs vi_insert vi_normal]
-            event: {send: OpenEditor}
-        }
-        {
-            name: show_help
             modifier: None
-            keycode: F1
+            keycode: Esc
             mode: [emacs vi_insert]
-            event: {send: Menu name: help_menu}
+            event: {send: OpenEditor}
         }
     ]
     rm: {
