@@ -1,5 +1,5 @@
 import:
-  - ~/Published/configs/alacrittyCommon.yml
+  - ~/Published/configs/alacritty/common.yml
 font:
   size: 18
   normal:
@@ -16,5 +16,5 @@ key_bindings:
 shell:
   program: /Users/yerlan/.cargo/bin/nu
   args:
-    - --config ~/Published/configs/configDark.nu
-    - --env-config ~/Published/configs/envDark.nu
+    - --config ~/Published/configs/nushell/configDark.nu
+    - --env-config ~/Published/configs/nushell/envDark.nu

@@ -1,5 +1,5 @@
 import:
-  - /LOCAL/Published/configs/alacrittyCommon.yml
+  - /LOCAL/Published/configs/alacritty/common.yml
 font:
   size: 15
   normal:

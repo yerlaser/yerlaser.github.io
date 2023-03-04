@@ -1,7 +1,7 @@
 verbs: [
     {
         key: "enter"
-        external: "hx -c /tmp/configLight.toml {file}:{line}"
+        external: "hx -c /tmp/configDark.toml {file}:{line}"
         apply_to: file
         leave_broot: false
     }
@@ -10,16 +10,16 @@ imports: [
     {
         luma: [
             dark
+            unknown
         ]
         file: ~/.config/broot/dark-blue-skin.hjson
     }
     {
         luma: [
             light
-            unknown
         ]
         file: ~/.config/broot/white-skin.hjson
     }
-    ~/Published/configs/broot.hjson
+    ~/Published/configs/broot/common.hjson
     ~/werkstatt/broot.hjson
 ]

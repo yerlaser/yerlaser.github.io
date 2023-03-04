@@ -10,8 +10,8 @@ return {
   color_scheme = "Catppuccin Latte",
   default_prog = {
     "/Users/yerlan/.cargo/bin/nu",
-    "--config", "/Users/yerlan/Published/configs/configLight.nu",
-    "--env-config", "/Users/yerlan/Published/configs/envLight.nu"
+    "--config", "/Users/yerlan/Published/configs/nushell/configLight.nu",
+    "--env-config", "/Users/yerlan/Published/configs/nushell/envLight.nu"
   },
   font = wezterm.font('Monaco'),
   font_size = 19,

@@ -1,4 +1,4 @@
-source ~/Published/configs/config.nu
+source ~/Published/configs/nushell/config.nu
 
 let light_theme = {
     # color for nushell primitives
