@@ -19,8 +19,8 @@ let-env config = {
         }
         {
             name: search_history
-            modifier: Alt
-            keycode: Char_R
+            modifier: Control
+            keycode: Char_C
             mode: [emacs vi_insert]
             event: [
                 {edit: CutFromLineStart}
@@ -29,8 +29,8 @@ let-env config = {
         }
         {
             name: insert_space
-            modifier: Alt
-            keycode: Char_^
+            modifier: Control
+            keycode: Space
             mode: [emacs vi_insert]
             event: [
                 {send: HistoryHintWordComplete}

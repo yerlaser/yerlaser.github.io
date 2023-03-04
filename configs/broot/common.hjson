@@ -3,7 +3,7 @@ quit_on_last_cancel: true
 content_search_max_file_size: 10MB
 verbs: [
     {
-        key: "alt-r"
+        key: "ctrl-c"
         external: 'sh -c "echo {file} | pbcopy"'
     }
     {
@@ -13,5 +13,13 @@ verbs: [
     {
         key: "backtab"
         internal: ":previous_dir"
+    }
+    {
+        key: "ctrl-n"
+        internal: ":line_down"
+    }
+    {
+        key: "ctrl-p"
+        internal: ":line_up"
     }
 ]
