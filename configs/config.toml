@@ -46,7 +46,7 @@ select = "underline"
 "\\" = "surround_replace"
 "B" = "extend_prev_long_word_start"
 "C-c" = "remove_primary_selection" # S-BS
-"D" = [ "extend_line", "yank", "paste_after" ]
+"D" = [ "extend_to_line_bounds", "yank", "paste_after" ]
 "E" = "extend_next_long_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections_space", "u" = "switch_to_lowercase" }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
