@@ -11,6 +11,6 @@ let-env VISUAL = 'hx -c /tmp/configLight.toml'
 
 source ~/Published/configs/nushell/env.nu
 
-if ("~/werkstatt/env.nu" | path exists) {
-  source ~/werkstatt/env.nu
+if ("~/werkstatt/configs/env.nu" | path exists) {
+  source "~/werkstatt/configs/env.nu"
 }
