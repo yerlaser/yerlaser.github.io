@@ -5,13 +5,13 @@ font:
   normal:
     family: CascadiaCode
 key_bindings:
-  - { key: 26  , mods: None, chars : "["  }
-  - { key: 26  , mods: Shift, chars : "{"  }
-  - { key: 27  , mods: None, chars : "]"  }
-  - { key: 27  , mods: Shift, chars : "}"  }
-  - { key: 41  , mods: None, chars : "`"  }
-  - { key: 41  , mods: Shift, chars : "~"  }
-  - { key: 43  , mods: None, chars : "\\"  }
-  - { key: 43  , mods: Shift, chars : "|"  }
+  - { key: 26, mods: None,  chars : "["   }
+  - { key: 26, mods: Shift, chars : "{"   }
+  - { key: 27, mods: None,  chars : "]"   }
+  - { key: 27, mods: Shift, chars : "}"   }
+  - { key: 41, mods: None,  chars : "`"   }
+  - { key: 41, mods: Shift, chars : "~"   }
+  - { key: 43, mods: None,  chars : "\\"  }
+  - { key: 43, mods: Shift, chars : "|"   }
 shell:
   program: /home/yerlan/.cargo/bin/nu 
