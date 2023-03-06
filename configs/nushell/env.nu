@@ -46,7 +46,7 @@ if (not ('/tmp/configLight.toml' | path exists)) {
 }
 
 if (not ('/tmp/configDark.toml' | path exists)) {
-  echo "theme = 'catppuccin_macchiato'\n" | save /tmp/configDark.toml
+  echo "theme = 'catppuccin_mocha'\n" | save /tmp/configDark.toml
   open --raw ~/Published/configs/config.toml | save --append /tmp/configDark.toml
 }
 
