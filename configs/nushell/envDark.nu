@@ -1,6 +1,5 @@
 alias dir = broot --conf ~/Published/configs/broot/dark.hjson -c :pt .
-alias jour = hx -c /tmp/configDark.toml ~/jour.md
-alias pense = hx -c /tmp/configDark.toml ~/pense.md
+alias jour = hx -c /tmp/configDark.toml ~/pense.md ~/jour.md
 alias ll = broot --conf ~/Published/configs/broot/dark.hjson -higsdp -c :pt .
 alias mc = broot --conf ~/Published/configs/broot/dark.hjson
 alias vi = hx -c /tmp/configDark.toml
