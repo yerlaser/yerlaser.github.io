@@ -40,7 +40,9 @@ return {
       function(win, pane)
         win:maximize()
       end
-    )},
+    ) },
+    { key = "q" , mods = "CMD", action = wezterm.action.SendString("\x11") }, -- Ctrl-q
+    { key = "w" , mods = "CMD", action = wezterm.action.SendString("\x17") }, -- Ctrl-w
   },
   use_ime = false,
   window_decorations = "RESIZE",
