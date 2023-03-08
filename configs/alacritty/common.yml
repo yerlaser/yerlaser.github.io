@@ -11,5 +11,8 @@ key_bindings:
   - { key: Delete, mods: Shift,   chars: "\x10"  } # (Caps) Ctrl-p
   - { key: Return, mods: Shift,   chars: "\x0e"  } # Ctrl-n
   - { key: Space,  mods: Shift,   chars: "\x00"  } # Ctrl-@
+  - { key: E,      mods: Command, chars: "\x05"  } # Ctrl-e
   - { key: Q,      mods: Command, chars: "\x11"  } # Ctrl-q
+  - { key: R,      mods: Command, chars: "\x12"  } # Ctrl-r
   - { key: W,      mods: Command, chars: "\x17"  } # Ctrl-w
+  - { key: X,      mods: Command, chars: "\x18"  } # Ctrl-x

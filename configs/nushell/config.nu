@@ -3,6 +3,11 @@ let-env config = {
     cd: {
         abbreviations: true
     }
+    cursor_shape: {
+        vi_insert: line
+        vi_normal: block
+    }
+    edit_mode: vi
     ls: {
         clickable_links: false
     }
@@ -20,8 +25,8 @@ let-env config = {
         {
             name: search_history
             modifier: Control
-            keycode: Char_C
-            mode: [emacs vi_insert]
+            keycode: Char_R
+            mode: [emacs vi_insert vi_normal]
             event: [
                 {edit: CutFromLineStart}
                 {send: Menu name: history_menu}
@@ -39,9 +44,9 @@ let-env config = {
         }
         {
             name: edit_command
-            modifier: None
-            keycode: Esc
-            mode: [emacs vi_insert]
+            modifier: Control
+            keycode: Char_P
+            mode: vi_normal
             event: {send: OpenEditor}
         }
     ]
