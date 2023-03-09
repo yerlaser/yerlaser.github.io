@@ -15,6 +15,7 @@ return {
   },
   font = wezterm.font('Monaco'),
   font_size = 19,
+  line_height = 1.0,
   hide_tab_bar_if_only_one_tab = true,
   leader = { key = 'Period', mods = 'CMD', timeout_milliseconds = 1000 },
   keys = {
