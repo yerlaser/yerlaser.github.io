@@ -1,3 +1,4 @@
+alias delta = delta --light
 alias dir = broot --conf ~/Published/configs/broot/light.hjson -c :pt .
 alias la = broot --conf ~/Published/configs/broot/light.hjson -higsdp -c :pt .
 alias mc = broot --conf ~/Published/configs/broot/light.hjson
