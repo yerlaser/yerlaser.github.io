@@ -20,8 +20,6 @@ select = "underline"
 "C-n" = [ ":insert-output date '+%c'", "goto_line_end_newline" ] # S-CR
 "C-p" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-CAPS
 "C-t" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-BS
-"C-q" = [ "normal_mode", ":quit" ] # W-q
-"C-w" = [ "normal_mode", ":update" ] # W-w
 
 [keys.normal]
 "backspace" = "keep_primary_selection"
@@ -61,14 +59,12 @@ select = "underline"
 "m" = "save_selection"
 "M" = "toggle_comments"
 # "C-p" = "buffer_picker" # S-CAPS
-"C-q" = [ ":quit" ] # W-q
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
 "U" = "switch_to_uppercase"
 "v" = { ";" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "m" = "merge_consecutive_selections", "v" = "select_mode" }
 "V" = "extend_to_line_bounds"
-"C-w" = [ ":update" ] # W-w
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection_noyank"
 "X" = "remove_selections"

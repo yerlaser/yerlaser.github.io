@@ -1,5 +1,4 @@
 alias an = ^cal -N -A 10 -B 1
-alias ll = ^ls -FAhl
 alias tout = for p in (ls -f | where type == dir | get name) {enter $p}
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
