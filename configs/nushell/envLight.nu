@@ -1,3 +1,4 @@
+alias alacritty_light = zsh -c "~/Applications/Alacritty.app/Contents/MacOS/alacritty --config-file ~/Published/configs/alacritty/macosDark.yml&"
 alias delta = delta --light
 alias mc = broot --conf ~/Published/configs/broot/light.hjson
 alias vi = hx -c /tmp/configLight.toml
