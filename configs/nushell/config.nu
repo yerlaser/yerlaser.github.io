@@ -45,8 +45,8 @@ let-env config = {
         {
             name: edit_command
             modifier: Control
-            keycode: Char_P
-            mode: vi_normal
+            keycode: Char_U
+            mode: [emacs vi_insert vi_normal]
             event: {send: OpenEditor}
         }
     ]
