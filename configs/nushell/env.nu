@@ -11,16 +11,6 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
-# Change dir to a path in paste buffer
-def-env bcd () {
-  let p = (pbpaste)
-  if (($p | str length) < 1) or (($p | size | get lines) > 1) or (not ($p | path exists)) {
-    return
-  }
-  let p = if ($p | path type) == file {$p | path dirname} else {$p}
-  cd $p
-}
-
 # Create a pod with multiple containers and SSH server listening on different ports
 def podssh (
   --image (-i): string # Image to use 

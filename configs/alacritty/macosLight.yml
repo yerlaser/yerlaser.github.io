@@ -5,25 +5,29 @@ shell:
   args:
     - --config ~/Published/configs/nushell/configLight.nu
     - --env-config ~/Published/configs/nushell/envLight.nu
+## GitHub Light
 colors:
   primary:
-    background: '0xFCFCFC'
-    foreground: '0x5C6166'
+    background: '0xffffff'
+    foreground: '0x24292f'
   normal:
-    black:   '0x010101'
-    red:     '0xe7666a'
-    green:   '0x80ab24'
-    yellow:  '0xeba54d'
-    blue:    '0x4196df'
-    magenta: '0x9870c3'
-    cyan:    '0x51b891'
-    white:   '0xc1c1c1'
+    black:   '0x24292e'
+    red:     '0xd73a49'
+    green:   '0x28a745'
+    yellow:  '0xdbab09'
+    blue:    '0x0366d6'
+    magenta: '0x5a32a3'
+    cyan:    '0x0598bc'
+    white:   '0x6a737d'
   bright:
-    black:   '0x343434'
-    red:     '0xee9295'
-    green:   '0x9fd32f'
-    yellow:  '0xf0bc7b'
-    blue:    '0x6daee6'
-    magenta: '0xb294d2'
-    cyan:    '0x75c7a8'
-    white:   '0xdbdbdb'
+    black:   '0x959da5'
+    red:     '0xcb2431'
+    green:   '0x22863a'
+    yellow:  '0xb08800'
+    blue:    '0x005cc5'
+    magenta: '0x5a32a3'
+    cyan:    '0x3192aa'
+    white:   '0xd1d5da'
+  indexed_colors:
+    - { index: 16, color: '0xd18616' }
+    - { index: 17, color: '0xcb2431' }

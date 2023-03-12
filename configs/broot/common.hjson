@@ -3,7 +3,7 @@ content_search_max_file_size: 10MB
 verbs: [
     {
         key: "ctrl-c"
-        external: 'sh -c "echo {file} | pbcopy"'
+        external: 'sh -c "echo {directory} | pbcopy"'
     }
     {
         key: "tab"
@@ -20,5 +20,13 @@ verbs: [
     {
         key: "ctrl-p"
         internal: ":line_up"
+    }
+    {
+        key: "ctrl-q"
+        internal: ":panel_left"
+    }
+    {
+        key: "ctrl-w"
+        internal: ":panel_right"
     }
 ]
