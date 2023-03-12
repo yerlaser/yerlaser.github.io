@@ -2,7 +2,7 @@ show_selection_mark: true
 content_search_max_file_size: 10MB
 verbs: [
     {
-        key: "ctrl-c"
+        key: "ctrl-u"
         external: 'sh -c "echo {directory} | pbcopy"'
     }
     {

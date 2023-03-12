@@ -42,11 +42,6 @@ return {
         win:maximize()
       end
     ) },
-    { key = "e" , mods = "CMD", action = wezterm.action.SendString("\x05") }, -- Ctrl-e
-    { key = "q" , mods = "CMD", action = wezterm.action.SendString("\x11") }, -- Ctrl-q
-    { key = "r" , mods = "CMD", action = wezterm.action.SendString("\x12") }, -- Ctrl-r
-    { key = "w" , mods = "CMD", action = wezterm.action.SendString("\x17") }, -- Ctrl-w
-    { key = "x" , mods = "CMD", action = wezterm.action.SendString("\x18") }, -- Ctrl-x
   },
   use_ime = false,
   window_decorations = "RESIZE",

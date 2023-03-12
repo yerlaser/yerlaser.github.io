@@ -6,13 +6,8 @@ window:
   decorations: none
   startup_mode: Maximized
 key_bindings:
-  - { key: Back,   mods: Shift,   chars: "\x03"  } # Ctrl-c
+  - { key: Back,   mods: Shift,   chars: "\x15"  } # Ctrl-u
   - { key: Delete, mods: None,    chars: "\x1b"  } # (Caps) Escape
   - { key: Delete, mods: Shift,   chars: "\x10"  } # (Caps) Ctrl-p
   - { key: Return, mods: Shift,   chars: "\x0e"  } # Ctrl-n
   - { key: Space,  mods: Shift,   chars: "\x00"  } # Ctrl-@
-  - { key: E,      mods: Command, chars: "\x05"  } # Ctrl-e
-  - { key: Q,      mods: Command, chars: "\x11"  } # Ctrl-q
-  - { key: R,      mods: Command, chars: "\x12"  } # Ctrl-r
-  - { key: W,      mods: Command, chars: "\x17"  } # Ctrl-w
-  - { key: X,      mods: Command, chars: "\x18"  } # Ctrl-x
