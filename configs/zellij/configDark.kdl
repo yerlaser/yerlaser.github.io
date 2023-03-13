@@ -8,6 +8,7 @@ keybinds {
   shared_except "locked" {
     bind "Ctrl n" { NewPane; }
     bind "Ctrl p" { SwitchToMode "Resize"; }
+    bind "Ctrl u" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
   }
 }
 themes {
