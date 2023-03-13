@@ -14,20 +14,20 @@ let-env PATH = if ($nupaths | path exists) {
 # Create a pod with multiple containers and SSH server listening on different ports
 def podssh (
   --image (-i): string # Image to use 
-  --decimal (-d): int # Decimal for port number (22dn)
-  --number (-n): int # Number of containers in the pod (22dn)
+  --prefix (-p): int # Port number prefix (<p><n>)
+  --number (-n): int # Number of containers in the pod (<p><n>)
   pod_name: string # Name of the pod
 ) {
-  if $decimal > 9 {
-    echo 'Decimal can only be up to 9'
+  if $prefix > 6552 {
+    echo 'Prefix can only be up to 6552'
     return
   }
-  let ports = (1..5 | reduce -f [] {|n,a| $a | append ['-p' $'22($decimal)($n):22($decimal)($n)']})
+  let ports = (1..5 | reduce -f [] {|n,a| $a | append ['-p' $'($prefix)($n):($prefix)($n)']})
   podman pod create --name $pod_name $ports 
   for n in 1..$number {
-    podman run -d --name $'($pod_name)($n)' --tz 'Europe/Berlin' --pod $pod_name $image bash -c $'sed -i "s/#Port 22/Port 22($decimal)($n)/g" /etc/ssh/sshd_config ; service ssh start -D'
-    ssh-keygen -R $'[localhost]:22($decimal)($n)'
-    ssh-keyscan -t ed25519 -p $'22($decimal)($n)' localhost | save -a ~/.ssh/known_hosts
+    podman run -d --name $'($pod_name)($n)' --tz 'Europe/Berlin' --pod $pod_name $image bash -c $'sed -i "s/#Port /Port ($prefix)($n)/g" /etc/ssh/sshd_config ; service ssh start -D'
+    ssh-keygen -R $'[localhost]:($prefix)($n)'
+    ssh-keyscan -t ed25519 -p $'($prefix)($n)' localhost | save -a ~/.ssh/known_hosts
   }
 }
 
