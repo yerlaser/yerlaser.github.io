@@ -1,6 +1,7 @@
 alias jour = hx -c /tmp/configDark.toml ~/pense.md ~/jour.md
 alias mc = broot --conf ~/Published/configs/broot/dark.hjson -c ':start_end_panel;:panel_left_no_open'
 alias vi = hx -c /tmp/configDark.toml
+alias zellij = zellij --config ~/Published/configs/zellij/configDark.kdl
 let-env EDITOR = 'hx -c /tmp/configDark.toml'
 let-env GIT_PAGER = 'delta'
 let-env VISUAL = 'hx -c /tmp/configDark.toml'
