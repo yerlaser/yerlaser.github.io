@@ -33,9 +33,29 @@ let-env config = {
             ]
         }
         {
+            name: back_history
+            modifier: Alt
+            keycode: Char_P
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: MenuUp}
+                {send: Up}
+            ]}
+        }
+        {
+            name: forward_history
+            modifier: Alt
+            keycode: Char_N
+            mode: [emacs vi_insert]
+            event: {until: [
+                {send: MenuDown}
+                {send: Down}
+            ]}
+        }
+        {
             name: insert_space
-            modifier: Control
-            keycode: Space
+            modifier: Alt
+            keycode: Char_F
             mode: [emacs vi_insert]
             event: [
                 {send: HistoryHintWordComplete}
@@ -44,8 +64,8 @@ let-env config = {
         }
         {
             name: edit_command
-            modifier: Control
-            keycode: Char_U
+            modifier: Alt
+            keycode: Char_B
             mode: [emacs vi_insert vi_normal]
             event: {send: OpenEditor}
         }

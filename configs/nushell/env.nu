@@ -22,10 +22,10 @@ def podssh (
     echo 'Prefix can only be up to 6552'
     return
   }
-  let ports = (1..5 | reduce -f [] {|n,a| $a | append ['-p' $'($prefix)($n):($prefix)($n)']})
+  let $ports = (1..$number | reduce -f [] {|n,a| $a | append ['-p' $'($prefix)($n):($prefix)($n)']})
   podman pod create --name $pod_name $ports 
   for n in 1..$number {
-    podman run -d --name $'($pod_name)($n)' --tz 'Europe/Berlin' --pod $pod_name $image bash -c $'sed -i "s/#Port /Port ($prefix)($n)/g" /etc/ssh/sshd_config ; service ssh start -D'
+    podman run -d --name $'($pod_name)($n)' --tz 'Europe/Berlin' --pod $pod_name $image bash -c $'sed -i "s/#Port .*/Port ($prefix)($n)/g" /etc/ssh/sshd_config; service ssh start -D'
     ssh-keygen -R $'[localhost]:($prefix)($n)'
     ssh-keyscan -t ed25519 -p $'($prefix)($n)' localhost | save -a ~/.ssh/known_hosts
   }

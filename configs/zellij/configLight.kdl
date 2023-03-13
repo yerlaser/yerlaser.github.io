@@ -6,10 +6,10 @@ keybinds {
     bind "Ctrl w" { SwitchToMode "Pane"; }
   }
   shared_except "locked" {
-    bind "Ctrl n" { NewPane "Down"; }
-    bind "Ctrl p" { NewPane "Right"; }
+    bind "Alt n" { NewPane "Down"; }
+    bind "Alt p" { NewPane "Right"; }
     bind "Ctrl q" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
-    bind "Ctrl u" { SwitchToMode "Resize"; }
+    bind "Alt b" { SwitchToMode "Resize"; }
     bind "Ctrl ^" { Quit; }
   }
 }

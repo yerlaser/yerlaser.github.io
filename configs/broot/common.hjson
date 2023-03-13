@@ -2,7 +2,7 @@ show_selection_mark: true
 content_search_max_file_size: 10MB
 verbs: [
     {
-        key: "ctrl-u"
+        key: "alt-b"
         external: 'sh -c "echo {directory} | pbcopy"'
     }
     {
@@ -14,11 +14,11 @@ verbs: [
         internal: ":previous_dir"
     }
     {
-        key: "ctrl-n"
+        key: "alt-n"
         internal: ":line_down"
     }
     {
-        key: "ctrl-p"
+        key: "alt-p"
         internal: ":line_up"
     }
     {
