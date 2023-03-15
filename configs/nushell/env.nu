@@ -11,6 +11,16 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Print string at the center with dash sign fill
+def subtitle () {
+  $in | str title-case | fill -a c -c '-' -w (term size).columns
+}
+
+# Print string at the center with equal sign fill
+def title () {
+  $in | str upcase | fill -a c -c '=' -w (term size).columns
+}
+
 # Get lines from a text file
 def get_lines (
   file_name: string # File name
