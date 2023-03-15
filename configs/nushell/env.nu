@@ -12,13 +12,27 @@ let-env PATH = if ($nupaths | path exists) {
 }
 
 # Print string at the center with dash sign fill
-def subtitle () {
-  $in | str title-case | fill -a c -c '-' -w (term size).columns
+def subtitle (
+  ...text # Text to print (takes precedence over piped input)
+) {
+  let inp = $in
+  if ($text | is-empty) {
+    $inp | str join ' ' | str title-case | fill -a c -c '-' -w (term size).columns
+  } else {
+    $text | str join ' ' | str title-case | fill -a c -c '-' -w (term size).columns
+  }
 }
 
 # Print string at the center with equal sign fill
-def title () {
-  $in | str upcase | fill -a c -c '=' -w (term size).columns
+def title (
+  ...text # Text to print (takes precedence over piped input)
+) {
+  let inp = $in
+  if ($text | is-empty) {
+    $inp | str join ' ' | str upcase | fill -a c -c '=' -w (term size).columns
+  } else {
+    $text | str join ' ' | str upcase | fill -a c -c '=' -w (term size).columns
+  }
 }
 
 # Get lines from a text file
