@@ -18,18 +18,9 @@ def get_lines (
   open $file_name | lines
 }
 
-# Flatten array of mixed records and tables
-def flatten_array (
-  --data_format (-f) = 'json' # Data format
-) {
-  let data_array = $in
-  let data_table = (
-    if $data_format == 'json' {
-      $data_array | each {|r| $r | from json}
-    } else if $data_format == 'toml' {
-      $data_array | each {|r| $r | from toml}
-    }
-  )
+# Merge a mixed list of records and tables into a table
+def merge_records () {
+  let data_table = $in
   let empty_table = (1..($data_table | length) | reduce -f [] {|i,a| $a | append {}})
   let table_columns = ($data_table | columns)
   $table_columns | reduce -f $empty_table {|i,a| $a | merge ($data_table | get $i | flatten)}
