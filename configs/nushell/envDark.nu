@@ -11,13 +11,19 @@ def dir (
   --all (-a): bool # Include ignored files
   --long (-l): bool # Long format
   --extended (-e): bool # Show extended attributes
+  --sort_by_size (-S): bool # Sort by size
+  --sort_by_modification_time (-t): bool # Sort by modification time
   directory: string = '.' # Directory to list
   command: string = '' # Extra command to run
 ) {
-  let args = ['--conf' $'($env.HOME)/Published/configs/broot/dark.hjson' '-c' $'($command):pt' $directory]
+  let args = ['--conf' $'($env.HOME)/Published/configs/broot/dark.hjson']
   let args = if $all {$args | append '-hi'} else {$args}
   let args = if $long {$args | append '-gds'} else {$args}
   let args = if $extended {$args | append '-p'} else {$args}
+  let cmd = ':pt'
+  let cmd = if $sort_by_size {$cmd | prepend ':sort_by_size'} else {$cmd}
+  let cmd = if $sort_by_modification_time {$cmd | prepend ':sort_by_date'} else {$cmd}
+  let args = ($args | append ['-c' $'($command)($cmd | str join ";")' $directory])
   broot $args
 }
 
