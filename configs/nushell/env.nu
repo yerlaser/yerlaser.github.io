@@ -1,5 +1,6 @@
 old-alias an = ^cal -N -A 10 -B 1
 old-alias tout = for p in (ls -f | where type == dir | get name) {enter $p}
+old-alias tree = fd ''
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'
