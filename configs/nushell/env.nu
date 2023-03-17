@@ -11,6 +11,7 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Print string at the center filling with specified character
 def print_title (
   --character (-c): string # Fill character
   text: string # String to print
@@ -24,7 +25,7 @@ def print_title (
   }
 }
 
-# Print string at the center with dash sign fill
+# Print string(s) at the center with dash sign fill
 def subtitle (
   ...text # Text to print (in additition to piped input if any)
 ) {
@@ -33,7 +34,7 @@ def subtitle (
   for l in $inp {print_title -c '-' $l}
 }
 
-# Print string at the center with equal sign fill
+# Print string(s) at the center with equal sign fill
 def title (
   ...text # Text to print (in additition to piped input if any)
 ) {
