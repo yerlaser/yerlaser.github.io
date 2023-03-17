@@ -1,7 +1,7 @@
-alias delta = delta --light
-alias mc = broot --conf ~/Published/configs/broot/light.hjson -c ':start_end_panel;:panel_left_no_open'
-alias vi = hx -c /tmp/configLight.toml
-alias zellij = zellij --config ~/Published/configs/zellij/configLight.kdl
+old-alias delta = delta --light
+old-alias mc = broot --conf ~/Published/configs/broot/light.hjson -c ':start_end_panel;:panel_left_no_open'
+old-alias vi = hx -c /tmp/configLight.toml
+old-alias zellij = zellij --config ~/Published/configs/zellij/configLight.kdl
 let-env EDITOR = 'hx -c /tmp/configLight.toml'
 let-env GIT_PAGER = 'delta --light'
 let-env VISUAL = 'hx -c /tmp/configLight.toml'

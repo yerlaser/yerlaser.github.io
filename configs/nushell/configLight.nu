@@ -7,14 +7,11 @@ let-env config = ($env.config | upsert history {
 })
 
 let light_theme = {
-    # color for nushell primitives
     separator: dark_gray
-    leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
+    leading_trailing_space_bg: { attr: n }
     header: green_bold
     empty: blue
-    # Closures can be used to choose colors for specific values.
-    # The value (in this case, a bool) is piped into the closure.
-    bool: { if $in { 'dark_cyan' } else { 'dark_gray' } }
+    bool: {|| if $in { 'dark_cyan' } else { 'dark_gray' } }
     int: dark_gray
     filesize: {|e|
       if $e == 0b {
@@ -24,7 +21,7 @@ let light_theme = {
       } else { 'blue_bold' }
     }
     duration: dark_gray
-  date: { (date now) - $in |
+  date: {|| (date now) - $in |
     if $in < 1hr {
       'red3b'
     } else if $in < 6hr {
@@ -52,7 +49,6 @@ let light_theme = {
     list: white
     block: white
     hints: dark_gray
-
     shape_and: purple_bold
     shape_binary: purple_bold
     shape_block: blue_bold
@@ -65,7 +61,6 @@ let light_theme = {
     shape_filepath: cyan
     shape_flag: blue_bold
     shape_float: purple_bold
-    # shapes are used to change the cli syntax highlighting
     shape_garbage: { fg: "#FFFFFF" bg: "#FF0000" attr: b}
     shape_globpattern: cyan_bold
     shape_int: purple_bold
