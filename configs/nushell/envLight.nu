@@ -11,7 +11,7 @@ def fd (
   --all (-a): bool # Include ignored files
   --long (-l): bool # Long format
   --extended (-e): bool # Show extended attributes
-  command: string = '' # Extra command to run
+  command: string # Extra command to run
   directory: string = '.' # Directory to list
 ) {
   let args = ['--conf' $'($env.HOME)/Published/configs/broot/light.hjson']
