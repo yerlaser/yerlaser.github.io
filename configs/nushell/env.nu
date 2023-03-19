@@ -12,6 +12,24 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Find files with names matching a pattern
+def match (
+  --case_sensitive (-c): bool # Preserve case
+  pattern = '' # Pattern to search
+  path = '.' # Search path
+) {
+  if ($pattern | is-empty) {
+    ls $'($path)/**/*'
+  } else {
+    let dp = ($pattern | str downcase)
+    if ($case_sensitive or $dp != $pattern) {
+      ls $'($path)/**/*' | where name =~ $pattern
+    } else {
+      ls $'($path)/**/*' | filter { |f| ($f.name | str downcase) =~ ($pattern | str downcase) }
+    }
+  }
+}
+
 # Print string at the center filling with specified character
 def print_title (
   --character (-c): string # Fill character
