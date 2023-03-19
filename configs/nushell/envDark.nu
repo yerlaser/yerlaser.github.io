@@ -6,20 +6,20 @@ let-env EDITOR = 'hx -c /tmp/configDark.toml'
 let-env GIT_PAGER = 'delta'
 let-env VISUAL = 'hx -c /tmp/configDark.toml'
 
-# Find files using broot
-def fd (
+# List files using broot possibly doing additional filter
+def tree (
   --all (-a): bool # Include ignored files
   --long (-l): bool # Long format
   --extended (-e): bool # Show extended attributes
-  command: string # Extra command to run
-  directory: string = '.' # Directory to list
+  folder: string = '.' # Folder to list
+  filter: string = '' # Filter or addtional command
 ) {
   let args = ['--conf' $'($env.HOME)/Published/configs/broot/dark.hjson']
   let args = if $all {$args | append '-hi'} else {$args}
   let args = if $long {$args | append '-ds'} else {$args}
   let args = if $extended {$args | append '-gp'} else {$args}
   let cmd = ':pt'
-  let args = ($args | append ['-c' $'($command)($cmd | str join ";")' $directory])
+  let args = ($args | append ['-c' $'($filter)($cmd | str join ";")' $folder])
   broot $args
 }
 

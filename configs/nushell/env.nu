@@ -1,6 +1,5 @@
 old-alias an = ^cal -N -A 10 -B 1
 old-alias tout = for p in (ls -f | where type == dir | get name) {enter $p}
-old-alias tree = fd ''
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 let-env DELTA_FEATURES = '+side-by-side'
@@ -12,20 +11,62 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
-# Find files with names matching a pattern
-def match (
+# Filter files containing search string
+def gr (
   --case_sensitive (-c): bool # Preserve case
   pattern = '' # Pattern to search
   path = '.' # Search path
 ) {
+  let inp = $in
+  let inp = if ($inp | is-empty) {ls $'($path)/**/*' | where type == file} else {$inp | where type == file}
   if ($pattern | is-empty) {
-    ls $'($path)/**/*'
+    $inp
   } else {
     let dp = ($pattern | str downcase)
     if ($case_sensitive or $dp != $pattern) {
-      ls $'($path)/**/*' | where name =~ $pattern
+      $inp | filter {|f| not (rg -c $pattern $f.name | is-empty)}
     } else {
-      ls $'($path)/**/*' | filter { |f| ($f.name | str downcase) =~ ($pattern | str downcase) }
+      $inp | filter {|f| not (rg -i -c $pattern $f.name | is-empty)}
+    }
+  }
+}
+
+# Open all piped filenames with provided command
+def oa (
+  command = 'vi' # Command to run (default vi)
+  path = '.' # Search path
+) {
+  let inp = $in
+  let inp = if ($inp | is-empty) {ls $'($path)/**/*'} else {$inp}
+  let $inp = ($inp | get name)
+  if ($inp | length) > 13 {
+    print -e 'Too many files'
+    return
+  } else {
+    if $command == 'vi' {
+      vi $inp
+    } else {
+      ^$command $inp
+    }
+  }
+}
+
+# Find files with names matching a pattern
+def fd (
+  --case_sensitive (-c): bool # Preserve case
+  pattern = '' # Pattern to search
+  path = '.' # Search path
+) {
+  let inp = $in
+  let inp = if ($inp | is-empty) {ls $'($path)/**/*'} else {$inp}
+  if ($pattern | is-empty) {
+    $inp
+  } else {
+    let dp = ($pattern | str downcase)
+    if ($case_sensitive or $dp != $pattern) {
+      $inp | where name =~ $pattern
+    } else {
+      $inp | filter { |f| ($f.name | str downcase) =~ ($pattern | str downcase) }
     }
   }
 }
