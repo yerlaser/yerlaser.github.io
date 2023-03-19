@@ -11,6 +11,18 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Convert raw file names into ls-like output
+def ils (
+  filename = '' # Path to file containing file names
+) {
+  let $inp = $in
+  if ($inp | is-empty) {
+    get_lines $filename | filter {|f| ($f | path exists)} | each {|f| ls $f} | flatten
+  } else {
+    $inp | lines | filter {|f| ($f | path exists)} | each {|f| ls $f} | flatten
+  }
+}
+
 # Filter files containing search string
 def gr (
   --case_sensitive (-c): bool # Preserve case
@@ -24,9 +36,9 @@ def gr (
   } else {
     let dp = ($pattern | str downcase)
     if ($case_sensitive or $dp != $pattern) {
-      $inp | filter {|f| not (rg -c $pattern $f.name | is-empty)}
+      $inp | filter {|f| not (open -r $f.name | find -r $pattern | is-empty)}
     } else {
-      $inp | filter {|f| not (rg -i -c $pattern $f.name | is-empty)}
+      $inp | filter {|f| not (open -r $f.name | find -i -r $pattern | is-empty)}
     }
   }
 }
