@@ -66,7 +66,7 @@ def oa (
 }
 
 # Find files with names matching a pattern
-def fd (
+def ff (
   --case_sensitive (-c): bool # Preserve case
   pattern = '' # Pattern to search
   path = '.' # Search path
