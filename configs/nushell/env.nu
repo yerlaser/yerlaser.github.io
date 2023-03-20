@@ -1,8 +1,9 @@
 old-alias an = ^cal -N -A 10 -B 1
 old-alias tout = for p in (ls -f | where type == dir | get name) {enter $p}
+let-env LC_ALL = 'en_US-UTF8'
+let-env DELTA_FEATURES = '+side-by-side'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
-let-env DELTA_FEATURES = '+side-by-side'
 
 let nupaths = ([$env.HOME .config nushell nupaths.txt] | path join)
 let-env PATH = if ($nupaths | path exists) {
@@ -12,12 +13,13 @@ let-env PATH = if ($nupaths | path exists) {
 }
 
 # Convert raw file names into ls-like output
-def ils (
+def il (
   filename = '' # Path to file containing file names
 ) {
   let $inp = $in
   if ($inp | is-empty) {
-    get_lines $filename | filter {|f| ($f | path exists)} | each {|f| ls $f} | flatten
+    if ($filename | is-empty) {return}
+    gl $filename | filter {|f| ($f | path exists)} | each {|f| ls $f} | flatten
   } else {
     $inp | lines | filter {|f| ($f | path exists)} | each {|f| ls $f} | flatten
   }
@@ -116,7 +118,7 @@ def title (
 }
 
 # Get lines from a text file
-def get_lines (
+def gl (
   file_name: string # File name
 ) {
   open $file_name | lines
