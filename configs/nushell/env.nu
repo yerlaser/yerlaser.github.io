@@ -19,9 +19,9 @@ def il (
   let $inp = $in
   if ($inp | is-empty) {
     if ($filename | is-empty) {return}
-    gl $filename | filter {|f| ($f | path exists)} | each {|f| ls $f} | flatten
+    gl $filename | par-each {|f| if ($f | path exists) {ls $f}}
   } else {
-    $inp | lines | filter {|f| ($f | path exists)} | each {|f| ls $f} | flatten
+    $inp | lines | par-each {|f| if ($f | path exists) {ls $f}}
   }
 }
 
@@ -38,9 +38,9 @@ def gr (
   } else {
     let dp = ($pattern | str downcase)
     if ($case_sensitive or $dp != $pattern) {
-      $inp | filter {|f| not (open -r $f.name | find -r $pattern | is-empty)}
+      $inp | par-each {|f| if not (open -r $f.name | find -r $pattern | is-empty) {ls $f.name}}
     } else {
-      $inp | filter {|f| not (open -r $f.name | find -i -r $pattern | is-empty)}
+      $inp | par-each {|f| if not (open -r $f.name | find -i -r $pattern | is-empty) {ls $f.name}}
     }
   }
 }
@@ -80,7 +80,7 @@ def fd (
     if ($case_sensitive or $dp != $pattern) {
       $inp | where name =~ $pattern
     } else {
-      $inp | filter { |f| ($f.name | str downcase) =~ ($pattern | str downcase) }
+      $inp | par-each {|f| if ($f.name | str downcase) =~ $dp {ls $f.name}}
     }
   }
 }
