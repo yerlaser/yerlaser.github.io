@@ -12,6 +12,14 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH
 }
 
+# Connects and displays information about SSL certificate of a host
+def get_certificate_info (
+  --port (-p) = 443 # Port to connect
+  url: string # URL of the host
+) {
+  echo | openssl s_client -showcerts -servername $url -connect $'($url):($port)' | openssl x509 -inform pem -noout -text
+}
+
 # Convert raw file names into ls-like output
 def il (
   filename = '' # Path to file containing file names
