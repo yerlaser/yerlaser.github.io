@@ -19,9 +19,9 @@ def il (
   let $inp = $in
   if ($inp | is-empty) {
     if ($filename | is-empty) {return}
-    gl $filename | par-each {|f| if ($f | path exists) {ls $f}}
+    gl $filename | par-each {|f| if ($f | path exists) {ls -D $f}}
   } else {
-    $inp | lines | par-each {|f| if ($f | path exists) {ls $f}}
+    $inp | lines | par-each {|f| if ($f | path exists) {ls -D $f}}
   }
 }
 
