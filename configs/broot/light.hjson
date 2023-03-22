@@ -9,12 +9,6 @@ verbs: [
 imports: [
     {
         luma: [
-            dark
-        ]
-        file: ~/.config/broot/dark-blue-skin.hjson
-    }
-    {
-        luma: [
             light
             unknown
         ]
