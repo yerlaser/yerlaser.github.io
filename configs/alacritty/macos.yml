@@ -9,8 +9,8 @@ key_bindings:
   - { key: LBracket,  mods: Shift, chars: "{"   }
   - { key: RBracket,  mods: None,  chars: "]"   }
   - { key: RBracket,  mods: Shift, chars: "}"   }
-  - { key: Grave,     mods: None,  chars: "`"   }
-  - { key: Grave,     mods: Shift, chars: "~"   }
+  # - { key: Grave,     mods: None,  chars: "`"   }
+  # - { key: Grave,     mods: Shift, chars: "~"   }
   - { key: Backslash, mods: None,  chars: "\\"  }
   - { key: Backslash, mods: Shift, chars: "|"   }
   - { key: K, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
