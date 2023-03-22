@@ -1,7 +1,4 @@
+env:
+  THEME: Dark
 import:
   - ~/Published/configs/alacritty/macos.yml
-shell:
-  program: /Users/yerlan/.cargo/bin/nu
-  args:
-    - --config ~/Published/configs/nushell/configDark.nu
-    - --env-config ~/Published/configs/nushell/envDark.nu

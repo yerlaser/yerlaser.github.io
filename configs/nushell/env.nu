@@ -1,9 +1,42 @@
-old-alias an = ^cal -N -A 10 -B 1
-old-alias tout = for p in (ls -f | where type == dir | get name) {enter $p}
-let-env LC_ALL = 'en_US-UTF8'
 let-env DELTA_FEATURES = '+side-by-side'
+let-env EDITOR = $'hx -c /tmp/config($env.THEME).toml'
+let-env LC_ALL = 'en_US-UTF8'
+let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
+old-alias an = ^cal -N -A 10 -B 1
+old-alias jour = hx -c $'/tmp/config($env.THEME).toml' ~/pense.md ~/jour.md
+old-alias mc = broot --conf $'~/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
+old-alias tout = for p in (ls -f | where type == dir | get name) {enter $p}
+old-alias vi = hx -c $'/tmp/config($env.THEME).toml'
+old-alias zellij = zellij --config $'($env.HOME)/Published/configs/zellij/config($env.THEME).kdl'
+
+if $env.THEME == 'Light' {
+  old-alias delta = delta --light
+  let-env GIT_PAGER = 'delta --light'
+  if ("~/werkstatt/configs/env.nu" | path exists) {
+    source "~/werkstatt/configs/env.nu"
+  }
+} else {
+  let-env GIT_PAGER = 'delta'
+}
+
+# List files using broot possibly doing additional filter
+def tree (
+  --all (-a): bool # Include ignored files
+  --long (-l): bool # Long format
+  --extended (-e): bool # Show extended attributes
+  folder: string = '.' # Folder to list
+  filter: string = '' # Filter or addtional command
+) {
+  let args = ['--conf' $'($env.HOME)/Published/configs/broot/($env.THEME).hjson']
+  let args = if $all {$args | append '-hi'} else {$args}
+  let args = if $long {$args | append '-ds'} else {$args}
+  let args = if $extended {$args | append '-gp'} else {$args}
+  let cmd = ':pt'
+  let args = ($args | append ['-c' $'($filter)($cmd | str join ";")' $folder])
+  broot $args
+}
 
 let nupaths = ([$env.HOME .config nushell nupaths.txt] | path join)
 let-env PATH = if ($nupaths | path exists) {

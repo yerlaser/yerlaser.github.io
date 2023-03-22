@@ -1,10 +1,7 @@
+env:
+  THEME: Light
 import:
   - ~/Published/configs/alacritty/macos.yml
-shell:
-  program: /Users/yerlan/.cargo/bin/nu
-  args:
-    - --config ~/Published/configs/nushell/configLight.nu
-    - --env-config ~/Published/configs/nushell/envLight.nu
 ## GitHub Light
 colors:
   primary:
