@@ -1,18 +1,25 @@
+alias day = hx -c $'/tmp/config($env.THEME).toml' ~/pense.md ~/jour.md
+alias mc = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
+alias tmlight = zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-latte
+alias tmdark = zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-mocha
+alias vi = hx -c $'/tmp/config($env.THEME).toml'
+alias year = ^cal -N -A 10 -B 1
 let-env DELTA_FEATURES = '+side-by-side'
 let-env EDITOR = $'hx -c /tmp/config($env.THEME).toml'
-let-env LC_ALL = 'en_US-UTF8'
+let-env LC_ALL = 'en_US.UTF-8'
+let-env LC_TYPE = 'en_US.UTF-8'
 let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
-old-alias day = hx -c $'/tmp/config($env.THEME).toml' ~/pense.md ~/jour.md
-old-alias each_dirs = for p in (ls -f | where type == dir | get name) {enter $p}
-old-alias mc = broot --conf $'~/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
-old-alias vi = hx -c $'/tmp/config($env.THEME).toml'
-old-alias year = ^cal -N -A 10 -B 1
-old-alias zellij = zellij --config $'($env.HOME)/Published/configs/zellij/config($env.THEME).kdl'
+
+# Open a shell for each folder
+def-env each_dirs () {
+  for p in (ls -f | where type == dir | get name) {enter $p}  
+  g 0
+  g
+}
 
 if $env.THEME == 'Light' {
-  old-alias delta = delta --light
   let-env GIT_PAGER = 'delta --light'
   if ("~/werkstatt/configs/env.nu" | path exists) {
     source "~/werkstatt/configs/env.nu"

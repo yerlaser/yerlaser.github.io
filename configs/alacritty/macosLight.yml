@@ -1,5 +1,6 @@
 env:
   THEME: Light
+  BAT_THEME: GitHub
 import:
   - ~/Published/configs/alacritty/macos.yml
 ## GitHub Light
