@@ -4,11 +4,11 @@ let-env LC_ALL = 'en_US-UTF8'
 let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
-old-alias an = ^cal -N -A 10 -B 1
-old-alias jour = hx -c $'/tmp/config($env.THEME).toml' ~/pense.md ~/jour.md
+old-alias day = hx -c $'/tmp/config($env.THEME).toml' ~/pense.md ~/jour.md
+old-alias each_dirs = for p in (ls -f | where type == dir | get name) {enter $p}
 old-alias mc = broot --conf $'~/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
-old-alias tout = for p in (ls -f | where type == dir | get name) {enter $p}
 old-alias vi = hx -c $'/tmp/config($env.THEME).toml'
+old-alias year = ^cal -N -A 10 -B 1
 old-alias zellij = zellij --config $'($env.HOME)/Published/configs/zellij/config($env.THEME).kdl'
 
 if $env.THEME == 'Light' {
