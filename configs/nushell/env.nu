@@ -1,7 +1,5 @@
 alias day = hx -c $'/tmp/config($env.THEME).toml' ~/pense.md ~/jour.md
 alias mc = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
-alias tmlight = zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-latte
-alias tmdark = zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-mocha
 alias vi = hx -c $'/tmp/config($env.THEME).toml'
 alias year = ^cal -N -A 10 -B 1
 let-env DELTA_FEATURES = '+side-by-side'
@@ -11,6 +9,15 @@ let-env LC_TYPE = 'en_US.UTF-8'
 let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
+
+# Open Zellij with correct theme
+def-env zel () {
+  if $env.THEME == 'Light' {
+    zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-latte
+  } else {
+    zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-mocha
+  }
+}
 
 # Open a shell for each folder
 def-env each_dirs () {
