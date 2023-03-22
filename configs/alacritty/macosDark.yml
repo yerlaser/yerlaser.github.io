@@ -1,5 +1,5 @@
 env:
   THEME: Dark
-  BAT_THEME: zenburn
+  BAT_THEME: ''
 import:
   - ~/Published/configs/alacritty/macos.yml
