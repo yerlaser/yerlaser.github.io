@@ -94,7 +94,7 @@ def ls_lines (
 }
 
 # Filter files containing search string
-def grep_in_files (
+def grep_contents (
   --case_sensitive (-c): bool # Preserve case
   pattern = '' # Pattern to search
   path = '.' # Search path
