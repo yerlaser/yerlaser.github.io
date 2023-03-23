@@ -9,17 +9,31 @@ let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 
-# Open Zellij with correct theme
-def-env zel () {
-  if $env.THEME == 'Light' {
-    zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-latte
+# Name query
+def nslookup (
+  hostname: string # Host name to queery
+) {
+  let os = (sys).host.name
+  if $os == 'Darwin' {
+    dscacheutil -q host -a name $hostname
+  } else if $os =~ 'inux' {
+    systemd-resolve $hostname
   } else {
-    zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-mocha
+    ^nslookup $hostname
+  }
+}
+
+# Open Zellij with correct theme
+def zellij () {
+  if $env.THEME == 'Light' {
+    ^zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-latte
+  } else {
+    ^zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-mocha
   }
 }
 
 # Open a shell for each folder
-def-env each_dirs () {
+def-env push_dirs () {
   for p in (ls -f | where type == dir | get name) {enter $p}  
   g 0
   g
@@ -67,20 +81,20 @@ def get_certificate_info (
 }
 
 # Convert raw file names into ls-like output
-def il (
+def ls_lines (
   filename = '' # Path to file containing file names
 ) {
   let $inp = $in
   if ($inp | is-empty) {
     if ($filename | is-empty) {return}
-    gl $filename | par-each {|f| if ($f | path exists) {ls -D $f}}
+    get_lines $filename | par-each {|f| if ($f | path exists) {ls -D $f}}
   } else {
     $inp | lines | par-each {|f| if ($f | path exists) {ls -D $f}}
   }
 }
 
 # Filter files containing search string
-def gr (
+def grep_in_files (
   --case_sensitive (-c): bool # Preserve case
   pattern = '' # Pattern to search
   path = '.' # Search path
@@ -100,9 +114,9 @@ def gr (
 }
 
 # Open all piped filenames with provided command
-def oa (
-  command = 'vi' # Command to run (default vi)
+def open_all (
   path = '.' # Search path
+  command = 'vi' # Command to run (default vi)
 ) {
   let inp = $in
   let inp = if ($inp | is-empty) {ls $'($path)/**/*'} else {$inp}
@@ -119,8 +133,8 @@ def oa (
   }
 }
 
-# Find files with names matching a pattern
-def ff (
+# Find files names matching a pattern
+def grep_names (
   --case_sensitive (-c): bool # Preserve case
   pattern = '' # Pattern to search
   path = '.' # Search path
@@ -172,7 +186,7 @@ def title (
 }
 
 # Get lines from a text file
-def gl (
+def get_lines (
   file_name: string # File name
 ) {
   open $file_name | lines
