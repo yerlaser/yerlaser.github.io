@@ -189,7 +189,7 @@ def title (
 def get_lines (
   file_name: string # File name
 ) {
-  open $file_name | lines
+  open -r $file_name | lines
 }
 
 # Merge a mixed list of records and tables into a table
