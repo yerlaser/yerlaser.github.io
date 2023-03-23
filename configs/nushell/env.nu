@@ -33,10 +33,8 @@ def zellij () {
 }
 
 # Open a shell for each folder
-def-env push_dirs () {
-  for p in (ls -f | where type == dir | get name) {enter $p}  
-  g 0
-  g
+def-env pushd_all () {
+  for p in (ls -f | where type == dir | get name) {enter $p}; g 0; g
 }
 
 if $env.THEME == 'Light' {
