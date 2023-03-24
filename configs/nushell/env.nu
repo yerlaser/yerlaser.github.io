@@ -9,29 +9,6 @@ let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 
-# Name query
-def nslookup (
-  hostname: string # Host name to queery
-) {
-  let os = (sys).host.name
-  if $os == 'Darwin' {
-    dscacheutil -q host -a name $hostname
-  } else if $os =~ 'inux' {
-    systemd-resolve $hostname
-  } else {
-    ^nslookup $hostname
-  }
-}
-
-# Open Zellij with correct theme
-def zellij () {
-  if $env.THEME == 'Light' {
-    ^zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-latte
-  } else {
-    ^zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-mocha
-  }
-}
-
 # Open a shell for each folder
 def-env pushd_all () {
   for p in (ls -f | where type == dir | get name) {enter $p}; g 0; g
@@ -68,14 +45,6 @@ let-env PATH = if ($nupaths | path exists) {
   $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines | where {|l| ($l !~ '^\s*#.*') and ($l !~ '^\s*$')} | path expand | filter {|p| path exists}) | uniq
 } else {
   $env.PATH
-}
-
-# Connects and displays information about SSL certificate of a host
-def get_certificate_info (
-  --port (-p) = 443 # Port to connect
-  url: string # URL of the host
-) {
-  echo | openssl s_client -showcerts -servername $url -connect $'($url):($port)' | openssl x509 -inform pem -noout -text
 }
 
 # Convert raw file names into ls-like output
@@ -158,34 +127,6 @@ def get_lines (
   open -r $file_name | lines
 }
 
-# Merge a mixed list of records and tables into a table
-def merge_records () {
-  let data_table = $in
-  let empty_table = (1..($data_table | length) | reduce -f [] {|i,a| $a | append {}})
-  let table_columns = ($data_table | columns)
-  $table_columns | reduce -f $empty_table {|i,a| $a | merge ($data_table | get $i | flatten)}
-}
-
-# Create a pod with multiple containers and SSH server listening on different ports
-def podssh (
-  --image (-i): string # Image to use 
-  --prefix (-p): int # Port number prefix (<p><n>)
-  --number (-n): int # Number of containers in the pod (<p><n>)
-  pod_name: string # Name of the pod
-) {
-  if $prefix > 6552 {
-    echo 'Prefix can only be up to 6552'
-    return
-  }
-  let $ports = (1..$number | reduce -f [] {|n,a| $a | append ['-p' $'($prefix)($n):($prefix)($n)']})
-  podman pod create --name $pod_name $ports 
-  for n in 1..$number {
-    podman run -d --name $'($pod_name)($n)' --tz 'Europe/Berlin' --pod $pod_name $image bash -c $'sed -i "s/#Port .*/Port ($prefix)($n)/g" /etc/ssh/sshd_config; service ssh start -D'
-    ssh-keygen -R $'[localhost]:($prefix)($n)'
-    ssh-keyscan -t ed25519 -p $'($prefix)($n)' localhost | save -a ~/.ssh/known_hosts
-  }
-}
-
 def create_right_prompt () {
   do -i {git branch --show-current}
 }
@@ -220,3 +161,4 @@ def helix_configs () {
 
 helix_configs
 use ~/Published/configs/nushell/headings.nu *
+use ~/Published/configs/nushell/utils.nu *
