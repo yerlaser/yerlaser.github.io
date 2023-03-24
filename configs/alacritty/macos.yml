@@ -5,14 +5,18 @@ font:
   normal:
     family: Monaco
 key_bindings:
-  - { key: LBracket,  mods: None,  chars: "["   }
-  - { key: LBracket,  mods: Shift, chars: "{"   }
-  - { key: RBracket,  mods: None,  chars: "]"   }
-  - { key: RBracket,  mods: Shift, chars: "}"   }
-  # - { key: Grave,     mods: None,  chars: "`"   }
-  # - { key: Grave,     mods: Shift, chars: "~"   }
-  - { key: Backslash, mods: None,  chars: "\\"  }
-  - { key: Backslash, mods: Shift, chars: "|"   }
+  - { key: LBracket,  mods: None,         chars: "["   }
+  - { key: LBracket,  mods: Shift,        chars: "{"   }
+  - { key: RBracket,  mods: None,         chars: "]"   }
+  - { key: RBracket,  mods: Shift,        chars: "}"   }
+  - { key: Backslash, mods: None,         chars: "\\"  }
+  - { key: Backslash, mods: Shift,        chars: "|"   }
+  - { key: LBracket,  mods: Option,       chars: "ü"   }
+  - { key: LBracket,  mods: Option|Shift, chars: "Ü"   }
+  - { key: RBracket,  mods: Option,       chars: "ä"   }
+  - { key: RBracket,  mods: Option|Shift, chars: "Ä"   }
+  - { key: Backslash, mods: Option,       chars: "ö"   }
+  - { key: Backslash, mods: Option|Shift, chars: "Ö"   }
   - { key: K, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:
   program: /Users/yerlan/.cargo/bin/nu
