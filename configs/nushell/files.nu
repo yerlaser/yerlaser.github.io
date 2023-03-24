@@ -34,13 +34,17 @@ export def ls_lines (
 }
 
 # Filter files containing search string
-export def grep_contents (
+export def contents (
   --case_sensitive (-c): bool # Preserve case
   pattern = '' # Pattern to search
   path = '.' # Search path
 ) {
   let inp = $in
-  let inp = if ($inp | is-empty) {ls $'($path)/**/*' | where type == file} else {$inp | where type == file}
+  let inp = if ($inp | is-empty) {
+    fd '' $path --type file | ls_lines
+  } else {
+    $inp | where type == file
+  }
   if ($pattern | is-empty) {
     $inp
   } else {
@@ -59,7 +63,9 @@ export def open_all (
   command = 'vi' # Command to run (default vi)
 ) {
   let inp = $in
-  let inp = if ($inp | is-empty) {ls $'($path)/**/*'} else {$inp}
+  let inp = if ($inp | is-empty) {
+    fd '' $path | ls_lines
+  } else {$inp}
   let $inp = ($inp | get name)
   if ($inp | length) > 13 {
     print -e 'Too many files'
@@ -74,13 +80,17 @@ export def open_all (
 }
 
 # Find files names matching a pattern
-export def grep_names (
+export def names (
   --case_sensitive (-c): bool # Preserve case
   pattern = '' # Pattern to search
   path = '.' # Search path
 ) {
   let inp = $in
-  let inp = if ($inp | is-empty) {ls $'($path)/**/*'} else {$inp}
+  let inp = if ($inp | is-empty) {
+    fd '' $path | ls_lines
+  } else {
+    $inp
+  }
   if ($pattern | is-empty) {
     $inp
   } else {
