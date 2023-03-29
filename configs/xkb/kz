@@ -45,8 +45,8 @@ xkb_symbols "KzPhonetic" {
   key <AB05> { [ Cyrillic_be              , Cyrillic_BE              , b                        , B                        ] };
   key <AB06> { [ Cyrillic_en              , Cyrillic_EN              , n                        , N                        ] };
   key <AB07> { [ Cyrillic_em              , Cyrillic_EM              , m                        , M                        ] };
-  key <AB08> { [ comma                    , less                     ,x, lessthanequal            ] };
-  key <AB09> { [ period                   , greater                  ,x, greaterthanequal         ] };
+  key <AB08> { [ comma                    , Cyrillic_io              , less                     , Cyrillic_IO              ] };
+  key <AB09> { [ period                   , greater                  , lessthanequal            , greaterthanequal         ] };
   key <AB10> { [ Cyrillic_shorti          , question                 , slash                    , Cyrillic_SHORTI          ] };
   key <BKSL> { [ Cyrillic_e               , Cyrillic_E               , backslash                , bar                      ] };
   key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };

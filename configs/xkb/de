@@ -2,7 +2,7 @@
 xkb_symbols "DeQwerty" {
   name[Group1] = "Deutsch QWERTY";
   key.type[Group1] = "FOUR_LEVEL";
-  key <TLDE> { [ odiaeresis               , Odiaeresis               , grave                    , asciitilde               ] };
+  key <TLDE> { [ grave                    , asciitilde               ] };
   key <AE01> { [ 1                        , exclam                   , agrave                   , Agrave                   ] };
   key <AE02> { [ 2                        , at                       ] };
   key <AE03> { [ 3                        , numbersign               , egrave                   , Egrave                   ] };
@@ -25,8 +25,8 @@ xkb_symbols "DeQwerty" {
   key <AD08> { [ i                        , I                        , icircumflex              , Icircumflex              ] };
   key <AD09> { [ o                        , O                        , ocircumflex              , Ocircumflex              ] };
   key <AD10> { [ p                        , P                        ] };
-  key <AD11> { [ udiaeresis               , Udiaeresis               , bracketleft              , braceleft                ] };
-  key <AD12> { [ adiaeresis               , Adiaeresis               , bracketright             , braceright               ] };
+  key <AD11> { [ bracketleft              , udiaeresis               , Udiaeresis               , braceleft                ] };
+  key <AD12> { [ bracketright             , adiaeresis               , Adiaeresis               , braceright               ] };
   key <AC01> { [ a                        , A                        , acircumflex              , Acircumflex              ] };
   key <AC02> { [ s                        , S                        , ssharp                   , U1E9E                    ] };
   key <AC03> { [ d                        , D                        , eacute                   , Eacute                   ] };
@@ -48,7 +48,7 @@ xkb_symbols "DeQwerty" {
   key <AB08> { [ comma                    , less                     , idiaeresis               , Idiaeresis               ] };
   key <AB09> { [ period                   , greater                  , oe                       , OE                       ] };
   key <AB10> { [ slash                    , question                 ] };
-  key <BKSL> { [ ssharp                   , U1E9E                    , backslash                , bar                      ] };
+  key <BKSL> { [ backslash                , odiaeresis               , Odiaeresis               , bar                      ] };
   key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };
   key <CAPS> { [ KP_Down                  , KP_Down                  , KP_Down                  , KP_Down                  ] };
   key <LALT> { [ Super_L                  , Super_L                  , Super_L                  , Super_L                  ] };
