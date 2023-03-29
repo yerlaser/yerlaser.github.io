@@ -9,7 +9,7 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 alias 0='cd -10'
-source ~/Published/configs/shrc.sh
+source ~/Published/configs/legacy/shrc.sh
 DIRSTACKSIZE=11
 HISTFILE=~/.history
 HISTSIZE=1000
