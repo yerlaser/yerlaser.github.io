@@ -2,4 +2,5 @@ env:
   THEME: Dark
   BAT_THEME: ''
 import:
+  - ~/Published/configs/alacritty/dark.yml
   - ~/Published/configs/alacritty/macos.yml
