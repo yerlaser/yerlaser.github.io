@@ -5,7 +5,6 @@ font:
   normal:
     family: Monaco
 key_bindings:
-  - { key: Escape,    mods: Shift,        chars: "\x1bp" } # (Caps) Alt-p
   - { key: LBracket,  mods: Shift,        chars: "{"     }
   - { key: RBracket,  mods: Shift,        chars: "}"     }
   - { key: Backslash, mods: Shift,        chars: "|"     }

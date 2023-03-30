@@ -50,7 +50,8 @@ xkb_symbols "DeQwerty" {
   key <AB10> { [ slash                    , question                 ] };
   key <BKSL> { [ backslash                , odiaeresis               , Odiaeresis               , bar                      ] };
   key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };
-  key <CAPS> { [ KP_Down                  , KP_Down                  , KP_Down                  , KP_Down                  ] };
+  key <ESC>  { [ Caps_Lock                , Caps_Lock                , Caps_Lock                , Caps_Lock                ] };
+  key <CAPS> { [ Escape                   , Escape                   , Escape                   , Escape                   ] };
   key <LALT> { [ Super_L                  , Super_L                  , Super_L                  , Super_L                  ] };
   key <LWIN> { [ Alt_L                    , Alt_L                    , Alt_L                    , Alt_L                    ] };
   key <RALT> { [ Control_R                , Control_R                , Control_R                , Control_R                ] };

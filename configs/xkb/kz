@@ -50,7 +50,8 @@ xkb_symbols "KzPhonetic" {
   key <AB10> { [ Cyrillic_shorti          , question                 , slash                    , Cyrillic_SHORTI          ] };
   key <BKSL> { [ Cyrillic_e               , Cyrillic_E               , backslash                , bar                      ] };
   key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };
-  key <CAPS> { [ Down                     , Down                     , Down                     , Down                     ] };
+  key <ESC>  { [ Caps_Lock                , Caps_Lock                , Caps_Lock                , Caps_Lock                ] };
+  key <CAPS> { [ Escape                   , Escape                   , Escape                   , Escape                   ] };
   key <LALT> { [ Super_L                  , Super_L                  , Super_L                  , Super_L                  ] };
   key <LWIN> { [ Alt_L                    , Alt_L                    , Alt_L                    , Alt_L                    ] };
   key <RALT> { [ Control_R                , Control_R                , Control_R                , Control_R                ] };
