@@ -7,7 +7,5 @@ window:
   startup_mode: Maximized
 key_bindings:
   - { key: Back,   mods: Shift,   chars: "\x1bb" } # Alt-b
-  - { key: Delete, mods: None,    chars: "\x1b"  } # (Caps) Escape
-  - { key: Delete, mods: Shift,   chars: "\x1bp" } # (Caps) Alt-p
   - { key: Return, mods: Shift,   chars: "\x1bn" } # Alt-n
   - { key: Space,  mods: Shift,   chars: "\x1bf" } # Alt-f

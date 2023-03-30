@@ -5,27 +5,28 @@ font:
   normal:
     family: Monaco
 key_bindings:
-  - { key: LBracket,  mods: Shift,        chars: "{"   }
-  - { key: RBracket,  mods: Shift,        chars: "}"   }
-  - { key: Backslash, mods: Shift,        chars: "|"   }
-  - { key: Key6,      mods: Shift,        chars: "^"   }
-  - { key: Key7,      mods: Shift,        chars: "&"   }
-  - { key: Comma,     mods: Shift,        chars: "<"   }
-  - { key: Period,    mods: Shift,        chars: ">"   }
-  - { key: LBracket,  mods: Option,       chars: "Ü"   }
-  - { key: LBracket,  mods: Option|Shift, chars: "ü"   }
-  - { key: RBracket,  mods: Option,       chars: "Ä"   }
-  - { key: RBracket,  mods: Option|Shift, chars: "ä"   }
-  - { key: Backslash, mods: Option,       chars: "Ö"   }
-  - { key: Backslash, mods: Option|Shift, chars: "ö"   }
-  - { key: Key6,      mods: Option,       chars: "È"   }
-  - { key: Key6,      mods: Option|Shift, chars: "è"   }
-  - { key: Key7,      mods: Option,       chars: "À"   }
-  - { key: Key7,      mods: Option|Shift, chars: "à"   }
-  - { key: Comma,     mods: Option,       chars: "Ç"   }
-  - { key: Comma,     mods: Option|Shift, chars: "ç"   }
-  - { key: Period,    mods: Option,       chars: "É"   }
-  - { key: Period,    mods: Option|Shift, chars: "é"   }
+  - { key: Escape,    mods: Shift,        chars: "\x1bp" } # (Caps) Alt-p
+  - { key: LBracket,  mods: Shift,        chars: "{"     }
+  - { key: RBracket,  mods: Shift,        chars: "}"     }
+  - { key: Backslash, mods: Shift,        chars: "|"     }
+  - { key: Key6,      mods: Shift,        chars: "^"     }
+  - { key: Key7,      mods: Shift,        chars: "&"     }
+  - { key: Comma,     mods: Shift,        chars: "<"     }
+  - { key: Period,    mods: Shift,        chars: ">"     }
+  - { key: LBracket,  mods: Option,       chars: "Ü"     }
+  - { key: LBracket,  mods: Option|Shift, chars: "ü"     }
+  - { key: RBracket,  mods: Option,       chars: "Ä"     }
+  - { key: RBracket,  mods: Option|Shift, chars: "ä"     }
+  - { key: Backslash, mods: Option,       chars: "Ö"     }
+  - { key: Backslash, mods: Option|Shift, chars: "ö"     }
+  - { key: Key6,      mods: Option,       chars: "È"     }
+  - { key: Key6,      mods: Option|Shift, chars: "è"     }
+  - { key: Key7,      mods: Option,       chars: "À"     }
+  - { key: Key7,      mods: Option|Shift, chars: "à"     }
+  - { key: Comma,     mods: Option,       chars: "Ç"     }
+  - { key: Comma,     mods: Option|Shift, chars: "ç"     }
+  - { key: Period,    mods: Option,       chars: "É"     }
+  - { key: Period,    mods: Option|Shift, chars: "é"     }
   - { key: K, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:
   program: /Users/yerlan/.cargo/bin/nu
