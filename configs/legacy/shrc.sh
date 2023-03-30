@@ -14,6 +14,8 @@ function f {
 }
 
 if [ -e /LOCAL ]; then
+  addToPATH "/LOCAL/apps/clang/bin"
+  addToPATH "/LOCAL/apps/cmake/bin"
   addToPATH "/LOCAL/apps/gcc/bin"
   addToPATH "/LOCAL/apps/git/bin"
 fi
@@ -24,7 +26,7 @@ if [ -e /LOCAL/apps/gcc ]; then
   export LD_RUN_PATH="/LOCAL/apps/gcc/lib64"
   export CC="/LOCAL/apps/gcc/bin/gcc"
   export CXX="/LOCAL/apps/gcc/bin/g++"
-elif [ -e /LOCAL/apps/clang ]
+elif [ -e /LOCAL/apps/clang ]; then
   export CPLUS_INCLUDE_PATH="/LOCAL/apps/clang/include/c++/v1"
   export LD_LIBRARY_PATH="/LOCAL/apps/clang/lib64"
   export LD_RUN_PATH="/LOCAL/apps/clang/lib64"

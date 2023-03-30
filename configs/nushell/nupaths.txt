@@ -13,6 +13,7 @@
 ~/.wasmer/globals/wapm_packages/.bin
 
 # Local
-/LOCAL/apps/git/bin
-/LOCAL/apps/gcc/bin
 /LOCAL/apps/clang/bin
+/LOCAL/apps/cmake/bin
+/LOCAL/apps/gcc/bin
+/LOCAL/apps/git/bin
