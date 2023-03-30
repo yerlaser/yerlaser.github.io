@@ -9,6 +9,20 @@ let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
 let-env WASMER_DIR = $'($env.HOME)/.wasmer'
 let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 
+if ('/LOCAL/apps/gcc' | path exists) {
+  let-env CPLUS_INCLUDE_PATH = '/LOCAL/apps/gcc/include/c++/13.0.0'
+  let-env LD_LIBRARY_PATH = '/LOCAL/apps/gcc/lib64'
+  let-env LD_RUN_PATH = '/LOCAL/apps/gcc/lib64'
+  let-env CC = '/LOCAL/apps/gcc/bin/gcc'
+  let-env CXX = '/LOCAL/apps/gcc/bin/g++'
+} else if ('/LOCAL/apps/clang' | path exists) {
+  let-env CPLUS_INCLUDE_PATH = '/LOCAL/apps/clang/include/c++/v1'
+  let-env LD_LIBRARY_PATH = '/LOCAL/apps/clang/lib64'
+  let-env LD_RUN_PATH = '/LOCAL/apps/clang/lib64'
+  let-env CC = '/LOCAL/apps/clang/bin/clang'
+  let-env CXX = '/LOCAL/apps/clang/bin/clang++'
+}
+
 if $env.THEME == 'Light' {
   let-env GIT_PAGER = 'delta --light'
   if ("~/werkstatt/configs/env.nu" | path exists) {

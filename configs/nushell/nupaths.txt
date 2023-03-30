@@ -11,3 +11,8 @@
 ~/.cargo/bin
 ~/.wasmer/bin
 ~/.wasmer/globals/wapm_packages/.bin
+
+# Local
+/LOCAL/apps/git/bin
+/LOCAL/apps/gcc/bin
+/LOCAL/apps/clang/bin
