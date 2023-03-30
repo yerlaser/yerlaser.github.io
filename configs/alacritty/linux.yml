@@ -1,5 +1,5 @@
 import:
-  - /LOCAL/Published/configs/alacritty/common.yml
+  - ~/Published/configs/alacritty/common.yml
 font:
   size: 15
   normal:
@@ -15,3 +15,6 @@ key_bindings:
   - { key: 43, mods: Shift, chars : "|"   }
 shell:
   program: /home/yerlan/.cargo/bin/nu 
+env:
+  THEME: Dark
+  BAT_THEME: ''
