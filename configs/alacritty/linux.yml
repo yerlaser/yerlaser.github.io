@@ -6,8 +6,8 @@ font:
   normal:
     family: JetBrainsMono
 key_bindings:
-  - { key: 6,  mods: Shift, chars: "^"   }
-  - { key: 7,  mods: Shift, chars: "&"   }
+  - { key: 7,  mods: Shift, chars: "^"   }
+  - { key: 8,  mods: Shift, chars: "&"   }
   - { key: 26, mods: Shift, chars: "{"   }
   - { key: 27, mods: Shift, chars: "}"   }
   - { key: 43, mods: Shift, chars: "|"   }
