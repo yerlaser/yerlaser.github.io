@@ -53,7 +53,7 @@ select = "underline"
 "C" = [ "extend_to_line_end", "change_selection" ]
 "d" = "extend_line_below"
 "D" = [ "extend_to_line_end", "delete_selection" ]
-"E" = "extend_next_long_word_end"
+"E" = "extend_next_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections_space", "u" = "switch_to_lowercase" }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
 "H" = "extend_char_left"
