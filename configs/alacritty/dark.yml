@@ -1,22 +1,3 @@
-import:
-  - ~/Published/configs/alacritty/common.yml
-font:
-  size: 12
-  normal:
-    family: JetBrainsMono
-key_bindings:
-  - { key: 6,  mods: Shift, chars: "^"   }
-  - { key: 7,  mods: Shift, chars: "&"   }
-  - { key: 26, mods: Shift, chars: "{"   }
-  - { key: 27, mods: Shift, chars: "}"   }
-  - { key: 43, mods: Shift, chars: "|"   }
-  - { key: 51, mods: Shift, chars: "<"   }
-  - { key: 52, mods: Shift, chars: ">"   }
-shell:
-  program: /home/yerlan/.cargo/bin/nu 
-env:
-  THEME: Dark
-  BAT_THEME: ''
 colors:
   primary:
     background: "#1E1E2E" # base
