@@ -5,6 +5,16 @@ color-modes = true
 
 [editor.indent-guides]
 render = true
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "separator", "version-control", "separator" ]
 
 [editor.whitespace.render]
 tab = "all"
@@ -23,14 +33,13 @@ select = "underline"
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 
 [keys.normal]
-"A-p" = "ensure_selections_forward" # S-esc
+"A-p" = "command_palette" # S-esc
 "backspace" = "keep_primary_selection"
 "A-b" = "remove_primary_selection" # S-backspace
-"ret" = "collapse_selection"
+# "ret" = "collapse_selection"
 "A-n" = "split_selection_on_newline" # S-ret
-"space" = { "tab" = "buffer_picker", "space" = "file_picker_in_current_directory" }
-"A-f" = "trim_selections" # S-space
-"S-tab" = "flip_selections"
+"A-f" = "file_picker_in_current_directory" # S-space
+"S-tab" = "buffer_picker"
 "tab" = "jump_forward"
 "`" = "jump_backward"
 "~" = "switch_case"
@@ -47,11 +56,11 @@ select = "underline"
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
 "'" = "surround_add"
-"," = { "s" = "keep_selections", "d" = "remove_selections", "u" = "earlier", "r" = "later" }
+"," = "collapse_selection"
 "\\" = "surround_replace"
 "B" = "extend_prev_long_word_start"
 "C" = [ "extend_to_line_end", "change_selection" ]
-"d" = "extend_line_below"
+"d" = "expand_selection"
 "D" = [ "extend_to_line_end", "delete_selection" ]
 "E" = "extend_next_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections_space", "u" = "switch_to_lowercase" }
@@ -66,10 +75,10 @@ select = "underline"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
 "U" = "switch_to_uppercase"
-"v" = { ";" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "m" = "merge_consecutive_selections", "v" = "select_mode" }
+"v" = { "v" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "k" = "keep_selections", "l" = "remove_selections", "o" = "flip_selections", ";" = "ensure_selections_forward", "m" = "merge_consecutive_selections", "n" = "shrink_selection", "space" = "trim_selections" }
 "V" = "extend_to_line_bounds"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection"
 "X" = "delete_selection_noyank"
-"Y" = [ "extend_to_line_bounds", "yank" ]
+"Y" = [ "extend_to_line_end", "yank" ]
 "Z" = "copy_selection_on_next_line"
