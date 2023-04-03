@@ -28,8 +28,8 @@ select = "underline"
 "A-b" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-backspace
 "A-f" = [ ":insert-output printf %s ' '", "move_char_right" ] # S-space
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
-"A-n" = "goto_line_end_newline" # S-ret
-"A-p" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-escape
+"A-n" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ] # S-escape
+"A-p" = "goto_line_end_newline" # S-ret
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 
 [keys.normal]
