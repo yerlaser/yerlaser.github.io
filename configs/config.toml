@@ -32,7 +32,6 @@ select = "underline"
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 "C-t" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-backspace
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
-"A-u" = [ "normal_mode", "move_char_left", "extend_prev_word_start", "switch_to_uppercase", "flip_selections", "move_char_right", "insert_mode" ]
 
 [keys.normal]
 "C-u" = "command_palette" # S-esc
@@ -62,7 +61,6 @@ select = "underline"
 "\\" = "surround_replace"
 "B" = "extend_prev_long_word_start"
 "C" = [ "extend_to_line_end", "change_selection" ]
-# "d" = [ "extend_line_below", "delete_selection" ]
 "d" = "no_op"
 "D" = [ "extend_to_line_end", "delete_selection" ]
 "E" = "extend_next_word_end"
@@ -77,7 +75,7 @@ select = "underline"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
-"U" = "switch_to_uppercase"
+"U" = [ "switch_to_uppercase", "ensure_selections_forward", "collapse_selection", "move_char_right" ]
 "v" = { "v" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "k" = "keep_selections", "l" = "remove_selections", "o" = "flip_selections", ";" = "ensure_selections_forward", "m" = "merge_consecutive_selections", "n" = "shrink_selection", "space" = "trim_selections" }
 "V" = "extend_to_line_bounds"
 "W" = "extend_next_long_word_start"
