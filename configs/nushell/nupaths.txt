@@ -7,6 +7,7 @@
 /usr/local/bin
 
 # Home folder
+~/.local/bin
 ~/.asdf/shims
 ~/.cargo/bin
 ~/.wasmer/bin
