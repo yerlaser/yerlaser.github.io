@@ -23,9 +23,19 @@ let-env config = {
       ]}
     }
     {
+      name: completion_menu
+      modifier: None
+      keycode: Space
+      mode: [vi_normal]
+      event: {until: [
+        {send: HistoryHintWordComplete}
+        {edit: MoveWordRight}
+      ]}
+    }
+    {
       name: insert_space
-      modifier: Control
-      keycode: Char_K
+      modifier: None
+      keycode: PageUp
       mode: [emacs vi_insert]
       event: [
         {send: HistoryHintWordComplete}

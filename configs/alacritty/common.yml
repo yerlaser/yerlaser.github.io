@@ -6,7 +6,7 @@ window:
   decorations: none
   startup_mode: Maximized
 key_bindings:
-  - { key: Escape,    mods: Shift,        chars: "\x15" } # (Caps) Ctrl-u
-  - { key: Back,   mods: Shift,   chars: "\x10" } # Ctrl-p
-  - { key: Return, mods: Shift,   chars: "\x0e" } # Ctrl-n
-  - { key: Space,  mods: Shift,   chars: "\x0b" } # Ctrl-k
+  - { key: Escape,    mods: Shift,        chars: "\x1b[F" } # (Caps) End
+  - { key: Back,   mods: Shift,   chars: "\x1b[H" } # Home
+  - { key: Return, mods: Shift,   chars: "\x1b[6~" } # PageDown
+  - { key: Space,  mods: Shift,   chars: "\x1b[5~" } # PageUp

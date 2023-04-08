@@ -25,21 +25,19 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
-"C-u" = "move_char_right" # S-escape
-"C-p" = "goto_line_end_newline" # S-backspace
-"C-n" = "insert_newline" # S-ret
-"C-k" = [ ":insert-output printf %s ' '", "move_char_right" ] # S-space
+"pagedown" = "insert_newline" # S-ret
+"pageup" = [ ":insert-output printf %s ' '", "move_char_right" ] # S-space
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
-"C-t" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ] # S-backspace
+"C-t" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ]
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
 
 [keys.normal]
-"C-u" = "command_palette" # S-esc
+"end" = "command_palette" # S-esc
 "backspace" = "keep_primary_selection"
-"C-p" = "remove_primary_selection" # S-backspace
+"home" = "remove_primary_selection" # S-backspace
 "ret" = [ "split_selection_on_newline", "extend_to_line_bounds" ]
-"C-n" = "add_newline_above" # S-ret
-"C-k" = "file_picker_in_current_directory" # S-space
+"pagedown" = "add_newline_above" # S-ret
+"pageup" = "file_picker_in_current_directory" # S-space
 "S-tab" = "buffer_picker"
 "tab" = "jump_forward"
 "`" = "jump_backward"
@@ -61,7 +59,7 @@ select = "underline"
 "\\" = "surround_replace"
 "B" = "extend_prev_long_word_start"
 "C" = [ "extend_to_line_end", "change_selection" ]
-"d" = "no_op"
+"d" = "expand_selection"
 "D" = [ "extend_to_line_end", "delete_selection" ]
 "E" = "extend_next_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections_space", "u" = "switch_to_lowercase" }
