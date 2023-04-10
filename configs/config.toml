@@ -14,7 +14,7 @@ enable = true
 display-inlay-hints = true
 
 [editor.statusline]
-right = [ "version-control", "spacer", "separator", "diagnostics", "selections", "position", "file-encoding"]
+center = [ "version-control", "spacer", "total-line-numbers", "spacer", "file-type" ]
 
 [editor.whitespace.render]
 tab = "all"

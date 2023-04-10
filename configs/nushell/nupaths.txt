@@ -18,3 +18,5 @@
 /LOCAL/apps/cmake/bin
 /LOCAL/apps/gcc/bin
 /LOCAL/apps/git/bin
+/LOCAL/apps/zig
+/LOCAL/apps/nvim/bin

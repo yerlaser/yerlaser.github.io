@@ -14,6 +14,7 @@ key_bindings:
   - { key: 51, mods: Shift, chars: "<"     }
   - { key: 52, mods: Shift, chars: ">"     }
   - { key: U,  mods: Alt,   chars: "\x1bu" }
+  - { key: K,  mods: Super, command: {program: "/usr/local/bin/alacritty", args: ["--config-file", "/home/yerlan/Published/configs/alacritty/linux.yml"]}   }
 shell:
   program: /home/yerlan/.cargo/bin/nu 
 env:
