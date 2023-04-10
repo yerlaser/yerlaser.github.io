@@ -66,16 +66,42 @@ export def open_all (
   let inp = if ($inp | is-empty) {
     fd '' $path | ls_lines
   } else {$inp}
-  let $inp = ($inp | get name)
+  if ($inp | is-empty) {
+    print -e 'Nothing found'
+    return
+  }
+  let $inp = ($inp | where type == file | get name)
   if ($inp | length) > 13 {
     print -e 'Too many files'
     return
   } else {
     if $command == 'vi' {
-      vi $inp
+      ^hx -c $'/tmp/config($env.THEME).toml'  $inp
     } else {
       ^$command $inp
     }
+  }
+}
+
+# Open all files with default editor
+export def vi (
+  path = '' # Search path
+  pattern = '' # Search pattern
+) {
+  if ($path | is-empty) {
+    ^hx -c $'/tmp/config($env.THEME).toml'
+  } else if ($path | path type) == file {
+    ^hx -c $'/tmp/config($env.THEME).toml' $path
+  } else {
+    let files = (fd -t f $pattern $path | lines)
+    if ($files | is-empty) {
+      print -e 'Nothing found'
+      return
+    } else if ($files | length) > 13 {
+      print -e 'Too many files'
+      return
+    }
+    ^hx -c $'/tmp/config($env.THEME).toml' $files
   }
 }
 
