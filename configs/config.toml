@@ -25,6 +25,7 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
+"home" = "move_char_right" # S-backspace
 "pagedown" = "insert_newline" # S-ret
 "pageup" = [ ":insert-output printf %s ' '", "move_char_right" ] # S-space
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
@@ -32,16 +33,17 @@ select = "underline"
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
 
 [keys.normal]
-"end" = "command_palette" # S-esc
+"end" = "symbol_picker" # S-esc
 "backspace" = "keep_primary_selection"
 "home" = "remove_primary_selection" # S-backspace
 "ret" = [ "split_selection_on_newline", "extend_to_line_bounds" ]
-"pagedown" = "add_newline_above" # S-ret
-"pageup" = "file_picker_in_current_directory" # S-space
-"S-tab" = "buffer_picker"
-"tab" = "jump_forward"
-"`" = "jump_backward"
-"~" = "switch_case"
+# "pagedown" = "" # S-ret
+"space" = [ "collapse_selection", "hover" ]
+# "pageup" = "" # S-space
+"tab" = "buffer_picker"
+"S-tab" = "file_picker_in_current_directory"
+"`" = "jumplist_picker"
+"~" = { "~" = "switch_case", "`" = "switch_to_lowercase" }
 "@" = "replay_macro"
 "#" = "search_selection"
 "$" = "extend_to_line_end"
@@ -55,14 +57,14 @@ select = "underline"
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
 "'" = "surround_add"
-"," = "collapse_selection"
+"," = { "," = "command_palette", "/" = "global_search", "a" = "code_action", "f" = "select_references_to_symbol_under_cursor", "j" = "join_selections_space", "r" = "rename_symbol" }
 "\\" = "surround_replace"
 "B" = "extend_prev_long_word_start"
 "C" = [ "extend_to_line_end", "change_selection" ]
 "d" = "expand_selection"
 "D" = [ "extend_to_line_end", "delete_selection" ]
 "E" = "extend_next_word_end"
-"g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ], "j" = "join_selections_space", "u" = "switch_to_lowercase" }
+"g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ] }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
 "H" = "extend_char_left"
 "J" = [ "extend_line_down", "extend_to_line_bounds" ]
