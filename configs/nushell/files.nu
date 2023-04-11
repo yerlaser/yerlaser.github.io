@@ -84,8 +84,8 @@ export def open_all (
 }
 
 # Open all files with default editor
-export def vi (
-  path = '' # Search path
+export def v (
+  path = '.' # Search path
   pattern = '' # Search pattern
 ) {
   if ($path | is-empty) {

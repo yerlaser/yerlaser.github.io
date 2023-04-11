@@ -59,11 +59,13 @@ select = "underline"
 "'" = "surround_add"
 "," = { "," = "command_palette", "/" = "global_search", "a" = "code_action", "f" = "select_references_to_symbol_under_cursor", "j" = "join_selections_space", "r" = "rename_symbol" }
 "\\" = "surround_replace"
+"b" = "extend_prev_word_start"
 "B" = "extend_prev_long_word_start"
 "C" = [ "extend_to_line_end", "change_selection" ]
 "d" = "expand_selection"
 "D" = [ "extend_to_line_end", "delete_selection" ]
-"E" = "extend_next_word_end"
+"e" = "extend_next_word_end"
+"E" = "extend_next_long_word_end"
 "g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ] }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
 "H" = "extend_char_left"
@@ -78,6 +80,7 @@ select = "underline"
 "U" = [ "switch_to_uppercase", "ensure_selections_forward", "collapse_selection", "move_char_right" ]
 "v" = { "v" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "k" = "keep_selections", "l" = "remove_selections", "o" = "flip_selections", ";" = "ensure_selections_forward", "m" = "merge_consecutive_selections", "n" = "shrink_selection", "space" = "trim_selections" }
 "V" = "extend_to_line_bounds"
+"w" = "extend_next_word_start"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection"
 "X" = "delete_selection_noyank"
