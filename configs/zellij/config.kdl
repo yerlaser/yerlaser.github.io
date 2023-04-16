@@ -2,15 +2,11 @@ keybinds {
   pane {
     bind "Ctrl w" { SwitchFocus; }
   }
-  shared_except "pane" "locked" {
-    bind "Ctrl w" { SwitchToMode "Pane"; }
-  }
   shared_except "locked" {
-    bind "Alt n" { NewPane "Down"; }
-    bind "Alt p" { NewPane "Right"; }
+    bind "Ctrl c" { Quit; }
+    bind "Ctrl p" { SwitchToMode "Resize"; }
     bind "Ctrl q" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
-    bind "Alt b" { SwitchToMode "Resize"; }
-    bind "Ctrl ^" { Quit; }
+    bind "Ctrl w" { SwitchToMode "Pane"; }
   }
 }
 themes {

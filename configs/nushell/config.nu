@@ -33,16 +33,6 @@ let-env config = {
       ]}
     }
     {
-      name: insert_space
-      modifier: None
-      keycode: PageUp
-      mode: [emacs vi_insert]
-      event: [
-        {send: HistoryHintWordComplete}
-        {edit: InsertChar value: ' '}
-      ]
-    }
-    {
       name: capitalize_word
       modifier: Shift
       keycode: Char_U
@@ -51,8 +41,8 @@ let-env config = {
     }
     {
       name: edit_command
-      modifier: Control
-      keycode: Char_E
+      modifier: None
+      keycode: End
       mode: [vi_normal]
       event: {send: OpenEditor}
     }

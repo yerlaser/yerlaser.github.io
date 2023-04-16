@@ -8,5 +8,3 @@ window:
 key_bindings:
   - { key: Escape,    mods: Shift,        chars: "\x1b[F" } # (Caps) End
   - { key: Back,   mods: Shift,   chars: "\x1b[H" } # Home
-  - { key: Return, mods: Shift,   chars: "\x1b[6~" } # PageDown
-  - { key: Space,  mods: Shift,   chars: "\x1b[5~" } # PageUp

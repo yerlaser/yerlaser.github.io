@@ -45,10 +45,10 @@ xkb_symbols "DeQwerty" {
   key <AB05> { [ b                        , B                        , ediaeresis               , Ediaeresis               ] };
   key <AB06> { [ n                        , N                        , ntilde                   , Ntilde                   ] };
   key <AB07> { [ m                        , M                        , odiaeresis               , Odiaeresis               ] };
-  key <AB08> { [ comma                    , less                     , idiaeresis               , Idiaeresis               ] };
-  key <AB09> { [ period                   , greater                  , oe                       , OE                       ] };
+  key <AB08> { [ comma                    , eacute                   , Eacute                   , less                     ] };
+  key <AB09> { [ period                   , odiaeresis               , Odiaeresis               , greater                  ] };
   key <AB10> { [ slash                    , question                 ] };
-  key <BKSL> { [ backslash                , odiaeresis               , Odiaeresis               , bar                      ] };
+  key <BKSL> { [ backslash                , ccedilla                 , Ccedilla                 , bar                      ] };
   key <LSGT> { [ EuroSign                 , cent                     , sterling                 , yen                      ] };
   key <ESC>  { [ Caps_Lock                , Caps_Lock                , Caps_Lock                , Caps_Lock                ] };
   key <CAPS> { [ Escape                   , Escape                   , Escape                   , Escape                   ] };

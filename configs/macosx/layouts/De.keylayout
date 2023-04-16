@@ -179,12 +179,12 @@
             <key code="39" output="&#x0022;"/> <!--'-->
             <key code="40" output="K"/>
             <key code="41" output=":"/>
-            <key code="42" output="ö"/> <!--Backslash-->
-            <key code="43" output="ç"/> <!--Less than-->
+            <key code="42" output="ç"/> <!--Backslash-->
+            <key code="43" output="é"/> <!--Less than-->
             <key code="44" output="?"/>
             <key code="45" output="N"/>
             <key code="46" output="M"/>
-            <key code="47" output="é"/> <!--Greater than-->
+            <key code="47" output="ö"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="~"/> <!--`-->
@@ -285,12 +285,12 @@
             <key code="39" output="'"/> <!--'-->
             <key code="40" output="í"/>
             <key code="41" output=";"/>
-            <key code="42" output="Ö"/> <!--Backslash-->
-            <key code="43" output="Ç"/>
+            <key code="42" output="Ç"/> <!--Backslash-->
+            <key code="43" output="É"/> <!--Less than-->
             <key code="44" output="/"/> <!--/-->
             <key code="45" output="ñ"/>
             <key code="46" output="ö"/>
-            <key code="47" output="É"/>
+            <key code="47" output="Ö"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="`"/> <!--`-->
