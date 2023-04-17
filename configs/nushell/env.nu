@@ -52,7 +52,7 @@ def helix_configs () {
     ((ls /tmp/configLight.toml | get modified) < (ls ~/Published/configs/config.toml | get modified))
   ) {
     cp ~/Published/configs/config.toml /tmp/configLight.toml
-    sed -i '' -E 's/mocha/latte/g' /tmp/configLight.toml
+    sed -i'' -Ee 's/mocha/latte/g' /tmp/configLight.toml
   }
 
   if not ('/tmp/configDark.toml' | path exists) {
