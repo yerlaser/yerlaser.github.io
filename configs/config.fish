@@ -2,6 +2,7 @@ alias ... 'cd ../../'
 alias f 'fd -tf -tl'
 alias vi "hx -c /tmp/config$THEME.toml"
 alias year '^cal -N -A 10 -B 1'
+alias tree 'broot --conf ~/Published/configs/broot/$THEME.hjson -c :pt'
 
 fish_vi_key_bindings
 set fish_cursor_default block
@@ -21,8 +22,10 @@ set LC_TYPE 'en_US.UTF-8'
 set VISUAL "hx -c /tmp/config$THEME.toml"
 
 if test $THEME = 'Light'
+  alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-latte"
   set GIT_PAGER 'delta --light'
 else
+  alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-mocha"
   set GIT_PAGER 'delta'
 end
 

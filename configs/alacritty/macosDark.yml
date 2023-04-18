@@ -5,4 +5,7 @@ import:
   - ~/Published/configs/alacritty/dark.yml
   - ~/Published/configs/alacritty/macos.yml
 shell:
-  program: /opt/homebrew/bin/fish
+  program: /Users/yerlan/.cargo/bin/nu
+  args:
+    - --config ~/Published/configs/nushell/config.nu
+    - --env-config ~/Published/configs/nushell/env.nu

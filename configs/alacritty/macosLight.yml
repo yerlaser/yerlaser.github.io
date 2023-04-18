@@ -5,7 +5,4 @@ import:
   - ~/Published/configs/alacritty/light.yml
   - ~/Published/configs/alacritty/macos.yml
 shell:
-  program: /Users/yerlan/.cargo/bin/nu
-  args:
-    - --config ~/Published/configs/nushell/config.nu
-    - --env-config ~/Published/configs/nushell/env.nu
+  program: /opt/homebrew/bin/fish
