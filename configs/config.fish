@@ -15,32 +15,32 @@ set fish_vi_force_cursor true
 bind l forward-single-char
 bind \e\[F edit_command_buffer
 
-set DELTA_FEATURES '+side-by-side'
-set EDITOR "hx -c /tmp/config$THEME.toml"
-set LC_ALL 'en_US.UTF-8'
-set LC_TYPE 'en_US.UTF-8'
-set VISUAL "hx -c /tmp/config$THEME.toml"
+set -x DELTA_FEATURES '+side-by-side'
+set -x EDITOR "hx -c /tmp/config$THEME.toml"
+set -x LC_ALL 'en_US.UTF-8'
+set -x LC_TYPE 'en_US.UTF-8'
+set -x VISUAL "hx -c /tmp/config$THEME.toml"
 
 if test $THEME = 'Light'
   alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-latte"
-  set GIT_PAGER 'delta --light'
+  set -x GIT_PAGER 'delta --light'
 else
   alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-mocha"
-  set GIT_PAGER 'delta'
+  set -x GIT_PAGER 'delta'
 end
 
 if test -d '/LOCAL/apps/gcc'
-  set CPLUS_INCLUDE_PATH '/LOCAL/apps/gcc/include/c++/13.0.0'
-  set LD_LIBRARY_PATH '/LOCAL/apps/gcc/lib64'
-  set LD_RUN_PATH '/LOCAL/apps/gcc/lib64'
-  set CC '/LOCAL/apps/gcc/bin/gcc'
-  set CXX '/LOCAL/apps/gcc/bin/g++'
+  set -x CPLUS_INCLUDE_PATH '/LOCAL/apps/gcc/include/c++/13.0.0'
+  set -x LD_LIBRARY_PATH '/LOCAL/apps/gcc/lib64'
+  set -x LD_RUN_PATH '/LOCAL/apps/gcc/lib64'
+  set -x CC '/LOCAL/apps/gcc/bin/gcc'
+  set -x CXX '/LOCAL/apps/gcc/bin/g++'
 else if test -d '/LOCAL/apps/clang'
-  set CPLUS_INCLUDE_PATH '/LOCAL/apps/clang/include/c++/v1'
-  set LD_LIBRARY_PATH '/LOCAL/apps/clang/lib64'
-  set LD_RUN_PATH '/LOCAL/apps/clang/lib64'
-  set CC '/LOCAL/apps/clang/bin/clang'
-  set CXX '/LOCAL/apps/clang/bin/clang++'
+  set -x CPLUS_INCLUDE_PATH '/LOCAL/apps/clang/include/c++/v1'
+  set -x LD_LIBRARY_PATH '/LOCAL/apps/clang/lib64'
+  set -x LD_RUN_PATH '/LOCAL/apps/clang/lib64'
+  set -x CC '/LOCAL/apps/clang/bin/clang'
+  set -x CXX '/LOCAL/apps/clang/bin/clang++'
 end
 
 if test -e /tmp/configLight.toml; and test /tmp/configLight.toml -ot ~/Published/configs/config.toml
