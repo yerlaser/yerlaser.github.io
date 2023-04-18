@@ -21,7 +21,7 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x LC_TYPE 'en_US.UTF-8'
 set -x VISUAL "hx -c /tmp/config$THEME.toml"
 
-if test $THEME = 'Light'
+if test "$THEME" = 'Light'
   alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-latte"
   set -x GIT_PAGER 'delta --light'
 else
@@ -29,13 +29,13 @@ else
   set -x GIT_PAGER 'delta'
 end
 
-if test -d '/LOCAL/apps/gcc'
+if test -d /LOCAL/apps/gcc
   set -x CPLUS_INCLUDE_PATH '/LOCAL/apps/gcc/include/c++/13.0.0'
   set -x LD_LIBRARY_PATH '/LOCAL/apps/gcc/lib64'
   set -x LD_RUN_PATH '/LOCAL/apps/gcc/lib64'
   set -x CC '/LOCAL/apps/gcc/bin/gcc'
   set -x CXX '/LOCAL/apps/gcc/bin/g++'
-else if test -d '/LOCAL/apps/clang'
+else if test -d /LOCAL/apps/clang
   set -x CPLUS_INCLUDE_PATH '/LOCAL/apps/clang/include/c++/v1'
   set -x LD_LIBRARY_PATH '/LOCAL/apps/clang/lib64'
   set -x LD_RUN_PATH '/LOCAL/apps/clang/lib64'
@@ -48,7 +48,7 @@ if test -e /tmp/configLight.toml; and test /tmp/configLight.toml -ot ~/Published
   sed -i'' -Ee 's/mocha/latte/g' /tmp/configLight.toml
 end
 
-if not test -e '/tmp/configDark.toml'
+if not test -e /tmp/configDark.toml
   ln -s ~/Published/configs/config.toml /tmp/configDark.toml
 end
 
