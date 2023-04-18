@@ -7,8 +7,6 @@ let-env EDITOR = $'hx -c /tmp/config($env.THEME).toml'
 let-env LC_ALL = 'en_US.UTF-8'
 let-env LC_TYPE = 'en_US.UTF-8'
 let-env VISUAL = $'hx -c /tmp/config($env.THEME).toml'
-let-env WASMER_DIR = $'($env.HOME)/.wasmer'
-let-env WASMER_CACHE_DIR = $'($env.WASMER_DIR)/cache'
 
 if ('/LOCAL/apps/gcc' | path exists) {
   let-env CPLUS_INCLUDE_PATH = '/LOCAL/apps/gcc/include/c++/13.0.0'
@@ -33,7 +31,7 @@ if $env.THEME == 'Light' {
   let-env GIT_PAGER = 'delta'
 }
 
-let nupaths = ([$env.HOME .config nushell nupaths.txt] | path join)
+let nupaths = ([$env.HOME Published configs paths.txt] | path join)
 let-env PATH = if ($nupaths | path exists) {
   $env.PATH | split row (char esep) | prepend (open --raw $nupaths | lines | where {|l| ($l !~ '^\s*#.*') and ($l !~ '^\s*$')} | path expand | filter {|p| path exists}) | uniq
 } else {

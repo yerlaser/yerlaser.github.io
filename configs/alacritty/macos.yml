@@ -28,8 +28,3 @@ key_bindings:
   - { key: Period,    mods: Option|Shift, chars: "ö"     }
   - { key: K, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
   - { key: U,         mods: Command,      chars: "\x1bu" }
-shell:
-  program: /Users/yerlan/.cargo/bin/nu
-  args:
-    - --config ~/Published/configs/nushell/config.nu
-    - --env-config ~/Published/configs/nushell/env.nu
