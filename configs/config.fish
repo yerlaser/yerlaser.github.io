@@ -21,12 +21,26 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x LC_TYPE 'en_US.UTF-8'
 set -x VISUAL "hx -c /tmp/config$THEME.toml"
 
-if test "$THEME" = 'Light'
-  alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-latte"
-  set -x GIT_PAGER 'delta --light'
-else
-  alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-mocha"
-  set -x GIT_PAGER 'delta'
+function nslookup
+  switch (uname)
+    case Darwin
+      dscacheutil -q host -a name $argv
+    case Linux
+      systemd-resolve $hostname
+    case '*'
+      command nslookup $hostname
+  end
+end
+
+function get_certificate_info
+  argparse --min-args 1 --max-args 1 'p/port=!_validate_int --min 1 --max 65535' -- $argv
+  or return
+  if set -q _flag_port
+    set port $_flag_port
+  else
+    set port 443
+  end
+  echo | openssl s_client -showcerts -servername $argv -connect "$argv:$port" | openssl x509 -inform pem -noout -text
 end
 
 if test -d /LOCAL/apps/gcc
@@ -60,10 +74,6 @@ for p in $(cat ~/Published/configs/paths.txt | grep -v '^\s*#' | grep -v '^$')
   fish_add_path -m $p
 end
 
-if test -f ~/werkstatt/configs/env.fish
-  source ~/werkstatt/configs/env.fish
-end
-
 function fish_mode_prompt; end
 
 function fish_prompt
@@ -77,3 +87,14 @@ function fish_prompt
 end
 
 set fish_greeting
+
+if test "$THEME" = 'Light'
+  alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-latte"
+  set -x GIT_PAGER 'delta --light'
+  if test -f ~/werkstatt/configs/env.fish
+    source ~/werkstatt/configs/env.fish
+  end
+else
+  alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-mocha"
+  set -x GIT_PAGER 'delta'
+end
