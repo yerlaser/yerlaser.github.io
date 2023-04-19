@@ -21,28 +21,6 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x LC_TYPE 'en_US.UTF-8'
 set -x VISUAL "hx -c /tmp/config$THEME.toml"
 
-function nslookup
-  switch (uname)
-    case Darwin
-      dscacheutil -q host -a name $argv
-    case Linux
-      systemd-resolve $hostname
-    case '*'
-      command nslookup $hostname
-  end
-end
-
-function get_certificate_info
-  argparse --min-args 1 --max-args 1 'p/port=!_validate_int --min 1 --max 65535' -- $argv
-  or return
-  if set -q _flag_port
-    set port $_flag_port
-  else
-    set port 443
-  end
-  echo | openssl s_client -showcerts -servername $argv -connect "$argv:$port" | openssl x509 -inform pem -noout -text
-end
-
 if test -d /LOCAL/apps/gcc
   set -x CPLUS_INCLUDE_PATH '/LOCAL/apps/gcc/include/c++/13.0.0'
   set -x LD_LIBRARY_PATH '/LOCAL/apps/gcc/lib64'
@@ -91,6 +69,7 @@ function fish_prompt
 end
 
 set fish_greeting
+source ~/Published/configs/fish/utils.fish
 
 if test "$THEME" = 'Light'
   alias zellij "zellij --config ~/Published/configs/zellij/config.kdl options --theme catppuccin-latte"
