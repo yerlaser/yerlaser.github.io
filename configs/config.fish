@@ -76,6 +76,10 @@ end
 
 function fish_mode_prompt; end
 
+function fish_right_prompt
+     printf '%s' (fish_git_prompt)
+end
+
 function fish_prompt
   if test "$status" -ne 0
     set_color red
