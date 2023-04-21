@@ -7,13 +7,14 @@
 /usr/local/bin
 
 # Home folder
+~/.cargo/bin
 ~/.local/bin
 ~/.asdf/shims
-~/.cargo/bin
 ~/.wasmer/bin
 ~/.wasmer/globals/wapm_packages/.bin
 
 # Local
+/LOCAL/apps/cargo/bin
 /LOCAL/apps/clang/bin
 /LOCAL/apps/cmake/bin
 /LOCAL/apps/gcc/bin
