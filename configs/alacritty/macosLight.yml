@@ -4,5 +4,3 @@ env:
 import:
   - ~/Published/configs/alacritty/light.yml
   - ~/Published/configs/alacritty/macos.yml
-shell:
-  program: /opt/homebrew/bin/fish
