@@ -159,15 +159,15 @@
             <key code="19" output="@"/>
             <key code="20" output="#"/>
             <key code="21" output="$"/>
-            <key code="22" output="è"/>
+            <key code="22" output="^"/>
             <key code="23" output="%"/>
             <key code="24" output="+"/>
             <key code="25" output="("/>
-            <key code="26" output="à"/> <!--ampersand-->
+            <key code="26" output="&#x0026;"/> <!--ampersand-->
             <key code="27" output="_"/>
             <key code="28" output="*"/>
             <key code="29" output=")"/>
-            <key code="30" output="ä"/> <!--]-->
+            <key code="30" output="ß"/> <!--]-->
             <key code="31" output="O"/>
             <key code="32" output="U"/>
             <key code="33" output="ü"/> <!--[-->
@@ -179,8 +179,8 @@
             <key code="39" output="&#x0022;"/> <!--'-->
             <key code="40" output="K"/>
             <key code="41" output=":"/>
-            <key code="42" output="ç"/> <!--Backslash-->
-            <key code="43" output="é"/> <!--Less than-->
+            <key code="42" output="é"/> <!--Backslash-->
+            <key code="43" output="ä"/> <!--Less than-->
             <key code="44" output="?"/>
             <key code="45" output="N"/>
             <key code="46" output="M"/>
@@ -273,7 +273,7 @@
             <key code="27" output="-"/>
             <key code="28" output="ì"/>
             <key code="29" output="0"/>
-            <key code="30" output="Ä"/> <!--]-->
+            <key code="30" output="ẞ"/> <!--]-->
             <key code="31" output="ô"/>
             <key code="32" output="û"/>
             <key code="33" output="Ü"/> <!--[-->
@@ -285,8 +285,8 @@
             <key code="39" output="'"/> <!--'-->
             <key code="40" output="í"/>
             <key code="41" output=";"/>
-            <key code="42" output="Ç"/> <!--Backslash-->
-            <key code="43" output="É"/> <!--Less than-->
+            <key code="42" output="É"/> <!--Backslash-->
+            <key code="43" output="Ä"/> <!--Less than-->
             <key code="44" output="/"/> <!--/-->
             <key code="45" output="ñ"/>
             <key code="46" output="ö"/>
