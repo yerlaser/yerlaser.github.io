@@ -1,17 +1,3 @@
-# Find files and optionally open them with editor
-export def-env f (
-  --open (-o): bool # Open files
-  folder: string = '.' # Folder to list
-  filter: string = '' # Filter or addtional command
-) {
-  let files = (fd -tl -tf $filter $folder)
-  if $open {
-    ^hx -c $'/tmp/config($env.THEME).toml' ($files | lines)
-  } else {
-    $files
-  }
-}
-
 # Open a shell for each folder
 export def-env pushd_all () {
   for p in (ls -f | where type == dir | get name) {enter $p}; g 0; g

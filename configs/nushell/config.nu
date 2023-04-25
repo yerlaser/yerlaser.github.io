@@ -1,5 +1,5 @@
 let-env config = {
-  buffer_editor: $'($env.HOME)/.cargo/bin/hx'
+  # buffer_editor: $'($env.HOME)/.cargo/bin/hx'
   cd: {
     abbreviations: true
   }
@@ -23,7 +23,30 @@ let-env config = {
       ]}
     }
     {
-      name: completion_menu
+      name: open_with_editor
+      modifier: Control_Shift
+      keycode: Home
+      mode: [emacs vi_insert]
+      event: [
+        {send: PreviousHistory}
+        {edit: InsertString value: ' | lines)'}
+        {edit: MoveToLineStart}
+        {edit: InsertString value: 'vi ('}
+        {edit: MoveToLineEnd}
+      ]
+    }
+    {
+      name: complete_line
+      modifier: Control_Shift
+      keycode: End
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: HistoryHintComplete}
+        {edit: MoveToLineEnd}
+      ]}
+    }
+    {
+      name: complete_word
       modifier: None
       keycode: Space
       mode: [vi_normal]
@@ -41,7 +64,7 @@ let-env config = {
     }
     {
       name: edit_command
-      modifier: None
+      modifier: Control_Shift
       keycode: End
       mode: [vi_normal]
       event: {send: OpenEditor}
@@ -143,3 +166,5 @@ if $env.THEME == 'Light' {
     file_format: "sqlite"
   })
 }
+
+source ~/.config/nushell/zoxide.nu
