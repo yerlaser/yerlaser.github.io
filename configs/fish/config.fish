@@ -13,7 +13,7 @@ set fish_cursor_visual block
 set fish_vi_force_cursor true
 
 bind l forward-single-char
-bind \e\[F edit_command_buffer
+bind \e\[1;6F edit_command_buffer
 
 set -x DELTA_FEATURES '+side-by-side'
 set -x EDITOR "hx -c /tmp/config$THEME.toml"

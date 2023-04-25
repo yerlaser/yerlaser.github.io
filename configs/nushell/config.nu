@@ -1,5 +1,5 @@
 let-env config = {
-  # buffer_editor: $'($env.HOME)/.cargo/bin/hx'
+  buffer_editor: $'($env.HOME)/.cargo/bin/hx -c /tmp/config($env.THEME).toml'
   cd: {
     abbreviations: true
   }
