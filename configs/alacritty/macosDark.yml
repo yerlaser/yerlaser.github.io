@@ -1,6 +1,7 @@
 env:
   THEME: Dark
   BAT_THEME: ''
+  _ZO_DATA_DIR: /tmp/zoxideDark
 import:
   - ~/Published/configs/alacritty/dark.yml
   - ~/Published/configs/alacritty/macos.yml

@@ -1,6 +1,7 @@
 env:
   THEME: Light
   BAT_THEME: GitHub
+  _ZO_DATA_DIR: /tmp/zoxideLight
 import:
   - ~/Published/configs/alacritty/light.yml
   - ~/Published/configs/alacritty/macos.yml
