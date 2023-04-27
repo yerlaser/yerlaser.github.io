@@ -6,17 +6,18 @@ font:
   normal:
     family: JetBrainsMono
 key_bindings:
-  - { key: 7,  mods: Shift, chars: "^"     }
-  - { key: 8,  mods: Shift, chars: "&"     }
   - { key: 26, mods: Shift, chars: "{"     }
   - { key: 27, mods: Shift, chars: "}"     }
   - { key: 43, mods: Shift, chars: "|"     }
   - { key: 51, mods: Shift, chars: "<"     }
   - { key: 52, mods: Shift, chars: ">"     }
-  - { key: U,  mods: Alt,   chars: "\x1bu" }
-  - { key: K,  mods: Super, command: {program: "/usr/local/bin/alacritty", args: ["--config-file", "/home/yerlan/Published/configs/alacritty/linux.yml"]}   }
+  - { key: U,  mods: Super, chars: "\x1bu" }
 shell:
   program: /home/yerlan/.cargo/bin/nu 
+  args:
+    - --config ~/Published/configs/nushell/config.nu
+    - --env-config ~/Published/configs/nushell/env.nu
 env:
   THEME: Dark
   BAT_THEME: ''
+  _ZO_DATA_DIR: /tmp/zoxideDark

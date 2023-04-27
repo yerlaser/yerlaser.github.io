@@ -1,5 +1,5 @@
 alias ... 'cd ../../'
-alias f 'fd -tf -tl'
+alias f 'fd -tf -tl --search-path'
 alias vi "hx -c /tmp/config$THEME.toml"
 alias year '^cal -N -A 10 -B 1'
 alias tree 'broot --conf ~/Published/configs/broot/$THEME.hjson -c :pt'
@@ -13,7 +13,10 @@ set fish_cursor_visual block
 set fish_vi_force_cursor true
 
 bind l forward-single-char
-bind \e\[1;6F edit_command_buffer
+bind \e\[1\;6F edit_command_buffer
+bind -M insert \e\[1\;6F end-of-line
+bind -M insert \e\[1\;6H "commandline -f up_or_search; commandline -i ')'; commandline -f beginning-of-line"
+# bind -M insert \e\[1\;6H history-prefix-search-backward ')' start-of-line '(' start-of-line
 
 set -x DELTA_FEATURES '+side-by-side'
 set -x EDITOR "hx -c /tmp/config$THEME.toml"

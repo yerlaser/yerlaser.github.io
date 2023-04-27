@@ -8,8 +8,6 @@ key_bindings:
   - { key: LBracket,  mods: Shift,        chars: "{"     }
   - { key: RBracket,  mods: Shift,        chars: "}"     }
   - { key: Backslash, mods: Shift,        chars: "|"     }
-  - { key: Key6,      mods: Shift,        chars: "^"     }
-  - { key: Key7,      mods: Shift,        chars: "&"     }
   - { key: Comma,     mods: Shift,        chars: "<"     }
   - { key: Period,    mods: Shift,        chars: ">"     }
   - { key: LBracket,  mods: Option,       chars: "Ü"     }
@@ -22,7 +20,7 @@ key_bindings:
   - { key: Comma,     mods: Option|Shift, chars: "ä"     }
   - { key: Period,    mods: Option,       chars: "Ö"     }
   - { key: Period,    mods: Option|Shift, chars: "ö"     }
-  - { key: K, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
+  - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
   - { key: U,         mods: Command,      chars: "\x1bu" }
 shell:
   program: /Users/yerlan/.cargo/bin/nu

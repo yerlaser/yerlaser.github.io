@@ -21,3 +21,4 @@
 /LOCAL/apps/git/bin
 /LOCAL/apps/zig
 /LOCAL/apps/nvim/bin
+/LOCAL/apps/vis/bin
