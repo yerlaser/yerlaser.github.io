@@ -31,8 +31,8 @@ let-env config = {
         {send: PreviousHistory}
         {edit: InsertString value: ' | lines)'}
         {edit: MoveToLineStart}
-        {edit: InsertString value: 'vi ('}
-        {edit: MoveToLineEnd}
+        {edit: InsertString value: ' ('}
+        {edit: MoveToLineStart}
       ]
     }
     {
