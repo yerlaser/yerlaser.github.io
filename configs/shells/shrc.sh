@@ -1,43 +1,39 @@
 function addToPATH {
-  case ":$PATH:" in
-    *":$1:"*) :;;
-    *) PATH="$1:$PATH";;
-  esac
+  if [[ -e $1 ]]; then
+    case ":$PATH:" in
+      *":$1:"*) :;;
+      *) PATH="$1:$PATH";;
+    esac
+  fi
 }
 
-function s {
-  grep -Rli "${*}"
-}
+# function s {
+#   grep -Rli "${*}"
+# }
 
-function f {
-  find . -iname "*${*}*"
-}
+# function f {
+#   find . -iname "*${*}*"
+# }
 
-if [ -e /LOCAL ]; then
-  addToPATH "/LOCAL/apps/clang/bin"
-  addToPATH "/LOCAL/apps/cmake/bin"
-  addToPATH "/LOCAL/apps/gcc/bin"
-  addToPATH "/LOCAL/apps/git/bin"
-fi
+while IFS="" read -r p || [ -n "$p" ]; do
+  [[ $p =~ ^#.* ]] && continue
+  [[ -z "${p// }" ]] && continue
+  addToPATH $p
+done < ~/Published/configs/paths.txt
 
-if [ -e /LOCAL/apps/gcc ]; then
+if [[ -e /LOCAL/apps/gcc ]]; then
   export CPLUS_INCLUDE_PATH="/LOCAL/apps/gcc/include/c++/13.0.0"
   export LD_LIBRARY_PATH="/LOCAL/apps/gcc/lib64"
   export LD_RUN_PATH="/LOCAL/apps/gcc/lib64"
   export CC="/LOCAL/apps/gcc/bin/gcc"
   export CXX="/LOCAL/apps/gcc/bin/g++"
-elif [ -e /LOCAL/apps/clang ]; then
+elif [[ -e /LOCAL/apps/clang ]]; then
   export CPLUS_INCLUDE_PATH="/LOCAL/apps/clang/include/c++/v1"
   export LD_LIBRARY_PATH="/LOCAL/apps/clang/lib64"
   export LD_RUN_PATH="/LOCAL/apps/clang/lib64"
   export CC="/LOCAL/apps/clang/bin/clang"
   export CXX="/LOCAL/apps/clang/bin/clang++"
 fi
-
-# export MANPATH=":/LOCAL/apps/jdk/man"
-export GIT_PAGER=less
-
-# export PYTHONPYCACHEPREFIX="$HOME/.local/var/python"
 
 alias '..'='cd ..'
 alias '...'='cd ../..'

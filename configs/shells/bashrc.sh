@@ -7,4 +7,4 @@ shopt -s dotglob
 shopt -s globstar
 shopt -s histappend
 shopt -s histverify
-source ~/Published/configs/legacy/shrc.sh
+source ~/Published/configs/shells/shrc.sh
