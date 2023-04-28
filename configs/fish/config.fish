@@ -15,8 +15,7 @@ set fish_vi_force_cursor true
 bind l forward-single-char
 bind \e\[1\;6F edit_command_buffer
 bind -M insert \e\[1\;6F end-of-line
-bind -M insert \e\[1\;6H "commandline -f up_or_search; commandline -i ')'; commandline -f beginning-of-line"
-# bind -M insert \e\[1\;6H history-prefix-search-backward ')' start-of-line '(' start-of-line
+bind -M insert \e\[1\;6H 'fish_commandline_prepend " ("' 'fish_commandline_append " )"' 'commandline -f beginning-of-line'
 
 set -x DELTA_FEATURES '+side-by-side'
 set -x EDITOR "hx -c /tmp/config$THEME.toml"
