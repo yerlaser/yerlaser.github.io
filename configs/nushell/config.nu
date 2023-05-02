@@ -25,7 +25,7 @@ let-env config = {
     {
       name: open_with_editor
       modifier: Control_Shift
-      keycode: Home
+      keycode: PageUp
       mode: [emacs vi_insert]
       event: [
         {send: PreviousHistory}
@@ -47,9 +47,9 @@ let-env config = {
     }
     {
       name: complete_word
-      modifier: None
-      keycode: Space
-      mode: [vi_normal]
+      modifier: Control_Shift
+      keycode: Right
+      mode: [emacs vi_insert]
       event: {until: [
         {send: HistoryHintWordComplete}
         {edit: MoveWordRight}
@@ -65,7 +65,7 @@ let-env config = {
     {
       name: edit_command
       modifier: Control_Shift
-      keycode: End
+      keycode: PageUp
       mode: [vi_normal]
       event: {send: OpenEditor}
     }

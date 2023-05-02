@@ -5,23 +5,13 @@ font:
   normal:
     family: Monaco
 key_bindings:
-  - { key: LBracket,  mods: Shift,        chars: "{"     }
-  - { key: RBracket,  mods: Shift,        chars: "}"     }
-  - { key: Backslash, mods: Shift,        chars: "|"     }
-  - { key: Comma,     mods: Shift,        chars: "<"     }
-  - { key: Period,    mods: Shift,        chars: ">"     }
-  - { key: LBracket,  mods: Option,       chars: "Ü"     }
-  - { key: LBracket,  mods: Option|Shift, chars: "ü"     }
-  - { key: RBracket,  mods: Option,       chars: "ẞ"     }
-  - { key: RBracket,  mods: Option|Shift, chars: "ß"     }
-  - { key: Backslash, mods: Option,       chars: "É"     }
-  - { key: Backslash, mods: Option|Shift, chars: "é"     }
-  - { key: Comma,     mods: Option,       chars: "Ä"     }
-  - { key: Comma,     mods: Option|Shift, chars: "ä"     }
-  - { key: Period,    mods: Option,       chars: "Ö"     }
-  - { key: Period,    mods: Option|Shift, chars: "ö"     }
+  - { key: Back, mods: Option, chars: "\x1b[1;6D" } # Control Shift Left
+  - { key: Return, mods: Option, chars: "\x1b[1;6C" } # Control Shift Right
+  - { key: Space, mods: Option, chars: "\x1b" } # Escape
+  - { key: Back, mods: Option|Shift, chars: "\x1b[1;6H" } # Control Shift Home
+  - { key: Return, mods: Option|Shift, chars: "\x1b[1;6F" } # Control Shift End
+  - { key: Space, mods: Option|Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
   - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
-  - { key: U,         mods: Command,      chars: "\x1bu" }
 shell:
   program: /Users/yerlan/.cargo/bin/nu
   args:
