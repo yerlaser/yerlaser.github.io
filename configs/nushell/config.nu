@@ -31,19 +31,35 @@ let-env config = {
         {send: PreviousHistory}
         {edit: InsertString value: ' | lines)'}
         {edit: MoveToLineStart}
-        {edit: InsertString value: ' ('}
-        {edit: MoveToLineStart}
+        {edit: InsertString value: 'vi ('}
       ]
     }
     {
-      name: complete_line
+      name: history_down
+      modifier: Control_Shift
+      keycode: Home
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: MenuDown}
+        {send: Down}
+      ]}
+    }
+    {
+      name: history_up
       modifier: Control_Shift
       keycode: End
       mode: [emacs vi_insert]
       event: {until: [
-        {send: HistoryHintComplete}
-        {edit: MoveToLineEnd}
+        {send: MenuUp}
+        {send: Up}
       ]}
+    }
+    {
+      name: cut_word
+      modifier: Control_Shift
+      keycode: Left
+      mode: [emacs vi_insert]
+      event: {edit: CutWordLeft}
     }
     {
       name: complete_word
