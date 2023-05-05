@@ -6,12 +6,11 @@ font:
   normal:
     family: JetBrainsMono
 key_bindings:
-  - { key: Back, mods: Option, chars: "\x1b[1;6D" } # Control Shift Left
-  - { key: Return, mods: Option, chars: "\x1b[1;6C" } # Control Shift Right
-  - { key: Space, mods: Option, chars: "\x1b" } # Escape
-  - { key: Back, mods: Option|Shift, chars: "\x1b[1;6H" } # Control Shift Home
-  - { key: Return, mods: Option|Shift, chars: "\x1b[1;6F" } # Control Shift End
-  - { key: Space, mods: Option|Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
+  - { key: Pause, mods: None, chars: "\x1b[1;6D" } # Control Shift Left
+  - { key: NumpadEnter, mods: None, chars: "\x1b[1;6C" } # Control Shift Right
+  - { key: Pause, mods: Shift, chars: "\x1b[1;6H" } # Control Shift Home
+  - { key: NumpadEnter, mods: Shift, chars: "\x1b[1;6F" } # Control Shift End
+  - { key: Escape, mods: Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
 shell:
   program: /home/yerlan/.cargo/bin/nu 
   args:
