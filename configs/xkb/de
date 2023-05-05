@@ -50,11 +50,13 @@ xkb_symbols "DeQwerty" {
   key <AB10> { [ slash             , question          , exclamdown,       , questiondown      ] };
   key <BKSL> { [ backslash         , bar               , oe                , OE                ] };
   key <LSGT> { [ EuroSign          , cent              , sterling          , yen               ] };
-  key <ESC>  { [ Caps_Lock         , Caps_Lock         , Caps_Lock         , Caps_Lock         ] };
-  key <CAPS> { [ Escape            , Escape            , Escape            , Escape            ] };
+  key <CAPS> { [ ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  ] };
+  key <LWIN> { [ Caps_Lock         , Caps_Lock         , Caps_Lock         , Caps_Lock         ] };
   key <LALT> { [ Super_L           , Super_L           , Super_L           , Super_L           ] };
-  key <LWIN> { [ Alt_L             , Alt_L             , Alt_L             , Alt_L             ] };
   key <RALT> { [ Control_R         , Control_R         , Control_R         , Control_R         ] };
-  key <RCTL> { [ Alt_R             , Alt_R             , Alt_R             , Alt_R             ] };
+  key <RCTL> { [ Alt_L             , Alt_L             , Alt_L             , Alt_L             ] };
+  key <BKSP> { [ BackSpace         , BackSpace         , KP_Left           , KP_Home           ] };
+  key <RTRN> { [ Return            , Return            , KP_Right          , KP_End            ] };
+  key <SPCE> { [ space             , space             , Escape            , KP_Up             ] };
   key <MENU> { [ ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  ] };
 };
