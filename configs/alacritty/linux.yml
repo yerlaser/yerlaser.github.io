@@ -6,12 +6,12 @@ font:
   normal:
     family: JetBrainsMono
 key_bindings:
-  - { key: 26, mods: Shift, chars: "{"     }
-  - { key: 27, mods: Shift, chars: "}"     }
-  - { key: 43, mods: Shift, chars: "|"     }
-  - { key: 51, mods: Shift, chars: "<"     }
-  - { key: 52, mods: Shift, chars: ">"     }
-  - { key: U,  mods: Super, chars: "\x1bu" }
+  - { key: Back, mods: Option, chars: "\x1b[1;6D" } # Control Shift Left
+  - { key: Return, mods: Option, chars: "\x1b[1;6C" } # Control Shift Right
+  - { key: Space, mods: Option, chars: "\x1b" } # Escape
+  - { key: Back, mods: Option|Shift, chars: "\x1b[1;6H" } # Control Shift Home
+  - { key: Return, mods: Option|Shift, chars: "\x1b[1;6F" } # Control Shift End
+  - { key: Space, mods: Option|Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
 shell:
   program: /home/yerlan/.cargo/bin/nu 
   args:
