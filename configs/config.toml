@@ -56,7 +56,7 @@ select = "underline"
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
 "'" = "surround_add"
-"," = { "," = "command_palette", "/" = "global_search", "a" = "code_action", "f" = "select_references_to_symbol_under_cursor", "r" = "rename_symbol" }
+"," = { "," = "command_palette", "/" = "global_search", "a" = "code_action", "f" = "select_references_to_symbol_under_cursor", "r" = "rename_symbol", "y" = "yank_joined_to_clipboard", "Y" = "yank_main_selection_to_clipboard" }
 "\\" = "surround_replace"
 "b" = "extend_prev_word_start"
 "B" = "extend_prev_long_word_start"
