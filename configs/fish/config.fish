@@ -1,5 +1,14 @@
+if test $ITERM_PROFILE = 'Light'
+  set -x THEME 'Light'
+  set -x BAT_THEME 'GitHub'
+  set -x _ZO_DATA_DIR '/tmp/zoxideLight'
+else
+  set -x THEME 'Dark'
+  set -x BAT_THEME ''
+  set -x _ZO_DATA_DIR '/tmp/zoxideDark'
+end
+
 alias ... 'cd ../../'
-alias f 'fd -tf -tl --search-path'
 alias vi "hx -c /tmp/config$THEME.toml"
 alias year '^cal -N -A 10 -B 1'
 alias tree 'broot --conf ~/Published/configs/broot/$THEME.hjson -c :pt'
@@ -10,12 +19,19 @@ set fish_cursor_insert line blink
 set fish_cursor_normal line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
+set fish_history "$THEME"
 set fish_vi_force_cursor true
 
 bind l forward-single-char
-bind \e\[1\;6F edit_command_buffer
+# bind \e\[3\;6~ edit_command_buffer
+bind -M insert \e\[1\;6C forward-bigword
 bind -M insert \e\[1\;6F end-of-line
-bind -M insert \e\[1\;6H 'fish_commandline_prepend " ("' 'fish_commandline_append " )"' 'commandline -f beginning-of-line'
+bind -M insert \e\[1\;6D backward-word
+bind -M insert \e\[3\;6~ backward-kill-word repaint-mode
+bind -M insert \e\[1\;6H backward-kill-bigword repaint-mode
+bind -M insert \e\[1\;6A up-or-search
+bind -M insert \e\[5\;6~ down-or-search
+bind -M insert \e\[6\;6~ 'fish_commandline_prepend " vi ("' 'fish_commandline_append " )"' 'commandline -f execute'
 
 set -x DELTA_FEATURES '+side-by-side'
 set -x EDITOR "hx -c /tmp/config$THEME.toml"
@@ -55,6 +71,19 @@ for p in $(cat ~/Published/configs/paths.txt | grep -v '^\s*#' | grep -v '^$')
 end
 
 function fish_mode_prompt; end
+
+function f
+  switch (count $argv)
+  case 0
+    fd -tf -tl
+  case 1
+    fd -tf -tl '' $argv[1]
+  case 2
+    fd -tf -tl $argv[2] $argv[1]
+  case '*'
+    fd -tf -tl $argv[2] $argv[1] $argv[3..]
+  end
+end
 
 function fish_right_prompt
      printf '%s' (fish_git_prompt)
