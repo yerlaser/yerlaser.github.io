@@ -1,4 +1,4 @@
-if test $ITERM_PROFILE = 'Light'
+if test "$ITERM_PROFILE" = 'Light'
   set -x THEME 'Light'
   set -x BAT_THEME 'GitHub'
   set -x _ZO_DATA_DIR '/tmp/zoxideLight'
