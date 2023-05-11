@@ -23,7 +23,7 @@ set fish_history "$THEME"
 set fish_vi_force_cursor true
 
 bind l forward-single-char
-# bind \e\[3\;6~ edit_command_buffer
+bind \e\[6\;6~ edit_command_buffer
 bind -M insert \e\[1\;6C forward-bigword
 bind -M insert \e\[1\;6F end-of-line
 bind -M insert \e\[1\;6D backward-word
@@ -81,6 +81,10 @@ function f
   case 2
     fd -tf -tl $argv[2] $argv[1]
   case '*'
+    if string match -i -- '-x' "$argv[1]"; or string match -i -- '-x' "$argv[2]"
+      echo Error: search for filenames or use the command directly
+      return 1
+    end
     fd -tf -tl $argv[2] $argv[1] $argv[3..]
   end
 end
