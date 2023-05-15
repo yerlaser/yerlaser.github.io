@@ -53,9 +53,9 @@ else if test -d /LOCAL/apps/clang
   set -x CXX '/LOCAL/apps/clang/bin/clang++'
 end
 
-if test -e /tmp/configLight.toml; and test /tmp/configLight.toml -ot ~/Published/configs/config.toml
+if not test -e /tmp/configLight.toml; or test /tmp/configLight.toml -ot ~/Published/configs/config.toml
   cp ~/Published/configs/config.toml /tmp/configLight.toml
-  sed -i'' -Ee 's/mocha/latte/g' /tmp/configLight.toml
+  sed -i '' -Ee 's/mocha/latte/g' /tmp/configLight.toml
 end
 
 if not test -e /tmp/configDark.toml
