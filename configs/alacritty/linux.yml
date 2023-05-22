@@ -6,16 +6,16 @@ font:
   normal:
     family: JetBrainsMono
 key_bindings:
-  - { key: Pause, mods: None, chars: "\x1b[1;6D" } # Control Shift Left
-  - { key: NumpadEnter, mods: None, chars: "\x1b[1;6C" } # Control Shift Right
-  - { key: Pause, mods: Shift, chars: "\x1b[1;6H" } # Control Shift Home
-  - { key: NumpadEnter, mods: Shift, chars: "\x1b[1;6F" } # Control Shift End
-  - { key: Escape, mods: Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
+  - { key: Down, mods: None, chars: "\x1b" } # Escape
+  - { key: Up, mods: None, chars: "\x1b[1;6A" } # Control Shift Up
+  - { key: Left, mods: None, chars: "\x1b[1;6D" } # Control Shift Left
+  - { key: Right, mods: None, chars: "\x1b[1;6C" } # Control Shift Right
+  - { key: Home, mods: Shift, chars: "\x1b[1;6H" } # Control Shift Home
+  - { key: End, mods: Shift, chars: "\x1b[1;6F" } # Control Shift End
+  - { key: PageUp, mods: Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
+  - { key: PageDown, mods: Shift, chars: "\x1b[6;6~" } # Control Shift PageDown
 shell:
-  program: /home/yerlan/.cargo/bin/nu 
-  args:
-    - --config ~/Published/configs/nushell/config.nu
-    - --env-config ~/Published/configs/nushell/env.nu
+  program: /usr/bin/fish 
 env:
   THEME: Dark
   BAT_THEME: ''
