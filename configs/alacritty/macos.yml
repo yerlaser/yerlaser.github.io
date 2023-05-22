@@ -5,14 +5,14 @@ font:
   normal:
     family: Monaco
 key_bindings:
-  - { key: Space, mods: Option, chars: "\x1b" } # Escape
-  - { key: Tab, mods: Option, chars: "\x1b[1;6A" } # Control Shift Up
-  - { key: Back, mods: Option, chars: "\x1b[1;6D" } # Control Shift Left
-  - { key: Return, mods: Option, chars: "\x1b[1;6C" } # Control Shift Right
-  - { key: Back, mods: Option|Shift, chars: "\x1b[1;6H" } # Control Shift Home
-  - { key: Return, mods: Option|Shift, chars: "\x1b[1;6F" } # Control Shift End
-  - { key: Tab, mods: Option|Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
-  - { key: Space, mods: Option|Shift, chars: "\x1b[6;6~" } # Control Shift PageDown
+  - { key: Tab   , mods: Option      , chars: "\x1b[1;3A" } # Alt Up
+  - { key: Space , mods: Option      , chars: "\x1b"      } # Escape
+  - { key: Return, mods: Option      , chars: "\x1b[1;3C" } # Alt Right
+  - { key: Back  , mods: Option      , chars: "\x1b[1;3D" } # Alt Left
+  - { key: Tab   , mods: Option|Shift, chars: "\x1b[5;3~" } # Alt PageUp
+  - { key: Space , mods: Option|Shift, chars: "\x1b[6;3~" } # Alt PageDown
+  - { key: Return, mods: Option|Shift, chars: "\x1b[1;3F" } # Alt End
+  - { key: Back  , mods: Option|Shift, chars: "\x1b[1;3H" } # Alt Home
   - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:
   program: /opt/homebrew/bin/fish

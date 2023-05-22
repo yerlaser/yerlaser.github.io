@@ -6,14 +6,14 @@ font:
   normal:
     family: JetBrainsMono
 key_bindings:
-  - { key: Down, mods: None, chars: "\x1b" } # Escape
-  - { key: Up, mods: None, chars: "\x1b[1;6A" } # Control Shift Up
-  - { key: Left, mods: None, chars: "\x1b[1;6D" } # Control Shift Left
-  - { key: Right, mods: None, chars: "\x1b[1;6C" } # Control Shift Right
-  - { key: Home, mods: Shift, chars: "\x1b[1;6H" } # Control Shift Home
-  - { key: End, mods: Shift, chars: "\x1b[1;6F" } # Control Shift End
-  - { key: PageUp, mods: Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
-  - { key: PageDown, mods: Shift, chars: "\x1b[6;6~" } # Control Shift PageDown
+  - { key: Up      , mods: None , chars: "\x1b[1;3A" } # Alt Up
+  - { key: Down    , mods: None , chars: "\x1b"      } # Escape
+  - { key: Right   , mods: None , chars: "\x1b[1;3C" } # Alt Right
+  - { key: Left    , mods: None , chars: "\x1b[1;3D" } # Alt Left
+  - { key: PageUp  , mods: Shift, chars: "\x1b[5;3~" } # Alt PageUp
+  - { key: PageDown, mods: Shift, chars: "\x1b[6;3~" } # Alt PageDown
+  - { key: End     , mods: Shift, chars: "\x1b[1;3F" } # Alt End
+  - { key: Home    , mods: Shift, chars: "\x1b[1;3H" } # Alt Home
 shell:
   program: /usr/bin/fish 
 env:

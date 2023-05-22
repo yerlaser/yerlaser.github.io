@@ -6,4 +6,5 @@ window:
   decorations: none
   startup_mode: Maximized
 key_bindings:
-  - { key: Back, mods: Shift, chars: "\x1b[3;6~" } # Control Shift Home
+  - { key: Back, mods: Shift, chars: "\x1b[3;6~" } # Control Shift Delete
+  - { key: 58  , mods: None , chars: ""          } # (Caps)

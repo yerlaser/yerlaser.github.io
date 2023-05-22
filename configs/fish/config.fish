@@ -13,6 +13,8 @@ alias vi "hx -c /tmp/config$THEME.toml"
 alias year '^cal -N -A 10 -B 1'
 alias tree 'broot --conf ~/Published/configs/broot/$THEME.hjson -c :pt'
 
+set -U fish_escape_delay_ms 100
+
 fish_vi_key_bindings
 set fish_cursor_default block
 set fish_cursor_insert line blink
@@ -23,15 +25,15 @@ set fish_history "$THEME"
 set fish_vi_force_cursor true
 
 bind l forward-single-char
-bind \e\[6\;6~ edit_command_buffer
-bind -M insert \e\[1\;6C forward-bigword
-bind -M insert \e\[1\;6F end-of-line
-bind -M insert \e\[1\;6D backward-word
-bind -M insert \e\[3\;6~ backward-kill-word repaint-mode
-bind -M insert \e\[1\;6H backward-kill-bigword repaint-mode
-bind -M insert \e\[1\;6A up-or-search
-bind -M insert \e\[5\;6~ down-or-search
-bind -M insert \e\[6\;6~ 'fish_commandline_prepend " vi ("' 'fish_commandline_append " )"' 'commandline -f execute'
+bind \e\[6\;3~ edit_command_buffer
+bind -M insert \e\[1\;3C forward-bigword
+bind -M insert \e\[1\;3F end-of-line
+bind -M insert \e\[1\;3D backward-word
+bind -M insert \e\[3\;3~ backward-kill-word repaint-mode
+bind -M insert \e\[1\;3H backward-kill-bigword repaint-mode
+bind -M insert \e\[1\;3A up-or-search
+bind -M insert \e\[5\;3~ down-or-search
+bind -M insert \e\[6\;3~ 'fish_commandline_prepend " vi ("' 'fish_commandline_append " )"' 'commandline -f execute'
 
 set -x DELTA_FEATURES '+side-by-side'
 set -x EDITOR "hx -c /tmp/config$THEME.toml"
