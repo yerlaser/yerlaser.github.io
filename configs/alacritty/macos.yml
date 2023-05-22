@@ -5,15 +5,14 @@ font:
   normal:
     family: Monaco
 key_bindings:
+  - { key: Space, mods: Option, chars: "\x1b" } # Escape
+  - { key: Tab, mods: Option, chars: "\x1b[1;6A" } # Control Shift Up
   - { key: Back, mods: Option, chars: "\x1b[1;6D" } # Control Shift Left
   - { key: Return, mods: Option, chars: "\x1b[1;6C" } # Control Shift Right
-  - { key: Space, mods: Option, chars: "\x1b" } # Escape
   - { key: Back, mods: Option|Shift, chars: "\x1b[1;6H" } # Control Shift Home
   - { key: Return, mods: Option|Shift, chars: "\x1b[1;6F" } # Control Shift End
-  - { key: Space, mods: Option|Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
+  - { key: Tab, mods: Option|Shift, chars: "\x1b[5;6~" } # Control Shift PageUp
+  - { key: Space, mods: Option|Shift, chars: "\x1b[6;6~" } # Control Shift PageDown
   - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:
-  program: /Users/yerlan/.cargo/bin/nu
-  args:
-    - --config ~/Published/configs/nushell/config.nu
-    - --env-config ~/Published/configs/nushell/env.nu
+  program: /opt/homebrew/bin/fish
