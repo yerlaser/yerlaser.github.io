@@ -27,11 +27,12 @@ select = "underline"
 
 [keys.insert]
 "A-end" = "goto_line_end_newline" # Caps-S-enter
-"A-pageup" = [ "move_prev_word_start", "collapse_selection", "yank", "move_char_right", "paste_after", "move_char_left", "match_brackets", "move_next_word_end", "flip_selections", "extend_char_left", "yank", "match_brackets", "move_char_right", "paste_after", "delete_selection", "paste_after" ] # Caps-S-tab
+"A-pageup" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-S-tab
+# "A-pagedown" = [ "move_prev_word_start", "collapse_selection", "yank", "move_char_right", "paste_after", "move_char_left", "match_brackets", "move_next_word_end", "flip_selections", "extend_char_left", "yank", "match_brackets", "move_char_right", "paste_after", "delete_selection", "paste_after" ] # Caps-S-tab
 "A-right" = "move_char_right" # Caps-enter
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
-"C-t" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ]
+# "C-t" = [ "normal_mode", "extend_prev_word_start", ":pipe htmltag", "extend_next_word_start", "extend_next_word_start", "move_char_left", "insert_mode" ]
 
 [keys.normal]
 "A-end" = "symbol_picker" # Caps-S-enter
@@ -45,9 +46,9 @@ select = "underline"
 "~" = "switch_case"
 "@" = "replay_macro"
 "#" = "search_selection"
-"$" = "extend_to_line_end"
+"$" = [ "extend_to_line_end", "delete_selection" ]
 "%" = [ "select_mode", "match_brackets", "normal_mode" ]
-"^" = [ "select_mode", "goto_first_nonwhitespace", "normal_mode" ]
+"^" = [ "extend_to_line_start", "delete_selection" ]
 "*" = [ "extend_next_word_start", "flip_selections", "extend_prev_word_start", "trim_selections", "search_selection" ]
 "minus" = "surround_delete"
 "_" = "rotate_selection_contents_backward"
@@ -56,16 +57,13 @@ select = "underline"
 "}" = [ "select_mode", "goto_next_paragraph", "normal_mode", "extend_to_line_bounds" ]
 ";" = "repeat_last_motion"
 "'" = "surround_add"
-"," = { "," = "command_palette", "/" = "global_search", "a" = "code_action", "f" = "select_references_to_symbol_under_cursor", "r" = "rename_symbol", "y" = "yank_joined_to_clipboard", "Y" = "yank_main_selection_to_clipboard" }
 "\\" = "surround_replace"
 "b" = "extend_prev_word_start"
 "B" = "extend_prev_long_word_start"
-"C" = [ "extend_to_line_end", "change_selection" ]
 "d" = [ "hover", "expand_selection" ]
-"D" = [ "extend_to_line_end", "delete_selection" ]
+"D" = "extend_search_next"
 "e" = "extend_next_word_end"
 "E" = "extend_next_long_word_end"
-"g" = { "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ] }
 "G" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
 "H" = "extend_char_left"
 "J" = [ "extend_line_down", "extend_to_line_bounds" ]
@@ -76,12 +74,38 @@ select = "underline"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
-"U" = [ "switch_to_uppercase", "ensure_selections_forward", "collapse_selection", "move_char_right" ]
-"v" = { "v" = "select_all", "a" = "select_textobject_around", "i" = "select_textobject_inner", "s" = "keep_selections", "S" = "remove_selections", "o" = "flip_selections", ";" = "ensure_selections_forward", "m" = "merge_consecutive_selections", "n" = "shrink_selection", "space" = "trim_selections", "J" = "join_selections_space", "u" = "switch_to_lowercase" }
+"U" = "extend_search_prev"
+"A-pageup" = "switch_to_uppercase"
 "V" = "extend_to_line_bounds"
 "w" = "extend_next_word_start"
 "W" = "extend_next_long_word_start"
 "x" = "delete_selection"
 "X" = "delete_selection_noyank"
-"Y" = [ "extend_to_line_end", "yank" ]
-"Z" = "copy_selection_on_next_line"
+"Y" = "no_op"
+"Z" = "no_op"
+
+[keys.normal.","]
+"," = "command_palette"
+"/" = "global_search"
+"a" = "code_action"
+"f" = "select_references_to_symbol_under_cursor"
+"r" = "rename_symbol"
+"y" = "yank_joined_to_clipboard"
+"Y" = "yank_main_selection_to_clipboard"
+
+[keys.normal.g]
+"g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ]
+
+[keys.normal.v]
+"v" = "select_all"
+"a" = "select_textobject_around"
+"i" = "select_textobject_inner"
+"s" = "keep_selections"
+"S" = "remove_selections"
+"o" = "flip_selections"
+";" = "ensure_selections_forward"
+"m" = "merge_consecutive_selections"
+"n" = "shrink_selection"
+"space" = "trim_selections"
+"J" = "join_selections_space"
+"u" = "switch_to_lowercase"

@@ -3,15 +3,82 @@ let-env config = {
   cd: {
     abbreviations: true
   }
-  cursor_shape: {
-    vi_insert: line
-    vi_normal: block
-  }
-  edit_mode: vi
   ls: {
     clickable_links: false
   }
   keybindings: [
+    {
+      name: history_up
+      modifier: None
+      keycode: Esc
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: MenuUp}
+        {send: Up}
+      ]}
+    }
+    {
+      name: history_down
+      modifier: Alt
+      keycode: Up
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: MenuDown}
+        {send: Down}
+      ]}
+    }
+    {
+      name: complete_bigword
+      modifier: Alt
+      keycode: Right
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: HistoryHintWordComplete}
+        {edit: MoveBigWordRightStart}
+      ]}
+    }
+    {
+      name: cut_bigword
+      modifier: Alt
+      keycode: Left
+      mode: [emacs vi_insert]
+      event: {edit: CutBigWordLeft}
+    }
+    {
+      name: cut_word
+      modifier: Control_Shift
+      keycode: Delete
+      mode: [emacs vi_insert]
+      event: {edit: CutWordLeft}
+    }
+    {
+      name: capitalize_word
+      modifier: Alt
+      keycode: PageUp
+      mode: [emacs vi_insert]
+      event: {edit: UppercaseWord}
+    }
+    {
+      name: edit_command
+      modifier: Alt
+      keycode: PageDown
+      mode: [emacs vi_insert]
+      event: {send: OpenEditor}
+    }
+    {
+      name: cut_line
+      modifier: Alt
+      keycode: Home
+      mode: [emacs vi_insert]
+      event: {edit: CutCurrentLine}
+    }
+    {
+      name: cut_line
+      modifier: Alt
+      keycode: End
+      mode: [emacs vi_insert]
+      event: {edit: PasteCutBufferBefore}
+    }
     {
       name: completion_menu
       modifier: None
@@ -21,69 +88,6 @@ let-env config = {
         {send: Menu name: completion_menu}
         {send: MenuNext}
       ]}
-    }
-    {
-      name: open_with_editor
-      modifier: Control_Shift
-      keycode: PageUp
-      mode: [emacs vi_insert]
-      event: [
-        {send: PreviousHistory}
-        {edit: InsertString value: ' | lines)'}
-        {edit: MoveToLineStart}
-        {edit: InsertString value: 'vi ('}
-      ]
-    }
-    {
-      name: history_down
-      modifier: Control_Shift
-      keycode: Home
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: MenuDown}
-        {send: Down}
-      ]}
-    }
-    {
-      name: history_up
-      modifier: Control_Shift
-      keycode: End
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: MenuUp}
-        {send: Up}
-      ]}
-    }
-    {
-      name: cut_word
-      modifier: Control_Shift
-      keycode: Left
-      mode: [emacs vi_insert]
-      event: {edit: CutWordLeft}
-    }
-    {
-      name: complete_word
-      modifier: Control_Shift
-      keycode: Right
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: HistoryHintWordComplete}
-        {edit: MoveWordRight}
-      ]}
-    }
-    {
-      name: capitalize_word
-      modifier: Shift
-      keycode: Char_U
-      mode: [vi_normal]
-      event: {edit: UppercaseWord}
-    }
-    {
-      name: edit_command
-      modifier: Control_Shift
-      keycode: PageUp
-      mode: [vi_normal]
-      event: {send: OpenEditor}
     }
   ]
   rm: {

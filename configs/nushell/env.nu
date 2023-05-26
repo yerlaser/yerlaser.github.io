@@ -1,6 +1,12 @@
-alias f = fd -tf -tl --search-path
-alias mc = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
-alias vi = hx -c $'/tmp/config($env.THEME).toml'
+if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
+  let-env THEME = 'Light'
+  let-env BAT_THEME = 'GitHub'
+  let-env _ZO_DATA_DIR = '/tmp/zoxideLight'
+ }
+
+alias mc = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
+alias tree = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'
+alias vi = ^hx -c $'/tmp/config($env.THEME).toml'
 alias year = ^cal -N -A 10 -B 1
 let-env DELTA_FEATURES = '+side-by-side'
 let-env EDITOR = $'hx -c /tmp/config($env.THEME).toml'

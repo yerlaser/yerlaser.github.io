@@ -15,4 +15,4 @@ key_bindings:
   - { key: Back  , mods: Option|Shift, chars: "\x1b[1;3H" } # Alt Home
   - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:
-  program: /opt/homebrew/bin/fish
+  program: /Users/yerlan/.cargo/bin/nu

@@ -15,7 +15,7 @@ key_bindings:
   - { key: End     , mods: Shift, chars: "\x1b[1;3F" } # Alt End
   - { key: Home    , mods: Shift, chars: "\x1b[1;3H" } # Alt Home
 shell:
-  program: /usr/bin/fish 
+  program: /home/yerlaser/.cargo/bin/nu
 env:
   THEME: Dark
   BAT_THEME: ''

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Command</key>
-	<string>/opt/homebrew/bin/fish</string>
+	<string>/Users/yerlan/.cargo/bin/nu</string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>catppuccin-latte</key>
@@ -1789,7 +1789,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/opt/homebrew/bin/fish</string>
+			<string>/Users/yerlan/.cargo/bin/nu</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -2626,7 +2626,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/opt/homebrew/bin/fish</string>
+			<string>/Users/yerlan/.cargo/bin/nu</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Alpha Component</key>
