@@ -5,6 +5,7 @@ if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
  }
 
 alias mc = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
+alias sd = str replace
 alias tree = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'
 alias vi = ^hx -c $'/tmp/config($env.THEME).toml'
 alias year = ^cal -N -A 10 -B 1
