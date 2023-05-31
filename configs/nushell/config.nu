@@ -8,76 +8,18 @@ let-env config = {
   }
   keybindings: [
     {
-      name: history_up
-      modifier: None
-      keycode: Esc
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: MenuUp}
-        {send: Up}
-      ]}
-    }
-    {
-      name: history_down
-      modifier: Alt
-      keycode: Up
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: MenuDown}
-        {send: Down}
-      ]}
-    }
-    {
-      name: complete_bigword
-      modifier: Alt
-      keycode: Right
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: HistoryHintWordComplete}
-        {edit: MoveBigWordRightStart}
-      ]}
-    }
-    {
-      name: cut_bigword
-      modifier: Alt
-      keycode: Left
-      mode: [emacs vi_insert]
-      event: {edit: CutBigWordLeft}
-    }
-    {
-      name: cut_word
-      modifier: Control_Shift
-      keycode: Delete
-      mode: [emacs vi_insert]
-      event: {edit: CutWordLeft}
-    }
-    {
       name: capitalize_word
-      modifier: Alt
+      modifier: None
       keycode: PageUp
       mode: [emacs vi_insert]
       event: {edit: UppercaseWord}
     }
     {
       name: edit_command
-      modifier: Alt
+      modifier: None
       keycode: PageDown
       mode: [emacs vi_insert]
       event: {send: OpenEditor}
-    }
-    {
-      name: cut_line
-      modifier: Alt
-      keycode: Home
-      mode: [emacs vi_insert]
-      event: {edit: CutCurrentLine}
-    }
-    {
-      name: cut_line
-      modifier: Alt
-      keycode: End
-      mode: [emacs vi_insert]
-      event: {edit: PasteCutBufferBefore}
     }
     {
       name: completion_menu
