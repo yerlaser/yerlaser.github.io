@@ -27,7 +27,7 @@ export def ls_lines (
   let $inp = $in
   if ($inp | is-empty) {
     if ($filename | is-empty) {return}
-    get_lines $filename | par-each {|f| if ($f | path exists) {ls -D $f}}
+    cat $filename | par-each {|f| if ($f | path exists) {ls -D $f}}
   } else {
     $inp | lines | par-each {|f| if ($f | path exists) {ls -D $f}}
   }
@@ -64,7 +64,7 @@ export def open_all (
 ) {
   let inp = $in
   let inp = if ($inp | is-empty) {
-    fd '' $path | ls_lines
+    fd -t f -t l '' $path | ls_lines
   } else {$inp}
   if ($inp | is-empty) {
     print -e 'Nothing found'
@@ -93,7 +93,7 @@ export def v (
   } else if ($path | path type) == file {
     ^hx -c $'/tmp/config($env.THEME).toml' $path
   } else {
-    let files = (fd -t f $pattern $path | lines)
+    let files = (fd -t f -t l $pattern $path | lines)
     if ($files | is-empty) {
       print -e 'Nothing found'
       return
@@ -130,7 +130,7 @@ export def names (
 }
 
 # Get lines from a text file
-export def get_lines (
+export def cat (
   file_name: string # File name
 ) {
   open -r $file_name | lines
