@@ -31,6 +31,16 @@ let-env config = {
         {send: MenuNext}
       ]}
     }
+    {
+      name: end_complete
+      modifier: Control
+      keycode: End
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: HistoryHintComplete}
+        {edit: MoveToLineEnd}
+      ]}
+    }
   ]
   rm: {
     always_trash: true

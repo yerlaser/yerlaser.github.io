@@ -7,12 +7,12 @@ font:
 key_bindings:
   - { key: Back  , mods: Option      , chars: "\x1b[1;5D" } # Ctrl Left
   - { key: Space , mods: Option      , chars: "\x1b[1;5C" } # Ctrl Right
-  - { key: Tab   , mods: Option      , chars: "\x1b[1;5H" } # Ctrl Home
   - { key: Return, mods: Option      , chars: "\x1b[1;5F" } # Ctrl End
-  - { key: Back  , mods: Option|Shift, chars: "\x1b[A"    } # Up
-  - { key: Space , mods: Option|Shift, chars: "\x1b[B"    } # Down
-  - { key: Tab   , mods: Option|Shift, chars: "\x1b[5~"   } # PageUp
-  - { key: Return, mods: Option|Shift, chars: "\x1b[6~"   } # PageDown
+  - { key: Tab   , mods: Option      , chars: "\x1b[1;5H" } # Ctrl Home
+  - { key: Back  , mods: Option|Shift, chars: "\x1b[B"    } # Down
+  - { key: Space , mods: Option|Shift, chars: "\x1b[A"    } # Up
+  - { key: Return, mods: Option|Shift, chars: "\x1b[5~"   } # PageUp
+  - { key: Tab   , mods: Option|Shift, chars: "\x1b[6~"   } # PageDown
   - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:
   program: /Users/yerlan/.cargo/bin/nu

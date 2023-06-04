@@ -27,8 +27,7 @@ select = "underline"
 
 [keys.insert]
 "pagedown" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-tab
-# "A-end" = "goto_line_end_newline" # Caps-S-enter
-# "A-pageup" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-S-tab
+"pageup" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-S-tab
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
 
@@ -39,6 +38,10 @@ select = "underline"
 "C-right" = [ "move_char_right", "insert_mode" ] # Caps-enter after exiting insert mode
 "backspace" = "keep_primary_selection"
 "A-backspace" = "remove_primary_selection" # S-backspace
+"pagedown" = "switch_to_lowercase"
+"pageup" = "switch_to_uppercase"
+"down" = "scroll_down"
+"up" = "scroll_up"
 "ret" = [ "split_selection_on_newline", "extend_to_line_bounds" ]
 "space" = "collapse_selection"
 "tab" = "buffer_picker"
@@ -76,7 +79,6 @@ select = "underline"
 "Q" = "copy_selection_on_prev_line"
 "C-r" = "redo"
 "U" = "extend_search_prev"
-"A-pageup" = "switch_to_uppercase"
 "V" = "extend_to_line_bounds"
 "w" = "extend_next_word_start"
 "W" = "extend_next_long_word_start"
@@ -86,8 +88,10 @@ select = "underline"
 "Z" = "no_op"
 
 [keys.normal.esc]
-"C-end" = "goto_line_end_newline" # Caps-space within normal mode
-
+"C-end" = "extend_to_line_end" # Caps-enter within normal mode
+"C-home" = "extend_to_line_start" # Caps-tab within normal mode
+"C-right" = "extend_next_word_end" # Caps-space within normal mode
+"C-left" = "extend_prev_word_start" # Caps-backspace within normal mode
 
 [keys.normal.","]
 "," = "command_palette"
