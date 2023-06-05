@@ -4,6 +4,8 @@ font:
   size: 18
   normal:
     family: Monaco
+window:
+  decorations: Buttonless
 key_bindings:
   - { key: Back  , mods: Option      , chars: "\x1b[1;5D" } # Ctrl Left
   - { key: Space , mods: Option      , chars: "\x1b[1;5C" } # Ctrl Right

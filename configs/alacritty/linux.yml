@@ -5,6 +5,8 @@ font:
   size: 13
   normal:
     family: JetBrainsMono
+window:
+  decorations: None
 key_bindings:
   - { key: Up      , mods: None , chars: "\x1b[1;3A" } # Alt Up
   - { key: Down    , mods: None , chars: "\x1b"      } # Escape
