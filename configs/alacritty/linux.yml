@@ -8,14 +8,10 @@ font:
 window:
   decorations: None
 key_bindings:
-  - { key: Back  , mods: None     , chars: "\x1b[1;5D" } # Ctrl Left
-  - { key: Space , mods: None     , chars: "\x1b[1;5C" } # Ctrl Right
-  - { key: Return, mods: None     , chars: "\x1b[1;5F" } # Ctrl End
-  - { key: Tab   , mods: None     , chars: "\x1b[1;5H" } # Ctrl Home
-  - { key: Back  , mods: Alt|Shift, chars: "\x1b[B"    } # Down
-  - { key: Space , mods: Alt|Shift, chars: "\x1b[A"    } # Up
-  - { key: Return, mods: Alt|Shift, chars: "\x1b[5~"   } # PageUp
-  - { key: Tab   , mods: Alt|Shift, chars: "\x1b[6~"   } # PageDown
+  - { key: Left  , mods: None     , chars: "\x1b[1;5D" } # Ctrl Left
+  - { key: Right , mods: None     , chars: "\x1b[1;5C" } # Ctrl Right
+  - { key: End   , mods: None     , chars: "\x1b[1;5F" } # Ctrl End
+  - { key: Home  , mods: None     , chars: "\x1b[1;5H" } # Ctrl Home
 shell:
   program: /home/yerlaser/.cargo/bin/nu
 env:
