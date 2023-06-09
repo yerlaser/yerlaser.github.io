@@ -30,8 +30,8 @@ select = "underline"
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
 
 [keys.insert.ins]
-"up" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-S-space
-"pageup" = [ "extend_prev_word_start", "collapse_selection", "switch_to_uppercase", "extend_next_word_start", "move_char_right" ] # Caps-S-enter
+"up" = [ "extend_prev_word_start", "collapse_selection", "switch_to_uppercase", "extend_next_word_start", "move_char_right" ] # Caps-S-space
+"pageup" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-S-enter
 "pagedown" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-tab
 
 [keys.normal]
@@ -87,8 +87,8 @@ select = "underline"
 "Z" = "no_op"
 
 [keys.normal.ins]
-"up" = [ "extend_prev_word_start", "ensure_selections_forward", "extend_next_word_end", "switch_to_uppercase" ] # Caps-S-space
-"pageup" = [ "extend_prev_word_start", "collapse_selection", "switch_to_uppercase" ] # Caps-S-enter
+"up" = [ "extend_prev_word_start", "collapse_selection", "switch_to_uppercase" ] # Caps-S-space
+"pageup" = [ "extend_prev_word_start", "ensure_selections_forward", "extend_next_word_end", "switch_to_uppercase" ] # Caps-S-enter
 "down" = "shrink_selection"
 "pagedown" = "expand_selection"
 
