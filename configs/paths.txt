@@ -10,7 +10,7 @@
 ~/.cargo/bin
 ~/.local/bin
 ~/.local/zig/bin
-~/.local/llvm16-release/bin
+# ~/.local/llvm16-release/bin
 ~/.asdf/shims
 ~/.wasmer/bin
 ~/.wasmer/globals/wapm_packages/.bin
