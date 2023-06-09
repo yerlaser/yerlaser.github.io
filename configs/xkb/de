@@ -55,9 +55,9 @@ xkb_symbols "DeQwerty" {
   key <LALT> { [ Super_L           , Super_L           , Super_L           , Super_L           ] };
   key <RALT> { [ Control_R         , Control_R         , Control_R         , Control_R         ] };
   key <RCTL> { [ Alt_L             , Alt_L             , Alt_L             , Alt_L             ] };
-  key <BKSP> { [ BackSpace         , BackSpace         , KP_Left           , KP_Home           ] };
-  key <RTRN> { [ Return            , Return            , KP_Right          , KP_End            ] };
-  key <TAB>  { [ Tab               , ISO_Left_Tab      , KP_Up             , KP_Prior          ] };
-  key <SPCE> { [ space             , space             , KP_Down           , KP_Next           ] };
+  key <BKSP> { [ BackSpace         , BackSpace         , KP_Left           , KP_Down           ] };
+  key <RTRN> { [ Return            , Return            , KP_End            , KP_Prior          ] };
+  key <TAB>  { [ Tab               , ISO_Left_Tab      , KP_Home           , KP_Next           ] };
+  key <SPCE> { [ space             , space             , KP_Right          , KP_Up             ] };
   key <MENU> { [ ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  ] };
 };

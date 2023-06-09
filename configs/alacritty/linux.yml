@@ -8,14 +8,14 @@ font:
 window:
   decorations: None
 key_bindings:
-  - { key: Up      , mods: None , chars: "\x1b[1;3A" } # Alt Up
-  - { key: Down    , mods: None , chars: "\x1b"      } # Escape
-  - { key: Right   , mods: None , chars: "\x1b[1;3C" } # Alt Right
-  - { key: Left    , mods: None , chars: "\x1b[1;3D" } # Alt Left
-  - { key: PageUp  , mods: Shift, chars: "\x1b[5;3~" } # Alt PageUp
-  - { key: PageDown, mods: Shift, chars: "\x1b[6;3~" } # Alt PageDown
-  - { key: End     , mods: Shift, chars: "\x1b[1;3F" } # Alt End
-  - { key: Home    , mods: Shift, chars: "\x1b[1;3H" } # Alt Home
+  - { key: Back  , mods: None     , chars: "\x1b[1;5D" } # Ctrl Left
+  - { key: Space , mods: None     , chars: "\x1b[1;5C" } # Ctrl Right
+  - { key: Return, mods: None     , chars: "\x1b[1;5F" } # Ctrl End
+  - { key: Tab   , mods: None     , chars: "\x1b[1;5H" } # Ctrl Home
+  - { key: Back  , mods: Alt|Shift, chars: "\x1b[B"    } # Down
+  - { key: Space , mods: Alt|Shift, chars: "\x1b[A"    } # Up
+  - { key: Return, mods: Alt|Shift, chars: "\x1b[5~"   } # PageUp
+  - { key: Tab   , mods: Alt|Shift, chars: "\x1b[6~"   } # PageDown
 shell:
   program: /home/yerlaser/.cargo/bin/nu
 env:

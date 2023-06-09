@@ -26,10 +26,12 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
-"pagedown" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-tab
-"pageup" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-S-tab
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
+
+[keys.insert.ins]
+"pagedown" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-tab
+"pageup" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-S-tab
 
 [keys.normal]
 "C-end" = [ "goto_line_end_newline", "insert_mode" ] # Caps-space after exiting insert mode
@@ -38,10 +40,6 @@ select = "underline"
 "C-right" = [ "move_char_right", "insert_mode" ] # Caps-enter after exiting insert mode
 "backspace" = "keep_primary_selection"
 "A-backspace" = "remove_primary_selection" # S-backspace
-"pagedown" = "switch_to_lowercase"
-"pageup" = "switch_to_uppercase"
-"down" = "scroll_down"
-"up" = "scroll_up"
 "ret" = [ "split_selection_on_newline", "extend_to_line_bounds" ]
 "space" = "collapse_selection"
 "tab" = "buffer_picker"
@@ -86,6 +84,12 @@ select = "underline"
 "X" = "delete_selection_noyank"
 "Y" = "no_op"
 "Z" = "no_op"
+
+[keys.normal.ins]
+"pagedown" = "switch_to_lowercase"
+"pageup" = "switch_to_uppercase"
+"down" = "shrink_selection"
+"up" = "expand_selection"
 
 [keys.normal.esc]
 "C-end" = "extend_to_line_end" # Caps-enter within normal mode
