@@ -8,7 +8,7 @@ font:
 window:
   decorations: None
 shell:
-  program: /home/yerlaser/.cargo/bin/nu
+  program: /LOCAL/apps/cargo/bin/nu
 env:
   THEME: Dark
   BAT_THEME: ''
