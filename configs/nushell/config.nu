@@ -8,18 +8,48 @@ let-env config = {
   }
   keybindings: [
     {
+      name: word_complete
+      modifier: None
+      keycode: Right
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: HistoryHintWordComplete}
+        {send: MenuRight}
+        {send: Right}
+      ]}
+    }
+    {
       name: capitalize_word
       modifier: None
-      keycode: PageUp
+      keycode: Home
       mode: [emacs vi_insert]
       event: {edit: UppercaseWord}
     }
     {
       name: edit_command
       modifier: None
-      keycode: PageDown
+      keycode: End
       mode: [emacs vi_insert]
       event: {send: OpenEditor}
+    }
+    {
+      name: end_complete
+      modifier: None
+      keycode: PageUp
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: HistoryHintComplete}
+        {edit: MoveToEnd}
+      ]}
+    }
+    {
+      name: move_start
+      modifier: None
+      keycode: PageDown
+      mode: [emacs vi_insert]
+      event: {until: [
+        {edit: MoveToStart}
+      ]}
     }
     {
       name: completion_menu
@@ -29,16 +59,6 @@ let-env config = {
       event: {until: [
         {send: Menu name: completion_menu}
         {send: MenuNext}
-      ]}
-    }
-    {
-      name: end_complete
-      modifier: Control
-      keycode: End
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: HistoryHintComplete}
-        {edit: MoveToLineEnd}
       ]}
     }
   ]

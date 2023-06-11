@@ -7,13 +7,13 @@ font:
 window:
   decorations: Buttonless
 key_bindings:
-  - { key: Back  , mods: Option      , chars: "\x1b[1;5D" } # Ctrl Left
-  - { key: Space , mods: Option      , chars: "\x1b[1;5C" } # Ctrl Right
-  - { key: Return, mods: Option      , chars: "\x1b[1;5F" } # Ctrl End
-  - { key: Tab   , mods: Option      , chars: "\x1b[1;5H" } # Ctrl Home
-  - { key: Back  , mods: Option|Shift, chars: "\x1b[B"    } # Down
-  - { key: Space , mods: Option|Shift, chars: "\x1b[A"    } # Up
-  - { key: Return, mods: Option|Shift, chars: "\x1b[5~"   } # PageUp
+  - { key: Back  , mods: Option      , chars: "\x1b[D"    } # Left
+  - { key: Return, mods: Option      , chars: "\x1b[C"    } # Right
+  - { key: Space , mods: Option      , chars: "\x1b[A"    } # Up
+  - { key: Tab   , mods: Option      , chars: "\x1b[B"    } # Down
+  - { key: Back  , mods: Option|Shift, chars: "\x1b[H"    } # Home
+  - { key: Return, mods: Option|Shift, chars: "\x1b[F"    } # End
+  - { key: Space , mods: Option|Shift, chars: "\x1b[5~"   } # PageUp
   - { key: Tab   , mods: Option|Shift, chars: "\x1b[6~"   } # PageDown
   - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:

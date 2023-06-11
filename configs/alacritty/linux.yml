@@ -7,11 +7,6 @@ font:
     family: JetBrainsMono
 window:
   decorations: None
-key_bindings:
-  - { key: Left  , mods: None     , chars: "\x1b[1;5D" } # Ctrl Left
-  - { key: Right , mods: None     , chars: "\x1b[1;5C" } # Ctrl Right
-  - { key: End   , mods: None     , chars: "\x1b[1;5F" } # Ctrl End
-  - { key: Home  , mods: None     , chars: "\x1b[1;5H" } # Ctrl Home
 shell:
   program: /home/yerlaser/.cargo/bin/nu
 env:
