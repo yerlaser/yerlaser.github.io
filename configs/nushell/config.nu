@@ -19,39 +19,6 @@ let-env config = {
       ]}
     }
     {
-      name: capitalize_word
-      modifier: None
-      keycode: Home
-      mode: [emacs vi_insert]
-      event: {edit: UppercaseWord}
-    }
-    {
-      name: edit_command
-      modifier: None
-      keycode: End
-      mode: [emacs vi_insert]
-      event: {send: OpenEditor}
-    }
-    {
-      name: end_complete
-      modifier: None
-      keycode: PageUp
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: HistoryHintComplete}
-        {edit: MoveToEnd}
-      ]}
-    }
-    {
-      name: move_start
-      modifier: None
-      keycode: PageDown
-      mode: [emacs vi_insert]
-      event: {until: [
-        {edit: MoveToStart}
-      ]}
-    }
-    {
       name: completion_menu
       modifier: None
       keycode: Tab

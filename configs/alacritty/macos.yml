@@ -6,6 +6,7 @@ font:
     family: Monaco
 window:
   decorations: Buttonless
+  option_as_alt: OnlyRight
 key_bindings:
   - { key: Back  , mods: Option      , chars: "\x1b[D"    } # Left
   - { key: Return, mods: Option      , chars: "\x1b[C"    } # Right
