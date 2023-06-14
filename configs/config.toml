@@ -11,9 +11,6 @@ skip-levels = 1
 [editor.soft-wrap]
 enable = true
 
-[editor.lsp]
-display-inlay-hints = true
-
 [editor.statusline]
 center = [ "version-control", "spacer", "total-line-numbers", "spacer", "file-type" ]
 
