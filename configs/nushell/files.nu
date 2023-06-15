@@ -1,3 +1,18 @@
+# Delete line from file
+export def delline (
+  path # Path to file
+  num: int # Line number to delete
+) {
+  cat $path | drop nth $num | save -f $path
+}
+
+# List files in long format with selected columns
+export def ll (
+  path = '.' # Path
+) {
+  ls -la $path | select name size modified mode uid group target
+}
+
 # Open a shell for each folder
 export def-env pushd_all () {
   for p in (ls -f | where type == dir | get name) {enter $p}; g 0; g
@@ -27,9 +42,9 @@ export def ls_lines (
   let $inp = $in
   if ($inp | is-empty) {
     if ($filename | is-empty) {return}
-    cat $filename | par-each {|f| if ($f | path exists) {ls -D $f}}
+    cat $filename | par-each {|f| if ($f | path exists) {ls -D $f}} | flatten
   } else {
-    $inp | lines | par-each {|f| if ($f | path exists) {ls -D $f}}
+    $inp | lines | par-each {|f| if ($f | path exists) {ls -D $f}} | flatten
   }
 }
 
