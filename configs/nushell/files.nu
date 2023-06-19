@@ -1,11 +1,3 @@
-# Delete line from file
-export def delline (
-  path # Path to file
-  num: int # Line number to delete
-) {
-  cat $path | drop nth $num | save -f $path
-}
-
 # List files in long format with selected columns
 export def ll (
   path = '.' # Path
