@@ -23,19 +23,17 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
+"A-minus" = "no_op" # First part of Caps-backspace
+"A-f" = "move_char_right" # Caps-tab
+"A-u" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-backspace
+"C-o" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-ret
+"C-r" = [ "move_prev_word_start", "collapse_selection", "switch_to_uppercase", "move_next_word_end", "move_char_right" ] # Caps-S-tab
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
 
-[keys.insert.ins]
-"left" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-backspace
-"right" = "move_char_right" # Caps-return
-"up" = "goto_line_end_newline" # Caps-space
-"down" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-tab
-"space" = [ "extend_prev_word_start", "collapse_selection", "switch_to_uppercase", "extend_next_word_start", "move_char_right" ]
-
 [keys.normal]
 "backspace" = "keep_primary_selection"
-"A-backspace" = "remove_primary_selection" # S-backspace
+"C-k" = "remove_primary_selection" # S-backspace
 "ret" = [ "split_selection_on_newline", "extend_to_line_bounds" ]
 "space" = "collapse_selection"
 "tab" = "buffer_picker"
@@ -80,13 +78,6 @@ select = "underline"
 "X" = "delete_selection_noyank"
 "Y" = "no_op"
 "Z" = "no_op"
-
-[keys.normal.ins]
-"left" = [ "move_char_right", "extend_prev_word_start", "collapse_selection", "extend_next_word_end", "switch_to_uppercase" ] # Caps-backspace
-"right" = "add_newline_above" # Caps-return
-"up" = "expand_selection" # Caps-space
-"down" = "shrink_selection" # Caps-tab
-"space" = [ "move_char_right", "extend_prev_word_start", "collapse_selection", "switch_to_uppercase" ]
 
 [keys.normal.","]
 "," = "command_palette"
