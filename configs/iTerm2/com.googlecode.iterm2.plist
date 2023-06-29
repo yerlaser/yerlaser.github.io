@@ -685,6 +685,17 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0xd-0x100000-0x24</key>
+		<dict>
+			<key>Action</key>
+			<integer>1</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
 			<key>Action</key>
@@ -775,7 +786,7 @@
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>Hotkey</key>
 	<false/>
 	<key>HotkeyChar</key>
@@ -786,6 +797,8 @@
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>1310985</integer>
+	<key>LeftTabBarWidth</key>
+	<real>114</real>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1562,7 +1575,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 18</string>
+			<string>Monaco 19</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1688,6 +1701,8 @@
 	<integer>4</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>TabViewType</key>
+	<integer>2</integer>
 	<key>TabsHaveCloseButton</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
