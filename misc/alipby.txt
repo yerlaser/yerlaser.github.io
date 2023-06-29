@@ -3,7 +3,7 @@ a
 b
 v
 g
-q
+c/h(i)
 d
 e
 e
@@ -11,8 +11,8 @@ j
 z
 y
 y
-c/'k
 k
+q
 l
 m
 n
@@ -40,5 +40,3 @@ i
 e
 yu
 ya
-
-__k_arip__

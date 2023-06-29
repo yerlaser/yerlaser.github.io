@@ -8,24 +8,30 @@ let-env config = {
   }
   keybindings: [
     {
-      name: word_complete
-      modifier: None
-      keycode: Right
+      name: ignore
+      modifier: alt
+      keycode: char_-
+      mode: [emacs vi_insert]
+      event: null
+    }
+    {
+      name: restore_down
+      modifier: none
+      keycode: esc
       mode: [emacs vi_insert]
       event: {until: [
-        {send: HistoryHintWordComplete}
-        {send: MenuRight}
-        {send: Right}
+        {send: menudown}
+        {send: down}
       ]}
     }
     {
       name: completion_menu
-      modifier: None
-      keycode: Tab
+      modifier: none
+      keycode: tab
       mode: [emacs vi_insert]
       event: {until: [
-        {send: Menu name: completion_menu}
-        {send: MenuNext}
+        {send: menu name: completion_menu}
+        {send: menunext}
       ]}
     }
   ]

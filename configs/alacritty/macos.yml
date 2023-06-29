@@ -8,14 +8,14 @@ window:
   decorations: Buttonless
   option_as_alt: OnlyRight
 key_bindings:
-  - { key: Back  , mods: Option      , chars: "\x1b[D"    } # Left
-  - { key: Return, mods: Option      , chars: "\x1b[C"    } # Right
-  - { key: Space , mods: Option      , chars: "\x1b[A"    } # Up
-  - { key: Tab   , mods: Option      , chars: "\x1b[B"    } # Down
-  - { key: Back  , mods: Option|Shift, chars: "\x1b[H"    } # Home
-  - { key: Return, mods: Option|Shift, chars: "\x1b[F"    } # End
-  - { key: Space , mods: Option|Shift, chars: "\x1b[5~"   } # PageUp
-  - { key: Tab   , mods: Option|Shift, chars: "\x1b[6~"   } # PageDown
+  - { key: Back  , mods: Option      , chars: "\x1b-\x1bu" } # Alt-minus, Alt-U
+  - { key: Back  , mods: Option|Shift, chars: "\x15"       } # Ctrl-U
+  - { key: Return, mods: Option      , chars: "\x1b[F"     } # End
+  - { key: Return, mods: Option|Shift, chars: "\x0f"       } # Ctrl-O
+  - { key: Space , mods: Option      , chars: "\x1b"       } # Escape
+  - { key: Space , mods: Option|Shift, chars: "\x1b[A"     } # Up
+  - { key: Tab   , mods: Option      , chars: "\x1bf"      } # Alt-F
+  - { key: Tab   , mods: Option|Shift, chars: "\x12"       } # Ctrl-R
   - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
 shell:
   program: /Users/yerlan/.cargo/bin/nu
