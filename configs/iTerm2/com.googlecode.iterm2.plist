@@ -678,6 +678,17 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x74-0x100000-0x11</key>
+		<dict>
+			<key>Action</key>
+			<integer>28</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string>E20879E7-8C4D-4AD1-8A60-E4C886ACD3ED</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -799,6 +810,10 @@
 	<integer>1310985</integer>
 	<key>LeftTabBarWidth</key>
 	<real>114</real>
+	<key>NeverWarnAboutShortLivedSessions_E20879E7-8C4D-4AD1-8A60-E4C886ACD3ED</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_E20879E7-8C4D-4AD1-8A60-E4C886ACD3ED_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
