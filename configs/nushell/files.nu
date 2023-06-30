@@ -2,7 +2,7 @@
 export def ll (
   path = '.' # Path
 ) {
-  ls -la $path | select name size modified mode uid group target
+  ls -la $path | select name size modified mode user group target
 }
 
 # Open a shell for each folder
