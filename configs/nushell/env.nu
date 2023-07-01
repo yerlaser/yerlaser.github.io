@@ -60,7 +60,7 @@ def helix_configs () {
   }
   if not ('/tmp/configLight.toml' | path exists) {
     cp ~/Published/configs/config.toml /tmp/configLight.toml
-    sed -i'' -Ee 's/mocha/latte/g' /tmp/configLight.toml
+    sed -i '' -Ee 's/mocha/latte/g' /tmp/configLight.toml
   }
   if not ('/tmp/configDark.toml' | path exists) {
     ln -s ~/Published/configs/config.toml /tmp/configDark.toml
