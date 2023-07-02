@@ -1,4 +1,4 @@
-import = ["/Users/yerlan/Published/configs/alacritty/common.toml"]
+import = ["~/Published/configs/alacritty/common.toml"]
 
 [font]
 size = 18

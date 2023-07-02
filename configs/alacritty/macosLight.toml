@@ -1,4 +1,4 @@
-import = ["/Users/yerlan/Published/configs/alacritty/light.toml", "/Users/yerlan/Published/configs/alacritty/macos.toml"]
+import = ["~/Published/configs/alacritty/light.toml", "~/Published/configs/alacritty/macos.toml"]
 
 [env]
 BAT_THEME = "GitHub"
@@ -10,5 +10,5 @@ key = "T"
 mods = "Command"
 
 [keyboard.bindings.command]
-args = ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosLight.yml"]
-program = "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty"
+args = ["--config-file", "~/Published/configs/alacritty/macosLight.yml"]
+program = "~/Applications/Alacritty.app/Contents/MacOS/alacritty"
