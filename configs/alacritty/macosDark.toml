@@ -1,0 +1,14 @@
+import = ["/Users/yerlan/Published/configs/alacritty/dark.toml", "/Users/yerlan/Published/configs/alacritty/macos.toml"]
+
+[env]
+BAT_THEME = ""
+THEME = "Dark"
+_ZO_DATA_DIR = "/tmp/zoxideDark"
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Command"
+
+[keyboard.bindings.command]
+args = ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosLight.toml"]
+program = "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty"

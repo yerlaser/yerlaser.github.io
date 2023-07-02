@@ -1,0 +1,54 @@
+import = ["/Users/yerlan/Published/configs/alacritty/common.toml"]
+
+[font]
+size = 18
+
+[font.normal]
+family = "Monaco"
+
+[[keyboard.bindings]]
+chars = "\u001Bu"
+key = "Back"
+mods = "Option"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "Back"
+mods = "Option|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[F"
+key = "Return"
+mods = "Option"
+
+[[keyboard.bindings]]
+chars = "\u000F"
+key = "Return"
+mods = "Option|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0003"
+key = "Space"
+mods = "Option"
+
+[[keyboard.bindings]]
+chars = "\u001B[A"
+key = "Space"
+mods = "Option|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Tab"
+mods = "Option"
+
+[[keyboard.bindings]]
+chars = "\u0012"
+key = "Tab"
+mods = "Option|Shift"
+
+[shell]
+program = "/Users/yerlan/.cargo/bin/nu"
+
+[window]
+decorations = "Buttonless"
+option_as_alt = "OnlyRight"

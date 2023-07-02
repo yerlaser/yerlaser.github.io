@@ -1,0 +1,28 @@
+[[keyboard.bindings]]
+chars = "\u001B-"
+key = 58
+mods = "None"
+
+[[keyboard.bindings]]
+chars = "\u001B^"
+key = 58
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u000B"
+key = "Back"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007F"
+key = "Back"
+mods = "Control"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10000
+
+[window]
+startup_mode = "Maximized"

@@ -1,0 +1,14 @@
+import = ["/Users/yerlan/Published/configs/alacritty/light.toml", "/Users/yerlan/Published/configs/alacritty/macos.toml"]
+
+[env]
+BAT_THEME = "GitHub"
+THEME = "Light"
+_ZO_DATA_DIR = "/tmp/zoxideLight"
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Command"
+
+[keyboard.bindings.command]
+args = ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosLight.yml"]
+program = "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty"

@@ -1,0 +1,58 @@
+import = ["/Users/yerlan/Published/configs/alacritty/dark.toml", "/Users/yerlan/Published/configs/alacritty/common.toml"]
+
+[env]
+BAT_THEME = ""
+THEME = "Dark"
+_ZO_DATA_DIR = "/tmp/zoxideDark"
+
+[font]
+size = 13
+
+[font.normal]
+family = "JetBrainsMono"
+
+[[keyboard.bindings]]
+chars = "\u001Bu"
+key = "PageUp"
+mods = "None"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "PageDown"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[F"
+key = "End"
+mods = "None"
+
+[[keyboard.bindings]]
+chars = "\u000F"
+key = "Home"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u0003"
+key = "Down"
+mods = "None"
+
+[[keyboard.bindings]]
+chars = "\u001B[A"
+key = "Up"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "None"
+
+[[keyboard.bindings]]
+chars = "\u0012"
+key = "Left"
+mods = "Shift"
+
+[shell]
+program = "/LOCAL/apps/cargo/bin/nu"
+
+[window]
+decorations = "None"

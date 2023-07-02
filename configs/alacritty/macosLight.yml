@@ -1,9 +1,0 @@
-env:
-  THEME: Light
-  BAT_THEME: GitHub
-  _ZO_DATA_DIR: /tmp/zoxideLight
-import:
-  - ~/Published/configs/alacritty/light.yml
-  - ~/Published/configs/alacritty/macos.yml
-key_bindings:
-  - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }
