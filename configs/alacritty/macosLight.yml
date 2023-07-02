@@ -5,3 +5,5 @@ env:
 import:
   - ~/Published/configs/alacritty/light.yml
   - ~/Published/configs/alacritty/macos.yml
+key_bindings:
+  - { key: T, mods: Command, command: {program: "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty", args: ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.yml"]}   }

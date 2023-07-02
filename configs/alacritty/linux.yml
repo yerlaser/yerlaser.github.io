@@ -7,6 +7,15 @@ font:
     family: JetBrainsMono
 window:
   decorations: None
+key_bindings:
+  - { key: PageUp  , mods: None , chars: "\x1bu"      } # Alt-U
+  - { key: PageDown, mods: Shift, chars: "\x15"       } # Ctrl-U
+  - { key: End     , mods: None , chars: "\x1b[F"     } # End
+  - { key: Home    , mods: Shift, chars: "\x0f"       } # Ctrl-O
+  - { key: Down    , mods: None , chars: "\x03"       } # Ctrl-C
+  - { key: Up      , mods: Shift, chars: "\x1b[A"     } # Up
+  - { key: Right   , mods: None , chars: "\x1bf"      } # Alt-F
+  - { key: Left    , mods: Shift, chars: "\x12"       } # Ctrl-R
 shell:
   program: /LOCAL/apps/cargo/bin/nu
 env:
