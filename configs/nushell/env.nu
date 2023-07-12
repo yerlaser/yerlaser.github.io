@@ -4,6 +4,12 @@ if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
   let-env _ZO_DATA_DIR = '/tmp/zoxideLight'
  }
 
+if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
+  let-env THEME = 'Dark'
+  let-env BAT_THEME = ''
+  let-env _ZO_DATA_DIR = '/tmp/zoxideDark'
+ }
+
 alias mc = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
 alias sd = str replace
 alias tree = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Command</key>
-	<string>/Users/yerlan/.cargo/bin/nu</string>
+	<string></string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>catppuccin-latte</key>
@@ -1189,7 +1189,7 @@
 					<key>Label</key>
 					<string></string>
 					<key>Text</key>
-					<string>0x1b 0x5e 0x12</string>
+					<string>0x12</string>
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
@@ -1200,7 +1200,7 @@
 					<key>Label</key>
 					<string></string>
 					<key>Text</key>
-					<string>0x1b 0x2d 0x03</string>
+					<string>0x1b</string>
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
@@ -1211,7 +1211,7 @@
 					<key>Label</key>
 					<string></string>
 					<key>Text</key>
-					<string>0x1b 0x5e 0x1b 0x5b 0x41</string>
+					<string>0x1b 0x5b 0x41</string>
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
@@ -1311,7 +1311,7 @@
 					<key>Label</key>
 					<string></string>
 					<key>Text</key>
-					<string>0x1b 0x5e 0x15</string>
+					<string>0x15</string>
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
@@ -1322,7 +1322,7 @@
 					<key>Label</key>
 					<string></string>
 					<key>Text</key>
-					<string>0x1b 0x2d 0x1b 0x66</string>
+					<string>0x1b 0x66</string>
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
@@ -1333,7 +1333,7 @@
 					<key>Label</key>
 					<string></string>
 					<key>Text</key>
-					<string>0x1b 0x2d 0x1b 0x5b 0x46</string>
+					<string>0x1b 0x5b 0x46</string>
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>
@@ -1344,7 +1344,7 @@
 					<key>Label</key>
 					<string></string>
 					<key>Text</key>
-					<string>0x1b 0x5e 0x0f</string>
+					<string>0x0f</string>
 					<key>Version</key>
 					<integer>1</integer>
 				</dict>

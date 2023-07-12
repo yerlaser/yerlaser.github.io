@@ -12,7 +12,7 @@ size = 13
 family = "JetBrainsMono"
 
 [[keyboard.bindings]]
-chars = "\u001Bu"
+chars = "\u001B-\u001Bu"
 key = "PageUp"
 mods = "None"
 
@@ -32,7 +32,7 @@ key = "Home"
 mods = "Shift"
 
 [[keyboard.bindings]]
-chars = "\u0003"
+chars = "\u001B"
 key = "Down"
 mods = "None"
 

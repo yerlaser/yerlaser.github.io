@@ -23,16 +23,11 @@ normal = "block"
 select = "underline"
 
 [keys.insert]
+"A-minus" = "no_op"
+"A-f" = "move_char_right" # Caps-tab
+"A-u" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-backspace
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
-
-[keys.insert."A-minus"]
-"A-u" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # Caps-backspace
-"end" = "goto_line_end_newline" # Caps-ret
-"C-c" = "normal_mode" # Caps-space
-"A-f" = "move_char_right" # Caps-tab
-
-[keys.insert."A-^"]
 "C-o" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-ret
 "C-r" = [ "move_prev_word_start", "collapse_selection", "switch_to_uppercase", "move_next_word_end", "move_char_right" ] # Caps-S-tab
 

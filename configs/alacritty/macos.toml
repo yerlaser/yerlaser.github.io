@@ -7,7 +7,7 @@ size = 18
 family = "Monaco"
 
 [[keyboard.bindings]]
-chars = "\u001Bu"
+chars = "\u001B-\u001Bu"
 key = "Back"
 mods = "Option"
 
@@ -27,7 +27,7 @@ key = "Return"
 mods = "Option|Shift"
 
 [[keyboard.bindings]]
-chars = "\u0003"
+chars = "\u001B"
 key = "Space"
 mods = "Option"
 
