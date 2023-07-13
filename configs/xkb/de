@@ -50,7 +50,7 @@ xkb_symbols "DeQwerty" {
   key <AB10> { [ slash             , question          , exclamdown        , questiondown      ] };
   key <BKSL> { [ backslash         , bar               , oe                , OE                ] };
   key <LSGT> { [ EuroSign          , cent              , sterling          , yen               ] };
-  key <CAPS> { [ ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  , ISO_Level3_Shift  ] };
+  key <CAPS> { [ Alt_R             , Alt_R             , Alt_R             , Alt_R             ] };
   key <LWIN> { [ Caps_Lock         , Caps_Lock         , Caps_Lock         , Caps_Lock         ] };
   key <LALT> { [ Super_L           , Super_L           , Super_L           , Super_L           ] };
   key <RALT> { [ Control_R         , Control_R         , Control_R         , Control_R         ] };
