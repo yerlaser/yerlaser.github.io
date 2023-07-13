@@ -50,7 +50,6 @@ xkb_symbols "KzPhonetic" {
   key <AB10> { [ Cyrillic_shorti         , question                , slash                   , Cyrillic_SHORTI         ] };
   key <BKSL> { [ Cyrillic_e              , Cyrillic_E              , backslash               , bar                     ] };
   key <LSGT> { [ EuroSign                , cent                    , sterling                , yen                     ] };
-  key <CAPS> { [ Alt_R                   , Alt_R                   , Alt_R                   , Alt_R                   ] };
   key <LWIN> { [ Caps_Lock               , Caps_Lock               , Caps_Lock               , Caps_Lock               ] };
   key <LALT> { [ Super_L                 , Super_L                 , Super_L                 , Super_L                 ] };
   key <RALT> { [ Control_R               , Control_R               , Control_R               , Control_R               ] };
@@ -59,5 +58,4 @@ xkb_symbols "KzPhonetic" {
   key <RTRN> { [ Return                  , Return                  , KP_End                  , KP_Home                 ] };
   key <SPCE> { [ space                   , space                   , KP_Down                 , KP_Up                   ] };
   key <TAB>  { [ Tab                     , ISO_Left_Tab            , KP_Right                , KP_Left                 ] };
-  key <MENU> { [ Alt_L                   , Alt_L                   , Alt_L                   , Alt_L                   ] };
 };
