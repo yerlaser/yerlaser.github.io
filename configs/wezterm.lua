@@ -16,7 +16,15 @@ return {
   font = wezterm.font('Monaco'),
   font_size = 19,
   line_height = 1.0,
+  window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+  },
   hide_tab_bar_if_only_one_tab = true,
+  send_composed_key_when_left_alt_is_pressed = true,
+  send_composed_key_when_right_alt_is_pressed = false,
   leader = { key = 'Period', mods = 'CMD', timeout_milliseconds = 1000 },
   -- unzoom_on_switch_pane = false,
   keys = {
