@@ -10,8 +10,11 @@ if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   let-env _ZO_DATA_DIR = '/tmp/zoxideDark'
  }
 
+alias cut = split column -c
+alias diff = delta
+alias grep = find
 alias mc = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
-alias sd = str replace
+alias sed = str replace
 alias tree = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'
 alias vi = ^hx -c $'/tmp/config($env.THEME).toml'
 alias year = ^cal -N -A 10 -B 1
@@ -65,8 +68,7 @@ def helix_configs () {
     rm /tmp/configLight.toml
   }
   if not ('/tmp/configLight.toml' | path exists) {
-    cp ~/Published/configs/config.toml /tmp/configLight.toml
-    sed -i '' -Ee 's/mocha/latte/g' /tmp/configLight.toml
+    open ~/Published/configs/config.toml | update theme catppuccin_latte | save /tmp/configLight.toml
   }
   if not ('/tmp/configDark.toml' | path exists) {
     ln -s ~/Published/configs/config.toml /tmp/configDark.toml
