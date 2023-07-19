@@ -12,13 +12,22 @@ export def nslookup (
   }
 }
 
-# Open Zellij with correct theme
-export def zellij () {
-  if $env.THEME == 'Light' {
-    ^zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-latte
-  } else {
-    ^zellij --config $'($env.HOME)/Published/configs/zellij/config.kdl' options --theme catppuccin-mocha
+# Open multiple Zellij ssh sessions
+export def mssh (
+  host_base: string # Hostname base
+  last: int # Last index
+  first: int = 1 # First index
+) {
+  for n in $first..$last {
+    zellij -s screen run -n $'($host_base)($n)' -- ssh $'($host_base)($n)'
   }
+  for n in $first..$last {
+    zellij -s screen action move-focus up
+  }
+  for n in $first..$last {
+    zellij -s screen action move-focus left
+  }
+  zellij -s screen action close-pane
 }
 
 # Connects and displays information about SSL certificate of a host

@@ -1,12 +1,11 @@
 keybinds {
   pane {
-    bind "Ctrl w" { SwitchFocus; }
+    bind "Alt f" { SwitchFocus; }
   }
   shared_except "locked" {
-    bind "Ctrl c" { Quit; }
-    bind "Ctrl p" { SwitchToMode "Resize"; }
-    bind "Ctrl q" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
-    bind "Ctrl w" { SwitchToMode "Pane"; }
+    bind "Alt -" { ToggleActiveSyncTab; }
+    bind "Alt u" { SwitchToMode "Normal"; }
+    bind "Alt f" { SwitchToMode "Pane"; }
   }
 }
 themes {
@@ -37,5 +36,6 @@ themes {
     white "#cdd6f4"
   }
 }
+default_layout "compact"
 default_shell "nu"
-copy_command "pbcopy"
+theme "catppuccin-latte"

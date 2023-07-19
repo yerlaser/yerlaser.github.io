@@ -1,22 +1,23 @@
 if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
   let-env THEME = 'Light'
   let-env BAT_THEME = 'GitHub'
-  let-env _ZO_DATA_DIR = '/tmp/zoxideLight'
+  let-env _ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideLight'
  }
 
 if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   let-env THEME = 'Dark'
   let-env BAT_THEME = ''
-  let-env _ZO_DATA_DIR = '/tmp/zoxideDark'
+  let-env _ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideDark'
  }
 
 alias cut = split column -c
 alias diff = delta
 alias grep = find
-alias mc = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
+alias mc = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
+alias screen = zellij -s screen
 alias sed = str replace
-alias tree = ^broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'
-alias vi = ^hx -c $'/tmp/config($env.THEME).toml'
+alias tree = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'
+alias vi = hx -c $'/tmp/config($env.THEME).toml'
 alias year = ^cal -N -A 10 -B 1
 let-env DELTA_FEATURES = '+side-by-side'
 let-env EDITOR = $'hx -c /tmp/config($env.THEME).toml'
