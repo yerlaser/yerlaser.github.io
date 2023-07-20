@@ -1,10 +1,10 @@
 keybinds {
-  unbind "Alt -"
   pane {
+    bind "Alt -" { ToggleActiveSyncTab; }
     bind "Alt d" { SwitchFocus; }
+    bind "Alt l" { SwitchToMode "Normal"; }
   }
   shared_except "locked" {
-    bind "Alt l" { ToggleActiveSyncTab; }
     bind "Alt d" { SwitchToMode "Pane"; }
   }
 }
