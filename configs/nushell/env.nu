@@ -14,7 +14,6 @@ alias cut = split column -c
 alias diff = delta
 alias grep = find
 alias mc = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
-alias screen = zellij -s screen
 alias sed = str replace
 alias tree = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'
 alias vi = hx -c $'/tmp/config($env.THEME).toml'
