@@ -1,5 +1,15 @@
 [[keyboard.bindings]]
-chars = "\u000B"
+action = "ToggleViMode"
+key = 58
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = 58
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007F"
 key = "Back"
 mods = "Shift"
 
@@ -7,6 +17,16 @@ mods = "Shift"
 chars = "\u001B\u007F"
 key = "Back"
 mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B-\u001Bu"
+key = "Tab"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B-\u001Bl"
+key = "Tab"
+mods = "Control|Shift"
 
 [mouse]
 hide_when_typing = true

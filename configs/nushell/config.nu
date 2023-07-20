@@ -15,6 +15,13 @@ let-env config = {
       event: null
     }
     {
+      name: ignore
+      modifier: control
+      keycode: char_w
+      mode: [emacs vi_insert]
+      event: {edit: cutbigwordleft}
+    }
+    {
       name: restore_down
       modifier: none
       keycode: esc
