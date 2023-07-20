@@ -14,20 +14,21 @@ export def nslookup (
 
 # Open multiple Zellij ssh sessions
 export def mssh (
+  session: string # Zellij session
   host_base: string # Hostname base
   last: int # Last index
   first: int = 1 # First index
 ) {
   for n in $first..$last {
-    zellij -s screen run -n $'($host_base)($n)' -- ssh $'($host_base)($n)'
+    zellij -s $session run -n $'($host_base)($n)' -- ssh $'($host_base)($n)'
   }
   for n in $first..$last {
-    zellij -s screen action move-focus up
+    zellij -s $session action move-focus up
   }
   for n in $first..$last {
-    zellij -s screen action move-focus left
+    zellij -s $session action move-focus left
   }
-  zellij -s screen action close-pane
+  zellij -s $session action close-pane
 }
 
 # Connects and displays information about SSL certificate of a host
