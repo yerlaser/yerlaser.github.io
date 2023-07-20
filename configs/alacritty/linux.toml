@@ -13,73 +13,73 @@ family = "JetBrainsMono"
 
 [[keyboard.bindings]]
 chars = "\u0015"
-key = "Back"
+key = "PageUp"
 mods = "None"
 mode = "Vi"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Back"
+key = "PageUp"
 mods = "None"
 mode = "Vi"
 
 [[keyboard.bindings]]
 chars = "\u000B"
-key = "Back"
+key = "PageDown"
 mods = "Shift"
 mode = "Vi"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Back"
+key = "PageDown"
 mods = "Shift"
 mode = "Vi"
 
 [[keyboard.bindings]]
 chars = "\u001B[F"
-key = "Return"
+key = "End"
 mods = "None"
 mode = "Vi"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Return"
+key = "End"
 mods = "None"
 mode = "Vi"
 
 [[keyboard.bindings]]
 chars = "\u000F"
-key = "Return"
+key = "Home"
 mods = "Shift"
 mode = "Vi"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Return"
+key = "Home"
 mods = "Shift"
 mode = "Vi"
 
 [[keyboard.bindings]]
 chars = "\u001B"
-key = "Space"
+key = "Down"
 mods = "None"
 mode = "Vi"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Space"
+key = "Down"
 mods = "None"
 mode = "Vi"
 
 [[keyboard.bindings]]
 chars = "\u001B[A"
-key = "Space"
+key = "Up"
 mods = "Shift"
 mode = "Vi"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Space"
+key = "Up"
 mods = "Shift"
 mode = "Vi"
 
