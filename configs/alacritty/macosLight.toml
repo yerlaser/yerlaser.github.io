@@ -10,5 +10,5 @@ key = "T"
 mods = "Command"
 
 [keyboard.bindings.command]
-args = ["--config-file", "~/Published/configs/alacritty/macosLight.yml"]
-program = "~/Applications/Alacritty.app/Contents/MacOS/alacritty"
+args = ["--config-file", "/Users/yerlan/Published/configs/alacritty/macosDark.toml"]
+program = "/Users/yerlan/Applications/Alacritty.app/Contents/MacOS/alacritty"
