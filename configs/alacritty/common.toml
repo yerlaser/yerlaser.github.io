@@ -28,6 +28,11 @@ chars = "\u001B-\u001Bl"
 key = "Tab"
 mods = "Control|Shift"
 
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "Space"
+mods = "Control|Shift"
+
 [mouse]
 hide_when_typing = true
 

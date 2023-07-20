@@ -1,11 +1,11 @@
 keybinds {
   unbind "Alt -"
   pane {
-    bind "Alt u" { SwitchFocus; }
+    bind "Alt d" { SwitchFocus; }
   }
   shared_except "locked" {
     bind "Alt l" { ToggleActiveSyncTab; }
-    bind "Alt u" { SwitchToMode "Pane"; }
+    bind "Alt d" { SwitchToMode "Pane"; }
   }
 }
 themes {
