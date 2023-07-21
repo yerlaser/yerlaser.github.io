@@ -18,10 +18,9 @@ export def mssh (
   host_base: string # Hostname base
   last: int # Last index
   first: int = 1 # First index
-  suffix: string = 'server.lan' # FQDN suffix
 ) {
   for n in $first..$last {
-    zellij -s $session run -n $'($host_base)($n)' -- ssh $'($host_base)($n).($suffix)'
+    zellij -s $session run -n $'($host_base)($n)' -- ssh $'($host_base)($n)'
   }
   for n in $first..$last {
     zellij -s $session action move-focus up
