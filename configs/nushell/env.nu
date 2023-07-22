@@ -11,8 +11,7 @@ if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
  }
 
 alias cut = split column -c
-alias diff = delta
-alias grep = find
+alias ng = find
 alias mc = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':start_end_panel;:panel_left_no_open'
 alias sed = str replace
 alias tree = broot --conf $'($env.HOME)/Published/configs/broot/($env.THEME).hjson' -c ':pt'

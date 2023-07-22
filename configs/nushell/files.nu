@@ -5,11 +5,6 @@ export def ll (
   ls -la $path | select name size modified mode user group target
 }
 
-# Open a shell for each folder
-export def-env pushd_all () {
-  for p in (ls -f | where type == dir | get name) {enter $p}; g 0; g
-}
-
 # List files using broot possibly doing additional filter
 export def tree (
   --all (-a): bool # Include ignored files
