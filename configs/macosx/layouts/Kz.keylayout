@@ -268,22 +268,22 @@
             <key code="22" output="h"/>
             <key code="23" output="°"/>
             <key code="24" output="="/> <!--=-->
-            <key code="25" output="o"/>
-            <key code="26" output="u"/>
+            <key code="25" output="l"/>
+            <key code="26" output="j"/>
             <key code="27" output="ё"/>
-            <key code="28" output="i"/>
+            <key code="28" output="k"/>
             <key code="29" output=";"/>
             <key code="30" output="]"/> <!--]-->
-            <key code="31" output="ө"/>
-            <key code="32" output="ұ"/>
+            <key code="31" output="o"/>
+            <key code="32" output="u"/>
             <key code="33" output="["/> <!--[-->
-            <key code="34" output="ү"/>
+            <key code="34" output="i"/>
             <key code="35" output="p"/>
             <key code="36" output="&#x000D;"/> <!--CR -->
-            <key code="37" output="l"/>
-            <key code="38" output="j"/>
+            <key code="37" output="ө"/>
+            <key code="38" output="ұ"/>
             <key code="39" output="'"/> <!--'-->
-            <key code="40" output="k"/>
+            <key code="40" output="ү"/>
             <key code="41" output="ә"/>
             <key code="42" output="&#x005C;"/> <!--Backslash-->
             <key code="43" output="һ"/> <!--Less than-->
@@ -374,22 +374,22 @@
             <key code="22" output="H"/>
             <key code="23" output="№"/>
             <key code="24" output="="/>
-            <key code="25" output="O"/>
-            <key code="26" output="U"/> <!--ampersand-->
+            <key code="25" output="L"/>
+            <key code="26" output="J"/> <!--ampersand-->
             <key code="27" output="Ё"/>
-            <key code="28" output="I"/>
+            <key code="28" output="K"/>
             <key code="29" output="Ь"/>
             <key code="30" output="}"/> <!--]-->
-            <key code="31" output="Ө"/>
-            <key code="32" output="Ұ"/>
+            <key code="31" output="O"/>
+            <key code="32" output="U"/>
             <key code="33" output="{"/> <!--[-->
-            <key code="34" output="Ү"/>
+            <key code="34" output="I"/>
             <key code="35" output="P"/>
             <key code="36" output="&#x000D;"/> <!--CR -->
-            <key code="37" output="L"/>
-            <key code="38" output="J"/>
+            <key code="37" output="Ө"/>
+            <key code="38" output="Ұ"/>
             <key code="39" output="Ъ"/> <!--'-->
-            <key code="40" output="K"/>
+            <key code="40" output="Ү"/>
             <key code="41" output="Ә"/> <!--;-->
             <key code="42" output="|"/> <!--Backslash-->
             <key code="43" output="Һ"/> <!--Less than-->
