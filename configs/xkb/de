@@ -34,7 +34,7 @@ xkb_symbols "DeQwerty" {
   key <AC05> { [ g                 , G                 , Greek_sigma       , Greek_SIGMA       ] };
   key <AC06> { [ h                 , H                 , Greek_tau         , Greek_TAU         ] };
   key <AC07> { [ j                 , J                 , udiaeresis        , Udiaeresis        ] };
-  key <AC08> { [ k                 , K                 , udiaeresis        , Udiaeresis        ] };
+  key <AC08> { [ k                 , K                 , idiaeresis        , Idiaeresis        ] };
   key <AC09> { [ l                 , L                 , odiaeresis        , Odiaeresis        ] };
   key <AC10> { [ semicolon         , colon             , adiaeresis        , Adiaeresis        ] };
   key <AC11> { [ apostrophe        , quotedbl          , ediaeresis        , Ediaeresis        ] };
