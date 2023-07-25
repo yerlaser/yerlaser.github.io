@@ -1,11 +1,9 @@
 keybinds {
-  pane {
-    bind "Alt -" { ToggleActiveSyncTab; }
-    bind "Alt d" { SwitchFocus; }
-    bind "Alt l" { SwitchToMode "Normal"; }
-  }
   shared_except "locked" {
-    bind "Alt d" { SwitchToMode "Pane"; }
+    unbind "Alt -"
+    bind "Alt d" { ToggleActiveSyncTab; }
+    bind "Alt l" { SwitchToMode "Resize"; }
+    bind "Alt u" { SwitchToMode "Pane"; }
   }
 }
 themes {
