@@ -13,7 +13,7 @@ xkb_symbols "KzPhonetic" {
   key <AE08> { [ 8                       , asterisk                , k                       , K                       ] };
   key <AE09> { [ 9                       , parenleft               , l                       , L                       ] };
   key <AE10> { [ 0                       , parenright              , semicolon               , Cyrillic_SOFTSIGN       ] };
-  key <AE11> { [ minus                   , underscore              , Cyrillic_io             , Cyrillic_IO             ] };
+  key <AE11> { [ minus                   , underscore              , n                       , N                       ] };
   key <AE12> { [ Cyrillic_ka_descender   , Cyrillic_KA_descender   , equal                   , plus                    ] };
   key <AD01> { [ Cyrillic_ya             , Cyrillic_YA             , q                       , Q                       ] };
   key <AD02> { [ Cyrillic_yu             , Cyrillic_YU             , w                       , W                       ] };
@@ -46,7 +46,7 @@ xkb_symbols "KzPhonetic" {
   key <AB06> { [ Cyrillic_en             , Cyrillic_EN             , Cyrillic_en_descender   , Cyrillic_EN_descender   ] };
   key <AB07> { [ Cyrillic_em             , Cyrillic_EM             , m                       , M                       ] };
   key <AB08> { [ comma                   , less                    , Cyrillic_shha           , Cyrillic_SHHA           ] };
-  key <AB09> { [ period                  , greater                 , n                       , N                       ] };
+  key <AB09> { [ period                  , greater                 , Cyrillic_io             , Cyrillic_IO             ] };
   key <AB10> { [ Cyrillic_shorti         , question                , slash                   , Cyrillic_SHORTI         ] };
   key <BKSL> { [ Cyrillic_e              , Cyrillic_E              , backslash               , bar                     ] };
   key <LSGT> { [ EuroSign                , cent                    , sterling                , yen                     ] };

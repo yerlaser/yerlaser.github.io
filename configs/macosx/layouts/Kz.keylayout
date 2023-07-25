@@ -270,7 +270,7 @@
             <key code="24" output="="/> <!--=-->
             <key code="25" output="l"/>
             <key code="26" output="j"/>
-            <key code="27" output="ё"/>
+            <key code="27" output="n"/>
             <key code="28" output="k"/>
             <key code="29" output=";"/>
             <key code="30" output="]"/> <!--]-->
@@ -290,7 +290,7 @@
             <key code="44" output="/"/> <!--/-->
             <key code="45" output="ң"/>
             <key code="46" output="m"/>
-            <key code="47" output="n"/> <!--Greater than-->
+            <key code="47" output="ё"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="`"/> <!--`-->
@@ -376,7 +376,7 @@
             <key code="24" output="="/>
             <key code="25" output="L"/>
             <key code="26" output="J"/> <!--ampersand-->
-            <key code="27" output="Ё"/>
+            <key code="27" output="N"/>
             <key code="28" output="K"/>
             <key code="29" output="Ь"/>
             <key code="30" output="}"/> <!--]-->
@@ -396,7 +396,7 @@
             <key code="44" output="Й"/> <!--/-->
             <key code="45" output="Ң"/>
             <key code="46" output="M"/>
-            <key code="47" output="N"/> <!--Greater than-->
+            <key code="47" output="Ё"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
             <key code="50" output="~"/> <!--`-->
