@@ -1,4 +1,4 @@
-let-env config = {
+$env.config = {
   buffer_editor: $'($env.HOME)/.cargo/bin/hx -c /tmp/config($env.THEME).toml'
   cd: {
     abbreviations: true
@@ -206,19 +206,19 @@ let light_theme = {
 }
 
 if $env.THEME == 'Light' {
-  let-env config = ($env.config | upsert history {
+  $env.config = ($env.config | upsert history {
     max_size: 10000
     sync_on_enter: true
     file_format: "plaintext"
   })
-  let-env config = ($env.config | upsert color_config $light_theme)
+  $env.config = ($env.config | upsert color_config $light_theme)
 } else {
-  let-env config = ($env.config | upsert history {
+  $env.config = ($env.config | upsert history {
     max_size: 10000
     sync_on_enter: true
     file_format: "sqlite"
   })
-  let-env config = ($env.config | upsert color_config $dark_theme)
+  $env.config = ($env.config | upsert color_config $dark_theme)
 }
 
 source ~/.config/nushell/zoxide.nu
