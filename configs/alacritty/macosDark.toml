@@ -1,9 +1,7 @@
 import = ["~/Published/configs/alacritty/dark.toml", "~/Published/configs/alacritty/macos.toml"]
 
 [env]
-BAT_THEME = ""
 THEME = "Dark"
-_ZO_DATA_DIR = "/tmp/zoxideDark"
 
 [[keyboard.bindings]]
 key = "T"

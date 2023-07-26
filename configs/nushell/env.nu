@@ -1,14 +1,18 @@
 if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
   let-env THEME = 'Light'
-  let-env BAT_THEME = 'GitHub'
-  let-env _ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideLight'
- }
+}
 
 if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   let-env THEME = 'Dark'
+}
+
+if $env.THEME == 'Light' {
+  let-env BAT_THEME = 'GitHub'
+  let-env _ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideLight'
+} else {
   let-env BAT_THEME = ''
   let-env _ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideDark'
- }
+}
 
 alias cut = split column -c
 alias ng = find
