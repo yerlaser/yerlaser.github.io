@@ -4,6 +4,7 @@ keybinds {
     bind "Alt d" { ToggleActiveSyncTab; }
     bind "Alt l" { SwitchToMode "Resize"; }
     bind "Alt u" { SwitchToMode "Pane"; }
+    bind "Ctrl o" { ToggleFocusFullscreen; }
   }
 }
 themes {
