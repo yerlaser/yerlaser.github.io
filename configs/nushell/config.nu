@@ -15,7 +15,7 @@ $env.config = {
       event: null
     }
     {
-      name: ignore
+      name: cut_big_word
       modifier: control
       keycode: char_w
       mode: [emacs vi_insert]
