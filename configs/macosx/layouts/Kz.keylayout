@@ -55,7 +55,7 @@
             <key code="21" output="4"/>
             <key code="22" output="6"/>
             <key code="23" output="5"/>
-            <key code="24" output="қ"/> <!--=-->
+            <key code="24" output="ъ"/> <!--=-->
             <key code="25" output="9"/>
             <key code="26" output="7"/>
             <key code="27" output="-"/>
@@ -70,9 +70,9 @@
             <key code="36" output="&#x000D;"/> <!--CR -->
             <key code="37" output="л"/>
             <key code="38" output="ж"/>
-            <key code="39" output="ъ"/> <!--'-->
+            <key code="39" output="ь"/> <!--'-->
             <key code="40" output="к"/>
-            <key code="41" output="ь"/>
+            <key code="41" output=";"/>
             <key code="42" output="э"/> <!--Backslash-->
             <key code="43" output=","/>
             <key code="44" output="й"/> <!--/-->
@@ -161,7 +161,7 @@
             <key code="21" output="$"/>
             <key code="22" output="^"/>
             <key code="23" output="%"/>
-            <key code="24" output="Қ"/> <!--=-->
+            <key code="24" output="+"/> <!--=-->
             <key code="25" output="("/>
             <key code="26" output="&#x0026;"/> <!--ampersand-->
             <key code="27" output="_"/>
@@ -272,7 +272,7 @@
             <key code="26" output="j"/>
             <key code="27" output="n"/>
             <key code="28" output="k"/>
-            <key code="29" output=";"/>
+            <key code="29" output="m"/>
             <key code="30" output="]"/> <!--]-->
             <key code="31" output="o"/>
             <key code="32" output="u"/>
@@ -283,13 +283,13 @@
             <key code="37" output="ө"/>
             <key code="38" output="ұ"/>
             <key code="39" output="'"/> <!--'-->
-            <key code="40" output="ү"/>
+            <key code="40" output="қ"/>
             <key code="41" output="ә"/>
             <key code="42" output="&#x005C;"/> <!--Backslash-->
             <key code="43" output="һ"/> <!--Less than-->
             <key code="44" output="/"/> <!--/-->
             <key code="45" output="ң"/>
-            <key code="46" output="m"/>
+            <key code="46" output="ү"/>
             <key code="47" output="ё"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
@@ -373,12 +373,12 @@
             <key code="21" output="€"/>
             <key code="22" output="H"/>
             <key code="23" output="№"/>
-            <key code="24" output="="/>
+            <key code="24" output="Ъ"/>
             <key code="25" output="L"/>
             <key code="26" output="J"/> <!--ampersand-->
             <key code="27" output="N"/>
             <key code="28" output="K"/>
-            <key code="29" output="Ь"/>
+            <key code="29" output="M"/>
             <key code="30" output="}"/> <!--]-->
             <key code="31" output="O"/>
             <key code="32" output="U"/>
@@ -388,14 +388,14 @@
             <key code="36" output="&#x000D;"/> <!--CR -->
             <key code="37" output="Ө"/>
             <key code="38" output="Ұ"/>
-            <key code="39" output="Ъ"/> <!--'-->
-            <key code="40" output="Ү"/>
+            <key code="39" output="Ь"/> <!--'-->
+            <key code="40" output="Қ"/>
             <key code="41" output="Ә"/> <!--;-->
             <key code="42" output="|"/> <!--Backslash-->
             <key code="43" output="Һ"/> <!--Less than-->
             <key code="44" output="Й"/> <!--/-->
             <key code="45" output="Ң"/>
-            <key code="46" output="M"/>
+            <key code="46" output="Ү"/>
             <key code="47" output="Ё"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
