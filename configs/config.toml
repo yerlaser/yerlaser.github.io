@@ -4,6 +4,10 @@ line-number = "relative"
 cursorline = true
 color-modes = true
 
+[editor.smart-tab]
+enable = true
+supersede-menu = true
+
 [editor.indent-guides]
 render = true
 skip-levels = 1
