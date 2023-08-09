@@ -10,100 +10,24 @@ size = 13
 family = "JetBrainsMono"
 
 [[keyboard.bindings]]
-chars = "\u0015"
-key = "PageUp"
-mods = "None"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "PageUp"
-mods = "None"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u000B"
+action = "ReceiveChar"
 key = "PageDown"
 mods = "Shift"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "PageDown"
+action = "ReceiveChar"
+key = "PageUp"
 mods = "Shift"
-mode = "Vi"
 
 [[keyboard.bindings]]
-chars = "\u001B[F"
+action = "ReceiveChar"
 key = "End"
 mods = "None"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "End"
-mods = "None"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u000F"
+action = "ReceiveChar"
 key = "Home"
 mods = "Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Home"
-mods = "Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001B"
-key = "Down"
-mods = "None"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Down"
-mods = "None"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001B[A"
-key = "Up"
-mods = "Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Up"
-mods = "Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001Bf"
-key = "Tab"
-mods = "None"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Tab"
-mods = "None"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001Bb"
-key = "Tab"
-mods = "Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Tab"
-mods = "Shift"
-mode = "Vi"
 
 [shell]
 program = "/LOCAL/apps/cargo/bin/nu"

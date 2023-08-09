@@ -7,12 +7,5 @@ verbs: [
     }
 ]
 imports: [
-    {
-        luma: [
-            dark
-            unknown
-        ]
-        file: ~/.config/broot/dark-blue-skin.hjson
-    }
     ~/Published/configs/broot/common.hjson
 ]
