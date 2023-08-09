@@ -54,8 +54,8 @@ xkb_symbols "KzPhonetic" {
   key <LALT> { [ Super_L                 , Super_L                 , Super_L                 , Super_L                 ] };
   key <RALT> { [ Control_R               , Control_R               , Control_R               , Control_R               ] };
   key <RCTL> { [ Alt_L                   , Alt_L                   , Alt_L                   , Alt_L                   ] };
-  key <BKSP> { [ BackSpace               , BackSpace               , KP_Prior                , KP_Next                 ] };
-  key <RTRN> { [ Return                  , Return                  , KP_End                  , KP_Home                 ] };
-  key <SPCE> { [ space                   , space                   , KP_Down                 , KP_Up                   ] };
-  key <TAB>  { [ Tab                     , ISO_Left_Tab            , KP_Right                , KP_Left                 ] };
+  key <BKSP> { [ BackSpace               , BackSpace               , KP_Left                 , KP_Home                 ] };
+  key <RTRN> { [ Return                  , Return                  , KP_Right                , KP_End                  ] };
+  key <SPCE> { [ space                   , space                   , KP_Up                   , KP_Prior                ] };
+  key <TAB>  { [ Tab                     , ISO_Left_Tab            , KP_Down                 , KP_Next                 ] };
 };

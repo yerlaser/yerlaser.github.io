@@ -8,28 +8,66 @@ $env.config = {
   }
   keybindings: [
     {
-      name: ignore
-      modifier: alt
-      keycode: char_-
+      name: right_arrow
+      modifier: none
+      keycode: right
       mode: [emacs vi_insert]
-      event: null
+      event: {until: [
+        {send: historyhintwordcomplete}
+        {send: menuright}
+        {send: right}
+      ]}
     }
     {
-      name: cut_big_word
+      name: shift_end
+      modifier: shift
+      keycode: end
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: historyhintcomplete}
+        {edit: movetolineend}
+      ]}
+    }
+    {
+      name: shift_home
+      modifier: shift
+      keycode: home
+      mode: [emacs vi_insert]
+      event: {edit: movetolinestart}
+    }
+    {
+      name: cancel_line
+      modifier: control
+      keycode: char_c
+      mode: [emacs vi_insert]
+      event: [
+        {edit: movetolinestart}
+        {edit: insertstring, value: "# "}
+        {send: submit}
+      ]
+    }
+    {
+      name: cut_word_left
+      modifier: alt
+      keycode: backspace
+      mode: [emacs vi_insert]
+      event: [
+        {edit: cutwordleft}
+      ]
+    }
+    {
+      name: cut_big_word_left
       modifier: control
       keycode: char_w
       mode: [emacs vi_insert]
       event: {edit: cutbigwordleft}
     }
     {
-      name: restore_down
-      modifier: none
-      keycode: esc
+      name: ignore
+      modifier: alt
+      keycode: char_-
       mode: [emacs vi_insert]
-      event: {until: [
-        {send: menudown}
-        {send: down}
-      ]}
+      event: null
     }
     {
       name: completion_menu

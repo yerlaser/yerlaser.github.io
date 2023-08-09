@@ -1,10 +1,13 @@
 keybinds {
-  shared_except "locked" {
-    unbind "Alt -"
-    bind "Alt d" { ToggleActiveSyncTab; }
-    bind "Alt l" { SwitchToMode "Resize"; }
-    bind "Alt u" { SwitchToMode "Pane"; }
-    bind "Ctrl o" { ToggleFocusFullscreen; }
+  normal {
+    bind "Ctrl o" { SwitchToMode "pane"; }
+  }
+  pane {
+    bind "e" { SwitchToMode "resize"; }
+    bind "s" {
+               ToggleActiveSyncTab;
+               SwitchToMode "normal";
+             }
   }
 }
 themes {

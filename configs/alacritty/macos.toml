@@ -7,100 +7,44 @@ size = 18
 family = "Monaco"
 
 [[keyboard.bindings]]
-chars = "\u0015"
+chars = "\u001B[D" # Left
 key = "Back"
 mods = "Option"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Back"
-mods = "Option"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u000B"
+chars = "\u001B[1;2H" # Shift-Home
 key = "Back"
 mods = "Option|Shift"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Back"
-mods = "Option|Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001B[F"
+chars = "\u001B[C" # Right
 key = "Return"
 mods = "Option"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Return"
-mods = "Option"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u000F"
+chars = "\u001B[1;2F" # Shift-End
 key = "Return"
 mods = "Option|Shift"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Return"
-mods = "Option|Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001B"
+chars = "\u001B[A" # Up
 key = "Space"
 mods = "Option"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Space"
-mods = "Option"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001B[A"
+chars = "\u001B[5;2~" # Shift-PageUp
 key = "Space"
 mods = "Option|Shift"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Space"
-mods = "Option|Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001Bf"
+chars = "\u001B[B" # Down
 key = "Tab"
 mods = "Option"
-mode = "Vi"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Tab"
-mods = "Option"
-mode = "Vi"
-
-[[keyboard.bindings]]
-chars = "\u001Bb"
+chars = "\u001B[6;2~" # Shift-PageDown
 key = "Tab"
 mods = "Option|Shift"
-mode = "Vi"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Tab"
-mods = "Option|Shift"
-mode = "Vi"
 
 [shell]
 program = "/Users/yerlan/.cargo/bin/nu"

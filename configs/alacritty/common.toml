@@ -1,35 +1,30 @@
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = 58
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = 58
+chars = "\u0003" # Control-C
+key = "Return"
 mods = "Shift"
 
 [[keyboard.bindings]]
-chars = "\u001B\u007F"
+action = "ToggleViMode"
+key = "Escape"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007F" # Alt-Backspace
 key = "Back"
 mods = "Shift"
 
 [[keyboard.bindings]]
-chars = "\u001B\u007F"
-key = "Back"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001B-\u001Bu"
+chars = "\u001B-\u001Bu" # Alt-U
 key = "Tab"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u001B-\u001Bl"
+chars = "\u001B-\u001Bl" # Alt-L
 key = "Tab"
 mods = "Control|Shift"
 
 [[keyboard.bindings]]
-chars = "\u001Bd"
+chars = "\u000F" # Control-O
 key = "Space"
 mods = "Control|Shift"
 
