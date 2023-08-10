@@ -10,22 +10,22 @@ size = 13
 family = "JetBrainsMono"
 
 [[keyboard.bindings]]
-action = "ReceiveChar"
+chars = "\u001B[6;2~" # Shift-PageDown
 key = "PageDown"
 mods = "Shift"
 
 [[keyboard.bindings]]
-action = "ReceiveChar"
+chars = "\u001B[5;2~" # Shift-PageUp
 key = "PageUp"
 mods = "Shift"
 
 [[keyboard.bindings]]
-action = "ReceiveChar"
+chars = "\u001B[1;2F" # Shift-End
 key = "End"
 mods = "None"
 
 [[keyboard.bindings]]
-action = "ReceiveChar"
+chars = "\u001B[1;2H" # Shift-Home
 key = "Home"
 mods = "Shift"
 
