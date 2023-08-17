@@ -1,13 +1,11 @@
 keybinds {
   normal {
-    bind "Ctrl o" { SwitchToMode "pane"; }
+    bind "Ctrl q" { SwitchToMode "pane"; }
+    bind "Ctrl s" { ToggleActiveSyncTab; }
+    // bind "Ctrl c" { Write 027; }
   }
   pane {
     bind "e" { SwitchToMode "resize"; }
-    bind "s" {
-               ToggleActiveSyncTab;
-               SwitchToMode "normal";
-             }
   }
 }
 themes {

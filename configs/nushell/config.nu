@@ -6,6 +6,12 @@ $env.config = {
   ls: {
     clickable_links: false
   }
+  cursor_shape: {
+    vi_insert: line
+    vi_normal: block
+    emacs: underscore
+  }
+  edit_mode: vi
   keybindings: [
     {
       name: right_arrow
@@ -34,17 +40,6 @@ $env.config = {
       keycode: home
       mode: [emacs vi_insert]
       event: {edit: movetolinestart}
-    }
-    {
-      name: cancel_line
-      modifier: control
-      keycode: char_c
-      mode: [emacs vi_insert]
-      event: [
-        {edit: movetolinestart}
-        {edit: insertstring, value: "# "}
-        {send: submit}
-      ]
     }
     {
       name: cut_word_left

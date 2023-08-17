@@ -27,10 +27,8 @@ select = "underline"
 
 [keys.insert]
 "A-minus" = "no_op"
-"ret" = "normal_mode"
 "A-l" = [ "move_prev_word_start", "collapse_selection", "switch_to_uppercase", "move_next_word_end", "move_char_right" ] # C-S-tab
 "A-u" = [ "extend_prev_word_start", "switch_to_uppercase", "ensure_selections_forward", "collapse_selection" ] # C-tab
-"C-c" = "insert_newline" # S-ret
 "C-d" = [ ":insert-output date '+%c'", "goto_line_end_newline" ]
 "S-end" = "goto_line_end_newline" # Caps-S-ret
 "S-pageup" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-tab
