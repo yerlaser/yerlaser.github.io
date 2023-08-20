@@ -33,6 +33,8 @@ select = "underline"
 "S-end" = "goto_line_end_newline" # Caps-S-ret
 "S-pageup" = [ "move_prev_word_start", "delete_selection", ":insert-output printf '%s' '<></>'", "collapse_selection", "paste_before", "move_prev_word_start", "move_prev_word_start", "collapse_selection", "paste_after", "move_next_word_end", "move_char_right" ] # Caps-S-tab
 "C-space" = [ "normal_mode", ":insert-output printf ' '", "move_prev_word_start", ":insert-output printf ' '", "move_next_word_start", "move_char_right", "insert_mode" ]
+"esc" = "insert_newline"
+"ret" = "normal_mode"
 
 [keys.normal]
 "A-l" = "switch_to_lowercase"

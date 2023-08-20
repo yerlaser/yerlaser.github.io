@@ -1,12 +1,7 @@
 [[keyboard.bindings]]
-chars = "\u000D" # Enter
-key = "Return"
-mods = "Shift"
-
-[[keyboard.bindings]]
 chars = "\u001B" # Escape
 key = "Return"
-mods = "None"
+mods = "Shift"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
