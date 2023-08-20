@@ -9,9 +9,14 @@ if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
 if $env.THEME == 'Light' {
   $env.BAT_THEME = 'GitHub'
   $env._ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideLight'
+  $env.GIT_PAGER = 'delta --light'
+  if ("~/werkstatt/configs/env.nu" | path exists) {
+    source "~/werkstatt/configs/env.nu"
+  }
 } else {
   $env.BAT_THEME = ''
   $env._ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideDark'
+  $env.GIT_PAGER = 'delta'
 }
 
 alias cut = split column -c
@@ -39,15 +44,6 @@ if ('/LOCAL/apps/gcc' | path exists) {
   $env.LD_RUN_PATH = '/LOCAL/apps/clang/lib64'
   $env.CC = '/LOCAL/apps/clang/bin/clang'
   $env.CXX = '/LOCAL/apps/clang/bin/clang++'
-}
-
-if $env.THEME == 'Light' {
-  $env.GIT_PAGER = 'delta --light'
-  if ("~/werkstatt/configs/env.nu" | path exists) {
-    source "~/werkstatt/configs/env.nu"
-  }
-} else {
-  $env.GIT_PAGER = 'delta'
 }
 
 let nupaths = ([$env.HOME Published configs paths.txt] | path join)
