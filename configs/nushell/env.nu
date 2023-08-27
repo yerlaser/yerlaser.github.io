@@ -57,6 +57,8 @@ def create_right_prompt () {
   do -i {git branch --show-current}
 }
 $env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt}
+$env.PROMPT_INDICATOR_VI_NORMAL = "〕"
+$env.PROMPT_INDICATOR_VI_INSERT = "〉"
 
 # Create helix config files with light and dark themes
 def helix_configs () {

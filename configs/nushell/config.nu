@@ -6,12 +6,12 @@ $env.config = {
   ls: {
     clickable_links: false
   }
+  edit_mode: vi
   cursor_shape: {
     vi_insert: line
     vi_normal: block
     emacs: underscore
   }
-  edit_mode: vi
   keybindings: [
     {
       name: right_arrow
