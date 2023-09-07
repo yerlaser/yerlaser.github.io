@@ -3,7 +3,7 @@ if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
 }
 
 if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
-  $env.THEME = 'Dark'
+  $env.THEME = 'Light'
 }
 
 if $env.THEME == 'Light' {

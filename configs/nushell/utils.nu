@@ -18,16 +18,21 @@ export def mssh (
   last: int # Last index
   first: int = 1 # First index
 ) {
-  for n in $first..$last {
-    zellij run -n $'($host_base)($n)' -- ssh $'($host_base)($n)'
+  ^/Users/yerlan/Applications/WezTerm.app/Contents/wezterm cli spawn -- zellij -s $host_base | complete
+  loop {
+    sleep 300ms
+    if ((do { zellij list-sessions } | complete).stdout | find $host_base | length) > 0 { break }
   }
   for n in $first..$last {
-    zellij action move-focus up
+    zellij -s $host_base run -n $'($host_base)($n)' -- ssh $'($host_base)($n)'
   }
   for n in $first..$last {
-    zellij action move-focus left
+    zellij -s $host_base action move-focus up
   }
-  zellij action close-pane
+  for n in $first..$last {
+    zellij -s $host_base action move-focus left
+  }
+  zellij -s $host_base action close-pane
 }
 
 # Connects and displays information about SSL certificate of a host

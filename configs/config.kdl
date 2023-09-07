@@ -5,7 +5,7 @@ keybinds {
     // bind "Ctrl c" { Write 027; }
   }
   pane {
-    bind "e" { SwitchToMode "resize"; }
+    bind "s" { SwitchToMode "resize"; }
   }
 }
 themes {
