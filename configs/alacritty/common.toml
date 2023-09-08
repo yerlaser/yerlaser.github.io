@@ -15,12 +15,12 @@ mods = "Shift"
 
 [[keyboard.bindings]]
 chars = "\u001B-\u001Bu" # Alt-U
-key = "Tab"
+key = "Return"
 mods = "Control"
 
 [[keyboard.bindings]]
 chars = "\u001B-\u001Bl" # Alt-L
-key = "Tab"
+key = "Return"
 mods = "Control|Shift"
 
 [[keyboard.bindings]]
