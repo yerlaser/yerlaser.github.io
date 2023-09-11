@@ -65,6 +65,13 @@ $env.config = {
       event: null
     }
     {
+      name: uppercase_word
+      modifier: alt
+      keycode: char_u
+      mode: [vi_insert]
+      event: {edit: uppercaseword}
+    }
+    {
       name: completion_menu
       modifier: none
       keycode: tab
