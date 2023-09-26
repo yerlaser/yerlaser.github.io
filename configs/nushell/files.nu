@@ -27,19 +27,13 @@ export def vi (
   --filter_pattern (-f): string # Search pattern
   ...paths # Paths to open or search (if only one or and not a file)
 ) {
-  if ($paths | is-empty) and ($filter_pattern | is-empty) {
-    ^hx -c $'/tmp/config($env.THEME).toml'
-  } else if ($paths | length) > 1 or ($paths | get 0 | path type) == file {
+  let $paths = if ($paths | is-empty) {['.']} else {$paths}
+  let $filter_pattern = if ($filter_pattern | is-empty) {''} else {$filter_pattern}
+  let files = (do {fd -t f -t l -F $filter_pattern $paths} | complete | get stdout | lines)
+  if ($files | is-empty) or (($files | length) > 13) {
     ^hx -c $'/tmp/config($env.THEME).toml' $paths
   } else {
-    let $paths = if ($paths | is-empty) {['.']} else {$paths}
-    let $filter_pattern = if ($filter_pattern | is-empty) {''} else {$filter_pattern}
-    let files = (fd -t f -t l -F $filter_pattern $paths | lines)
-    if ($files | is-empty) or (($files | length) > 13) {
-      ^hx -c $'/tmp/config($env.THEME).toml' $paths
-    } else {
-      ^hx -c $'/tmp/config($env.THEME).toml' $files
-    }
+    ^hx -c $'/tmp/config($env.THEME).toml' $files
   }
 }
 
