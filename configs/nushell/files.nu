@@ -24,12 +24,17 @@ export def tree (
 
 # Open all files with default editor
 export def vi (
+  --exclude (-x): string # Exclude string
   --filter_pattern (-f): string # Search pattern
   ...paths # Paths to open or search (if only one or and not a file)
 ) {
   let $paths = if ($paths | is-empty) {['.']} else {$paths}
   let $filter_pattern = if ($filter_pattern | is-empty) {''} else {$filter_pattern}
-  let files = (do {fd -t f -t l -F $filter_pattern $paths} | complete | get stdout | lines)
+  let files = if ($exclude | is-empty) {
+    (do {fd -t f -t l -F $filter_pattern $paths} | complete | get stdout | lines)
+  } else {
+    (do {fd -E $'*($exclude)*' -t f -t l -F $filter_pattern $paths} | complete | get stdout | lines)
+  }
   if ($files | is-empty) or (($files | length) > 13) {
     ^hx -c $'/tmp/config($env.THEME).toml' $paths
   } else {
