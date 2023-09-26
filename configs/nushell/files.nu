@@ -10,7 +10,7 @@ export def tree (
   --all (-a): bool # Include ignored files
   --long (-l): bool # Long format
   --extended (-e): bool # Show extended attributes
-  --glob (-g): string = '' # Search pattern
+  --filter_pattern (-s): string = '' # Search pattern
   folder: string = '.' # Folder to list
 ) {
   let args = ['--conf' $'($env.HOME)/Published/configs/broot/($env.THEME).hjson']
@@ -18,30 +18,27 @@ export def tree (
   let args = if $long {$args | append '-ds'} else {$args}
   let args = if $extended {$args | append '-gp'} else {$args}
   let cmd = ':pt'
-  let args = ($args | append ['-c' $'($glob)($cmd | str join ";")' $folder])
+  let args = ($args | append ['-c' $'($filter_pattern)($cmd | str join ";")' $folder])
   broot $args
 }
 
 # Open all files with default editor
 export def vi (
-  --fixed (-F): bool  # Search pattern
-  --glob (-g): string = '' # Search pattern
+  --filter_pattern (-f): string # Search pattern
   ...paths # Paths to open or search (if only one or and not a file)
 ) {
-  if ($paths | is-empty) {
+  if ($paths | is-empty) and ($filter_pattern | is-empty) {
     ^hx -c $'/tmp/config($env.THEME).toml'
-  } else if ($paths | length) > 1 {
+  } else if ($paths | length) > 1 or ($paths | get 0 | path type) == file {
     ^hx -c $'/tmp/config($env.THEME).toml' $paths
   } else {
-    if ($paths | get 0 | path type) == file {
-      ^hx -c $'/tmp/config($env.THEME).toml' ($paths | get 0)
+    let $paths = if ($paths | is-empty) {['.']} else {$paths}
+    let $filter_pattern = if ($filter_pattern | is-empty) {''} else {$filter_pattern}
+    let files = (fd -t f -t l -F $filter_pattern $paths | lines)
+    if ($files | is-empty) or (($files | length) > 13) {
+      ^hx -c $'/tmp/config($env.THEME).toml' $paths
     } else {
-      let files = if $fixed {(fd -t f -t l -F $glob $paths | lines)} else {(fd -t f -t l $glob $paths | lines)}
-      if ($files | is-empty) or (($files | length) > 13) {
-        ^hx -c $'/tmp/config($env.THEME).toml' $paths
-      } else {
-        ^hx -c $'/tmp/config($env.THEME).toml' $files
-      }
+      ^hx -c $'/tmp/config($env.THEME).toml' $files
     }
   }
 }
