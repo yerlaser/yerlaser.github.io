@@ -52,7 +52,7 @@ export def vi (
 
 # Get lines from a text file
 export def cat (
-  path string # File path
+  path: string # File path
 ) {
   open -r $path | lines
 }

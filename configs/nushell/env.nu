@@ -1,18 +1,18 @@
-if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
-  $env.THEME = 'Light'
-}
+# if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
+#   $env.THEME = 'Light'
+# }
 
 if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   $env.THEME = 'Light'
+  if ("~/werkstatt/configs/env.nu" | path exists) {
+    source "~/werkstatt/configs/env.nu"
+  }
 }
 
 if $env.THEME == 'Light' {
   $env.BAT_THEME = 'GitHub'
   $env._ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideLight'
   $env.GIT_PAGER = 'delta --light'
-  if ("~/werkstatt/configs/env.nu" | path exists) {
-    source "~/werkstatt/configs/env.nu"
-  }
 } else {
   $env.BAT_THEME = ''
   $env._ZO_DATA_DIR = $'($env.HOME)/.local/share/zoxideDark'

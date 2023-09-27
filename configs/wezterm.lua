@@ -22,7 +22,11 @@ return {
     top = 0,
     bottom = 0,
   },
-  hide_tab_bar_if_only_one_tab = true,
+  window_frame = {
+    active_titlebar_bg = '#AAAAAA',
+    inactive_titlebar_bg = '#777777',
+  },
+  hide_tab_bar_if_only_one_tab = false,
   send_composed_key_when_left_alt_is_pressed = true,
   send_composed_key_when_right_alt_is_pressed = false,
   unzoom_on_switch_pane = true,

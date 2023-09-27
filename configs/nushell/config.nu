@@ -245,7 +245,7 @@ let light_theme = {
   shape_variable: purple
 }
 
-if $env.THEME == 'Light' {
+if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   $env.config = ($env.config | upsert history {
     max_size: 10000
     sync_on_enter: true
