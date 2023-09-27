@@ -2,6 +2,7 @@ puppet_hosts:
   children:
     puppet_master:
     puppet_nodes:
+    # non_localhost:
 
 puppet_master:
   hosts:
@@ -17,3 +18,7 @@ puppet_nodes:
     puppet3:
       ansible_host: localhost
       ansible_port: 2203
+
+# non_localhost:
+#   hosts:
+#     host1.domain.local:
