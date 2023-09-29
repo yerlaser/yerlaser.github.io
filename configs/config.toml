@@ -1,11 +1,13 @@
 theme = 'catppuccin_mocha'
 [editor]
-line-number = "relative"
-cursorline = true
+auto-format = false
 color-modes = true
+cursorline = true
+line-number = "relative"
 
-# [editor.smart-tab]
-# supersede-menu = false
+[editor.smart-tab]
+enable = false
+supersede-menu = false
 
 [editor.indent-guides]
 render = true
@@ -90,8 +92,9 @@ select = "underline"
 "," = "command_palette"
 "/" = "global_search"
 "a" = "code_action"
-"f" = "select_references_to_symbol_under_cursor"
+"f" = ":format"
 "r" = "rename_symbol"
+"s" = "select_references_to_symbol_under_cursor"
 "y" = "yank_joined_to_clipboard"
 "Y" = "yank_main_selection_to_clipboard"
 

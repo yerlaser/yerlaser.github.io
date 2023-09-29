@@ -1,6 +1,9 @@
-# if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
-#   $env.THEME = 'Light'
-# }
+if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
+  $env.THEME = 'Light'
+  if ("~/werkstatt/configs/env.nu" | path exists) {
+    source "~/werkstatt/configs/env.nu"
+  }
+}
 
 if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   $env.THEME = 'Light'
