@@ -1,2 +1,0 @@
-#/usr/bin/env bash
-sed -E 's/([a-zA-Z]+)/\<\1\>\<\/\1\>/'
