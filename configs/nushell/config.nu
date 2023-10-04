@@ -249,6 +249,7 @@ if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   $env.config = ($env.config | upsert history {
     max_size: 10000
     sync_on_enter: true
+    isolation: true
     file_format: "plaintext"
   })
   $env.config = ($env.config | upsert color_config $light_theme)
@@ -256,6 +257,7 @@ if 'TERM_PROGRAM' in $env and $env.TERM_PROGRAM == 'WezTerm' {
   $env.config = ($env.config | upsert history {
     max_size: 10000
     sync_on_enter: true
+    isolation: true
     file_format: "sqlite"
   })
   $env.config = ($env.config | upsert color_config $dark_theme)
