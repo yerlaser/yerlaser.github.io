@@ -13,6 +13,9 @@ export def tree (
   --filter_pattern (-s): string = '' # Search pattern
   folder: string = '.' # Folder to list
 ) {
+  let all = if ($all | is-empty) {false} else {$all}
+  let long = if ($long | is-empty) {false} else {$long}
+  let extended = if ($extended | is-empty) {false} else {$extended}
   let args = ['--conf' $'($env.HOME)/Published/configs/broot/($env.THEME).hjson']
   let args = if $all {$args | append '-hi'} else {$args}
   let args = if $long {$args | append '-ds'} else {$args}
