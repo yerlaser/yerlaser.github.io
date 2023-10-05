@@ -5,8 +5,8 @@ mods = "Shift"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
-key = "Escape"
-mods = "Shift"
+key = "Space"
+mods = "Control|Shift"
 
 [[keyboard.bindings]]
 chars = "\u001B\u007F" # Alt-Backspace
@@ -21,11 +21,6 @@ mods = "Control"
 [[keyboard.bindings]]
 chars = "\u001B-\u001Bl" # Alt-L
 key = "Return"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u000F" # Control-O
-key = "Space"
 mods = "Control|Shift"
 
 [mouse]

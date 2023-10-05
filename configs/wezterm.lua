@@ -35,7 +35,7 @@ return {
     { key = "q"         , mods = "SUPER"        , action = wezterm.action.DisableDefaultAssignment },
     { key = "w"         , mods = "SUPER"        , action = wezterm.action.DisableDefaultAssignment },
     { key = "w"         , mods = "SUPER"        , action = wezterm.action.ActivatePaneDirection "Next" },
-    { key = "x"         , mods = "SUPER"        , action = wezterm.action.ActivateCopyMode },
+    { key = "Space"     , mods = "CTRL|SHIFT"   , action = wezterm.action.ActivateCopyMode },
     { key = "d"         , mods = "LEADER"       , action = wezterm.action.SplitPane { direction = "Down" } },
     { key = "r"         , mods = "LEADER"       , action = wezterm.action.SplitPane { direction = "Right" } },
     { key = "h"         , mods = "LEADER"       , action = wezterm.action.ActivatePaneDirection "Left" },
@@ -60,7 +60,6 @@ return {
     { key = "Return"    , mods = "CTRL|SHIFT"   , action = wezterm.action.SendString("\x1B-\x1Bl") }, -- Alt-- Alt-l
     { key = "Space"     , mods = "ALT"          , action = wezterm.action.SendString("\x1B[A") }, -- Up
     { key = "Space"     , mods = "ALT|SHIFT"    , action = wezterm.action.SendString("\x1B[5;2~") }, -- Shift-PageUp
-    { key = "Space"     , mods = "CTRL|SHIFT"   , action = wezterm.action.SendString("\x0F") }, -- Ctrl-o
     { key = "Tab"       , mods = "ALT"          , action = wezterm.action.SendString("\x1B[B") }, -- Down
     { key = "Tab"       , mods = "ALT|SHIFT"    , action = wezterm.action.SendString("\x1B[6;2~") }, -- Shift-PageDown
     { key = "UpArrow"   , mods = "CMD"          , action = wezterm.action_callback(

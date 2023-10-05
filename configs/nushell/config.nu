@@ -1,5 +1,5 @@
 $env.config = {
-  buffer_editor: $'($env.HOME)/.cargo/bin/hx -c /tmp/config($env.THEME).toml'
+  buffer_editor: [$'($env.HOME)/.cargo/bin/hx' -c $'/tmp/config($env.THEME).toml']
   ls: {
     clickable_links: false
   }
@@ -10,6 +10,13 @@ $env.config = {
     emacs: underscore
   }
   keybindings: [
+    {
+      name: open_editor
+      modifier: shift
+      keycode: char_o
+      mode: [vi_normal]
+      event: {send: openeditor}
+    }
     {
       name: right_arrow
       modifier: none
