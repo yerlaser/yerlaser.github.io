@@ -2,7 +2,17 @@ use std::collections::HashMap;
 use unicode_segmentation::UnicodeSegmentation;
 
 pub fn convert(input_string: &str) -> String {
-    let mut table = HashMap::from([
+    let table = get_table();
+    let latin = UnicodeSegmentation::graphemes(input_string, true).collect::<Vec<&str>>();
+    let latin = latin
+        .iter()
+        .map(|c| c.to_owned())
+        .map(|c| table.get(c).unwrap_or(&c.to_owned()).to_owned());
+    latin.map(|rstr| rstr.to_owned()).collect::<String>()
+}
+
+fn get_table() -> HashMap<String, String> {
+    let mut caps = HashMap::from([
         (String::from("А"), String::from("A")),
         (String::from("Ә"), String::from("A")),
         (String::from("Б"), String::from("B")),
@@ -46,15 +56,10 @@ pub fn convert(input_string: &str) -> String {
         (String::from("Ю"), String::from("Yu")),
         (String::from("Я"), String::from("Ya")),
     ]);
-    let lowcase = table
+    let lows = caps
         .iter()
         .map(|i| (i.0.to_lowercase(), i.1.to_lowercase()))
         .collect::<HashMap<String, String>>();
-    table.extend(lowcase);
-    let latin = UnicodeSegmentation::graphemes(input_string, true).collect::<Vec<&str>>();
-    let latin = latin
-        .iter()
-        .map(|c| c.to_owned())
-        .map(|c| table.get(c).unwrap_or(&c.to_owned()).to_owned());
-    latin.map(|rstr| rstr.to_owned()).collect::<String>()
+    caps.extend(lows);
+    caps
 }
