@@ -15,6 +15,7 @@ impl Utils {
 
     pub fn get_filenames(&self) -> Vec<(String, String)> {
         let input_filenames = &self.arguments.input_filenames;
+
         input_filenames
             .iter()
             .map(|f| {
@@ -28,6 +29,7 @@ impl Utils {
 
     fn check_input_file(&self, filename: &str) -> String {
         let path = Path::new(&filename);
+
         let path = if path.is_symlink() {
             path.read_link()
                 .expect(&format!("Invalid input link: {filename}"))
@@ -36,27 +38,32 @@ impl Utils {
         } else {
             path.to_owned()
         };
+
         if !path.exists() || !path.is_file() {
             panic!("File does not exist: {filename}")
         };
+
         filename.to_owned()
     }
 
-    fn check_output_file(&self, filename: &str) -> String {
+    fn check_output_file(&self, input_filename: &str) -> String {
         let parseargs::Arguments {
             prefix,
             suffix,
             force,
             ..
         } = &self.arguments;
-        let path = Path::new(&filename);
+        let path = Path::new(&input_filename);
         let parent = path.parent().unwrap();
         let stem = path.file_stem().unwrap().to_str().unwrap();
         let ext = path.extension().unwrap().to_str().unwrap();
-        let outfilename = parent
+
+        let filename = parent
             .join(format!("{prefix}{stem}{suffix}.{ext}"))
             .to_str()
-            .expect("Could not construct output file name").to_owned();
+            .expect("Could not construct output file name")
+            .to_owned();
+
         let path = if path.is_symlink() {
             path.read_link()
                 .expect(&format!("Invalid input link: {filename}"))
@@ -65,11 +72,11 @@ impl Utils {
         } else {
             path.to_owned()
         };
+
         if (path.exists() && !force) || !path.is_file() {
-            panic!(
-                "Output file exists: {filename}\nIf force was used the path cannot be overwritten"
-            )
+            panic!("Output file exists: {filename}\nUse force (if force was already used then the path cannot be overwritten)")
         };
-        outfilename.to_owned()
+
+        filename.to_owned()
     }
 }
