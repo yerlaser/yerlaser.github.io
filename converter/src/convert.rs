@@ -100,7 +100,7 @@ fn get_table() -> HashMap<String, String> {
         (String::from("Р"), String::from("R")),
         (String::from("С"), String::from("S")),
         (String::from("Т"), String::from("T")),
-        (String::from("У"), String::from("Ou")),
+        (String::from("У"), String::from("W")),
         (String::from("Ұ"), String::from("U")),
         (String::from("Ү"), String::from("U")),
         (String::from("Ф"), String::from("F")),
