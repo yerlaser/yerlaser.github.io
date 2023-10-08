@@ -9,6 +9,7 @@ mod convert;
 fn main() -> std::io::Result<()> {
     let arguments = parseargs::parse();
     let filenames = arguments.input_filenames;
+    let prefix = arguments.prefix;
     let suffix = arguments.suffix;
     for filename in filenames {
         let infile = File::open(&filename)?;
@@ -18,7 +19,7 @@ fn main() -> std::io::Result<()> {
         let parent = path.parent().unwrap();
         let stem = path.file_stem().unwrap().to_str().unwrap();
         let ext = path.extension().unwrap().to_str().unwrap();
-        let outfilename = parent.join(format!("{stem}{suffix}.{ext}"));
+        let outfilename = parent.join(format!("{prefix}{stem}{suffix}.{ext}"));
         let outfile = File::create(outfilename)?;
         let mut writer = BufWriter::new(outfile);
 

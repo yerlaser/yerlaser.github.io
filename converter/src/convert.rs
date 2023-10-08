@@ -9,7 +9,7 @@ struct CharConverter {
 
 impl CharConverter {
     const HARDS: &'static str = "АҒҚОҰҺЫағқоұһы";
-    const SOFTS: &'static str = "ӘГЕКӨҮІәгекөүі";
+    const SOFTS: &'static str = "ӘЕӨҮІәеөүі";
 
     fn new() -> CharConverter {
         CharConverter {
