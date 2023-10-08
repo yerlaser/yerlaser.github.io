@@ -20,17 +20,18 @@ impl CharConverter {
     }
 
     fn convert_char(&mut self, c: &str) -> String {
-        let hard_char = Self::HARDS.contains(c);
-        let soft_char = Self::SOFTS.contains(c);
+        let is_hard = Self::HARDS.contains(c);
+        let is_soft = Self::SOFTS.contains(c);
         let current: String;
+
         match self.table.get(c) {
             Some(c) => {
                 if self.might_need_prefix {
-                    if hard_char || self.accumulator.len() > 3 {
+                    if is_hard || self.accumulator.len() > 3 {
                         current = format!("{}{}", self.accumulator, c);
                         self.might_need_prefix = false;
                         self.accumulator = String::with_capacity(13);
-                    } else if soft_char {
+                    } else if is_soft {
                         current = format!("'{}{}", self.accumulator, c);
                         self.might_need_prefix = false;
                         self.accumulator = String::with_capacity(13);
@@ -49,6 +50,7 @@ impl CharConverter {
                 self.accumulator = String::with_capacity(13);
             }
         };
+
         current
     }
 }
@@ -56,10 +58,12 @@ impl CharConverter {
 pub fn convert_line(input_string: &str) -> String {
     let mut converter = CharConverter::new();
     let cyrillic = format!("{input_string}_");
+
     let latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
         .map(|c| c.to_owned())
         .map(|c| converter.convert_char(&c.to_owned()))
         .collect::<String>();
+
     String::from(latin.strip_suffix('_').unwrap())
         .replace("'E", "E")
         .replace("'e", "e")
@@ -114,10 +118,12 @@ fn get_table() -> HashMap<String, String> {
         (String::from("Ю"), String::from("Yu")),
         (String::from("Я"), String::from("Ya")),
     ]);
+
     let lows = caps
         .iter()
         .map(|i| (i.0.to_lowercase(), i.1.to_lowercase()))
         .collect::<HashMap<String, String>>();
+
     caps.extend(lows);
     caps
 }

@@ -3,7 +3,7 @@ use std::path::Path;
 pub mod parseargs;
 
 pub struct Utils {
-    arguments: parseargs::Arguments,
+    arguments: parseargs::CliArgs,
 }
 
 impl Utils {
@@ -47,7 +47,7 @@ impl Utils {
     }
 
     fn check_output_file(&self, input_filename: &str) -> String {
-        let parseargs::Arguments {
+        let parseargs::CliArgs {
             prefix,
             suffix,
             force,
