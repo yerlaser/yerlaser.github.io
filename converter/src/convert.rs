@@ -1,14 +1,72 @@
 use std::collections::HashMap;
 use unicode_segmentation::UnicodeSegmentation;
 
-pub fn convert(input_string: &str) -> String {
-    let table = get_table();
-    let latin = UnicodeSegmentation::graphemes(input_string, true).collect::<Vec<&str>>();
-    let latin = latin
-        .iter()
+struct CharConverter {
+    table: HashMap<String, String>,
+    might_need_prefix: bool,
+    accumulator: String,
+}
+
+impl CharConverter {
+    const HARDS: &'static str = "АҒҚОҰҺЫағқоұһы";
+    const SOFTS: &'static str = "ӘГЕКӨҮІәгекөүі";
+
+    fn new() -> CharConverter {
+        CharConverter {
+            table: get_table(),
+            might_need_prefix: true,
+            accumulator: String::with_capacity(13),
+        }
+    }
+
+    fn convert_char(&mut self, c: &str) -> String {
+        let hard_char = Self::HARDS.contains(c);
+        let soft_char = Self::SOFTS.contains(c);
+        let current: String;
+        match self.table.get(c) {
+            Some(c) => {
+                if self.might_need_prefix {
+                    if hard_char || self.accumulator.len() > 3 {
+                        current = format!("{}{}", self.accumulator, c);
+                        self.might_need_prefix = false;
+                        self.accumulator = String::with_capacity(13);
+                    } else if soft_char {
+                        current = format!("'{}{}", self.accumulator, c);
+                        self.might_need_prefix = false;
+                        self.accumulator = String::with_capacity(13);
+                    } else {
+                        current = String::new();
+                        self.accumulator = format!("{}{}", self.accumulator, c);
+                    }
+                } else {
+                    current = c.to_owned();
+                    self.accumulator = String::with_capacity(13);
+                }
+            }
+            None => {
+                current = format!("{}{}", self.accumulator, c.to_owned());
+                self.might_need_prefix = true;
+                self.accumulator = String::with_capacity(13);
+            }
+        };
+        current
+    }
+}
+
+pub fn convert_line(input_string: &str) -> String {
+    let mut converter = CharConverter::new();
+    let cyrillic = format!("{input_string}_");
+    let latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
         .map(|c| c.to_owned())
-        .map(|c| table.get(c).unwrap_or(&c.to_owned()).to_owned());
-    latin.map(|rstr| rstr.to_owned()).collect::<String>()
+        .map(|c| converter.convert_char(&c.to_owned()))
+        .collect::<String>();
+    String::from(latin.strip_suffix('_').unwrap())
+        .replace("'E", "E")
+        .replace("'e", "e")
+        .replace("'G", "G")
+        .replace("'g", "g")
+        .replace("'K", "K")
+        .replace("'k", "k")
 }
 
 fn get_table() -> HashMap<String, String> {
@@ -18,7 +76,7 @@ fn get_table() -> HashMap<String, String> {
         (String::from("Б"), String::from("B")),
         (String::from("В"), String::from("V")),
         (String::from("Г"), String::from("G")),
-        (String::from("Ғ"), String::from("Q")),
+        (String::from("Ғ"), String::from("C")),
         (String::from("Д"), String::from("D")),
         (String::from("Е"), String::from("E")),
         (String::from("Ё"), String::from("E")),
@@ -26,8 +84,8 @@ fn get_table() -> HashMap<String, String> {
         (String::from("З"), String::from("Z")),
         (String::from("И"), String::from("Y")),
         (String::from("Й"), String::from("Y")),
-        (String::from("К"), String::from("C")),
-        (String::from("Қ"), String::from("K")),
+        (String::from("К"), String::from("K")),
+        (String::from("Қ"), String::from("Q")),
         (String::from("Л"), String::from("L")),
         (String::from("М"), String::from("M")),
         (String::from("Н"), String::from("N")),
@@ -38,7 +96,7 @@ fn get_table() -> HashMap<String, String> {
         (String::from("Р"), String::from("R")),
         (String::from("С"), String::from("S")),
         (String::from("Т"), String::from("T")),
-        (String::from("У"), String::from("W")),
+        (String::from("У"), String::from("Ou")),
         (String::from("Ұ"), String::from("U")),
         (String::from("Ү"), String::from("U")),
         (String::from("Ф"), String::from("F")),

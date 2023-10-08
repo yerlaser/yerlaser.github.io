@@ -24,7 +24,7 @@ fn main() -> std::io::Result<()> {
 
         for line in reader.lines() {
             let line = line?;
-            let converted = format!("{}\n", convert::convert(&line));
+            let converted = format!("{}\n", convert::convert_line(&line));
             writer.write_all(converted.as_bytes())?;
         }
 
