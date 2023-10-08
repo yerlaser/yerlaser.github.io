@@ -7,13 +7,13 @@ mod convert;
 
 fn main() -> std::io::Result<()> {
     let util = utils::Utils::new();
-    let io_filenames = util.get_filenames();
+    let pairs = util.get_filenames();
 
-    for filenames in io_filenames {
-        let infile = File::open(&filenames.0)?;
+    for pair in pairs {
+        let infile = File::open(&pair.0)?;
         let reader = BufReader::new(infile);
 
-        let outfile = File::create(filenames.1)?;
+        let outfile = File::create(pair.1)?;
         let mut writer = BufWriter::new(outfile);
 
         for line in reader.lines() {
