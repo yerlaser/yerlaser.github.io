@@ -15,9 +15,10 @@ fn main() -> std::io::Result<()> {
         let reader = BufReader::new(infile);
 
         let path = Path::new(&filename);
+        let parent = path.parent().unwrap();
         let stem = path.file_stem().unwrap().to_str().unwrap();
         let ext = path.extension().unwrap().to_str().unwrap();
-        let outfilename = format!("{stem}{suffix}.{ext}");
+        let outfilename = parent.join(format!("{stem}{suffix}.{ext}"));
         let outfile = File::create(outfilename)?;
         let mut writer = BufWriter::new(outfile);
 
