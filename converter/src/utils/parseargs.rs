@@ -18,4 +18,3 @@ pub struct CliArgs {
 pub fn parse() -> CliArgs {
     CliArgs::parse()
 }
-

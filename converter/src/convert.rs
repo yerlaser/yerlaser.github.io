@@ -41,7 +41,6 @@ impl CharConverter {
                     }
                 } else {
                     current = c.to_owned();
-                    self.accumulator = String::with_capacity(13);
                 }
             }
             None => {
