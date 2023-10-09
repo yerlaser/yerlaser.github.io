@@ -8,6 +8,7 @@ struct CharConverter {
 }
 
 impl CharConverter {
+    const OBVIOUS: &'static str = "ЕГКегк";
     const HARDS: &'static str = "АҒҚОҰҺЫағқоұһы";
     const SOFTS: &'static str = "ӘЕӨҮІәеөүі";
 
@@ -20,17 +21,22 @@ impl CharConverter {
     }
 
     fn convert_char(&mut self, c: &str) -> String {
+        let is_obvious = Self::OBVIOUS.contains(c);
         let is_hard = Self::HARDS.contains(c);
         let is_soft = Self::SOFTS.contains(c);
         let current: String;
+        let acc_len = self.accumulator.len();
 
         match self.table.get(c) {
             Some(c) => {
                 if self.might_need_prefix {
-                    if is_hard || self.accumulator.len() > 3 {
+                    if is_hard || acc_len > 3 {
                         current = format!("{}{}", self.accumulator, c);
                         self.might_need_prefix = false;
                         self.accumulator = String::with_capacity(13);
+                    } else if acc_len == 0 && is_obvious {
+                        current = c.to_owned();
+                        self.might_need_prefix = false;
                     } else if is_soft {
                         current = format!("'{}{}", self.accumulator, c);
                         self.might_need_prefix = false;
@@ -64,12 +70,6 @@ pub fn convert_line(input_string: &str) -> String {
         .collect::<String>();
 
     String::from(latin.strip_suffix('_').unwrap())
-        .replace("'E", "E")
-        .replace("'e", "e")
-        .replace("'G", "G")
-        .replace("'g", "g")
-        .replace("'K", "K")
-        .replace("'k", "k")
 }
 
 fn get_table() -> HashMap<String, String> {
