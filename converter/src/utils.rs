@@ -2,13 +2,13 @@ use std::path::Path;
 
 pub mod parseargs;
 
-pub struct Utils {
+pub struct ArgProcessor {
     arguments: parseargs::CliArgs,
 }
 
-impl Utils {
+impl ArgProcessor {
     pub fn new() -> Self {
-        Utils {
+        ArgProcessor {
             arguments: parseargs::parse(),
         }
     }
