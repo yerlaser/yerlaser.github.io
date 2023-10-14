@@ -1,31 +1,38 @@
-use std::path::Path;
+use std::{collections::HashMap, path::Path};
 
-mod parseargs;
-pub mod readcsv;
+mod argument_parser;
+mod table_reader;
 
-pub struct ArgProcessor {
-    arguments: parseargs::CliArgs,
+pub type Table = HashMap<String, String>;
+
+pub struct FileNames {
+    pub source: String,
+    pub destination: String,
 }
 
-impl ArgProcessor {
+pub struct Utils {
+    arguments: argument_parser::CliArgs,
+    pub table: Table,
+}
+
+impl Utils {
     pub fn new() -> Self {
-        ArgProcessor {
-            arguments: parseargs::parse(),
+        Utils {
+            arguments: argument_parser::parse(),
+            table: table_reader::read_table(),
         }
     }
 
-    pub fn get_filenames(&self) -> Vec<(String, String)> {
-        let input_filenames = &self.arguments.input_filenames;
+    pub fn get_filenames(&self) -> Vec<FileNames> {
+        let source_filenames = &self.arguments.source_filenames;
 
-        input_filenames
+        source_filenames
             .iter()
-            .map(|f| {
-                (
-                    self.check_input_file(&f).to_owned(),
-                    self.check_output_file(&f).to_owned(),
-                )
+            .map(|f| FileNames {
+                source: self.check_input_file(&f).to_owned(),
+                destination: self.check_output_file(&f).to_owned(),
             })
-            .collect::<Vec<(String, String)>>()
+            .collect::<Vec<FileNames>>()
     }
 
     fn check_input_file(&self, filename: &str) -> String {
@@ -48,7 +55,7 @@ impl ArgProcessor {
     }
 
     fn check_output_file(&self, input_filename: &str) -> String {
-        let parseargs::CliArgs {
+        let argument_parser::CliArgs {
             prefix,
             suffix,
             force,

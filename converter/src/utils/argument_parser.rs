@@ -12,7 +12,7 @@ pub struct CliArgs {
     #[arg(short, long)]
     pub force: bool,
 
-    pub input_filenames: Vec<String>,
+    pub source_filenames: Vec<String>,
 }
 
 pub fn parse() -> CliArgs {
