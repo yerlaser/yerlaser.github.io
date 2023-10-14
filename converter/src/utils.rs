@@ -1,6 +1,7 @@
 use std::path::Path;
 
-pub mod parseargs;
+mod parseargs;
+pub mod readcsv;
 
 pub struct ArgProcessor {
     arguments: parseargs::CliArgs,
