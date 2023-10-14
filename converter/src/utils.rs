@@ -29,18 +29,18 @@ impl Utils {
         source_filenames
             .iter()
             .map(|f| FileNames {
-                source: self.check_input_file(&f).to_owned(),
-                destination: self.check_output_file(&f).to_owned(),
+                source: self.check_source_file(&f).to_owned(),
+                destination: self.check_destination_file(&f).to_owned(),
             })
             .collect::<Vec<FileNames>>()
     }
 
-    fn check_input_file(&self, filename: &str) -> String {
+    fn check_source_file(&self, filename: &str) -> String {
         let path = Path::new(&filename);
 
         let path = if path.is_symlink() {
             path.read_link()
-                .expect(&format!("Invalid input link: {filename}"))
+                .expect(&format!("Invalid source link: {filename}"))
                 .as_path()
                 .to_owned()
         } else {
@@ -48,13 +48,13 @@ impl Utils {
         };
 
         if !path.exists() || !path.is_file() {
-            panic!("File does not exist: {filename}")
+            panic!("Source file does not exist: {filename}")
         };
 
         filename.to_owned()
     }
 
-    fn check_output_file(&self, input_filename: &str) -> String {
+    fn check_destination_file(&self, input_filename: &str) -> String {
         let argument_parser::CliArgs {
             prefix,
             suffix,
@@ -69,12 +69,12 @@ impl Utils {
         let filename = parent
             .join(format!("{prefix}{stem}{suffix}.{ext}"))
             .to_str()
-            .expect("Could not construct output file name")
+            .expect("Cannot not construct destination file name")
             .to_owned();
 
         let path = if path.is_symlink() {
             path.read_link()
-                .expect(&format!("Invalid input link: {filename}"))
+                .expect(&format!("Invalid destination link: {filename}"))
                 .as_path()
                 .to_owned()
         } else {
@@ -82,7 +82,7 @@ impl Utils {
         };
 
         if (path.exists() && !force) || !path.is_file() {
-            panic!("Output file exists: {filename}\nUse force (if force was already used then the path cannot be overwritten)")
+            panic!("Destination file exists: {filename}\nUse force (if force was already used then the path cannot be overwritten)")
         };
 
         filename.to_owned()

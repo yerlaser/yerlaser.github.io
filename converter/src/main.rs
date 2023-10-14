@@ -17,19 +17,15 @@ fn main() {
         let reader = File::open(&source).expect(&format!("Cannot open {source}"));
         let reader = BufReader::new(reader);
 
-        let writer = File::create(&destination)
-            .expect(&format!("Cannot create {destination}"));
+        let writer = File::create(&destination).expect(&format!("Cannot create {destination}"));
         let mut writer = BufWriter::new(writer);
 
         for line in reader.lines() {
-            let converted = format!(
-                "{}\n",
-                convert_line(
-                    &utilities.table,
-                    &line.expect(&format!("Cannot read line from {source}"))
-                )
-            );
-            writer.write_all(converted.as_bytes()).expect(&format!("Cannot write line to {destination}"));
+            let line = line.expect(&format!("Cannot read a line from {source}"));
+            let converted = format!("{}\n", convert_line(&utilities.table, &line));
+            writer
+                .write_all(converted.as_bytes())
+                .expect(&format!("Cannot write a line to {destination}"));
         }
 
         writer
@@ -38,9 +34,9 @@ fn main() {
     }
 }
 
-fn convert_line(table: &utils::Table, input_string: &str) -> String {
+fn convert_line(table: &utils::Table, source_string: &str) -> String {
     let mut char_converter = char_converter::Converter::new();
-    let cyrillic = format!("{input_string}_");
+    let cyrillic = format!("{source_string}_");
 
     let latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
         .map(|c| c.to_owned())
