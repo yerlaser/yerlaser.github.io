@@ -6,23 +6,36 @@ use unicode_segmentation::UnicodeSegmentation;
 mod char_converter;
 mod utils;
 
-fn main() -> std::io::Result<()> {
+fn main() {
     let utilities = utils::Utils::new();
     let pairs = utilities.get_filenames();
 
     for pair in pairs {
-        let reader = BufReader::new(File::open(&pair.source)?);
-        let mut writer = BufWriter::new(File::create(pair.destination)?);
+        let source = pair.source;
+        let destination = pair.destination;
+
+        let reader = File::open(&source).expect(&format!("Cannot open {source}"));
+        let reader = BufReader::new(reader);
+
+        let writer = File::create(&destination)
+            .expect(&format!("Cannot create {destination}"));
+        let mut writer = BufWriter::new(writer);
 
         for line in reader.lines() {
-            let converted = format!("{}\n", convert_line(&utilities.table, &line?));
-            writer.write_all(converted.as_bytes())?;
+            let converted = format!(
+                "{}\n",
+                convert_line(
+                    &utilities.table,
+                    &line.expect(&format!("Cannot read line from {source}"))
+                )
+            );
+            writer.write_all(converted.as_bytes()).expect(&format!("Cannot write line to {destination}"));
         }
 
-        writer.flush()?;
+        writer
+            .flush()
+            .expect(&format!("Cannot save {}", &destination));
     }
-
-    Ok(())
 }
 
 fn convert_line(table: &utils::Table, input_string: &str) -> String {
