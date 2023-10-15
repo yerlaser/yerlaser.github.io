@@ -54,14 +54,14 @@ impl Utils {
         filename.to_owned()
     }
 
-    fn check_destination_file(&self, input_filename: &str) -> String {
+    fn check_destination_file(&self, filename: &str) -> String {
         let argument_parser::CliArgs {
             prefix,
             suffix,
             force,
             ..
         } = &self.arguments;
-        let path = Path::new(&input_filename);
+        let path = Path::new(&filename);
         let parent = path.parent().unwrap();
         let stem = path.file_stem().unwrap().to_str().unwrap();
         let ext = path.extension().unwrap().to_str().unwrap();
