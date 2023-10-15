@@ -11,9 +11,9 @@ pub fn read_table() -> super::Table {
     let reader = File::open("conversion_table.csv").expect("Cannot open conversion table file");
     let reader = BufReader::new(reader);
 
-    let mut from_csv = csv::Reader::from_reader(reader);
-    let from_csv = from_csv.deserialize();
-    let from_csv = from_csv
+    let mut table = csv::Reader::from_reader(reader);
+    let table = table.deserialize();
+    let mut table = table
         .enumerate()
         .map(|(i, r)| {
             let row: TableRow = r.expect(&format!(
@@ -24,8 +24,7 @@ pub fn read_table() -> super::Table {
         })
         .collect::<super::Table>();
 
-    let mut table = from_csv.clone();
-    let lows = from_csv
+    let lows = table
         .iter()
         .map(|i| (i.0.to_lowercase(), i.1.to_lowercase()))
         .collect::<super::Table>();
