@@ -11,16 +11,18 @@ pub struct FileNames {
 }
 
 pub struct Utils {
-    arguments: argument_parser::CliArgs,
-    pub table: Table,
+    pub arguments: argument_parser::CliArgs,
 }
 
 impl Utils {
     pub fn new() -> Self {
         Self {
             arguments: argument_parser::parse(),
-            table: table_reader::read_table(),
         }
+    }
+
+    pub fn get_table(&self) -> Table {
+        table_reader::read_table(&self.arguments.table)
     }
 
     pub fn get_filenames(&self) -> Vec<FileNames> {

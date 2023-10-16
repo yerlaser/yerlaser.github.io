@@ -6,7 +6,7 @@ pub struct Converter {
 
 impl Converter {
     const OBVIOUS: &'static str = "ЕГКегк";
-    const HARDS: &'static str = "АҒҚОҰҺЫағқоұһы";
+    const HARDS: &'static str = "АҒҚОҰҺЫЭағқоұһыэ";
     const SOFTS: &'static str = "ӘЕӨҮІәеөүі";
 
     pub fn new() -> Converter {
@@ -17,7 +17,7 @@ impl Converter {
         }
     }
 
-    pub fn convert(&mut self, table: &super::utils::Table, c: &str) -> String {
+    pub fn convert(&mut self, table: &super::utils::Table, disable_obvious: bool, c: &str) -> String {
         let is_obvious = Self::OBVIOUS.contains(c);
         let is_hard = Self::HARDS.contains(c);
         let is_soft = Self::SOFTS.contains(c);
@@ -31,7 +31,7 @@ impl Converter {
                         self.current.push_str(c);
                         self.might_need_prefix = false;
                         self.accumulator.clear();
-                    } else if acc_len == 0 && is_obvious {
+                    } else if !disable_obvious && acc_len == 0 && is_obvious {
                         self.current = c.to_owned();
                         self.might_need_prefix = false;
                     } else if is_soft {

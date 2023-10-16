@@ -10,7 +10,8 @@ fn main() {
     let utilities = utils::Utils::new();
     let pairs = utilities.get_filenames();
 
-    let table = &utilities.table;
+    let table = &utilities.get_table();
+    let disable_obvious = utilities.arguments.disable_obvious;
     let mut char_converter = char_converter::Converter::new();
 
     for pair in pairs {
@@ -33,7 +34,7 @@ fn main() {
 
             latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
                 .map(|c| c.to_owned())
-                .map(|c| char_converter.convert(table, &c.to_owned()))
+                .map(|c| char_converter.convert(table, disable_obvious, &c.to_owned()))
                 .collect::<String>();
 
             latin.replace_range((latin.len() - 1).., "\n");

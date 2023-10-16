@@ -7,8 +7,8 @@ struct TableRow {
     lat: String,
 }
 
-pub fn read_table() -> super::Table {
-    let reader = File::open("conversion_table.csv").expect("Cannot open conversion table file");
+pub fn read_table(table_file: &str) -> super::Table {
+    let reader = File::open(table_file).expect(&format!("Cannot open conversion table file {table_file}"));
     let reader = BufReader::new(reader);
 
     let mut table = csv::Reader::from_reader(reader);
