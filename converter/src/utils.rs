@@ -17,7 +17,7 @@ pub struct Utils {
 
 impl Utils {
     pub fn new() -> Self {
-        Utils {
+        Self {
             arguments: argument_parser::parse(),
             table: table_reader::read_table(),
         }

@@ -1,6 +1,7 @@
 pub struct Converter {
     might_need_prefix: bool,
     accumulator: String,
+    current: String,
 }
 
 impl Converter {
@@ -9,9 +10,10 @@ impl Converter {
     const SOFTS: &'static str = "ӘЕӨҮІәеөүі";
 
     pub fn new() -> Converter {
-        Converter {
+        Self {
             might_need_prefix: true,
-            accumulator: String::with_capacity(13),
+            accumulator: String::with_capacity(4),
+            current: String::with_capacity(5),
         }
     }
 
@@ -19,38 +21,43 @@ impl Converter {
         let is_obvious = Self::OBVIOUS.contains(c);
         let is_hard = Self::HARDS.contains(c);
         let is_soft = Self::SOFTS.contains(c);
-        let current: String;
         let acc_len = self.accumulator.len();
 
         match table.get(c) {
             Some(c) => {
                 if self.might_need_prefix {
                     if is_hard || acc_len > 3 {
-                        current = format!("{}{}", self.accumulator, c);
+                        self.current.push_str(&self.accumulator);
+                        self.current.push_str(c);
                         self.might_need_prefix = false;
-                        self.accumulator = String::with_capacity(13);
+                        self.accumulator.clear();
                     } else if acc_len == 0 && is_obvious {
-                        current = c.to_owned();
+                        self.current = c.to_owned();
                         self.might_need_prefix = false;
                     } else if is_soft {
-                        current = format!("'{}{}", self.accumulator, c);
+                        self.current.push_str("'");
+                        self.current.push_str(&self.accumulator);
+                        self.current.push_str(c);
                         self.might_need_prefix = false;
-                        self.accumulator = String::with_capacity(13);
+                        self.accumulator.clear();
                     } else {
-                        current = String::new();
-                        self.accumulator = format!("{}{}", self.accumulator, c);
+                        self.accumulator += c;
                     }
                 } else {
-                    current = c.to_owned();
+                    self.current.clear();
+                    self.current = c.to_owned();
                 }
             }
             None => {
-                current = format!("{}{}", self.accumulator, c.to_owned());
+                self.current.push_str(&self.accumulator);
+                self.current.push_str(c);
                 self.might_need_prefix = true;
-                self.accumulator = String::with_capacity(13);
+                self.accumulator.clear();
             }
         };
 
-        current
+        let result = self.current.clone();
+        self.current.clear();
+        result
     }
 }

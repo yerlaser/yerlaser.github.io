@@ -22,24 +22,26 @@ fn main() {
         let writer = File::create(&destination).expect(&format!("Cannot create {destination}"));
         let mut writer = BufWriter::new(writer);
 
-        for line in reader.lines() {
-            let line = line.expect(&format!("Cannot read a line from {source}"));
-            let cyrillic = format!("{line}_");
+        #[allow(unused_assignments)]
+        let mut cyrillic = String::with_capacity(300);
+        #[allow(unused_assignments)]
+        let mut latin = String::with_capacity(300);
 
-            let latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
+        for line in reader.lines() {
+            cyrillic = line.expect(&format!("Cannot read a line from {source}"));
+            cyrillic.push_str("_");
+
+            latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
                 .map(|c| c.to_owned())
                 .map(|c| char_converter.convert(table, &c.to_owned()))
                 .collect::<String>();
 
-            let latin = String::from(latin.strip_suffix('_').unwrap());
-            let latin = format!("{}\n", latin);
+            latin.replace_range((latin.len() - 1).., "\n");
             writer
                 .write_all(latin.as_bytes())
                 .expect(&format!("Cannot write a line to {destination}"));
         }
 
-        writer
-            .flush()
-            .expect(&format!("Cannot save {}", &destination));
+        writer.flush().expect(&format!("Cannot save {destination}"));
     }
 }
