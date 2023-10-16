@@ -12,8 +12,8 @@ impl Converter {
     pub fn new() -> Converter {
         Self {
             might_need_prefix: true,
-            accumulator: String::with_capacity(4),
-            current: String::with_capacity(5),
+            accumulator: String::with_capacity(8),
+            current: String::with_capacity(10),
         }
     }
 
@@ -35,7 +35,7 @@ impl Converter {
                         self.current = c.to_owned();
                         self.might_need_prefix = false;
                     } else if is_soft {
-                        self.current.push_str("'");
+                        self.current.push('\'');
                         self.current.push_str(&self.accumulator);
                         self.current.push_str(c);
                         self.might_need_prefix = false;

@@ -23,13 +23,13 @@ fn main() {
         let mut writer = BufWriter::new(writer);
 
         #[allow(unused_assignments)]
-        let mut cyrillic = String::with_capacity(300);
+        let mut cyrillic = String::with_capacity(500);
         #[allow(unused_assignments)]
-        let mut latin = String::with_capacity(300);
+        let mut latin = String::with_capacity(500);
 
         for line in reader.lines() {
             cyrillic = line.expect(&format!("Cannot read a line from {source}"));
-            cyrillic.push_str("_");
+            cyrillic.push('_');
 
             latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
                 .map(|c| c.to_owned())
