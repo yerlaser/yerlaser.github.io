@@ -55,23 +55,41 @@ export def vi (
   }
 }
 
+# Open files previously listed with l
+export def e (
+  --max_number (-m): int = 13 # Max number of items to open
+  ...numbers: int # Numbers to open
+) {
+  if ($numbers | is-empty) {
+    ^hx -c $'/tmp/config($env.THEME).toml' ($env.LASTCMDRESULT | take $max_number)
+  } else {
+    ^hx -c $'/tmp/config($env.THEME).toml' ($numbers | each {|i| $env.LASTCMDRESULT | get $i})
+  }
+}
+
 # Open files with vi possibly filtering files
-export def l (
+export def-env l (
   --filter_pattern (-f): string # Search pattern
   --exclude_pattern (-x): string # Exclude pattern
   --edit (-e) # Edit files (up to max number of items)
   --max_number (-m): int = 13 # Max number of items to open
-  path: string = '.' # Path to search
+  path?: string # Path to search
 ) {
-  let path = ($path | str trim -r -c '/')
-  let path = if $path == '.' { '**/*' } else { $"($path)/**/*" }
+  let path = if ($path | is-empty) {
+    '*'
+  } else if $path == '.' {
+    '**/*'
+  } else {
+    $"($path | str trim -r -c '/')/**/*"
+  }
   let expression = if ($filter_pattern | is-empty) { $path } else { $"($path)\(?i)($filter_pattern)*" }
   let excludes = ['**/node_modules/**' '**/target/**' '**/.git/**' '**/zig-out/**' '**/zig-cache/**' '**/.*' '**/.*/**' '**/Cargo.lock']
   let excludes = if ($exclude_pattern | is-empty) { $excludes } else { $excludes | append $"**/*\(?i\)($exclude_pattern)*" }
   if $edit {
     ^hx -c $'/tmp/config($env.THEME).toml' (glob -D $expression -n $excludes | take $max_number)
   } else {
-    glob -D $expression -n $excludes
+    $env.LASTCMDRESULT = (glob -D $expression -n $excludes)
+    $env.LASTCMDRESULT
   }
 }
 
