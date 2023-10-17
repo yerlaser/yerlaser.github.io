@@ -44,7 +44,6 @@ impl Converter {
                         self.accumulator += c;
                     }
                 } else {
-                    self.current.clear();
                     self.current = c.to_owned();
                 }
             }
