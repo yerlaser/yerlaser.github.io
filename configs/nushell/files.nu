@@ -25,36 +25,6 @@ export def tree (
   broot $args
 }
 
-# Open files with vi possibly filtering files
-export def vi (
-  --filter_pattern (-f): string # Search pattern
-  --exclude_pattern (-x): string # Exclude pattern
-  --max_number (-m): int = 13 # Max number of items to open
-  ...paths # Paths to open or search (if only one or and not a file)
-) {
-  if ($filter_pattern | is-empty) and ($exclude_pattern | is-empty) {
-    if ($paths | is-empty) {
-      ^hx -c $'/tmp/config($env.THEME).toml'
-    } else if ($paths | length) > 1 {
-      ^hx -c $'/tmp/config($env.THEME).toml' $paths
-    } else if ($paths | get 0 | path type) == dir or (
-      ($paths | get 0 | path type) == symlink and (ls -l $"($paths | get 0)*" | get target) == dir
-    ) {
-      l -m ($max_number) ($paths | get 0) -e
-    } else {
-      ^hx -c $'/tmp/config($env.THEME).toml' $paths
-    }
-  } else if ($paths | length) > 1 {
-    print "Error multiple paths with search pattern are not allowed"
-  } else {
-    if ($paths | is-empty) {
-      l -m ($max_number) -f $filter_pattern -x $exclude_pattern -e
-    } else {
-      l -m ($max_number) -f $filter_pattern -x $exclude_pattern ($paths | get 0) -e
-    }
-  }
-}
-
 # Open files previously listed with l
 export def e (
   --max_number (-m): int = 13 # Max number of items to open
@@ -105,4 +75,35 @@ export def cat (
   path: string # File path
 ) {
   open -r $path | lines
+}
+
+# Open files with vi possibly filtering files
+export def vi (
+  --filter_pattern (-f): string # Search pattern
+  --exclude_pattern (-x): string # Exclude pattern
+  --grep_pattern (-g): string # Pattern to grep inside files
+  --max_number (-m): int = 13 # Max number of items to open
+  ...paths # Paths to open or search (if only one or and not a file)
+) {
+  if ($filter_pattern | is-empty) and ($exclude_pattern | is-empty) and ($grep_pattern | is-empty) {
+    if ($paths | is-empty) {
+      ^hx -c $'/tmp/config($env.THEME).toml'
+    } else if ($paths | length) > 1 {
+      ^hx -c $'/tmp/config($env.THEME).toml' $paths
+    } else if ($paths | get 0 | path type) == dir or (
+      ($paths | get 0 | path type) == symlink and (ls -l $"($paths | get 0)*" | get target) == dir
+    ) {
+      l -m ($max_number) ($paths | get 0) -e
+    } else {
+      ^hx -c $'/tmp/config($env.THEME).toml' $paths
+    }
+  } else if ($paths | length) > 1 {
+    print "Error multiple paths with search pattern are not allowed"
+  } else {
+    if ($paths | is-empty) {
+      l -m ($max_number) -f $filter_pattern -x $exclude_pattern -g $grep_pattern -e
+    } else {
+      l -m ($max_number) -f $filter_pattern -x $exclude_pattern -g $grep_pattern ($paths | get 0) -e
+    }
+  }
 }
