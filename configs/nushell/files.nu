@@ -38,7 +38,7 @@ export def e (
 }
 
 # Open files with vi possibly filtering files
-export def-env l (
+export def --env l (
   --filter_pattern (-f): string # Search pattern
   --exclude_pattern (-x): string # Exclude pattern
   --grep_pattern (-g): string # Pattern to grep inside files
