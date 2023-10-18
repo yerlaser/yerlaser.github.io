@@ -37,7 +37,7 @@ export def e (
   }
 }
 
-# Open files with vi possibly filtering files
+# Finds files, stores in LASTCMDRESULT and possibly opens with vi
 export def --env l (
   --filter_pattern (-f): string # Search pattern
   --exclude_pattern (-x): string # Exclude pattern
