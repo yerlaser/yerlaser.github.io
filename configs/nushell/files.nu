@@ -71,24 +71,31 @@ export def e (
 export def-env l (
   --filter_pattern (-f): string # Search pattern
   --exclude_pattern (-x): string # Exclude pattern
+  --grep_pattern (-g): string # Pattern to grep inside files
   --edit (-e) # Edit files (up to max number of items)
   --max_number (-m): int = 13 # Max number of items to open
   path?: string # Path to search
 ) {
-  let path = if ($path | is-empty) {
-    '*'
-  } else if $path == '.' {
-    '**/*'
-  } else {
+  let path = if ($path | is-empty) { '*' } else if $path == '.' { '**/*' } else {
     $"($path | str trim -r -c '/')/**/*"
   }
   let expression = if ($filter_pattern | is-empty) { $path } else { $"($path)\(?i)($filter_pattern)*" }
   let excludes = ['**/node_modules/**' '**/target/**' '**/.git/**' '**/zig-out/**' '**/zig-cache/**' '**/.*' '**/.*/**' '**/Cargo.lock']
   let excludes = if ($exclude_pattern | is-empty) { $excludes } else { $excludes | append $"**/*\(?i\)($exclude_pattern)*" }
+  let finds = (glob -D $expression -n $excludes)
+  let finds = (if ($grep_pattern | is-empty) { $finds } else {
+    $finds | par-each {|f|
+      let greps = (open --raw $f | lines | enumerate | find $grep_pattern -c [item])
+      if not ($greps | is-empty) {
+        let first_line_no = ($greps | get 0.index)
+        $'($f):($first_line_no + 1)'
+      }
+    }
+  } | sort)
   if $edit {
-    ^hx -c $'/tmp/config($env.THEME).toml' (glob -D $expression -n $excludes | take $max_number)
+    ^hx -c $'/tmp/config($env.THEME).toml' ($finds | take $max_number)
   } else {
-    $env.LASTCMDRESULT = (glob -D $expression -n $excludes)
+    $env.LASTCMDRESULT = $finds
     $env.LASTCMDRESULT
   }
 }
