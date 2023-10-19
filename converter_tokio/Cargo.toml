@@ -1,0 +1,11 @@
+[package]
+name = "converter"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "*", features = ["derive"] }
+csv = "*"
+serde = { version = "*", features = ["derive"] }
+tokio = { version = "*", features = ["full"] }
+unicode-segmentation = "*"

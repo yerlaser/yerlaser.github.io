@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::io::{BufWriter, Write};
 use std::sync::Arc;
-use tokio::task;
+use tokio::task::{self};
 use unicode_segmentation::UnicodeSegmentation;
 
 mod char_converter;
@@ -16,18 +16,18 @@ async fn main() {
     let table = Arc::new(utilities.get_table());
     let disable_obvious = utilities.arguments.disable_obvious;
 
-    let mut handles: Vec<task::JoinHandle<()>> = vec![];
+    let mut handles: Vec<task::JoinHandle<String>> = vec![];
 
     for pair in pairs {
         let table = table.clone();
         handles.push(task::spawn_blocking(move || {
             let mut char_converter = char_converter::Converter::new();
-            let source = pair.source;
-            let reader = File::open(&source).expect(&format!("Cannot open {source}"));
+            let source = &pair.source;
+            let reader = File::open(source).expect(&format!("Cannot open {source}"));
             let reader = BufReader::new(reader);
 
-            let destination = pair.destination;
-            let writer = File::create(&destination).expect(&format!("Cannot create {destination}"));
+            let destination = &pair.destination;
+            let writer = File::create(destination).expect(&format!("Cannot create {destination}"));
             let mut writer = BufWriter::new(writer);
 
             #[allow(unused_assignments)]
@@ -51,10 +51,12 @@ async fn main() {
             }
 
             writer.flush().expect(&format!("Cannot save {destination}"));
+            source.to_owned()
         }));
     }
 
     for handle in handles {
-        handle.await.unwrap();
+        let filename = handle.await.unwrap();
+        println!("Finished {filename}");
     }
 }
