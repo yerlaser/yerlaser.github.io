@@ -16,7 +16,7 @@ async fn main() {
     let table = Arc::new(utilities.get_table());
     let disable_obvious = utilities.arguments.disable_obvious;
 
-    let mut handles: Vec<task::JoinHandle<String>> = vec![];
+    let mut handles: Vec<task::JoinHandle<()>> = vec![];
 
     for pair in pairs {
         let table = table.clone();
@@ -51,12 +51,11 @@ async fn main() {
             }
 
             writer.flush().expect(&format!("Cannot save {destination}"));
-            source.to_owned()
+            println!("Finished {source}, wrote to {destination}");
         }));
     }
 
     for handle in handles {
-        let filename = handle.await.unwrap();
-        println!("Finished {filename}");
+        handle.await.unwrap();
     }
 }

@@ -45,5 +45,6 @@ fn main() {
         }
 
         writer.flush().expect(&format!("Cannot save {destination}"));
+        println!("Finished {source}, wrote to {destination}");
     });
 }
