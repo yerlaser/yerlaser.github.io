@@ -11,12 +11,18 @@ pub struct FileNames {
 }
 
 pub struct Utils {
+    pub obvious: &'static str,
+    pub hards: &'static str,
+    pub softs: &'static str,
     pub arguments: argument_parser::CliArgs,
 }
 
 impl Utils {
     pub fn new() -> Self {
         Self {
+            obvious: "ЕГКегк",
+            hards: "АҒҚОҰҺЫЭағқоұһыэ",
+            softs: "ӘЕӨҮІәеөүі",
             arguments: argument_parser::parse(),
         }
     }
