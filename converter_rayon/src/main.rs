@@ -7,7 +7,8 @@ use unicode_segmentation::UnicodeSegmentation;
 mod utils;
 
 fn main() {
-    let util = utils::Utils::new();
+    let mut util = utils::Utils::new();
+    util.init_table();
     let pairs = util.get_filenames();
 
     pairs.par_iter().for_each(|pair| {
@@ -43,6 +44,7 @@ fn main() {
                         line_buffer.push_str(&word_buffer);
 
                         word_buffer.clear();
+
                         needs_prefix = false;
                     });
 
@@ -56,31 +58,29 @@ fn main() {
             writer
                 .write_all(line_buffer.as_bytes())
                 .expect(&format!("Cannot write a line to {destination}"));
+
             line_buffer.clear();
         });
 
         writer.flush().expect(&format!("Cannot save {destination}"));
+
         println!("Finished {source}, wrote to {destination}");
     });
 }
 
 pub fn convert_char(buffer: &mut String, needs_prefix: &mut bool, util: &utils::Utils, char: &str) {
-    let table = util.get_table();
-    let disable_obvious = util.arguments.disable_obvious;
-    let is_obvious = util.obvious.contains(char);
-    let is_hard = util.hards.contains(char);
-    let is_soft = util.softs.contains(char);
     let buf_len = buffer.len();
 
-    match table.get(char) {
+    match util.table.get(char) {
         Some(c) => {
             buffer.push_str(c);
-            if is_hard
+
+            if util.hards.contains(char)
                 || (!*needs_prefix && buf_len > 3)
-                || (!disable_obvious && buf_len == 0 && is_obvious)
+                || (!util.arguments.disable_obvious && buf_len == 0 && util.obvious.contains(char))
             {
                 *needs_prefix = false;
-            } else if is_soft {
+            } else if util.softs.contains(char) {
                 *needs_prefix = true;
             }
         }
