@@ -9,6 +9,7 @@ mod utils;
 fn main() {
     let mut util = utils::Utils::new();
     util.init_table();
+
     let pairs = util.get_filenames();
 
     pairs.par_iter().for_each(|pair| {
@@ -42,9 +43,7 @@ fn main() {
                         }
 
                         line_buffer.push_str(&word_buffer);
-
                         word_buffer.clear();
-
                         needs_prefix = false;
                     });
 
@@ -63,7 +62,6 @@ fn main() {
         });
 
         writer.flush().expect(&format!("Cannot save {destination}"));
-
         println!("Finished {source}, wrote to {destination}");
     });
 }
@@ -75,8 +73,8 @@ pub fn convert_char(buffer: &mut String, needs_prefix: &mut bool, util: &utils::
         Some(c) => {
             buffer.push_str(c);
 
-            if util.hards.contains(char)
-                || (!*needs_prefix && buf_len > 3)
+            if (buf_len > 3 && !*needs_prefix)
+                || util.hards.contains(char)
                 || (!util.arguments.disable_obvious && buf_len == 0 && util.obvious.contains(char))
             {
                 *needs_prefix = false;
@@ -86,6 +84,7 @@ pub fn convert_char(buffer: &mut String, needs_prefix: &mut bool, util: &utils::
         }
         None => {
             buffer.push_str(char);
+            *needs_prefix = false;
         }
     }
 }
