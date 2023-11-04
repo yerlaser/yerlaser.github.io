@@ -38,12 +38,12 @@ export def e (
 }
 
 # Finds files, stores in LASTCMDRESULT and possibly opens with vi
-export def --env l (
-  --filter_pattern (-f): string # Search pattern
+export def --env f (
   --exclude_pattern (-x): string # Exclude pattern
   --grep_pattern (-g): string # Pattern to grep inside files
   --edit (-e) # Edit files (up to max number of items)
   --max_number (-m): int = 13 # Max number of items to open
+  filter_pattern?: string # Search pattern
   path: string = '.' # Path to search
 ) {
   let path = if $path == '.' { '**/*' } else { $"($path | str trim -r -c '/')/**/*" }
@@ -91,7 +91,7 @@ export def vi (
     } else if ($paths | get 0 | path type) == dir or (
       ($paths | get 0 | path type) == symlink and (ls -l $"($paths | get 0)*" | get target) == dir
     ) {
-      l -m ($max_number) ($paths | get 0) -e
+      f -m ($max_number) '' ($paths | get 0) -e
     } else {
       ^hx -c $'/tmp/config($env.THEME).toml' $paths
     }
@@ -99,9 +99,9 @@ export def vi (
     print "Error multiple paths with search pattern are not allowed"
   } else {
     if ($paths | is-empty) {
-      l -m ($max_number) -f $filter_pattern -x $exclude_pattern -g $grep_pattern -e
+      f -m ($max_number) -x $exclude_pattern -g $grep_pattern $filter_pattern -e
     } else {
-      l -m ($max_number) -f $filter_pattern -x $exclude_pattern -g $grep_pattern ($paths | get 0) -e
+      f -m ($max_number) -x $exclude_pattern -g $grep_pattern $filter_pattern ($paths | get 0) -e
     }
   }
 }
