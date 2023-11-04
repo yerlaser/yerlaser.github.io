@@ -41,7 +41,7 @@
             <key code="7" output="ч"/>
             <key code="8" output="ц"/>
             <key code="9" output="в"/>
-            <key code="10" output="і"/> <!--`-->
+            <key code="10" output="қ"/> <!--`-->
             <key code="11" output="б"/>
             <key code="12" output="я"/>
             <key code="13" output="ю"/>
@@ -72,7 +72,7 @@
             <key code="38" output="ж"/>
             <key code="39" output="ь"/> <!--'-->
             <key code="40" output="к"/>
-            <key code="41" output=";"/>
+            <key code="41" output="і"/>
             <key code="42" output="э"/> <!--Backslash-->
             <key code="43" output=","/>
             <key code="44" output="й"/> <!--/-->
@@ -81,7 +81,7 @@
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
-            <key code="50" output="і"/> <!--`-->
+            <key code="50" output="қ"/> <!--`-->
             <key code="51" output="&#x0008;"/> <!--BS -->
             <key code="53" output="&#x001B;"/> <!--ESC -->
             <key code="64" output="&#x0010;"/> <!--Data Link Escape -->
@@ -147,7 +147,7 @@
             <key code="7" output="Ч"/>
             <key code="8" output="Ц"/>
             <key code="9" output="В"/>
-            <key code="10" output="І"/> <!--`-->
+            <key code="10" output="Қ"/> <!--`-->
             <key code="11" output="Б"/>
             <key code="12" output="Я"/>
             <key code="13" output="Ю"/>
@@ -187,7 +187,7 @@
             <key code="47" output="&#x003E;"/> <!--Greater than-->
             <key code="48" output="&#x0009;"/> <!--TAB -->
             <key code="49" output=" "/>
-            <key code="50" output="І"/> <!--`-->
+            <key code="50" output="Қ"/> <!--`-->
             <key code="51" output="&#x0008;"/> <!--BS -->
             <key code="53" output="&#x001B;"/> <!--ESC -->
             <key code="64" output="&#x0010;"/>
@@ -284,7 +284,7 @@
             <key code="38" output="j"/>
             <key code="39" output="'"/> <!--'-->
             <key code="40" output="k"/>
-            <key code="41" output="қ"/>
+            <key code="41" output=";"/>
             <key code="42" output="\"/> <!--Backslash-->
             <key code="43" output="ң"/> <!--Less than-->
             <key code="44" output="/"/> <!--/-->
@@ -390,7 +390,7 @@
             <key code="38" output="J"/>
             <key code="39" output="Ь"/> <!--'-->
             <key code="40" output="K"/>
-            <key code="41" output="Қ"/> <!--;-->
+            <key code="41" output="І"/> <!--;-->
             <key code="42" output="|"/> <!--Backslash-->
             <key code="43" output="Ң"/> <!--Less than-->
             <key code="44" output="Й"/> <!--/-->

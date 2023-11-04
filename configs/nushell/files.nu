@@ -52,7 +52,7 @@ export def --env l (
   let expression = if ($filter_pattern | is-empty) { $path } else { $"($path)\(?i)($filter_pattern)*" }
   let excludes = ['**/node_modules/**' '**/target/**' '**/.git/**' '**/zig-out/**' '**/zig-cache/**' '**/.*' '**/.*/**' '**/Cargo.lock']
   let excludes = if ($exclude_pattern | is-empty) { $excludes } else { $excludes | append $"**/*\(?i\)($exclude_pattern)*" }
-  let finds = (glob -D $expression -n $excludes)
+  let finds = (glob -D $expression -e $excludes)
   let finds = (if ($grep_pattern | is-empty) { $finds } else {
     $finds | par-each {|f|
       let greps = (open --raw $f | lines | enumerate | find $grep_pattern -c [item])
