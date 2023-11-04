@@ -44,13 +44,9 @@ export def --env l (
   --grep_pattern (-g): string # Pattern to grep inside files
   --edit (-e) # Edit files (up to max number of items)
   --max_number (-m): int = 13 # Max number of items to open
-  path?: string # Path to search
+  path: string = '.' # Path to search
 ) {
-  let path = (if ($path | is-empty) {
-    if ($filter_pattern | is-empty) and ($exclude_pattern | is-empty) and ($grep_pattern | is-empty) { '*' } else { '**/*' }
-  } else if $path == '.' { '**/*' } else {
-    $"($path | str trim -r -c '/')/**/*"
-  })
+  let path = if $path == '.' { '**/*' } else { $"($path | str trim -r -c '/')/**/*" }
   let expression = if ($filter_pattern | is-empty) { $path } else { $"($path)\(?i)($filter_pattern)*" }
   let excludes = ['**/node_modules/**' '**/target/**' '**/.git/**' '**/zig-out/**' '**/zig-cache/**' '**/.*' '**/.*/**' '**/Cargo.lock']
   let excludes = if ($exclude_pattern | is-empty) { $excludes } else { $excludes | append $"**/*\(?i\)($exclude_pattern)*" }
