@@ -6,7 +6,7 @@ pub struct CliArgs {
     #[arg(short, long)]
     pub table: String,
 
-    #[arg(short, long, default_value_t = String::new())]
+    #[arg(short, long, default_value_t = String::from("lat-"))]
     pub prefix: String,
 
     #[arg(short, long, default_value_t = String::new())]
