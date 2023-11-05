@@ -11,18 +11,26 @@ pub struct FileNames {
 }
 
 pub struct Utils {
+    pub obvious: &'static str,
+    pub hards: &'static str,
+    pub softs: &'static str,
+    pub table: Table,
     pub arguments: argument_parser::CliArgs,
 }
 
 impl Utils {
     pub fn new() -> Self {
         Self {
+            obvious: "ЕГКегк",
+            hards: "АҒҚОҰҺЫЭағқоұһыэ",
+            softs: "ӘЕӨҮІәеөүі",
+            table: HashMap::new(),
             arguments: argument_parser::parse(),
         }
     }
 
-    pub fn get_table(&self) -> Table {
-        table_reader::read_table(&self.arguments.table)
+    pub fn init_table(&mut self) {
+        self.table = table_reader::read_table(&self.arguments.table);
     }
 
     pub fn get_filenames(&self) -> Vec<FileNames> {

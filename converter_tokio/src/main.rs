@@ -5,23 +5,21 @@ use std::sync::Arc;
 use tokio::task::{self};
 use unicode_segmentation::UnicodeSegmentation;
 
-mod char_converter;
 mod utils;
 
 #[tokio::main]
 async fn main() {
-    let utilities = utils::Utils::new();
-    let pairs = utilities.get_filenames();
+    let mut utils = utils::Utils::new();
+    utils.init_table();
+    let pairs = utils.get_filenames();
 
-    let table = Arc::new(utilities.get_table());
-    let disable_obvious = utilities.arguments.disable_obvious;
+    let utils = Arc::new(utils);
 
     let mut handles: Vec<task::JoinHandle<()>> = vec![];
 
-    for pair in pairs {
-        let table = table.clone();
+    pairs.into_iter().for_each(|pair| {
+        let util = Arc::clone(&utils);
         handles.push(task::spawn_blocking(move || {
-            let mut char_converter = char_converter::Converter::new();
             let source = &pair.source;
             let reader = File::open(source).expect(&format!("Cannot open {source}"));
             let reader = BufReader::new(reader);
@@ -30,32 +28,71 @@ async fn main() {
             let writer = File::create(destination).expect(&format!("Cannot create {destination}"));
             let mut writer = BufWriter::new(writer);
 
-            #[allow(unused_assignments)]
-            let mut cyrillic = String::with_capacity(500);
-            #[allow(unused_assignments)]
-            let mut latin = String::with_capacity(500);
+            let mut line_buffer = String::with_capacity(500);
+            let mut word_buffer = String::with_capacity(50);
 
-            for line in reader.lines() {
-                cyrillic = line.expect(&format!("Cannot read a line from {source}"));
-                cyrillic.push('_');
+            reader.lines().for_each(|line_result| {
+                match line_result {
+                    Ok(line) => {
+                        let mut prev_end = 0;
+                        let mut needs_prefix = false;
 
-                latin = UnicodeSegmentation::graphemes(cyrillic.as_str(), true)
-                    .map(|c| c.to_owned())
-                    .map(|c| char_converter.convert(&table, disable_obvious, &c.to_owned()))
-                    .collect::<String>();
+                        line.unicode_word_indices().for_each(|(i, word)| {
+                            line_buffer.push_str(&line[prev_end..i]);
+                            prev_end = i + word.len();
 
-                latin.replace_range((latin.len() - 1).., "\n");
+                            UnicodeSegmentation::graphemes(word, true).for_each(|c| {
+                                convert_char(&mut word_buffer, &mut needs_prefix, &util, c);
+                            });
+
+                            if needs_prefix {
+                                line_buffer.push('\'');
+                            }
+
+                            line_buffer.push_str(&word_buffer);
+                            word_buffer.clear();
+                            needs_prefix = false;
+                        });
+
+                        line_buffer.push('\n');
+                    }
+                    Err(_) => {
+                        panic!("Cannot read a line from {source}")
+                    }
+                };
+
                 writer
-                    .write_all(latin.as_bytes())
+                    .write_all(line_buffer.as_bytes())
                     .expect(&format!("Cannot write a line to {destination}"));
-            }
+
+                line_buffer.clear();
+            });
 
             writer.flush().expect(&format!("Cannot save {destination}"));
             println!("Finished {source}, wrote to {destination}");
         }));
-    }
+    });
+}
 
-    for handle in handles {
-        handle.await.unwrap();
+pub fn convert_char(buffer: &mut String, needs_prefix: &mut bool, util: &utils::Utils, char: &str) {
+    let buf_len = buffer.len();
+
+    match util.table.get(char) {
+        Some(c) => {
+            buffer.push_str(c);
+
+            if (buf_len > 3 && !*needs_prefix)
+                || util.hards.contains(char)
+                || (!util.arguments.disable_obvious && buf_len == 0 && util.obvious.contains(char))
+            {
+                *needs_prefix = false;
+            } else if util.softs.contains(char) {
+                *needs_prefix = true;
+            }
+        }
+        None => {
+            buffer.push_str(char);
+            *needs_prefix = false;
+        }
     }
 }
