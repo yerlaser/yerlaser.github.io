@@ -15,11 +15,9 @@ async fn main() {
 
     let utils = Arc::new(utils);
 
-    let mut handles: Vec<task::JoinHandle<()>> = vec![];
-
     pairs.into_iter().for_each(|pair| {
         let util = Arc::clone(&utils);
-        handles.push(task::spawn_blocking(move || {
+        task::spawn_blocking(move || {
             let source = &pair.source;
             let reader = File::open(source).expect(&format!("Cannot open {source}"));
             let reader = BufReader::new(reader);
@@ -70,7 +68,7 @@ async fn main() {
 
             writer.flush().expect(&format!("Cannot save {destination}"));
             println!("Finished {source}, wrote to {destination}");
-        }));
+        });
     });
 }
 
