@@ -64,7 +64,7 @@ export def --env f (
     ^hx -c $'/tmp/config($env.THEME).toml' ($finds | take $max_number)
   } else {
     $env.LASTCMDRESULT = $finds
-    $env.LASTCMDRESULT
+    $env.LASTCMDRESULT | path relative-to (pwd)
   }
 }
 
