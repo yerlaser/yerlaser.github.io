@@ -1,3 +1,7 @@
+if (sys | get host | get name) == 'Darwin' {
+  $env.BROWSER = '/Applications/Google Chrome Beta.app/Contents/MacOS/Google Chrome Beta'
+}
+
 if 'ITERM_PROFILE' in $env and $env.ITERM_PROFILE == 'Light' {
   $env.THEME = 'Light'
   if ("~/werkstatt/configs/env.nu" | path exists) {
