@@ -24,9 +24,11 @@
         </keyMapSelect>
         <keyMapSelect mapIndex="4">
             <modifier keys="command anyOption? anyControl?"/>
+            <modifier keys="anyControl anyOption? command?"/>
         </keyMapSelect>
         <keyMapSelect mapIndex="5">
             <modifier keys="anyShift command anyOption? anyControl?"/>
+            <modifier keys="anyShift anyControl anyOption? command?"/>
         </keyMapSelect>
     </modifierMap>
     <keyMapSet id="ANSI">
