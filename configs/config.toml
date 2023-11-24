@@ -1,4 +1,5 @@
 theme = 'catppuccin_mocha'
+
 [editor]
 auto-format = false
 color-modes = true
@@ -94,7 +95,7 @@ select = "underline"
 "А" = "insert_at_line_end"
 "б" = "extend_prev_word_start"
 "Б" = "extend_prev_long_word_start"
-"в" = "select_mode"
+"в" = "no_op"
 "В" = "extend_to_line_bounds"
 "г" = "no_op"
 "Г" = [ "select_mode", "goto_file_end", "normal_mode", "extend_to_line_bounds" ]
