@@ -76,12 +76,22 @@ $env.config = {
       event: {edit: uppercaseword}
     }
     {
-      name: completion_menu
+      name: complete_or_previous
+      modifier: shift
+      keycode: backtab
+      mode: [emacs vi_insert]
+      event: {until: [
+        {send: menu name: completion_menu}
+        {send: menuprevious}
+      ]}
+    }
+    {
+      name: complete_or_next
       modifier: none
       keycode: tab
       mode: [emacs vi_insert]
       event: {until: [
-        {send: menu name: completion_menu}
+        {send: historyhintcomplete}
         {send: menunext}
       ]}
     }

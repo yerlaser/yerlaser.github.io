@@ -156,11 +156,15 @@ select = "underline"
 
 [keys.normal.","]
 "space" = "collapse_selection"
-"," = ":write"
-"." = ":quit"
 "/" = "global_search"
+"d" = "make_search_word_bounded"
 "f" = ":format"
-"w" = "make_search_word_bounded"
+"q" = ":quit"
+"Q" = ":quit!"
+"w" = ":write"
+"ю" = ":write"
+"я" = ":quit"
+"Я" = ":quit!"
 
 [keys.normal.g]
 "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ]
