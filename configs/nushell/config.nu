@@ -92,6 +92,7 @@ $env.config = {
       mode: [emacs vi_insert]
       event: {until: [
         {send: historyhintcomplete}
+        {send: menu name: completion_menu}
         {send: menunext}
       ]}
     }
