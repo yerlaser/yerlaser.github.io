@@ -9,25 +9,25 @@ size = 13
 [font.normal]
 family = "JetBrainsMono"
 
-[[keyboard.bindings]]
-chars = "\u001B[6;2~" # Shift-PageDown
-key = "PageDown"
-mods = "Shift"
+# [[keyboard.bindings]]
+# chars = "\u001B[6;2~" # Shift-PageDown
+# key = "PageDown"
+# mods = "Shift"
 
-[[keyboard.bindings]]
-chars = "\u001B[5;2~" # Shift-PageUp
-key = "PageUp"
-mods = "Shift"
+# [[keyboard.bindings]]
+# chars = "\u001B[5;2~" # Shift-PageUp
+# key = "PageUp"
+# mods = "Shift"
 
-[[keyboard.bindings]]
-chars = "\u001B[1;2F" # Shift-End
-key = "End"
-mods = "None"
+# [[keyboard.bindings]]
+# chars = "\u001B[1;2F" # Shift-End
+# key = "End"
+# mods = "None"
 
-[[keyboard.bindings]]
-chars = "\u001B[1;2H" # Shift-Home
-key = "Home"
-mods = "Shift"
+# [[keyboard.bindings]]
+# chars = "\u001B[1;2H" # Shift-Home
+# key = "Home"
+# mods = "Shift"
 
 [shell]
 program = "/LOCAL/apps/cargo/bin/nu"

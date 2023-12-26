@@ -1,4 +1,5 @@
 # Mac
+/opt/podman/bin
 /opt/homebrew/bin
 /opt/homebrew/sbin
 /System/Cryptexes/App/usr/bin
@@ -7,9 +8,10 @@
 /usr/local/bin
 
 # Home folder
+~/.bun/bin
 ~/.cargo/bin
 ~/.local/bin
-~/.local/zig/bin
+~/.local/zig
 # ~/.local/llvm16-release/bin
 ~/.asdf/shims
 ~/.wasmer/bin

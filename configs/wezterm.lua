@@ -32,6 +32,17 @@ return {
   unzoom_on_switch_pane = true,
   leader = { key = "q", mods = "SUPER", timeout_milliseconds = 3000 },
   keys = {
+    { key = "ä"         , mods = ""             , action = wezterm.action.SendString("`") },
+    { key = "Ä"         , mods = "SHIFT"        , action = wezterm.action.SendString("~") },
+    { key = "ü"         , mods = ""             , action = wezterm.action.SendString("[") },
+    { key = "Ü"         , mods = "SHIFT"        , action = wezterm.action.SendString("{") },
+    { key = "ö"         , mods = ""             , action = wezterm.action.SendString("]") },
+    { key = "Ö"         , mods = "SHIFT"        , action = wezterm.action.SendString("}") },
+    { key = "ß"         , mods = ""             , action = wezterm.action.SendString("=") },
+    { key = "ü"         , mods = "CTRL"         , action = wezterm.action.SendString("\x1B") },
+    { key = "ö"         , mods = "CTRL"         , action = wezterm.action.SendString("\x1D") },
+    { key = ";"         , mods = "CTRL"         , action = wezterm.action.SendString("\x1B[C") }, -- Right
+    { key = "'"         , mods = "CTRL"         , action = wezterm.action.SendString("\x1B[F") }, -- End
     { key = "q"         , mods = "SUPER"        , action = wezterm.action.DisableDefaultAssignment },
     { key = "w"         , mods = "SUPER"        , action = wezterm.action.DisableDefaultAssignment },
     { key = "w"         , mods = "SUPER"        , action = wezterm.action.ActivatePaneDirection "Next" },
@@ -49,19 +60,8 @@ return {
     { key = 'l'         , mods = "LEADER|SHIFT" , action = wezterm.action.AdjustPaneSize { 'Right', 5 }, },
     { key = "q"         , mods = "LEADER"       , action = wezterm.action.CloseCurrentTab { confirm = true } },
     { key = "w"         , mods = "LEADER"       , action = wezterm.action.CloseCurrentPane { confirm = true } },
-    { key = "Backspace" , mods = "ALT"          , action = wezterm.action.SendString("\x1B[D") }, -- Left
-    { key = "Backspace" , mods = "ALT|SHIFT"    , action = wezterm.action.SendString("\x1B[1;2H") }, -- Shift-Home
-    { key = "Backspace" , mods = "SHIFT"        , action = wezterm.action.SendString("\x1B\x7F") }, -- Alt-Backspace
     { key = "Backspace" , mods = "CTRL"         , action = wezterm.action.SendString("\x1B\x7F") }, -- Alt-Backspace
-    { key = "Return"    , mods = "ALT"          , action = wezterm.action.SendString("\x1B[C") }, -- Right
-    { key = "Return"    , mods = "ALT|SHIFT"    , action = wezterm.action.SendString("\x1B[1;2F") }, -- Shift-End
-    { key = "Return"    , mods = "SHIFT"        , action = wezterm.action.SendString("\x1B") }, -- Escape
-    { key = "Return"    , mods = "CTRL"         , action = wezterm.action.SendString("\x1B-\x1Bu") }, -- Alt-- Alt-u
-    { key = "Return"    , mods = "CTRL|SHIFT"   , action = wezterm.action.SendString("\x1B-\x1Bl") }, -- Alt-- Alt-l
-    { key = "Space"     , mods = "ALT"          , action = wezterm.action.SendString("\x1B[A") }, -- Up
-    { key = "Space"     , mods = "ALT|SHIFT"    , action = wezterm.action.SendString("\x1B[5;2~") }, -- Shift-PageUp
-    { key = "Tab"       , mods = "ALT"          , action = wezterm.action.SendString("\x1B[B") }, -- Down
-    { key = "Tab"       , mods = "ALT|SHIFT"    , action = wezterm.action.SendString("\x1B[6;2~") }, -- Shift-PageDown
+    { key = "Return"    , mods = "SHIFT"        , action = wezterm.action.SendString("\x1B[F\x0D") }, -- End, Enter
     { key = "UpArrow"   , mods = "CMD"          , action = wezterm.action_callback(
       function(win, pane)
         win:maximize()
