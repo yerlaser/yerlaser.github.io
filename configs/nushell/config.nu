@@ -12,39 +12,22 @@ $env.config = {
   keybindings: [
     {
       name: open_editor
-      modifier: shift
+      modifier: control
       keycode: char_o
       mode: [vi_normal]
       event: {send: openeditor}
     }
-    {
-      name: right_arrow
-      modifier: none
-      keycode: right
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: historyhintwordcomplete}
-        {send: menuright}
-        {send: right}
-      ]}
-    }
-    {
-      name: shift_end
-      modifier: shift
-      keycode: end
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: historyhintcomplete}
-        {edit: movetolineend}
-      ]}
-    }
-    {
-      name: shift_home
-      modifier: shift
-      keycode: home
-      mode: [emacs vi_insert]
-      event: {edit: movetolinestart}
-    }
+    # {
+    #   name: right_arrow
+    #   modifier: none
+    #   keycode: right
+    #   mode: [emacs vi_insert]
+    #   event: {until: [
+    #     {send: historyhintwordcomplete}
+    #     {send: menuright}
+    #     {send: right}
+    #   ]}
+    # }
     {
       name: cut_word_left
       modifier: alt
@@ -62,40 +45,33 @@ $env.config = {
       event: {edit: cutbigwordleft}
     }
     {
-      name: ignore
-      modifier: alt
-      keycode: char_-
-      mode: [emacs vi_insert]
-      event: null
-    }
-    {
       name: uppercase_word
-      modifier: alt
+      modifier: control
       keycode: char_u
       mode: [vi_insert]
       event: {edit: uppercaseword}
     }
-    {
-      name: complete_or_previous
-      modifier: shift
-      keycode: backtab
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: menu name: completion_menu}
-        {send: menuprevious}
-      ]}
-    }
-    {
-      name: complete_or_next
-      modifier: none
-      keycode: tab
-      mode: [emacs vi_insert]
-      event: {until: [
-        {send: historyhintcomplete}
-        {send: menu name: completion_menu}
-        {send: menunext}
-      ]}
-    }
+    # {
+    #   name: complete_or_previous
+    #   modifier: shift
+    #   keycode: backtab
+    #   mode: [emacs vi_insert]
+    #   event: {until: [
+    #     {send: menu name: completion_menu}
+    #     {send: menuprevious}
+    #   ]}
+    # }
+    # {
+    #   name: complete_or_next
+    #   modifier: none
+    #   keycode: tab
+    #   mode: [emacs vi_insert]
+    #   event: {until: [
+    #     {send: historyhintcomplete}
+    #     {send: menu name: completion_menu}
+    #     {send: menunext}
+    #   ]}
+    # }
   ]
   rm: {
     always_trash: true

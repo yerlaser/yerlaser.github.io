@@ -44,9 +44,9 @@ key = "ö"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u001B[F\u000D" # End, Enter
+chars = "\u001B[F" # End
 key = "Return"
-mods = "Shift"
+mods = "Control"
 
 [[keyboard.bindings]]
 chars = "\u001B[C" # Right
@@ -54,7 +54,7 @@ key = ";"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u001B[F" # End
+chars = "\u001B[A" # Up
 key = "'"
 mods = "Control"
 
@@ -63,20 +63,15 @@ action = "ToggleViMode"
 key = "Space"
 mods = "Control|Shift"
 
-# [[keyboard.bindings]]
-# chars = "\u001B[3~" # Delete
-# key = "Return"
-# mods = "Shift"
-
 [[keyboard.bindings]]
 chars = "\u001B\u007F" # Alt-Backspace
 key = "Back"
 mods = "Control"
 
-# [[keyboard.bindings]]
-# chars = "\u001B-\u001Bl" # Alt-L
-# key = "Return"
-# mods = "Control|Shift"
+[[keyboard.bindings]]
+chars = "\u001B[3~" # Delete
+key = "Back"
+mods = "Shift"
 
 [mouse]
 hide_when_typing = true

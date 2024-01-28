@@ -69,16 +69,16 @@ $env.PROMPT_INDICATOR_VI_INSERT = "〉"
 # Create helix config files with light and dark themes
 def helix_configs () {
   if (
-    ('/tmp/configLight.toml' | path exists) and
-    ((ls /tmp/configLight.toml | get modified) < (ls ~/Published/configs/config.toml | get modified))
+    ('/tmp/configDark.toml' | path exists) and
+    ((ls /tmp/configDark.toml | get modified) < (ls ~/Published/configs/config.toml | get modified))
   ) {
-    rm /tmp/configLight.toml
-  }
-  if not ('/tmp/configLight.toml' | path exists) {
-    open ~/Published/configs/config.toml | update theme catppuccin_latte | save /tmp/configLight.toml
+    rm /tmp/configDark.toml
   }
   if not ('/tmp/configDark.toml' | path exists) {
-    ln -s ~/Published/configs/config.toml /tmp/configDark.toml
+    open ~/Published/configs/config.toml | update theme catppuccin_mocha | save /tmp/configDark.toml
+  }
+  if not ('/tmp/configLight.toml' | path exists) {
+    ln -s ~/Published/configs/config.toml /tmp/configLight.toml
   }
 }
 

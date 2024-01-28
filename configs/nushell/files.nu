@@ -25,9 +25,9 @@ export def tree (
   broot $args
 }
 
-# Open files previously listed with l
+# Open files previously found with f
 export def e (
-  --max_number (-m): int = 13 # Max number of items to open
+  --max_number (-m): int = 113 # Max number of items to open
   ...numbers: int # Numbers to open
 ) {
   if ($numbers | is-empty) {
@@ -42,13 +42,13 @@ export def --env f (
   --exclude_pattern (-x): string # Exclude pattern
   --grep_pattern (-g): string # Pattern to grep inside files
   --edit (-e) # Edit files (up to max number of items)
-  --max_number (-m): int = 13 # Max number of items to open
+  --max_number (-m): int = 113 # Max number of items to open
   filter_pattern?: string # Search pattern
   path: string = '.' # Path to search
 ) {
   let path = if $path == '.' { '**/*' } else { $"($path | str trim -r -c '/')/**/*" }
   let expression = if ($filter_pattern | is-empty) { $path } else { $"($path)\(?i)($filter_pattern)*" }
-  let excludes = ['**/node_modules/**' '**/target/**' '**/.git/**' '**/zig-out/**' '**/zig-cache/**' '**/.*' '**/.*/**' '**/Cargo.lock']
+  let excludes = ['**/node_modules/**' '**/target/**' '**/dist/**' '**/.git/**' '**/zig-out/**' '**/zig-cache/**' '**/.*' '**/.*/**' '**/Cargo.lock' '**/bun.lockb']
   let excludes = if ($exclude_pattern | is-empty) { $excludes } else { $excludes | append $"**/*\(?i\)($exclude_pattern)*" }
   let finds = (glob -D $expression -e $excludes)
   let finds = (if ($grep_pattern | is-empty) { $finds } else {
@@ -61,7 +61,7 @@ export def --env f (
     }
   } | sort)
   if $edit {
-    ^hx -c $'/tmp/config($env.THEME).toml' ($finds | take $max_number)
+    ^hx -c $'/tmp/config($env.THEME).toml' ...($finds | take $max_number)
   } else {
     $env.LASTCMDRESULT = $finds
     $env.LASTCMDRESULT | path relative-to (pwd)
@@ -80,20 +80,20 @@ export def vi (
   --filter_pattern (-f): string # Search pattern
   --exclude_pattern (-x): string # Exclude pattern
   --grep_pattern (-g): string # Pattern to grep inside files
-  --max_number (-m): int = 13 # Max number of items to open
+  --max_number (-m): int = 113 # Max number of items to open
   ...paths # Paths to open or search (if only one or and not a file)
 ) {
   if ($filter_pattern | is-empty) and ($exclude_pattern | is-empty) and ($grep_pattern | is-empty) {
     if ($paths | is-empty) {
       ^hx -c $'/tmp/config($env.THEME).toml'
     } else if ($paths | length) > 1 {
-      ^hx -c $'/tmp/config($env.THEME).toml' $paths
+      ^hx -c $'/tmp/config($env.THEME).toml' ...$paths
     } else if ($paths | get 0 | path type) == dir or (
       ($paths | get 0 | path type) == symlink and (ls -l $"($paths | get 0)*" | get target) == dir
     ) {
       f -m ($max_number) '' ($paths | get 0) -e
     } else {
-      ^hx -c $'/tmp/config($env.THEME).toml' $paths
+      ^hx -c $'/tmp/config($env.THEME).toml' ...$paths
     }
   } else if ($paths | length) > 1 {
     print "Error multiple paths with search pattern are not allowed"
