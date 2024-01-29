@@ -70,7 +70,7 @@ select = "underline"
 "\\" = "surround_replace"
 "b" = "extend_prev_word_start"
 "B" = "extend_prev_long_word_start"
-"d" = [ "hover", "expand_selection" ]
+"d" = "goto_word"
 "D" = "remove_selections"
 "e" = "extend_next_word_end"
 "E" = "extend_next_long_word_end"
@@ -82,7 +82,6 @@ select = "underline"
 "q" = "record_macro"
 "Q" = "copy_selection_on_prev_line"
 "U" = "switch_to_uppercase"
-"v" = "select_mode"
 "V" = "extend_to_line_bounds"
 "w" = "extend_next_word_start"
 "W" = "extend_next_long_word_start"
@@ -91,24 +90,24 @@ select = "underline"
 "Y" = "yank_joined_to_clipboard"
 "Z" = "select_all"
 
-[keys.normal.","]
-"space" = "collapse_selection"
+[keys.normal.v]
 ";" = "ensure_selections_forward"
 "a" = "select_textobject_around"
-"d" = "make_search_word_bounded"
-"f" = ":format"
 "i" = "select_textobject_inner"
-"k" = "shrink_selection"
 "m" = "merge_selections"
 "M" = "merge_consecutive_selections"
 "o" = "flip_selections"
+"t" = "trim_selections"
+
+[keys.normal.","]
+"d" = "make_search_word_bounded"
+"f" = ":format"
+"e" = "expand_selection"
 "q" = ":quit"
 "Q" = ":quit!"
-"t" = "trim_selections"
+"s" = "shrink_selection"
 "u" = "switch_to_lowercase"
 "w" = ":write"
 
 [keys.normal.g]
 "g" = [ "select_mode", "goto_file_start", "normal_mode", "extend_to_line_bounds" ]
-
-# [keys.normal.v]
