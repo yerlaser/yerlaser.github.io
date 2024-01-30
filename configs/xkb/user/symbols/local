@@ -1,4 +1,0 @@
-hidden partial modifier_keys
-xkb_symbols "menucaps" {
-    replace key <MENU> { [ Caps_Lock ] };
-};
