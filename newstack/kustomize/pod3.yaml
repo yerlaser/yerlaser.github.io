@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod3
+spec:
+  containers:
+    - name: main
+      image: alpine:latest
+      command: ["/bin/sh", "-c", "while true; echo 'reading..'; do cat /etc/my_configs/greeting; sleep 5s; done"]
+      volumeMounts:
+        - name: my-configs
+          mountPath: "/etc/my_configs"
+          readOnly: true
+  volumes:
+    - name: my-configs
+      configMap:
+        name: some-data
