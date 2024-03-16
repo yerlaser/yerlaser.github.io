@@ -1,0 +1,4 @@
+singleNode: true
+extraEnvs:
+ - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+   value: MyStrong123Pass!

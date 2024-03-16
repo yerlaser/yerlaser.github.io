@@ -1,0 +1,38 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.middlewares: vorbereitung-strip-prefix@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - http:
+        paths:
+          - path: /app
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx
+                port:
+                  number: 8080
+          - path: /vm
+            pathType: Prefix
+            backend:
+              service:
+                name: vicmet1-victoria-metrics-single-server
+                port:
+                  number: 8428
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-prefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /app
+      - /vm
