@@ -677,7 +677,7 @@ server:
       - job_name: ngix-exporter
         static_configs:
           - targets:
-            - 10.43.244.87:9113
+            - "promexp1-prometheus-nginx-exporter.vorbereitung.svc.cluster.local:9113"
 
 # -- Add extra specs dynamically to this chart
 extraObjects: []

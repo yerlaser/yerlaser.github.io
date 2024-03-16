@@ -28,7 +28,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 # Add your nginx server details here
-nginxServer: "http://10.43.202.125:80/metrics"
+nginxServer: "http://nginx.vorbereitung.svc.cluster.local:8080/metrics"
 # nginxServer: "http://frontend.default.svc.cluster.local:8080/stub_status"
 
 # Arguments - https://github.com/nginxinc/nginx-prometheus-exporter#command-line-arguments
