@@ -50,5 +50,5 @@ spec:
   stripPrefix:
     forceSlash: false
     prefixes:
-      - /app
+      - /app/
       - /vm/
