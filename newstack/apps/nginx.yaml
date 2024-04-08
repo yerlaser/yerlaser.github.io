@@ -1,0 +1,73 @@
+---
+# Source: nginx-vorbereitung/templates/pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx-root
+  namespace: vorbereitung
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+  storageClassName: local-path
+  volumeName: nginx-root
+---
+# Source: nginx-vorbereitung/templates/pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx-conf
+  namespace: vorbereitung
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 30Mi
+  storageClassName: local-path
+  volumeName: nginx-conf
+---
+# Source: nginx-vorbereitung/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: vorbereitung
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 80
+---
+# Source: nginx-vorbereitung/templates/nginx.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: vorbereitung
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: www
+        - mountPath: /etc/nginx/conf.d
+          name: conf
+  volumes:
+    - name: www
+      persistentVolumeClaim:
+        claimName: nginx-root
+    - name: conf
+      persistentVolumeClaim:
+        claimName: nginx-conf
