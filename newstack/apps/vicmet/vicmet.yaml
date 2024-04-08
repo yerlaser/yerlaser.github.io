@@ -6,19 +6,19 @@ metadata:
   labels:
     helm.sh/chart: victoria-metrics-single-0.9.16
     app.kubernetes.io/managed-by: Helm
-  name: release-name-victoria-metrics-single
+  name: vicmet1-victoria-metrics-single
   namespace: vorbereitung
 ---
 # Source: victoria-metrics-single/templates/scrape-configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: release-name-victoria-metrics-single-server-scrapeconfig
+  name: vicmet1-victoria-metrics-single-server-scrapeconfig
   namespace: vorbereitung
   labels:
     app: server
     app.kubernetes.io/name: victoria-metrics-single
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: vicmet1
     helm.sh/chart: victoria-metrics-single-0.9.16
     app.kubernetes.io/managed-by: Helm
 data:
@@ -255,7 +255,7 @@ data:
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-victoria-metrics-single-clusterrole
+  name: vicmet1-victoria-metrics-single-clusterrole
   labels:
     helm.sh/chart: victoria-metrics-single-0.9.16
     app.kubernetes.io/managed-by: Helm
@@ -287,17 +287,17 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: release-name-victoria-metrics-single-clusterrolebinding
+  name: vicmet1-victoria-metrics-single-clusterrolebinding
   labels:
     helm.sh/chart: victoria-metrics-single-0.9.16
     app.kubernetes.io/managed-by: Helm
 subjects:
   - kind: ServiceAccount
-    name: release-name-victoria-metrics-single
+    name: vicmet1-victoria-metrics-single
     namespace: vorbereitung
 roleRef:
   kind: ClusterRole
-  name: release-name-victoria-metrics-single-clusterrole
+  name: vicmet1-victoria-metrics-single-clusterrole
   apiGroup: rbac.authorization.k8s.io
 ---
 # Source: victoria-metrics-single/templates/server-service-headless.yaml
@@ -308,10 +308,10 @@ metadata:
   labels:
     app: server
     app.kubernetes.io/name: victoria-metrics-single
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: vicmet1
     helm.sh/chart: victoria-metrics-single-0.9.16
     app.kubernetes.io/managed-by: Helm
-  name: release-name-victoria-metrics-single-server
+  name: vicmet1-victoria-metrics-single-server
 spec:
   clusterIP: None
   ports:
@@ -322,7 +322,7 @@ spec:
   selector:
     app: server
     app.kubernetes.io/name: victoria-metrics-single
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: vicmet1
 ---
 # Source: victoria-metrics-single/templates/server-statefulset.yaml
 apiVersion: apps/v1
@@ -332,17 +332,17 @@ metadata:
   labels:
     app: server
     app.kubernetes.io/name: victoria-metrics-single
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: vicmet1
     helm.sh/chart: victoria-metrics-single-0.9.16
     app.kubernetes.io/managed-by: Helm
-  name: release-name-victoria-metrics-single-server
+  name: vicmet1-victoria-metrics-single-server
 spec:
-  serviceName: release-name-victoria-metrics-single-server
+  serviceName: vicmet1-victoria-metrics-single-server
   selector:
     matchLabels:
       app: server
       app.kubernetes.io/name: victoria-metrics-single
-      app.kubernetes.io/instance: release-name
+      app.kubernetes.io/instance: vicmet1
   replicas: 1
   podManagementPolicy: OrderedReady
   template:
@@ -350,7 +350,7 @@ spec:
       labels:
         app: server
         app.kubernetes.io/name: victoria-metrics-single
-        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/instance: vicmet1
         helm.sh/chart: victoria-metrics-single-0.9.16
         app.kubernetes.io/managed-by: Helm
     spec:
@@ -395,12 +395,12 @@ spec:
             - name: scrapeconfig
               mountPath: /scrapeconfig
             
-      serviceAccountName: release-name-victoria-metrics-single
+      serviceAccountName: vicmet1-victoria-metrics-single
       terminationGracePeriodSeconds: 60
       volumes:
         - name: scrapeconfig
           configMap:
-            name: release-name-victoria-metrics-single-server-scrapeconfig
+            name: vicmet1-victoria-metrics-single-server-scrapeconfig
         
   volumeClaimTemplates:
     - metadata:
