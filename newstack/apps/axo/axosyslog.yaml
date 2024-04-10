@@ -1,0 +1,156 @@
+---
+# Source: axosyslog-collector/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: axo1-axosyslog-collector
+  namespace: vorbereitung
+  labels:
+    helm.sh/chart: axosyslog-collector-0.8.0
+    app.kubernetes.io/name: axosyslog-collector
+    app.kubernetes.io/instance: axo1
+    app.kubernetes.io/version: "4.5.0"
+    app.kubernetes.io/managed-by: Helm
+---
+# Source: axosyslog-collector/templates/config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    helm.sh/chart: axosyslog-collector-0.8.0
+    app.kubernetes.io/name: axosyslog-collector
+    app.kubernetes.io/instance: axo1
+    app.kubernetes.io/version: "4.5.0"
+    app.kubernetes.io/managed-by: Helm
+  name: axo1-axosyslog-collector
+data:
+  syslog-ng.conf: |
+    @version: current
+    @include "scl.conf"
+
+    options {
+      stats(
+        level(2)
+      );
+    };
+
+    log {
+      source { kubernetes(
+      ); };
+      destination {
+        elasticsearch-http(
+          url("https://opensearch-cluster-master:9200/_bulk")
+          index("test-axoflow-index")
+          type("")
+          template("$(format-json --scope rfc5424 --exclude DATE --key ISODATE @timestamp=${ISODATE} k8s=$(format-json .k8s.* --shift-levels 2 --exclude .k8s.log))")
+          user("admin")
+          password("MyStrong123Pass!")
+          tls(
+            peer-verify(no)
+          )
+        );
+      };
+    };
+---
+# Source: axosyslog-collector/templates/clusterrole.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: axo1-axosyslog-collector
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "watch", "list"]
+---
+# Source: axosyslog-collector/templates/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: axo1-axosyslog-collector
+subjects:
+  - kind: ServiceAccount
+    name: axo1-axosyslog-collector
+    namespace: vorbereitung
+roleRef:
+  kind: ClusterRole
+  name: axo1-axosyslog-collector
+---
+# Source: axosyslog-collector/templates/daemonset.yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: axo1-axosyslog-collector
+  namespace: vorbereitung
+  labels:
+    app: "axo1-axosyslog-collector"
+    chart: "axosyslog-collector-0.8.0"
+    heritage: "Helm"
+    release: "axo1"
+spec:
+  selector:
+    matchLabels:
+      app: "axo1-axosyslog-collector"
+      release: "axo1"
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      name: "axo1-axosyslog-collector"
+      labels:
+        app: "axo1-axosyslog-collector"
+        chart: "axosyslog-collector-0.8.0"
+        heritage: "Helm"
+        release: "axo1"
+    spec:
+      serviceAccountName: axo1-axosyslog-collector
+      tolerations: 
+        []
+      nodeSelector: 
+        {}
+      affinity: 
+        {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: config
+          configMap:
+            name: axo1-axosyslog-collector
+        - name: var-log
+          hostPath:
+            path: /var/log
+        - name: var-lib-docker-containers
+          hostPath:
+            path: /var/lib/docker/containers
+        - name: var-run-docker-sock
+          hostPath:
+            path: /var/run/docker.sock
+        - name: var-lib-syslog-ng
+          emptyDir: {}
+      containers:
+        - name: "axosyslog-collector"
+          image: "ghcr.io/axoflow/axosyslog:4.5.0"
+          imagePullPolicy: "IfNotPresent"
+          resources:
+            {}
+          securityContext: 
+            {}
+          volumeMounts:
+            - name: config
+              mountPath: /etc/syslog-ng/syslog-ng.conf
+              subPath: syslog-ng.conf
+            - name: var-log
+              mountPath: /var/log
+            - name: var-lib-docker-containers
+              mountPath: /var/lib/docker/containers
+            - name: var-run-docker-sock
+              mountPath: /var/run/docker.sock
+            - name: var-lib-syslog-ng
+              mountPath: /var/lib/syslog-ng
+          livenessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
+            exec:
+              command: ["syslog-ng-ctl", "healthcheck", "--timeout", "5"]
