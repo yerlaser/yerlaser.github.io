@@ -1,5 +1,5 @@
 # OpenSearch / ElasticSearch
-Syslog (Syslog-ng or RSyslog) or even better let FileBeat send the data to LogStash
+Vector, Syslog (Syslog-ng or RSyslog) or even better let FileBeat send the data to LogStash
 Fluentd (old) or FluentBit or LogStash or Vector process and enrich logs
 OpenSearch or ElasticSearch to store, index and search using Query DSL or PPL (ES/QL).
 For Dashboads it uses DQL
