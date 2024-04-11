@@ -55,6 +55,9 @@ data:
         endpoints:
           - "http://opensearch-cluster-master.vorbereitung.svc.cluster.local:9200"
         mode: bulk
+        tls:
+          alpn_protocols: []
+          verify_hostname: false
         healthcheck: false
         auth:
           strategy: basic
