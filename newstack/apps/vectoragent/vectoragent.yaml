@@ -38,7 +38,7 @@ data:
       kubernetes_logs:
         type: kubernetes_logs
     transforms:
-      apache_parser:
+      opensearch_adapter:
         inputs:
           - "kubernetes_logs"
         type: "remap"
@@ -46,7 +46,7 @@ data:
     sinks:
       opensearch:
         type: elasticsearch
-        inputs: [kubernetes_logs]
+        inputs: [opensearch_adapter]
         endpoints:
           - "https://opensearch-cluster-master.vorbereitung.svc.cluster.local:9200/_bulk"
         mode: bulk
