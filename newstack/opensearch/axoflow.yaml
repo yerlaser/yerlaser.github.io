@@ -3,6 +3,7 @@ config:
     kubernetes:
       # Collect kubernetes logs
       enabled: true
+      baseDir: /var/log/pods
   destinations:
     # Send logs to OpenSearch
     opensearch:
