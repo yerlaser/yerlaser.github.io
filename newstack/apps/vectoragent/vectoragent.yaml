@@ -53,7 +53,7 @@ data:
         type: elasticsearch
         inputs: [kubernetes_logs]
         endpoints:
-          - "http://opensearch-cluster-master.vorbereitung.svc.cluster.local:9200/_bulk"
+          - "http://opensearch-cluster-master.vorbereitung.svc.cluster.local:9200"
         mode: bulk
         healthcheck: false
         auth:
