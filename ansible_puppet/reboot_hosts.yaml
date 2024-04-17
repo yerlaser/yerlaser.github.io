@@ -1,0 +1,17 @@
+# ansible-playbook -i hosts.txt -K reboot_hosts.yaml
+- name: Reboot servers one by one
+  hosts: all
+  serial: 1
+  # become: true
+  # become_method: sudo
+  any_errors_fatal: true
+  tasks:
+    # - name: Reboot
+    #   ansible.builtin.reboot:
+    #     reboot_timeout: 1200
+    - name: Check if service is running
+      ansible.builtin.command:
+        cmd: systemctl status <service>
+    - name: Pause
+      pause:
+        minutes: 30
