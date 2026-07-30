@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="assets/index.css">
-    <body>
-        <div id="main"></div>
-        <button id="copy_or_more">Press Tab and then Enter) copy to clipboard; Space) Convert and Return; Tab) insert Tab character; Backspace) clear</button>
-        <script type="module" async src="assets/index.js"></script>
-    <script type="module" async src="/./assets/kz_web-dxhf81f54ad6f79f34e.js"></script>
-            </body>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./index.css">
+    <title>L2C</title>
+  </head>
+  <body>
+    <nav>
+        <section>
+            <label for="lang">
+                Language:
+            </label>
+            <select id="lang">
+                <option value="kz" selected>Kz</option>
+                <option value="ru">Ru</option>
+            </select>
+        </section>
+        <section>
+            <label for="markup">
+                Type:
+            </label>
+            <select id="markup">
+                <option value="code">code</option>
+                <option value="html">html</option>
+                <option value="text" selected>text</option>
+                <option value="typst">typst</option>
+            </select>
+        </section>
+    </nav>
+    <textarea id="source" spellcheck=false></textarea>
+    <textarea id="result" readonly=true tabindex=-1></textarea>
+    <button id="copy_or_more">Press Tab and then Enter) copy to clipboard; Space) Convert and Return; Tab) insert Tab character; Backspace) clear</button>
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>

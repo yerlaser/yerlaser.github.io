@@ -1,0 +1,28 @@
+button {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.3em;
+}
+
+nav > section {
+  display: inline;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+textarea {
+  height: 16em;
+  width: 100%;
+  padding: 7px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 1.5em;
+  resize: none;
+}
