@@ -28,11 +28,11 @@ btn.addEventListener('keydown', (ev) => {
   if (ev.key === 'Backspace') {
     handleKey('clear')
   } else if (ev.key === 'Tab') {
-    handleKey('insert')
+    handleKey()
   } else if (ev.key === 'Enter') {
     handleKey('clip')
   } else if (ev.key === ' ') {
-    handleKey()
+    handleKey('insert')
   }
 })
 
