@@ -1,11 +1,31 @@
 import wasmInit, {convert} from './l2c.js'
 const rustWasm = await wasmInit('./l2c_bg.wasm')
 
-const src = document.getElementById('source')
-const res = document.getElementById('result')
+const btn = document.getElementById('copy_or_more')
 const lan = document.getElementById('lang')
 const mkp = document.getElementById('markup')
-const btn = document.getElementById('copy_or_more')
+const res = document.getElementById('result')
+const src = document.getElementById('source')
+
+function handleChange() {
+  res.value = convert(src.value, lan.value, mkp.value)
+}
+
+function handleKey(action = 'return') {
+  if (action === 'clip') {
+    res.select()
+    document.execCommand("copy")
+  }
+
+  if (action === 'clear') {
+    src.value = ''
+    src.dispatchEvent(new InputEvent('change', {bubbles: true}))
+  } else if (action === 'insert') {
+    src.setRangeText('\t', src.selectionStart, src.selectionEnd, 'end')
+  }
+
+  src.focus()
+}
 
 src.addEventListener('change', (ev) => {
   handleChange()
@@ -35,23 +55,3 @@ btn.addEventListener('keydown', (ev) => {
     handleKey('insert')
   }
 })
-
-function handleChange() {
-  res.value = convert(src.value, lan.value, mkp.value)
-}
-
-function handleKey(action = 'return') {
-  if (action === 'clip') {
-    res.select()
-    document.execCommand("copy")
-  }
-
-  if (action === 'clear') {
-    src.value = ''
-    src.dispatchEvent(new InputEvent('change', {bubbles: true}))
-  } else if (action === 'insert') {
-    src.setRangeText('\t', src.selectionStart, src.selectionEnd, 'end')
-  }
-
-  src.focus()
-}
