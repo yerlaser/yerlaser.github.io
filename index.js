@@ -1,5 +1,6 @@
-import wasmInit, {convert} from './l2c.js'
+import wasmInit, {Converter} from './l2c.js'
 const rustWasm = await wasmInit('./l2c_bg.wasm')
+const converter = new Converter()
 
 const btn = document.getElementById('copy_or_more')
 const lan = document.getElementById('lang')
@@ -7,8 +8,22 @@ const mkp = document.getElementById('markup')
 const res = document.getElementById('result')
 const src = document.getElementById('source')
 
+function debounce(callback, delay) {
+  let timeoutId
+  return function (...args) {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => {
+      callback.apply(this, args)
+    }, delay)
+  }
+}
+
+const handleInput = debounce((e) => {
+  handleChange()
+}, 700)
+
 function handleChange() {
-  res.value = convert(src.value, lan.value, mkp.value)
+  res.value = converter.convert(src.value, lan.value, mkp.value)
 }
 
 function handleKey(action = 'return') {
@@ -27,8 +42,8 @@ function handleKey(action = 'return') {
   src.focus()
 }
 
-src.addEventListener('change', (ev) => {
-  handleChange()
+src.addEventListener('input', (ev) => {
+  handleInput()
 })
 
 lan.addEventListener('change', (ev) => {
