@@ -10,7 +10,15 @@
     </head>
 
     <body>
+        <textarea id="source" spellcheck=false></textarea>
+
         <nav>
+            <section>
+                <button id="copy">Copy</button>
+                <button id="clear">Clear</button>
+                <button id="insert">Insert Tab</button>
+            </section>
+
             <section>
                 <label for="lang">Language:</label>
                 <select id="lang">
@@ -30,12 +38,7 @@
             </section>
         </nav>
 
-        <textarea id="source" spellcheck=false></textarea>
         <textarea id="result" readonly=true tabindex=-1></textarea>
-
-        <button id="copy_or_more">
-            Press Tab and then Tab) Convert and Return; Enter) copy to clipboard; Space) insert Tab character; Backspace) clear
-        </button>
 
         <script type="module" src="./index.js"></script>
     </body>
