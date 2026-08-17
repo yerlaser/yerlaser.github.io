@@ -1,4 +1,5 @@
 import wasmInit, {Converter} from './l2c.js'
+
 const rustWasm = await wasmInit('./l2c_bg.wasm')
 const converter = new Converter()
 
@@ -55,7 +56,7 @@ function debounce(callback, delay) {
 
 const handleInput = debounce((e) => {
   handleChange()
-}, 300)
+}, 700)
 
 src.addEventListener('input', (ev) => {
   handleInput()
