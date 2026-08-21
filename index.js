@@ -3,6 +3,28 @@ import wasmInit, {Converter} from './l2c.js'
 const rustWasm = await wasmInit('./l2c_bg.wasm')
 const converter = new Converter()
 
+document.getElementById('show_table').addEventListener('click', (ev) => {
+  alert(`
+// force hardness
+"ah": "а", "ih": "ы", "oh": "о", "uh": "ұ"
+
+// force softness
+"ia": "ә", "ii": "і", "io": "ө", "iu": "ү"
+
+// special letters
+"eh": "э", "ie": "ё", "xh": "щ", "xx": "ъ"
+
+// force vowel/consonant
+"yh": "и", "yx": "й"
+
+// common digraphs
+"ch": "ч", "hh": "һ", "nh": "ң", "kh": "х", "sh": "ш", "tz": "ц", "ya": "я", "yu": "ю"
+
+// plain letters
+"c": "к", "e": "е", "g": "г", "k": "қ", "b": "б", "d": "д", "f": "ф", "j": "ж", "l": "л", "m": "м", "n": "н", "p": "п", "q": "ғ", "r": "р", "s": "с", "t": "т", "v": "в", "w": "у", "x": "ь", "y": "ѝ", "z": "з"
+  `)
+})
+
 const cpy = document.getElementById('copy')
 const clr = document.getElementById('clear')
 const ins = document.getElementById('insert')
