@@ -12,7 +12,7 @@ document.getElementById('show_table').addEventListener('click', (ev) => {
 "ia": "ә", "ii": "і", "io": "ө", "iu": "ү"
 
 // special letters
-"eh": "э", "ie": "ё", "xh": "щ", "xx": "ъ"
+"eh": "э", "eu": "ё", "xh": "щ", "xx": "ъ"
 
 // force vowel/consonant
 "yh": "и", "yx": "й"
