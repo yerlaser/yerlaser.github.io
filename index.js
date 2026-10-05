@@ -12,13 +12,13 @@ document.getElementById('show_table').addEventListener('click', (ev) => {
 "ia": "ә", "ii": "і", "io": "ө", "iu": "ү"
 
 // special letters
-"eh": "э", "eu": "ё", "xh": "щ", "xx": "ъ"
+"eh": "э", "xh": "щ", "xx": "ъ"
 
 // force vowel/consonant
 "yh": "и", "yx": "й"
 
 // common digraphs
-"ch": "ч", "hh": "һ", "nh": "ң", "kh": "х", "sh": "ш", "tz": "ц", "ya": "я", "yu": "ю"
+"ch": "ч", "hh": "һ", "nh": "ң", "kh": "х", "sh": "ш", "tz": "ц", "ya": "я", "yo": "ё", "yu": "ю"
 
 // plain letters
 "c": "к", "e": "е", "g": "г", "k": "қ", "b": "б", "d": "д", "f": "ф", "j": "ж", "l": "л", "m": "м", "n": "н", "p": "п", "q": "ғ", "r": "р", "s": "с", "t": "т", "v": "в", "w": "у", "x": "ь", "y": "ѝ", "z": "з"
@@ -82,4 +82,14 @@ const handleInput = debounce((e) => {
 
 src.addEventListener('input', (ev) => {
   handleInput()
+})
+
+src.addEventListener('keyup', (ev) => {
+  if (ev.shiftKey && ev.key === 'Alt' ) {
+    if (lan.value === 'kz') {
+      lan.value = 'ru'
+    } else {
+      lan.value = 'kz'
+    }
+  }
 })
