@@ -84,8 +84,8 @@ src.addEventListener('input', (ev) => {
   handleInput()
 })
 
-src.addEventListener('keyup', (ev) => {
-  if (ev.shiftKey && ev.key === 'Alt' ) {
+src.addEventListener('keydown', (ev) => {
+  if ((ev.shiftKey && ev.key === 'Alt') || (ev.altKey && ev.key === 'Shift')) {
     if (lan.value === 'kz') {
       lan.value = 'ru'
     } else {
